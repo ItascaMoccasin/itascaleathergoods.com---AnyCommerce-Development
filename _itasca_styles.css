@@ -1,0 +1,30 @@
+/* Itasca CSS styles */
+/* reset */
+	ul   {margin: 0; padding: 0; list-style-type: none;}
+/* wrapper styling */
+	body, html {	
+		background-image:url(./img/top-nav-back.png); background-repeat:repeat-x;
+		font-family: Tahoma, Verdana, Segoe, sans-serif;
+		font-size: 12px;
+		color: #000;
+		margin: 0; 
+		padding: 0;
+		font-size: 100%;
+		}
+	#wrapper {margin: 0 auto;
+		width: 1000px;
+		}
+	a {
+	text-decoration: none;
+	color: #000;
+	}
+	a:hover {text-decoration: underline;}
+
+	p {}
+	
+	#topNav  {float: right; margin:8px 0; }
+	#topNav li  {float: left; display: inline; color: #fff; }
+	#topNav li a {color: #fff; padding: 5px 15px; font-size: 15px; text-transform: uppercase;}
+	
+	#midNavLinks {float: right; margin:8px 0; clear: right; }
+	#midNavLinks li  {float: left; display: inline;}
