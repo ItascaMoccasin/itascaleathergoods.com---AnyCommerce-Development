@@ -66,6 +66,17 @@ header {position: relative;}
 	#mainNav  li  {float: left; display: inline;  padding: 0 4px;}
 	#mainNav  li a {font-size: 13px; text-transform: uppercase;}
 	
+	#mainContentArea  {padding: 20px;} 
+	.listStyleNone  li  { width: 207px; border: 1px solid #dc2923;-webkit-box-shadow: 1px 1px 4px rgba(50, 50, 50, 0.75);
+-moz-box-shadow:    1px 1px 4px rgba(50, 50, 50, 0.75);
+box-shadow:         1px 1px 4px rgba(50, 50, 50, 0.75);}
+
+.signUp  {padding: 25px 65px;}
+
+h2 { background: url("./img/header-back.jpg") no-repeat; color: #fff; padding: 10px; font-size: 16px;} 
+	
+	
+	
 	
 	
 	
