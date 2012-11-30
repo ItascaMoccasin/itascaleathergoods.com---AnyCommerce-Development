@@ -26,5 +26,24 @@
 	#topNav li  {float: left; display: inline; color: #fff; }
 	#topNav li a {color: #fff; padding: 5px 15px; font-size: 15px; text-transform: uppercase;}
 	
-	#midNavLinks {float: right; margin:8px 0; clear: right; }
-	#midNavLinks li  {float: left; display: inline;}
+	#midNavLinks {float: right; margin:8px 15px; clear: right; }
+	#midNavLinks li  {float: left; display: inline; padding: 0 4px;}
+	#midNavLinks li a  {}
+	
+	#headerSearchFrm  {margin: 15px;}
+	#headerSearchFrm  { float: right; clear: right;}
+	.productSearchKeyword  { width: 296px;}
+	
+	#mainNav    {float: right; margin:8px 0; }
+	#mainNav  li  {float: left; display: inline;  padding: 0 4px;}
+	#mainNav  li a {font-size: 13px; text-transform: uppercase;}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
