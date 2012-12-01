@@ -74,6 +74,23 @@ box-shadow:         1px 1px 4px rgba(50, 50, 50, 0.75);}
 .signUp  {padding: 25px 65px;}
 
 h2 { background: url("./img/header-back.jpg") no-repeat; color: #fff; padding: 10px; font-size: 16px;} 
+
+hr.hr {
+    background-color: #808080;
+    height: 1px;
+    margin: 0 auto;
+    width: 935px;
+}
+
+
+footer  { margin: 20px 0;background: url("./img/footer-back.jpg") no-repeat; color: #fff; width: 1000px; height: 326px;}
+
+.footerLinks {overflow: hidden;list-style-type: none; margin:20px 0 45px 22px; font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;}
+.footerLinks h4 {font-size: 26px;}
+.footerLinks  a {color: #fff;}
+.footerLinks li {float: left;  width: 243px;}
+.footerLinks li li {float: none; display: block; padding-top:6px;  }
+.footerLinks li li a {font-size: 16px;}
 	
 	
 	
