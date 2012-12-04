@@ -3,8 +3,8 @@
 	ul   {margin: 0; padding: 0; list-style-type: none;}
 /* wrapper styling */
 	body, html {	
-		background-image:url(./img/top-nav-back-2.png); background-repeat:repeat-x;
-		font-family: Tahoma, Verdana, Segoe, sans-serif;
+		background-image:url(./img/top-nav-back.png); background-repeat:repeat-x;
+		font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
 		font-size: 12px;
 		color: #000;
 		margin: 0; 
@@ -23,8 +23,14 @@
 
 	p {}
 	
-header {position: relative;}	
+#appPreView {padding-top:200px;}
+#previewWrap {border:1px solid #66b4c9;border-radius:5px;padding:20px;}
+#previewWrap table tr td h3{margin-top:30px;}
+
+.clearBoth {clear:both;font-size:2px;}
 	
+header {position: relative;}	
+/*	
     header  h1  span {
     background: url("./img/Itasca_logo.png") no-repeat;
     height: 126px;
@@ -47,8 +53,9 @@ header {position: relative;}
     width: 183px;
     z-index: 400;
 }
-	
-	#topNav  {float: right; margin:8px 0; }
+*/	
+	#topNav  {/*float: right; margin:8px 0;*/padding:10px 0; margin-bottom:8px;}
+	#topNav ul {float:right;}
 	#topNav li  {float: left; display: inline; color: #fff; }
 	#topNav li a {color: #fff; padding: 5px 15px; font-size: 15px; text-transform: uppercase;}
 	
@@ -66,12 +73,10 @@ header {position: relative;}
 	#mainNav  li  {float: left; display: inline;  padding: 0 4px;}
 	#mainNav  li a {font-size: 13px; text-transform: uppercase;}
 	
-	#mainContentArea  {padding: 20px;} 
+	#mainContentArea  {/*padding: 20px;*/} 
 	.listStyleNone  li  { width: 207px; border: 1px solid #dc2923;-webkit-box-shadow: 1px 1px 4px rgba(50, 50, 50, 0.75);
 -moz-box-shadow:    1px 1px 4px rgba(50, 50, 50, 0.75);
 box-shadow:         1px 1px 4px rgba(50, 50, 50, 0.75);}
-
-.signUp  {padding: 25px 65px;}
 
 h2 { background: url("./img/header-back.jpg") no-repeat; color: #fff; padding: 10px; font-size: 16px;} 
 
@@ -84,13 +89,27 @@ hr.hr {
 
 
 footer  { margin: 20px 0;background: url("./img/footer-back.jpg") no-repeat; color: #fff; width: 1000px; height: 326px;}
+.signUp {
+width:272px;
+float:left;
+padding: 25px 30px;
+}
+#footerLinkBox {
+	background: #04B5CB;
+	width:632px;
+	float:left;
+	padding:10px 18px 30px;
+}
+/*#footerLinkBox a {color:#FFFFFF;}*/
+.linkGroup {float:left;margin-right:35px;}
+.lastLinkGroup {float:left;}
 
-.footerLinks {overflow: hidden;list-style-type: none; margin:20px 0 45px 22px; font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;}
-.footerLinks h4 {font-size: 26px;}
+.footerLinks {overflow: hidden;list-style-type: none; /*margin:20px 0 45px 22px;*/ font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;}
+.footerLinks h4 {font-size: 24px;margin-bottom:15px;}
 .footerLinks  a {color: #fff;}
-.footerLinks li {float: left;  width: 243px;}
-.footerLinks li li {float: none; display: block; padding-top:6px;  }
-.footerLinks li li a {font-size: 16px;}
+/*.footerLinks li {float: left;  width: 243px;}*/
+.footerLinks li li {float: none; display: block; padding-top:10px;  }
+.footerLinks li li a {font-size: 18px;}
 	
 	
 	

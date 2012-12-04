@@ -55,21 +55,23 @@ document.createElement('nav');
 <body>
 <!-- what is displayed onLoad until the view is loaded -->
 <div id='appPreView'>
-<table>
-<tr>
-	<td><!-- put logo here --></td>
-	<td>
-	<h3>One moment please.</h3>
-	
-	<div class='alignCenter'>
-	<progress id="appPreViewProgressBar" max="100" value="0" /><br />
+	<div id='previewWrap'>
+		<table>
+		<tr>
+			<td><img src="img/Itasca_logo.png" width="183" height="126" alt="Itasca Leathergoods" /></td>
+			<td>
+			<h3>One moment please.</h3>
+			
+			<div class='alignCenter'>
+			<progress id="appPreViewProgressBar" max="100" value="0" /><br />
+			</div>
+			<div id='appPreViewProgressText'>0% Complete</div>
+			
+			<div class='appMessaging'></div>
+			</td>
+		</tr>
+		</table>
 	</div>
-	<div id='appPreViewProgressText'>0% Complete</div>
-	
-	<div class='appMessaging'></div>
-	</td>
-</tr>
-</table>
 </div>
 
 <div id='appView' class='displayNone'>
@@ -80,18 +82,19 @@ document.createElement('nav');
 			<ul>
 			<li><a href="">home</a></li>
 			<li><a href="">about us</a></li>
-			<li><a href="">faq</a></li>
+			<li><a href='#' onClick="return showContent('company',{'show':'faq'});">faq</a></li>
 			<li><a href="">earthling</a></li>
-			<li><a href="">contact</a></li>
+			<li><a href="#" onClick="return showContent('company',{'show':'contact'});">contact</a></li>
 			</ul>
+			<span class="clearBoth">&nbsp;</span>
 		</div>		
 		<div id="midNavLinks">
 			<ul>
 			<li><a href="">Login</a></li>
 			<li>|</li>
-			<li><a href="">My Account</a></li>
+			<li><a href="#" onClick="return showContent('customer',{'show':'myaccount'});">My Account</a></li>
 			<li>|</li>
-			<li><a href="">Cart (0)</a></li>
+			<li><a href='#' onClick="return showContent('cart',{});">Cart (<span class="cartItemCount">0</span>)</a></li>
 			</ul>
 		</div>
 		
@@ -104,15 +107,10 @@ document.createElement('nav');
 			<input class="search" id="headerSearchSubmit" value="SEARCH" type="submit">
 
 	</form>
-			<div class="helpCare">need help  <img src="img/help-icon.png" alt="Help"/>  customer care: 1(855) 827-6878</div>
-		<h1>
-			<span></span>
+			<!-- <div class="helpCare">need help  <img src="img/help-icon.png" alt="Help"/>  customer care: 1(855) 827-6878</div> -->
 				<a id="logo" href='#top' onClick="return showContent('category',{'navcat':'.'});"  title="Itasca Leathergoods">
-				Itasca Leathergoods
-				
+				<img src="img/Itasca_logo.png" width="183" height="126" alt="Itasca Leathergoods" />
 				</a>
-		</h1>
-			
 			
 			<nav id="mainNav">
 			
@@ -138,81 +136,57 @@ document.createElement('nav');
 	
 	</header>
 	
-	
-	<div id="mainSlider">
-	<img src="img/carousel-placeholder.jpg" alt="Itasca Leathergoods"/>
-	</div>
-
-	
-
-	<div class="signUp">
-	<strong>Sign up</strong> for our monthly discount PriceLetter. Get discounts, special offers + more!
-	</div>
-	
-	<h2> Featured Items </h2>
-	
-	
-	
 <!-- VIEW CONTENT -->
-<!-- leave the appView div, put your your html here ...  -->
-
-	<!-- 
-	** REMINDER : DO NOT PUT ANY GRAPHICS/CONTENT THAT SHOULD NOT APPEAR ON EVERY PAGE IN THE VIEW (HERE)
-	**				  INSTEAD PUT THEM INTO <div id="homepageTemplate"></div>
-	-->
 <div id='globalMessaging' class='appMessaging'></div><!-- DO NOT REMOVE - used for some high level error handling (usually appears below breadcrumb nav or top bar) -->
 <div id='mainContentArea'></div><!-- DO NOT REMOVE - this is where the specific page (ex: homepage, product, category) content is going to go -->
 
-
-<!-- ... your html ends -->
 <!-- /VIEW CONTENT -->
 <hr class="hr">
 	<footer>
-		<img src="img/Itasca_logo_small.png" alt="Itasca Leathergoods"/>
-		
-		
+		<div class="signUp">
+			<img src="img/Itasca_logo_small.png" alt="Itasca Leathergoods"/>
+		</div>
+		<div id="footerLinkBox">
 		<ul class="footerLinks">
-			<li>
-			<h4>Information</h4>
+			<li class="linkGroup">
+			<h4>Company</h4>
 				<ul>
-				<li><a href='#top' onClick="return showContent('category',{'navcat':'.laundry-care'});">Contact</a></li>
-				<li><a href='#top' onClick="return showContent('category',{'navcat':'.mail-orders'});">Delivery</a></li>
-				<li><a href='#top' onClick="return showContent('category',{'navcat':'.measure_guide'});">Legal Notice</a></li>
-				<li><a href="#">Terms and Conditions</a></li>
+				<li><a href='#top' onClick="return showContent('category',{'navcat':'.laundry-care'});">About</a></li>
+				<li><a href='#top' onClick="return showContent('category',{'navcat':'.mail-orders'});">Stores</a></li>
+				<li><a href='#top' onClick="return showContent('category',{'navcat':'.measure_guide'});">Retailers</a></li>
+				<li><a href='#top' onClick="return showContent('company',{'show':'privacy'});">Privacy</li>
+				<li><a href="#">Terms</a></li>
 				</ul>
 			</li>
 			
-			<li>
-			<h4>Your Account</h4>
+			<li class="linkGroup">
+			<h4>Customer Service</h4>
 				<ul>
-				<li><a href='#' onClick="return showContent('company',{'show':'return'});">Returns & Exchanges</a></li>
-				<li><a href="#">Shipping Information</a></li>
-				<li><a href="#">Order History</a></li>
-				<li><a href='#top' onClick="return showContent('category',{'navcat':'.volume-purchase'});">Volume Purchases</a></li>
-				<li><a href='#top' onClick="return showContent('category',{'navcat':'.wholesale'});">Wholesale Purchases</a></li>
-				</ul>
-			</li>
-			
-			<li>
-			<h4>Our Offers</h4>
-				<ul>
-				<li><a href='#top' onClick="return showContent('category',{'navcat':'.new-releases'});">New products</a></li>
-				<li><a href='#' onClick="return showContent('company',{'show':'contact'});">Customer Service</a></li>
+				<li>Contact</li>
+				<li>FAQs</li>
 				<li><a href="#">Shipping</a></li>
 				<li><a href='#' onClick="return showContent('company',{'show':'return'});">Returns</a></li>
+				<li><a href=''>International</a></li>
 				</ul>
 			</li>
-			
-			<li>
-			<h4>Connect Us on</h4>
+			<li class="linkGroup">
+				<h4><a href="#">Wholesale</a></h4>
 				<ul>
-				<li><a href='#top' onClick="return showContent('category',{'navcat':'.new-releases'});">Twitter</a></li>
-				<li><a href='#' onClick="return showContent('company',{'show':'contact'});">Facebook</a></li>
-				<li><a href="#">Youtube</a></li>
+				<li><a href='#top' onClick="return showContent('category',{'navcat':'.volume-purchase'});">Become a Retailer</a></li>
+				<li><a href='#top' onClick="return showContent('category',{'navcat':'.wholesale'});">Wholesale Check-In</a></li>
 				</ul>
-			</li>
+			</li>	
+			<li class="lastLinkGroup">
+			<h4>Media</h4>
+				<ul>
+				<li><a href='#top' onClick="return showContent('category',{'navcat':'.new-releases'});">Facebook</a></li>
+				<li><a href='#' onClick="return showContent('company',{'show':'contact'});">Press</a></li>
+				<li><a href="#">News</a></li>
+				<li><a href="#">Blog</a></li>
+				</ul>
 			</li>	
 		</ul>
+		</div>
 	</footer>
 
 
@@ -260,13 +234,18 @@ COMMONLY EDITED TEMPLATES
 the homepageTemplate template is loaded into mainContentArea by default when the application loads
 -->
 <div id='homepageTemplate'>
+		
+	<div id="mainSlider">
+	<img src="img/carousel-placeholder.jpg" alt="Itasca Leathergoods"/>
+	</div>
 
-
+<!--
 	<ul data-bind="var: category(@subcategoryDetail); format: subcategoryList; extension: myRIA; loadsTemplate: categoryListTemplate;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul>
 	<ul id='homepageFeaturedItems' data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; hide_multipage:1; before:<h2>Featured Items</h2>; withReviews:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
 	<p data-bind="var: page(description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
 
 	<ul id='homeProdSearchBestSellers' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_BESTSELLER"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults; before:<h2>Best Sellers</h2>;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+-->
 
 </div>
 
