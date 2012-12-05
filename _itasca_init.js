@@ -4,8 +4,8 @@ var app = app || {vars:{},u:{}}; //make sure app exists.
 //if an extension is 'required' for any page within the store to load properly, the extension should be added as a dependency within quickstart.js
 app.vars.extensions = [
 	{"namespace":"store_prodlist","filename":"extensions/store_prodlist.js"},
-	{"namespace":"convertSessionToOrder","filename":"extensions/checkout_passive/extension.js"},  /* checkout_passive does not require buyer to login */
-//	{"namespace":"convertSessionToOrder","filename":"extensions/checkout_nice/extension.js"},	/* checkout_nice prompts buyer to login */
+//	{"namespace":"convertSessionToOrder","filename":"extensions/checkout_passive/extension.js"},  /* checkout_passive does not require buyer to login */
+	{"namespace":"convertSessionToOrder","filename":"extensions/checkout_nice/extension.js"},	/* checkout_nice prompts buyer to login */
 	{"namespace":"store_checkout","filename":"extensions/store_checkout.js"},
 	{"namespace":"store_navcats","filename":"extensions/store_navcats.js"},
 	{"namespace":"store_search","filename":"extensions/store_search.js"},
@@ -105,6 +105,8 @@ app.u.appInitComplete = function()	{
 	app.ext.myRIA.template.homepageTemplate.onInits.push(function(P) {
 		//do something.
 		}) //display product blob fields in tabbed format.
+	app.ext.myRIA.template.homepageTemplate.onCompletes.push(function(P){var $target=$('#wideSlideshow');if($target.children().length>1){$target.cycle({fx:'fade',speed:'slow',timeout:5000,pager:'#slideshowNav',pagerAnchorBuilder:function(index,el){return'<a href="#"> </a>';},slideExpr:'li'});}})
+	//homepage slideshow
 	}
 
 //gets executed once controller.js is loaded.

@@ -11,10 +11,10 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REMOVE BEFORE DEPLO
 var myCreole;
 
 var app = {vars:{
-	"release":"20120912074300",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"201212051412",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"baseURL":"",
-	"httpsURL":"https://ssl.zoovy.com/s=www.sporks.zoovy.com/",
-	"httpURL":"http://www.sporks.zoovy.com/"
+	"httpsURL":"https://ssl.zoovy.com/s=www.itascamoccasin.com/",
+	"httpURL":"http://www.itascamoccasin.com/"
 	},u:{}};
 
 //set base url so images, css, js, etc all load from appropriate location once deployed.
@@ -88,6 +88,10 @@ document.createElement('nav');
 			</ul>
 			<span class="clearBoth">&nbsp;</span>
 		</div>		
+				<a id="logo" href='#top' onClick="return showContent('category',{'navcat':'.'});"  title="Itasca Leathergoods">
+				<img src="img/Itasca_logo.png" width="183" height="126" alt="Itasca Leathergoods" />
+				</a>
+
 		<div id="midNavLinks">
 			<ul>
 			<li><a href="">Login</a></li>
@@ -108,28 +112,25 @@ document.createElement('nav');
 
 	</form>
 			<!-- <div class="helpCare">need help  <img src="img/help-icon.png" alt="Help"/>  customer care: 1(855) 827-6878</div> -->
-				<a id="logo" href='#top' onClick="return showContent('category',{'navcat':'.'});"  title="Itasca Leathergoods">
-				<img src="img/Itasca_logo.png" width="183" height="126" alt="Itasca Leathergoods" />
-				</a>
 			
 			<nav id="mainNav">
 			
 				<ul>
 					<li><a href="">new arrivals</a></li>
-								<li>|</li>
+								
 					<li><a href="">moccasins</a></li>
-								<li>|</li>
+							
 					<li><a href="">home goods</a></li>
-								<li>|</li>
+								
 					<li><a href="">electronic cases</a></li>
-								<li>|</li>
+								
 					<li><a href="">totes/bags</a></li>
-								<li>|</li>
+								
 					<li><a href="">accessories</a></li>
-								<li>|</li>
+								
 					<li><a href="">small leather goods</a></li>
-								<li>|</li>
-					<li><a href="">custom orders</a></li>
+							
+					<li class="last"><a href="">custom orders</a></li>
 				</ul>
 			
 			</nav>
@@ -141,7 +142,6 @@ document.createElement('nav');
 <div id='mainContentArea'></div><!-- DO NOT REMOVE - this is where the specific page (ex: homepage, product, category) content is going to go -->
 
 <!-- /VIEW CONTENT -->
-<hr class="hr">
 	<footer>
 		<div class="signUp">
 			<img src="img/Itasca_logo_small.png" alt="Itasca Leathergoods"/>
@@ -187,6 +187,7 @@ document.createElement('nav');
 			</li>	
 		</ul>
 		</div>
+	<hr class="hr">
 	</footer>
 
 
@@ -234,18 +235,28 @@ COMMONLY EDITED TEMPLATES
 the homepageTemplate template is loaded into mainContentArea by default when the application loads
 -->
 <div id='homepageTemplate'>
-		
+<!--		
 	<div id="mainSlider">
 	<img src="img/carousel-placeholder.jpg" alt="Itasca Leathergoods"/>
 	</div>
-
+-->
+	<div id="slideshowContainer" class='clearfix'>
+		<div id="slideshowNav"></div>
+		<ul id="wideSlideshow" class="pics slideshow">
+			<img src='images/blank.gif' width='1000' height='375' data-bind="var: page(banner_slideshow1); format: banner; extension:myRIA; editor:banner; wrap:<li>;" />
+			<img src='images/blank.gif' width='1000' height='375' data-bind="var: page(banner_slideshow2); format: banner; extension:myRIA; editor:banner; wrap:<li>;" />
+			<img src='images/blank.gif' width='1000' height='375' data-bind="var: page(banner_slideshow3); format: banner; extension:myRIA; editor:banner; wrap:<li>;" />
+			<img src='images/blank.gif' width='1000' height='375' data-bind="var: page(banner_slideshow4); format: banner; extension:myRIA; editor:banner; wrap:<li>;" />
+			<img src='images/blank.gif' width='1000' height='375' data-bind="var: page(banner_slideshow5); format: banner; extension:myRIA; editor:banner; wrap:<li>;" />
+		</ul>
+	</div>
 <!--
 	<ul data-bind="var: category(@subcategoryDetail); format: subcategoryList; extension: myRIA; loadsTemplate: categoryListTemplate;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul>
 	<ul id='homepageFeaturedItems' data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; hide_multipage:1; before:<h2>Featured Items</h2>; withReviews:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
 	<p data-bind="var: page(description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
-
-	<ul id='homeProdSearchBestSellers' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_BESTSELLER"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults; before:<h2>Best Sellers</h2>;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
 -->
+	<ul id='homeProdSearchBestSellers' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_BESTSELLER"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults; before:<h2>Best Sellers</h2>;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+
 
 </div>
 

@@ -65,13 +65,17 @@ header {position: relative;}
 	
 	.helpCare  {float: right; margin-top: 17px; text-transform: uppercase;font-size: 13px;}
 	
+	#logo img {float:left;}
+	
 	#headerSearchFrm  {margin: 15px;}
 	#headerSearchFrm  { float: right; clear: right;}
 	.productSearchKeyword  { width: 296px;}
 	
 	#mainNav    {float: right; margin:8px 0; }
-	#mainNav  li  {float: left; display: inline;  padding: 0 4px;}
-	#mainNav  li a {font-size: 13px; text-transform: uppercase;}
+	#mainNav  li  {float: left; display: inline; font-size: 12px; text-transform: uppercase; border-right:1px solid #000}
+	#mainNav li a {display:block; padding: 0 8px;}
+	#mainNav li.last {border-right:0;}
+	/*#mainNav  li a {font-size: 13px; text-transform: uppercase;}*/
 	
 	#mainContentArea  {/*padding: 20px;*/} 
 	.listStyleNone  li  { width: 207px; border: 1px solid #dc2923;-webkit-box-shadow: 1px 1px 4px rgba(50, 50, 50, 0.75);
@@ -83,8 +87,9 @@ h2 { background: url("./img/header-back.jpg") no-repeat; color: #fff; padding: 1
 hr.hr {
     background-color: #808080;
     height: 1px;
-    margin: 0 auto;
-    width: 935px;
+    margin: 0 auto 15px;
+    width: 965px;
+	clear: both;
 }
 
 
@@ -99,6 +104,7 @@ padding: 25px 30px;
 	width:632px;
 	float:left;
 	padding:10px 18px 30px;
+	margin-bottom:15px;
 }
 /*#footerLinkBox a {color:#FFFFFF;}*/
 .linkGroup {float:left;margin-right:35px;}
