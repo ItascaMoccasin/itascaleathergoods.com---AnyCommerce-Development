@@ -33,22 +33,21 @@ var store_navcats = function() {
 	calls : {
 //formerly categoryTree
 		appCategoryList : {
-			init : function(root,tagObj,Q)	{
+			init : function(tagObj,Q)	{
 //				app.u.dump("BEGIN store_navcats.calls.appCategoryList.init");
 				var r = 0; //will return 1 if a request is needed. if zero is returned, all data needed was in local.
 				if(app.model.fetchData('appCategoryList') == false)	{
 					r = 1;
-					this.dispatch(root,tagObj,Q);
+					this.dispatch(tagObj,Q);
 					}
 				else 	{
-					app.u.handleCallback(root,tagObj)
+					app.u.handleCallback(tagObj)
 					}
 				return r;
 				},
-			dispatch : function(root,tagObj,Q)	{
+			dispatch : function(tagObj,Q)	{
 				obj = {};
 				obj['_cmd'] = "appCategoryList";
-				obj.root = root;
 				obj['_tag'] = typeof tagObj == 'object' ? tagObj : {};
 				obj['_tag'].datapointer = 'appCategoryList'; //for now, override datapointer for consistency's sake.
 //if no extension is set, use this one. need to b able to override so that a callback from outside the extension can be added.
@@ -435,16 +434,7 @@ the formatted is specific so that getChildDataOf can be used for a specific id o
 			getCatsFromCategoryList : function(catSafeID)	{
 				app.u.dump('BEGIN app.ext.store_navcats.u.getCatsFromCategoryList');
 				var r = false; //what is returned. false if appCategoryList is not defined. otherwise an array of category id's. empty array if no subcats defined.
-				if(!catSafeID)	{
-					app.u.throwGMessage("catSafeID not specified in store_navcats.u.getCatsFromCategoryList");
-					}
-				else if(!app.data.appCategoryList)	{
-					app.u.throwGMessage("Attempted to run store_navcats.u.getCatsFromCategoryList before appCategoryList is in data/memory.");
-					}
-				else if(catSafeID == '.')	{
-					r = app.ext.store_navcats.u.getRootCats();
-					}
-				else if(app.data.appCategoryList && catSafeID)	{
+				if(app.data.appCategoryList)	{
 					var L = app.data.appCategoryList['@paths'].length;
 					r = new Array();
 					for(var i = 0; i < L; i += 1)	{
@@ -454,7 +444,7 @@ the formatted is specific so that getChildDataOf can be used for a specific id o
 						}
 					}
 				else	{
-					app.u.throwGMessage("An unknown error occured in store_navcats.u.getCatsFromCategoryList");
+					app.u.dump("WARNING! Attempted to run store_navcats.u.getRootCats before appCategoryList is in data/memory.");
 					}
 				return r;
 				}, //getRootCatsData

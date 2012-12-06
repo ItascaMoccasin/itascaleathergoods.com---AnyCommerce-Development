@@ -22,7 +22,7 @@ var convertSessionToOrder = function() {
 	var theseTemplates = new Array("productListTemplateCheckout","checkoutSuccess","checkoutTemplateBillAddress","checkoutTemplateShipAddress","checkoutTemplateOrderNotesPanel","checkoutTemplateCartSummaryPanel","checkoutTemplateShipMethods","checkoutTemplatePayOptionsPanel","checkoutTemplate","checkoutTemplateAccountInfo","invoiceTemplate","productListTemplateInvoice");
 	var r = {
 	vars : {
-		willFetchMyOwnTemplates : app.vars._clientid == '1pc' ? false : true, //1pc loads it's templates locally to avoid XSS issue.
+		willFetchMyOwnTemplates : true,
 		containerID : '',
 		legends : {
 			"chkoutPreflight" : "Contact Information",
@@ -120,7 +120,7 @@ _gaq.push(['_trackEvent','Checkout','App Event','Checkout Initiated']);
 				},
 			dispatch : function(stid,qty,tagObj)	{
 //				app.u.dump(' -> adding to PDQ. callback = '+callback)
-				app.model.addDispatchToQ({"_cmd":"cartItemUpdate","stid":stid,"quantity":qty,"_tag": tagObj},'immutable');
+				app.model.addDispatchToQ({"_cmd":"updateCart","stid":stid,"quantity":qty,"_tag": tagObj},'immutable');
 				app.ext.store_checkout.u.nukePayPalEC(); //nuke paypal token anytime the cart is updated.
 				}
 			 },
@@ -254,10 +254,7 @@ _gaq.push(['_trackEvent','Checkout','User Event','Create order button pushed']);
 		init : {
 			onSuccess : function()	{
 //				app.u.dump('BEGIN app.ext.convertSessionToOrder.init.onSuccess');
-//1PC can't load the templates remotely. causes XSS issue.
-				if(app.vars._clientid == '1pc')	{
-					app.model.fetchNLoadTemplates(app.vars.baseURL+'extensions/checkout_nice/templates.html',theseTemplates);
-					}
+				app.model.fetchNLoadTemplates('extensions/checkout_nice/templates.html',theseTemplates);
 				var r; //returns false if checkout can't load due to account config conflict.
 //				app.u.dump('BEGIN app.ext.convertSessionToOrder.init.onSuccess');
 				if(!zGlobals || $.isEmptyObject(zGlobals.checkoutSettings))	{
@@ -288,7 +285,6 @@ _gaq.push(['_trackEvent','Checkout','User Event','Create order button pushed']);
 				else if(app.u.getParameterByName('_testharness'))	{
 					$('#globalMessaging').toggle(true).append(app.u.formatMessage({'message':'<strong>Excellent!<\/strong> Your store meets the requirements to use this one page checkout extension.','uiIcon':'circle-check','uiClass':'success'}));
 					$('#'+app.ext.convertSessionToOrder.vars.containerID).removeClass('loadingBG').append("");
-					r = true;
 					}
 				else	{
 					r = true;

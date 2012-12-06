@@ -164,7 +164,7 @@ a callback was also added which just executes this call, so that checkout COULD 
 				},
 			dispatch : function(stid,qty,tagObj)	{
 //				app.u.dump(' -> adding to PDQ. callback = '+callback)
-				app.model.addDispatchToQ({"_cmd":"cartItemUpdate","stid":stid,"quantity":qty,"_tag": tagObj},'immutable');
+				app.model.addDispatchToQ({"_cmd":"updateCart","stid":stid,"quantity":qty,"_tag": tagObj},'immutable');
 				app.ext.store_checkout.u.nukePayPalEC(); //require paypal re-authentication anytime the cart is updated.
 				}
 			 },
@@ -252,8 +252,7 @@ _gaq.push(['_trackEvent','Checkout','User Event','Create order button pushed (va
 				var r =false; //returns false if checkout can't load due to account config conflict.
 //				app.u.dump('BEGIN app.ext.convertSessionToOrder.init.onSuccess');
 //start this process as early as possible. Errors will be reported independantly of init (result of ajax req. for templates).
-//SANITY: if you remove the baseURL var from the beginning of this, you'll break 1PC.
-				app.model.fetchNLoadTemplates(app.vars.baseURL+'extensions/checkout_passive/templates.html',theseTemplates);
+				app.model.fetchNLoadTemplates('extensions/checkout_passive/templates.html',theseTemplates);
 				var msg = false
 				if(!zGlobals || $.isEmptyObject(zGlobals.checkoutSettings))	{
 					msg = app.u.errMsgObject("Uh Oh! It appears an error occured. Please try again. If error persists, please contact the site administrator.");
@@ -268,8 +267,7 @@ _gaq.push(['_trackEvent','Checkout','User Event','Create order button pushed (va
 					}
 //messaging for the test harness 'success'.
 				else if(app.u.getParameterByName('_testharness'))	{
-					msg = app.u.successMsgObject("<strong>Excellent!<\/strong> Your store meets the requirements to use this one page checkout extension.");
-					r = true;
+					msg = app.u.successMsgObject("<strong>Excellent!<\/strong> Your store meets the requirements to use this one page checkout extension.")
 					}
 				else	{
 					r = true;
