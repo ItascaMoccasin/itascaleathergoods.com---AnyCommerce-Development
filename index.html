@@ -21,7 +21,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20121203113200",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"201212060948",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"",
 	"httpsURL":"https://ssl.zoovy.com/s=www.itascamoccasin.com/",
@@ -43,8 +43,9 @@ all css includes need to be after the js that changes the base url.
 css files should be included before any .js file to ensure they are downloaded in parallel
 -->
 <link rel="stylesheet" type="text/css" href="qs_styles.css" />
+<!-- <link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/redmond/jquery-ui.css" /> -->
+<link rel="stylesheet" type="text/css" href="jquery-ui-1.9.2.custom.min.css" />
 <link rel="stylesheet" type="text/css" href="_itasca_styles.css" />
-<link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/redmond/jquery-ui.css" />
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script type="text/javascript" src="loadscript.js"></script>
@@ -138,7 +139,7 @@ app.u.loadScript(app.vars.baseURL+"_itasca_init.js");
 					<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.home_goods'});">home goods</a></li>
 
 								
-					<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.electronics-cases.ipad'});">electronic cases</a></li>
+					<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.electronics-cases'});">electronic cases</a></li>
 								
 					<li><a href="">totes/bags</a></li>
 								
@@ -148,6 +149,7 @@ app.u.loadScript(app.vars.baseURL+"_itasca_init.js");
 							
 					<li class="last"><a href="">custom orders</a></li>
 				</ul>
+				<span class="clearBoth">&nbsp;</span>
 			
 			</nav>
 	
@@ -157,7 +159,23 @@ app.u.loadScript(app.vars.baseURL+"_itasca_init.js");
 <div id='mainContentArea'></div><!-- DO NOT REMOVE - this is where the specific page (ex: homepage, product, category) content is going to go -->
 	<footer>
 		<div class="signUp">
-			<img src="img/Itasca_logo_small.png" alt="Itasca Leathergoods"/>
+			<img src="img/Itasca_logo_small.png" alt="Itasca Leathergoods"/>			
+			<form action='#' id='subscribeFrm' name='subscribeFrm' onSubmit="app.ext.store_crm.u.handleSubscribe('subscribeFrm'); return false">
+				<p><strong>Sign up</strong> to receive future newsletters and promotions.</p>
+				<fieldset class='userInfo borderNone'>
+				<div>
+				<input type='email'  maxlength='50' size='30' name='login' id='subscribeLogin' value='E-mail Address' />
+				</div>
+
+				<div>
+				<input type='text'  maxlength='50' size='30' name='fullname' id='subscribeFullname' value='Full Name' />
+				</div>
+				</fieldset>
+
+				<fieldset data-bind="var:newsletters(@lists); format:subscribeCheckboxes; extension:store_crm;" class='borderNone subscriberLists'></fieldset>
+
+				<input type='submit' class='ui-button-text ui-button ui-state-default ui-corner-all' value='Subscribe'>
+			</form>
 		</div>
 		<div id="footerLinkBox">
 		<ul class="footerLinks">
@@ -201,6 +219,7 @@ app.u.loadScript(app.vars.baseURL+"_itasca_init.js");
 		</ul>
 		</div>
 	<hr class="hr">
+	<p class="footerCopy">&copy;2012. Please read our <a href='#top' onClick="return showContent('company',{'show':'privacy'});">Privacy Statement</a>.</p>
 	</footer>
 </div> <!-- end wrapper -->
 
@@ -248,16 +267,23 @@ the homepageTemplate template is loaded into mainContentArea by default when the
 -->
 <div id='homepageTemplate' class='homeTemplate'>
 
+	<div id="slideshowContainer" class='clearfix'>
+		<div id="slideshowNav"></div>
+		<ul id="wideSlideshow" class="pics slideshow">
+			<img src='images/blank.gif' width='1000' height='375' data-bind="var: page(banner_slideshow1); format: banner; extension:myRIA; editor:banner; wrap:<li>;" />
+			<img src='images/blank.gif' width='1000' height='375' data-bind="var: page(banner_slideshow2); format: banner; extension:myRIA; editor:banner; wrap:<li>;" />
+			<img src='images/blank.gif' width='1000' height='375' data-bind="var: page(banner_slideshow3); format: banner; extension:myRIA; editor:banner; wrap:<li>;" />
+			<img src='images/blank.gif' width='1000' height='375' data-bind="var: page(banner_slideshow4); format: banner; extension:myRIA; editor:banner; wrap:<li>;" />
+			<img src='images/blank.gif' width='1000' height='375' data-bind="var: page(banner_slideshow5); format: banner; extension:myRIA; editor:banner; wrap:<li>;" />
+		</ul>
+	</div>
 
+	<div class="homeBanners">
+		<img src="img/homeBann1.jpg" width="327" height="244" alt="Moccasins" />
+		<img src="img/homeBann2.jpg" width="327" height="244" alt="Moccasins" />
+		<img src="img/homeBann3.jpg" width="327" height="244" alt="Moccasins" class="lastBann"/>
+	</div>
 
-
-
-	<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul>
-	
-	<ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; hide_summary:1; before:<h2>Featured Items</h2>; withReviews:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
-	<p data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
-
-	<ul id='homeProdSearchBestSellers' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_BESTSELLER"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults; before:<h2>Best Sellers</h2>;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
 
 </div>
 

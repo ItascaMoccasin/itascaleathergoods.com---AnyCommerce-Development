@@ -78,11 +78,25 @@ header {position: relative;}
 	/*#mainNav  li a {font-size: 13px; text-transform: uppercase;}*/
 	
 	#mainContentArea  {/*padding: 20px;*/} 
-	.listStyleNone  li  { width: 207px; border: 1px solid #dc2923;-webkit-box-shadow: 1px 1px 4px rgba(50, 50, 50, 0.75);
--moz-box-shadow:    1px 1px 4px rgba(50, 50, 50, 0.75);
-box-shadow:         1px 1px 4px rgba(50, 50, 50, 0.75);}
+	.homeBanners {margin:10px 0;height:244px;}
+	.homeBanners img {float:left;margin-right:9px;}
+	.homeBanners .lastBann {margin:0;}
+	.listStyleNone  li  { /*width: 207px;*/ 
+		border: 1px solid #695649;
+		-webkit-box-shadow: 1px 1px 4px rgba(50, 50, 50, 0.75);
+		-moz-box-shadow: 1px 1px 4px rgba(50, 50, 50, 0.75);
+		box-shadow: 1px 1px 4px rgba(50, 50, 50, 0.75);
+}
+	.categoryList li, .productList li {
+		padding:10px 5px 0 10px;
+		height:215px;
+	}
+	.slideMe li {border:none; box-shadow:none;padding:0; -moz-box-shadow:none;-webkit-box-shadow:none;}
+	.sideline a {padding:5px 10px;}
 
-h2 { background: url("./img/header-back.jpg") no-repeat; color: #fff; padding: 10px; font-size: 16px;} 
+/* h2 { background: url("./img/header-back.jpg") no-repeat; color: #fff; padding: 10px; font-size: 16px;} */
+
+.checkoutButtonsContainer .checkoutButton, #addToCartBtn {border:1px solid #9c947c;background:#04b5cb url(img/ui-bg_gloss-wave_30_04b5cb_500x100.png) 50% 50% repeat-x;font-weight:bold;color:#4d3420;}
 
 hr.hr {
     background-color: #808080;
@@ -93,11 +107,22 @@ hr.hr {
 }
 
 
-footer  { margin: 20px 0;background: url("./img/footer-back.jpg") no-repeat; color: #fff; width: 1000px; height: 326px;}
+footer  { margin: 20px 0;background: url("./img/footer-back-2.jpg") no-repeat; color: #fff; width: 1000px; height: 326px;clear:both;}
 .signUp {
 width:272px;
 float:left;
 padding: 25px 30px;
+}
+.signUp form {padding:15px 25px 10px 30px;background: url("img/form-arrow.png") no-repeat scroll 0 25px transparent;}
+.signUp p {font-size:12px;line-height:1.1em;}
+.signUp .userInfo {padding:0;}
+.signUp input#subscribeLogin,.signUp input#subscribeFullname {
+    margin-bottom: 5px;
+    padding: 3px;
+}
+.signUp input.ui-button {
+	float:right;
+	margin-right:10px;
 }
 #footerLinkBox {
 	background: #04B5CB;
@@ -116,7 +141,8 @@ padding: 25px 30px;
 /*.footerLinks li {float: left;  width: 243px;}*/
 .footerLinks li li {float: none; display: block; padding-top:10px;  }
 .footerLinks li li a {font-size: 18px;}
-	
+.footerCopy {padding-left:25px;font-size:12px;}
+.footerCopy a {color:#FFF;}
 	
 	
 	

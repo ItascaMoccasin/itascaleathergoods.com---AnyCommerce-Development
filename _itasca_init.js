@@ -111,7 +111,10 @@ app.u.initMVC = function(attempts){
 app.u.appInitComplete = function(P)	{
 	app.u.dump("Executing myAppIsLoaded code...");
 	}
-
+//app.ext.myRIA.template.homepageTemplate.onCompletes.push(function(P){
+//	var $target=$('#wideSlideshow');
+//	{$target.cycle({fx:'fade',speed:'slow',timeout:5000,pager:'#slideshowNav',pagerAnchorBuilder:function(index,el){return'<a href="#"> </a>';},slideExpr:'li'});}
+//	})
 
 
 
