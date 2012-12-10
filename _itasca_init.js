@@ -43,7 +43,7 @@ app.rq.push(['templateFunction','homepageTemplate','onDeparts',function(P) {app.
 
 //group any third party files together (regardless of pass) to make troubleshooting easier.
 app.rq.push(['script',0,(document.location.protocol == 'https:' ? 'https:' : 'http:')+'//ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/jquery-ui.js']);
-
+app.rq.push(['script',0,(document.location.protocol == 'https:' ? 'https:' : 'http:')+'//cloud.github.com/downloads/malsup/cycle/jquery.cycle.all.latest.js']);
 
 /*
 This function is overwritten once the controller is instantiated. 
@@ -111,11 +111,11 @@ app.u.initMVC = function(attempts){
 app.u.appInitComplete = function(P)	{
 	app.u.dump("Executing myAppIsLoaded code...");
 	}
-//app.ext.myRIA.template.homepageTemplate.onCompletes.push(function(P){
-//	var $target=$('#wideSlideshow');
-//	{$target.cycle({fx:'fade',speed:'slow',timeout:5000,pager:'#slideshowNav',pagerAnchorBuilder:function(index,el){return'<a href="#"> </a>';},slideExpr:'li'});}
-//	})
 
+app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {
+	var $target=$('#wideSlideshow');
+	$target.cycle({fx:'fade',speed:'slow',timeout:5000,pager:'#slideshowNav',pagerAnchorBuilder:function(index,el){return'<a href="#"> </a>';},slideExpr:'li'});	
+	}]);
 
 
 //don't execute script till both jquery AND the dom are ready.
