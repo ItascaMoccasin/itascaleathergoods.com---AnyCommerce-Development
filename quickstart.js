@@ -1711,7 +1711,8 @@ return r;
 							app.ext.store_navcats.u.addQueries4BreadcrumbToQ(app.ext.myRIA.vars.session.recentCategories[0])
 							}
 
-						app.ext.store_product.calls.appReviewsList.init(pid);  //store_product... appProductGet DOES get reviews. store_navcats...getProd does not.
+// COMMENTING OUT appReviewsList CALL TO FIX CRM ERRORS BEING THROWN BECAUSE CLIENT DOESN'T HAVE CRM PACKAGE - RSIMS 121212							
+//						app.ext.store_product.calls.appReviewsList.init(pid);  //store_product... appProductGet DOES get reviews. store_navcats...getProd does not.
 						app.ext.store_product.calls.appProductGet.init(pid,{'callback':'showProd','extension':'myRIA','parentID':parentID,'templateID':'productTemplate'});
 						app.model.dispatchThis();
 						}

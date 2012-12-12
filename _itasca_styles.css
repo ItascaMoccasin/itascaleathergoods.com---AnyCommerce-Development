@@ -110,7 +110,7 @@ hr.hr {
 	clear: both;
 }
 
-
+#content {clear:both;}
 footer  { margin: 10px 0 20px;background: url("./img/footer-back-2.jpg") no-repeat; color: #fff; width: 1000px; height: 326px;clear:both;}
 .signUp {
 width:272px;
