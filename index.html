@@ -21,7 +21,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"201212131228",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"201212131431",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"",
 	"httpsURL":"https://ssl.zoovy.com/s=www.4c07ac9.crackle.zoovy.net/",
@@ -593,18 +593,18 @@ or the tab clicked won't open the right content.
 It's done this way because ID's hard coded into template are bad mojo (templates are recycled) and because using data-binds to add id's caused some serious issues
 -->
 <div class='prodTabs tabbedProductContent'>
-
+	<!-- COMMENTING OUT FOR REMOTE TESTING
 	<ul class='tabs'>
 		<li class='prodDescTab'><a>Description</a></li>
 		<li class='prodDetailTab displayNone' data-bind='var: product(zoovy:prod_detail); format:showIfSet;'><a>Specs</a></li>
 		<li class='prodFeaturesTab displayNone' data-bind='var: product(zoovy:prod_features); format:showIfSet;'><a>Features</a></li>
 		<!-- CLIENT DOES NOT HAVE REVIEW FUNCTIONALITY 
 		<li class='prodReviewsTab'><a>Reviews</a></li>
-		-->
+		
 		<li class='prodVideoTab displayNone' data-bind='var: product(youtube:videoid); format:showIfSet;'><a >Video</a></li>
 		<li class='prodAccessoriesTab displayNone' data-bind='var: product(zoovy:accessory_products); format:showIfSet;'><a>Accessories</a></li>
 	</ul>
-	
+	-->
 	<div class='tabContent'>
 		<div data-bind='var: product(zoovy:prod_desc); format:wiki; wikiFormats:myRIA;'></div>
 	</div>
