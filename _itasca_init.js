@@ -25,8 +25,20 @@ app.rq.push(['extension',1,'analytics_google','extensions/analytics_google.js','
 
 
 //add tabs to product data.
+//tabs are handled this way because jquery UI tabs REALLY wants an id and this ensures unique id's between product
 app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
-	$( ".tabbedProductContent",$('#productTemplate_'+app.u.makeSafeHTMLId(P.pid))).tabs();
+	var safePID = app.u.makeSafeHTMLId(P.pid); //can't use jqSelector because productTEmplate_pid still used makesafe. planned Q1-2012 update ###
+	var $tabContainer = $( ".tabbedProductContent",$('#productTemplate_'+safePID));
+		if($tabContainer.data("tabs")){} //tabs have already been instantiated. no need to be redundant.
+		else	{
+			$(".tabs li a",$tabContainer).each(function (index) {
+				$(this).attr("href", "#spec_"+safePID+"_" + index.toString());            
+			});
+			$("div.tabContent",$tabContainer).each(function (index) {
+				$(this).attr("id", "spec_"+safePID+"_" + index.toString());
+			})
+			$tabContainer.tabs();
+			}
 	}]);
 
 app.rq.push(['script',0,(document.location.protocol == 'file:') ? app.vars.httpURL+'jquery/config.js' : app.vars.baseURL+'jquery/config.js']); //The config.js is dynamically generated.
