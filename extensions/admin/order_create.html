@@ -37,6 +37,7 @@ fieldsets 'can' be defined here if a specific order is desired. If fieldsets are
 	<label><span>Product id:</span><input type='text' name='product_id'  /></label>
 	<label><span>Price: </span><input type='number' class='price' size='5' name='price' /></label>
 	<button onClick="app.ext.convertSessionToOrder.a.addToCart($(this).parent().serializeJSON())" class='ui-button ui-state-default ui-corner-all'>Add</button>
+	<button onClick="app.ext.admin.a.showFinderInModal('CHOOSER');" class='ui-button ui-state-default ui-corner-all'>Find</button>
 	
 </fieldset>
 </form>
@@ -158,7 +159,7 @@ the defaultVar on prodName & image is for promotions, which have a 'description'
 		<span data-bind='var: product(extended); format:money; currencySign: $; hideZero:false; pretext: = ;'></span>
 		</div>
 		
-		<div class='ztable_row_small prodOptions' data-bind='var: variations(*options); format:selectedOptionsDisplay;'></div>
+		<div class='ztable_row_small prodOptions' data-bind='var: variations(%options); format:selectedOptionsDisplay;'></div>
 
 
 </li>
@@ -189,7 +190,7 @@ do NOT change any input names or id's or checkout will likely break.
 
 	<li class='bill_city'><label for='data-bill_city'>City</label><input type='text' name='bill/city' id='data-bill_city' required='required' value='' data-bind='var: cart(bill/city); format:popVal;'  onChange="app.ext.convertSessionToOrder.u.addressFieldUpdated(this.id); app.model.dispatchThis('immutable');" /></li>
 	
-	<li class='bill_state'><label for='data-bill_state'>State<span class='bill_province'>/Province</span></label><input type='text'  name='bill/region' id='data-bill_state' size='2' value='' data-bind='var: cart(bill/region); format:popVal;' maxlength='10' required='required' onChange="app.ext.convertSessionToOrder.u.addressFieldUpdated(this.id); app.model.dispatchThis('immutable');" /></li>
+	<li class='bill_state'><label for='data-bill_state'>State/Province</label><input type='text'  name='bill/region' id='data-bill_state' size='2' value='' data-bind='var: cart(bill/region); format:popVal;' maxlength='10' required='required' onChange="app.ext.convertSessionToOrder.u.addressFieldUpdated(this.id); app.model.dispatchThis('immutable');" /></li>
 	
 	<li class='bill_zip'><label for='data-bill_zip'>Zip/Postal Code</label><input type='text'  name='bill/postal' id='data-bill_zip' size='10' value='' data-bind='var: cart(bill/postal); format:popVal;' maxlength='10' required='required' onChange="app.ext.convertSessionToOrder.u.addressFieldUpdated(this.id); app.model.dispatchThis('immutable');" /></li>
 
@@ -310,7 +311,7 @@ do NOT change any div id's or messaging will not work properly.
 			<table data-bind="var: buyerWalletList(@wallets); format:object2Template; loadsTemplate: buyerWalletsListItem;"></table>
 		</div>
 		<div id='nonStoredPaymentsContainer'>
-			<ul id='chkout-payOptions' class='noPadOrMargin listStyleNone' data-bind='var: getPaymentMethods(@methods); format:payMethodsAsRadioButtons; extension: convertSessionToOrder;'></ul>
+			<div id='chkout-payOptions' class='labelsAsBreaks' data-bind='var: getPaymentMethods(@methods); format:payMethodsAsRadioButtons; extension: convertSessionToOrder;'></div>
 		</div>
 	</div>
 	
@@ -397,7 +398,7 @@ because it's used in 'print' mode, some legacy attributes are used.
 	<td valign='top' width='50%' style='text-align:right'>
 <h3 data-bind='var: order(our/orderid); format:text; pretext:Invoice: ;'></h3>
 <h4 data-bind='var:order(flow/pool);format:text; pretext:Order Status: ;'></h4>
-<h4 data-bind='var:order(flow.payment_status); format:paymentStatus; extension:convertSessionToOrder;'>
+<h4 data-bind='var:order(flow/payment_status); format:paymentStatus; extension:convertSessionToOrder;'></h4>
 <h4>
 	<span data-bind='var:order(flow/payment_method); format:text; pretext:Payment Method: ;'></span>
 	<span data-bind="var:order(our/orderid); format:marketPlaceOrderID; extension:convertSessionToOrder;"></span>
@@ -415,8 +416,6 @@ because it's used in 'print' mode, some legacy attributes are used.
 	<span data-bind='var:order(ship/firstname);format:text;'></span>
 	<span data-bind='var:order(ship/lastname);format:text;'></span>
 </h4>
-<div data-bind='var:order(ship/email);format:text;'></div>
-<div data-bind='var:order(ship/phone);format:text;'></div>
 <div data-bind='var:order(ship/address1);format:text;'></div>
 <div data-bind='var:order(ship/address2);format:text;'></div>
 <div>
@@ -425,6 +424,8 @@ because it's used in 'print' mode, some legacy attributes are used.
 	<span data-bind='var:order(ship/postal);format:text; defaultVar:order(data.ship_int_zip);'></span>
 </div>
 <div data-bind='var:order(ship/countrycode);format:text;'></div>
+<div data-bind='var:order(ship/email);format:text;'></div>
+<div data-bind='var:order(ship/phone);format:text;'></div>
 </address>
 
 	</td>
@@ -437,8 +438,6 @@ because it's used in 'print' mode, some legacy attributes are used.
 	<span data-bind='var:order(bill/firstname);format:text;'></span>
 	<span data-bind='var:order(bill/lastname);format:text;'></span>
 </h4>
-<div data-bind='var:order(bill/email);format:text;'></div>
-<div data-bind='var:order(bill/phone);format:text;'></div>
 <div data-bind='var:order(bill/address1);format:text;'></div>
 <div data-bind='var:order(bill/address2);format:text;'></div>
 <div>
@@ -447,6 +446,8 @@ because it's used in 'print' mode, some legacy attributes are used.
 	<span data-bind='var:order(bill/postal);format:text; defaultVar:order(data.bill_int_zip);'></span>
 </div>
 <div data-bind='var:order(bill/countrycode);format:text;'></div>
+<div data-bind='var:order(bill/email);format:text;'></div>
+<div data-bind='var:order(bill/phone);format:text;'></div>
 </address>
 	</td>
 </tr>
@@ -526,7 +527,7 @@ some legacy html tags to make this print friendly.
 <table>
 	<tr id='productListTemplateInvoice' class='padMargBorderBottom'>
 		<td valign='top'><span class='ztable_row_small stid' data-bind='var: product(sku); format:text; className: stid; pretext: Sku: ;'></span></td>
-		<td valign='top'><span data-bind='var: product(prod_name); format:text; '></span><div class='ztable_row_small prodOptions' data-bind='var: product(*options); format:selectedOptionsDisplay; posttext: x ;'></div>
+		<td valign='top'><span data-bind='var: product(prod_name); format:text; '></span><div class='ztable_row_small prodOptions' data-bind='var: product(%options); format:selectedOptionsDisplay;'></div>
 </td>
 		<td valign='top' width='1%'><span data-bind='var: product(qty); format:text;'></span></td>
 		<td valign='top' width='1%' NOWRAP><span data-bind='var: product(price); format:money; currencySign: $;  hideZero:false;' ></span></td>
@@ -619,7 +620,7 @@ This should get moved to orders when order is taken over
 	
 	<td valign='top'>
 	<div data-bind='var: product(prod_name); format:text; '></div>
-	<div class='ztable_row_small prodOptions' data-bind='var: product(*options); format:selectedOptionsDisplay;'></div>
+	<div class='ztable_row_small prodOptions' data-bind='var: product(%options); format:selectedOptionsDisplay;'></div>
 	</td>
 
 	<td width='1%' nowrap="nowrap" valign='top'><span data-bind='var: product(qty); format:text; pretext:qty: ;'></span></td>

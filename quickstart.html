@@ -15,17 +15,16 @@
 
 
 
-
 <script type="text/javascript">
 var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPLOYMENT!
 var myCreole;
 
 var app = {vars:{
-	"release":"201212171608",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20121217131600",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"",
-	"httpsURL":"https://ssl.zoovy.com/s=www.4c07ac9.crackle.zoovy.net/",
-	"httpURL":"http://www.4c07ac9.crackle.zoovy.net/"
+	"httpsURL":"https://ssl.zoovy.com/s=www.sporks.zoovy.com/",
+	"httpURL":"http://www.sporktacular.com/"
 	},u:{},rq:[]};
 
 //set base url so images, css, js, etc all load from appropriate location once deployed.
@@ -37,196 +36,74 @@ if(document.location.protocol != 'file:')	{
 </script>
 
 
-
 <!-- 
 all css includes need to be after the js that changes the base url. 
 css files should be included before any .js file to ensure they are downloaded in parallel
 -->
 <link rel="stylesheet" type="text/css" href="qs_styles.css" />
-<!-- <link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/redmond/jquery-ui.css" /> -->
-<link rel="stylesheet" type="text/css" href="jquery-ui-1.9.2.custom.min.css" />
-<link rel="stylesheet" type="text/css" href="_itasca_styles.css" />
+<link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/redmond/jquery-ui.css" />
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-<script type="text/javascript" src="jquery.ui.widget.min.js"></script> 
-<script type="text/javascript" src="customTabs.js"></script>
+<script src="jquery.ui.widget.min.js"></script> 
+<script src="customTabs.js"></script>
 <script type="text/javascript" src="loadscript.js"></script>
 
 
 
 
 <script type="text/javascript">
-app.u.loadScript(app.vars.baseURL+"_itasca_init.js");
+app.u.loadScript(app.vars.baseURL+"init.js");
 </script>
 
 
 </head>
 
 <body>
+<!-- DELETE THIS WHEN YOU GET STARTED -->
+<h1>WELCOME TO QUICKSTART</h1>
+This file is intended to go along with the 10-step tutorial at: 
+<a href="https://github.com/zoovy/AnyCommerce-Development/wiki/quickstart">https://github.com/zoovy/AnyCommerce-Development/wiki/quickstart</a>
+<!-- /DELETE THIS WHEN YOU GET STARTED -->
+
+
+
 
 <!-- what is displayed onLoad until the view is loaded -->
 <div id='appPreView'>
-	<div id='previewWrap'>
-		<table>
-		<tr>
-			<td><img src="img/Itasca_logo.png" width="183" height="126" alt="Itasca Leathergoods" /></td>
-			<td>
-			<h3>One moment please.</h3>
-			
-			<div class='alignCenter'>
-			<progress id="appPreViewProgressBar" max="100" value="0" /><br />
-			</div>
-			<div id='appPreViewProgressText'>0% Complete</div>
-			
-			<div class='appMessaging'></div>
-			</td>
-		</tr>
-		</table>
+<table>
+<tr>
+	<td><!-- put logo here --></td>
+	<td>
+	<h3>One moment please.</h3>
+	
+	<div class='alignCenter'>
+	<progress id="appPreViewProgressBar" max="100" value="0" /><br />
 	</div>
+	<div id='appPreViewProgressText'>0% Complete</div>
+	
+	<div class='appMessaging'></div>
+	</td>
+</tr>
+</table>
 </div>
-
 
 
 
 <div id='appView' class='displayNone'>
 
-<div id="wrapper">
-	<header>	
-		<div id="topNav">
-			<ul>
-			<li><a href='#top' onClick="return showContent('category',{'navcat':'.'});">home</a></li>
-			<li><a href='#top' onClick="return showContent('company',{'show':'about'});">about us</a></li>
+<!-- VIEW CONTENT -->
+<!-- leave the appView div, put your your html here ...  -->
+
+	<!-- 
+	** REMINDER : DO NOT PUT ANY GRAPHICS/CONTENT THAT SHOULD NOT APPEAR ON EVERY PAGE IN THE VIEW (HERE)
+	**				  INSTEAD PUT THEM INTO <div id="homepageTemplate"></div>
+	-->
+<div id='globalMessaging' class='appMessaging'></div><!-- DO NOT REMOVE - used for some high level error handling (usually appears below breadcrumb nav or top bar) -->
+<div id='mainContentArea'></div><!-- DO NOT REMOVE - this is where the specific page (ex: homepage, product, category) content is going to go -->
 
 
-			<li><a href='#' onClick="return showContent('company',{'show':'faq'});">faq</a></li>
-			<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.earthing'});">earthing</a></li>
-
-			<li><a href="#" onClick="return showContent('company',{'show':'contact'});">contact</a></li>
-			</ul>
-			<span class="clearBoth">&nbsp;</span>
-		</div>		
-				<a id="logo" href='#top' onClick="return showContent('category',{'navcat':'.'});"  title="Itasca Leathergoods">
-				<img src="img/Itasca_logo.png" width="183" height="126" alt="Itasca Leathergoods" />
-				</a>
-
-		<div id="midNavLinks">
-			<ul>
-			<li><a href="">Login</a></li>
-			<li>|</li>
-			<li><a href="#" onClick="return showContent('customer',{'show':'myaccount'});">My Account</a></li>
-			<li>|</li>
-			<li><a href='#' onClick="return showContent('cart',{});">Cart (<span class="cartItemCount">0</span>)</a></li>
-			</ul>
-		</div>
-		
-
-		
-	<form id="headerSearchFrm" name="headerSearchFrm" action="#" class="productSearchForm" method="get">
-
-			<input name="KEYWORDS" value="Search" class="productSearchKeyword handleDefault" type="search">
-			<input name="CATALOG" value="" class="productSearchCatalog" type="hidden">
-			<input class="search" id="headerSearchSubmit" value="SEARCH" type="submit">
-
-	</form>
-			<!-- <div class="helpCare">need help  <img src="img/help-icon.png" alt="Help"/>  customer care: 1(855) 827-6878</div> -->
-			
-			<nav id="mainNav">
-			
-				<ul>
-					<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.new-arrivals'});">new arrivals</a></li>
-								
-					<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.moccasins'});">moccasins</a></li>
-
-							
-					<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.home_goods'});">home goods</a></li>
-
-								
-					<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.electronics-cases'});">electronic cases</a></li>
-								
-					<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.totes-bags'});">totes/bags</a></li>
-								
-					<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.accessories'});">accessories</a></li>
-								
-					<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.small-leather-goods'});">small leather goods</a></li>
-							
-					<li class="last"><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.custom_moccasins'});">custom orders</a></li>
-				</ul>
-				<span class="clearBoth">&nbsp;</span>
-			
-			</nav>
-	
-	</header>
-	<div id="content">
-		<div id='globalMessaging' class='appMessaging'></div><!-- DO NOT REMOVE - used for some high level error handling (usually appears below breadcrumb nav or top bar) -->
-		<div id='mainContentArea'></div><!-- DO NOT REMOVE - this is where the specific page (ex: homepage, product, category) content is going to go -->
-	</div>
-	<footer>
-		<div class="signUp">
-			<img src="img/Itasca_logo_small.png" alt="Itasca Leathergoods"/>			
-			<form action='#' id='subscribeFrm' name='subscribeFrm' onSubmit="app.ext.store_crm.u.handleSubscribe('subscribeFrm'); return false">
-				<p><strong>Sign up</strong> to receive future newsletters and promotions.</p>
-				<fieldset class='userInfo borderNone'>
-				<div>
-				<input type='email'  maxlength='50' size='30' name='login' id='subscribeLogin' value='E-mail Address' />
-				</div>
-
-				<div>
-				<input type='text'  maxlength='50' size='30' name='fullname' id='subscribeFullname' value='Full Name' />
-				</div>
-				</fieldset>
-
-				<fieldset data-bind="var:newsletters(@lists); format:subscribeCheckboxes; extension:store_crm;" class='borderNone subscriberLists'></fieldset>
-
-				<input type='submit' class='ui-button-text ui-button ui-state-default ui-corner-all' value='Subscribe'>
-			</form>
-		</div>
-		<div id="footerLinkBox">
-		<ul class="footerLinks">
-			<li class="linkGroup">
-			<h4>Company</h4>
-				<ul>
-				<li><a href='#top' onClick="return showContent('company',{'show':'about'});">About</a></li>
-				<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.stores'});">Stores</a></li>
-				<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.retailers'});">Retailers</a></li>
-				<li><a href='#top' onClick="return showContent('company',{'show':'privacy'});">Privacy</li>
-				<li><a href="#">Terms</a></li>
-				</ul>
-			</li>
-			
-			<li class="linkGroup">
-			<h4>Customer Service</h4>
-				<ul>
-				<li><a href="#" onClick="return showContent('company',{'show':'contact'});">Contact</a></li>
-				<li><a href='#' onClick="return showContent('company',{'show':'faq'});">FAQs</a></li>				
-				<li><a href='#' onClick="return showContent('company',{'show':'shipping'});">Shipping</a></li>
-				<li><a href='#' onClick="return showContent('company',{'show':'return'});">Returns</a></li>
-				<li><a href=''>International</a></li>
-				</ul>
-			</li>
-			<li class="linkGroup">
-				<h4>Wholesale</h4>
-				<ul>
-				<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.become-a-retailer'});">Become a Retailer</a></li>
-				<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.wholesale-check-in'});">Wholesale Check-In</a></li>
-				</ul>
-			</li>	
-			<li class="lastLinkGroup">
-			<h4>Media</h4>
-				<ul>
-				<li><a href='https://www.facebook.com/ItascaLeathergoods' target="_blank">Facebook</a></li>
-				<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.press'});">Press</a></li>
-				<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.news'});">News</a></li>
-				<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.blog'});">Blog</a></li>
-				</ul>
-			</li>	
-		</ul>
-		</div>
-	<hr class="hr">
-	<p class="footerCopy">&copy;2012. Please read our <a href='#top' onClick="return showContent('company',{'show':'privacy'});">Privacy Statement</a>.</p>
-	</footer>
-</div> <!-- end wrapper -->
-
-
+<!-- ... your html ends -->
+<!-- /VIEW CONTENT -->
 </div>
 
 
@@ -270,20 +147,16 @@ the homepageTemplate template is loaded into mainContentArea by default when the
 -->
 <div id='homepageTemplate' class='homeTemplate'>
 
-	<div id="slideshowContainer" class='clearfix'>
-		<div id="slideshowNav"></div>
-		<ul id="wideSlideshow" class="pics slideshow">
-			<li><a class='bindByAnchor' href='#search?KEYWORDS=holiday'><img src='img/Womens_Bronze_Holiday_Cota_Moss.jpg' width='1000' height='376' /></a></li>
-			<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.moccasins.women'});"><img src='img/Moc_Row.jpg' width='1000' height='376' /></a></li>
-			<li><a class='bindByAnchor' href='#search?KEYWORDS=slippers'><img src='img/Womens_Lined_Cota_Moss.jpg' width='1000' height='376' /></a></li>
-		</ul>
-	</div>
 
-	<div class="homeBanners">
-		<img src="img/homeBann1.jpg" width="327" height="244" alt="Moccasins" />
-		<img src="img/homeBann2.jpg" width="327" height="244" alt="Moccasins" />
-		<img src="img/homeBann3.jpg" width="327" height="244" alt="Moccasins" class="lastBann"/>
-	</div>
+	<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul>
+	
+	<ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; hide_summary:1; before:<h2>Featured Items</h2>; withReviews:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+	<p data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
+
+	<ul id='homeProdSearchBestSellers' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_BESTSELLER"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults; before:<h2>Best Sellers</h2>;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+
+<!-- a sample of how to get a 'list' src onto the page. -->
+	<ul data-bind="var: list($models.@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 25;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
 
 
 </div>
@@ -313,16 +186,12 @@ don't modify the 'data-templateid' unless you are changing template names and up
 	<p data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
 	
 	<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul><!-- outputs a list of subcategories -->
-	
-	<!-- DUPLICATED TO REMOVE WITHREVIEWS
+
 	<ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 25;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul><!-- outputs the product list -->
-
-	<ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; items_per_page: 25;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul><!-- outputs the product list -->
-
 	
 	<p data-bind="var: category(%page.description2); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
 
-		
+	
 </div>
 
 
@@ -371,10 +240,9 @@ remember to NOT put the button inside the 'onclick' container or two events will
 	
 		<h6 data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; className:price; pretext: Our Price: ;'></h6>
 		
-		<!-- CLIENT DOES NOT HAVE REVIEW FUNCTIONALITY
+		
 		<span data-bind='var: product(reviews.average); format:addClass; className:review_;' class='reviewSprite'></span>
-		<span data-bind='var: reviews(total); format:text; pretext: from ;posttext: reviews; className:numReviews;'></span>
-		-->
+<!-- 	<span data-bind='var: reviews(total); format:text; pretext: from ;posttext: reviews; className:numReviews;'></span> -->
 	</div>
 </li>
 
@@ -426,11 +294,9 @@ container ul should have lineItemProdlist class on it instead of productList
 <span class="ui-icon ui-icon-info"></span>
 </button>
 
-<!-- HIDING FOR CRM ERROR
 <button class='ui-state-default ui-corner-all' title='write a review for this item' onClick="app.ext.store_crm.u.showReviewFrmInModal({'pid':$(this).closest('[data-pid]').attr('data-pid'),'templateID':'reviewFrmTemplate'});">
 <span class="ui-icon ui-icon-star"></span>
 </button>
--->
 
 <button class='ui-state-default ui-corner-all' title='remove item from list' onClick="app.ext.myRIA.a.removeItemFromBuyerList({'stid':$(this).closest('[data-pid]').attr('data-pid'),'listID':$(this).closest('[data-buyerlistid]').attr('data-buyerlistid')},{'parentID':$(this).closest('li').attr('id')});">
 <span class="ui-icon ui-icon-trash"></span>
@@ -568,21 +434,18 @@ this will likely become more flexible in the future. ###
 
 	<div data-bind='var:product(zoovy:qty_price);format:quantityDiscounts; extension:store_product; pretext:Quantity Discounts:; className:marginBottom;'></div>
 
-	<!-- HIDING FOR CRM ERROR
 	<section class='marginBottom'>
 		<span data-bind='var: product(reviews.average); format:addClass; className:review_;' class='reviewSprite'></span>
 		<span data-bind='var: reviews(total); format:text;posttext: from ;posttext: reviews; className:numReviews;'></span>
 	</section>
-	-->
-
+	
 	<menu data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='CRMButtonMenu'>
-	<!-- HIDING FOR CRM ERROR	
+
 	<a href='#' onClick='app.ext.store_crm.u.showReviewFrmInModal({"pid":$(this).parent().attr("data-pid"),"templateID":"reviewFrmTemplate"}); return false;'>Write Review</a>	| 
-	-->
+
 	<a href='#' onClick="app.ext.myRIA.a.add2BuyerList({pid:$(this).parent().attr('data-pid'),'listid':'wishlist'}); return false;">Add to Wishlist</a>
 
 	</menu>
-
 
 	<span id="buySAFE_Kicker" name="buySAFE_Kicker" type="Kicker Guaranteed Transparent 33 175x30"></span>
 	</td>
@@ -600,11 +463,11 @@ It's done this way because ID's hard coded into template are bad mojo (templates
 		<li class='prodDescTab'><a href='#'>Description</a></li>
 		<li class='prodDetailTab displayNone' data-bind='var: product(zoovy:prod_detail); format:showIfSet;'><a href='#'>Specs</a></li>
 		<li class='prodFeaturesTab displayNone' data-bind='var: product(zoovy:prod_features); format:showIfSet;'><a href='#'>Features</a></li>
-<!--		<li class='prodReviewsTab'><a href='#'>Reviews</a></li> -->
+		<li class='prodReviewsTab'><a href='#'>Reviews</a></li>
 		<li class='prodVideoTab displayNone' data-bind='var: product(youtube:videoid); format:showIfSet;'><a href='#'>Video</a></li>
 		<li class='prodAccessoriesTab displayNone' data-bind='var: product(zoovy:accessory_products); format:showIfSet;'><a href='#'>Accessories</a></li>
 	</ul>
-
+	
 	<div class='tabContent'>
 		<div data-bind='var: product(zoovy:prod_desc); format:wiki; wikiFormats:myRIA;'></div>
 	</div>
@@ -617,7 +480,7 @@ It's done this way because ID's hard coded into template are bad mojo (templates
 		<div data-bind='var: product(zoovy:prod_features); format:wiki; wikiFormats:myRIA;'></div>
 	</div>
 
-	<!-- CLIENT DOES NOT HAVE REVIEW FUNCTIONALITY 
+
 	<div  class='tabContent'>
 
 		<div class='clearfix alignRight'>
@@ -627,17 +490,13 @@ It's done this way because ID's hard coded into template are bad mojo (templates
 		<ul class='listStyleNone clearfix productReviewsList' id='prodViewerReviews' data-bind="var: reviews(@reviews); format:reviewList; extension:store_product; loadsTemplate:productReviewsTemplateDetail;"></ul>
 
 	</div>
-	-->
 	
 	<div class='tabContent'>
 		<div id="prodVideo" data-bind='var: product(youtube:videoid); format:youtubeVideo;'></div>
 	</div>
 
 	<div class='tabContent'>
-		<!-- ORIGINAL CODE, REMOVED withReviews 
-				<ul class='listStyleNone fluidList clearfix noPadOrMargin lineItemProdlist' data-bind="var: product(zoovy:accessory_products); format:productList; extension:store_prodlist;loadsTemplate:productListTemplateATC;hide_pagination:true;hide_summary:true; withReviews:1; withInventory:1; withVariations:1;"></ul>
-		-->
-		<ul class='listStyleNone fluidList clearfix noPadOrMargin lineItemProdlist' data-bind="var: product(zoovy:accessory_products); format:productList; extension:store_prodlist;loadsTemplate:productListTemplateATC;hide_pagination:true;hide_summary:true; withInventory:1; withVariations:1;"></ul>
+<ul class='listStyleNone fluidList clearfix noPadOrMargin lineItemProdlist' data-bind="var: product(zoovy:accessory_products); format:productList; extension:store_prodlist;loadsTemplate:productListTemplateATC;hide_pagination:true;hide_summary:true; withReviews:1; withInventory:1; withVariations:1;"></ul>
 	</div>
 
 	
@@ -649,10 +508,7 @@ It's done this way because ID's hard coded into template are bad mojo (templates
 </tr>
 </table>
 <div class='prodlistRelatedContainer'>
-	<!-- DUPLICATING TO REMOVE withReviews
 	<ul class='listStyleNone fluidList clearfix noPadOrMargin productList' data-bind="var: product(zoovy:related_products); format:productList; extension:store_prodlist;loadsTemplate:productListTemplate;hide_pagination:true;hide_summary:true; before:<h2>Similar Items</h2>; withReviews:1;"></ul>
-	-->
-	<ul class='listStyleNone fluidList clearfix noPadOrMargin productList' data-bind="var: product(zoovy:related_products); format:productList; extension:store_prodlist;loadsTemplate:productListTemplate;hide_pagination:true;hide_summary:true; before:<h2>Similar Items</h2>;"></ul>	
 </div>
 
 
@@ -691,17 +547,16 @@ It's done this way because ID's hard coded into template are bad mojo (templates
 	</div>
 	
 	<div data-bind='var: product(zoovy:ship_latency); format:text;pretext:Normally ships in ;posttext: day(s);' class='latency'></div>
-	<!-- HIDING FOR CRM ERROR
+	
 	<section id='prodViewerReviewSummary' class='marginBottom'>
 		<span data-bind='var: product(reviews.average); format:addClass; className:review_;' class='reviewSprite'></span>
 		<span data-bind='var: reviews(total); format:text;posttext: from ;posttext: reviews; className:numReviews;'></span>
 	</section>
-	-->
+	
 	<div id="prodDesc" data-bind='var: product(zoovy:prod_desc); format:wiki; wikiFormats:myRIA;'></div>
 
 	</td>
 </tr>
-<!-- HIDING FOR CRM ERROR
 <tr>
 	<td colspan='2'>
 		
@@ -709,7 +564,6 @@ It's done this way because ID's hard coded into template are bad mojo (templates
 
 	</td>
 </tr>
--->
 </table>
 
 
@@ -921,7 +775,7 @@ adding classes is not likely to have any bad effects.
 		<div id='myaccountArticle' class='displayNone textContentArea'>
 			<h1>My Account</h1>
 			<div id='logMessaging'></div>
-			<div><a href="#" onClick="app.u.logBuyerOut(); showContent('category',{'navcat':'.'}); return false;">Log Out</a></div>
+			<div><a href="#" onClick="app.u.logBuyerOut(); showContent('homepage',{}); return false;">Log Out</a></div>
 			
 			<section id='buyerAddresses' class='clearfix'>
 
@@ -1128,7 +982,7 @@ So the cart template should contain these two elements and the extension should 
 
 <section id='cartTemplateShippingContainer'>
 	<h3>Shipping:</h3>
-	<ul class='noPadOrMargin listStyleNone cartShipMethods' data-bind='var: cart(@shipmethods); format:shipMethodsAsRadioButtons; extension:store_cart;'></ul>
+	<ul class='noPadOrMargin listStyleNone cartShipMethods' data-bind='var: cart(@SHIPMETHODS); format:shipMethodsAsRadioButtons; extension:store_cart;'></ul>
 </section>
 		
 <section class='stdMargin'>
@@ -1367,13 +1221,6 @@ used for store_crm.js
 
 
 
-
-
-
-
-
-
-
 <section  id='faqTopicTemplate'>
 	
 	<div class='ui-accordion-header ui-helper-reset ui-state-default ui-corner-top ui-corner-bottom' data-bind='var:faq(TOPIC_ID);format:assignAttribute; attribute:data-topicid;' onClick="app.ext.myRIA.a.showFAQbyTopic($(this).attr('data-topicid'));">
@@ -1480,12 +1327,9 @@ The 'data-action' attribute is used to assign an onclick.
 
 
 
-
-
 <div id='loginFormForModal' class='loginOption displayNone' title='Please log in'>
 
 <!-- the contents of this div/id are toggled on/off when login/logout occurs. don't change the ID -->
-
 
 
 <p id='loginMessaging' class='marginBottom appMessaging'></p>
@@ -1547,7 +1391,7 @@ The 'data-action' attribute is used to assign an onclick.
 <div class='debug displayNone'>
 
 <menu>
-	<li><a href='#' onClick="return showContent('category',{'navcat':'.'});">Homepage</a></li>
+	<li><a href='#' onClick="return showContent('homepage',{});">Homepage</a></li>
 	<li><a href='#' onClick="return showContent('customer',{'show':'orders'});">Orders</a></li>
 	<li><a href='#' onClick="return showContent('cart',{'show':'cart'});">Cart</a></li>
 	<li><a href='#' onClick="app.ext.store_cart.u.showCartInModal({'templateID':'cartTemplate'});">CartInModal</a></li>

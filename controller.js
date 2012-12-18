@@ -492,6 +492,7 @@ app.u.throwMessage(responseData); is the default error handler.
 		translateSelector : {
 			onSuccess : function(tagObj)	{
 //				app.u.dump("BEGIN callbacks.translateSelector");
+				if(typeof jQuery().hideLoading == 'function'){$(tagObj.selector).hideLoading();}
 				app.renderFunctions.translateSelector(tagObj.selector,app.data[tagObj.datapointer]);
 				}
 			},
@@ -503,11 +504,13 @@ app.u.throwMessage(responseData); is the default error handler.
 // the app.data.datapointer is what'll get passed in to the translate function as the data src. (ex: getProduct|PID)
 		translateTemplate : 	{
 			onSuccess : function(tagObj)	{
-//				app.u.dump("BEGIN callbacks.translateTemplate");
+//				app.u.dump("BEGIN callbacks.translateTemplate"); app.u.dump(tagObj);
+//				app.u.dump("typeof jQuery.hideLoading: "+typeof jQuery().hideLoading);
+				if(typeof jQuery().hideLoading == 'function'){$('#'+tagObj.parentID).hideLoading();}
 				app.renderFunctions.translateTemplate(app.data[tagObj.datapointer],tagObj.parentID);
 				}
-			
 			}, //translateTemplate
+
 // a generic callback to allow for success messaging to be added. 
 // pass message for what will be displayed.  For error messages, the system messaging is used.
 		showMessaging : {
@@ -574,15 +577,22 @@ app.u.handleCallback(tagObj);
 
 		handleCallback : function(tagObj)	{
 //			app.u.dump("BEGIN u.handleCallback");
-			var callback;
 			if(tagObj && tagObj.datapointer){app.data[tagObj.datapointer]['_rtag'] = tagObj} //updates obj in memory to have latest callback.
 			if(tagObj && tagObj.callback){
-//				app.u.dump(" -> executing callback ("+tagObj.callback+") in extension ("+tagObj.extension+")");
+//				app.u.dump(" -> callback exists");
+//				app.u.dump(tagObj.callback);
+				if(typeof tagObj.callback == 'function')	{app.u.dump(" -> executing anonymous function."); tagObj.callback(tagObj);}
+				else	{
+//				app.u.dump(" -> callback is not an anonymous function.");
+					var callback;
 //most callbacks are likely in an extension, but support for 'root' callbacks is necessary.
 //save path to callback so that we can verify the onSuccess is a function before executing (reduce JS errors with this check)
-				callback = tagObj.extension ? app.ext[tagObj.extension].callbacks[tagObj.callback] : app.callbacks[tagObj.callback];
-				if(typeof callback.onSuccess == 'function')
-					callback.onSuccess(tagObj);
+					callback = tagObj.extension ? app.ext[tagObj.extension].callbacks[tagObj.callback] : app.callbacks[tagObj.callback];
+					if(typeof callback.onSuccess == 'function')	{
+						callback.onSuccess(tagObj);
+						}
+					else	{}//callback defined as string, but callback.onsuccess is not a function.
+					}
 				}
 			else	{
 //				app.u.dump(" -> no callback was defined.");
@@ -652,7 +662,7 @@ it'll then set app.rq.push to mirror this function.
 		printByElementID : function(id)	{
 //				app.u.dump("BEGIN myRIA.a.printByElementID");
 			if(id && $('#'+id).length)	{
-				var html="<html><body style='font-family:sans-serif;'>";
+				var html="<html><style>@media print{.pageBreak {page-break-after:always}}</style><body style='font-family:sans-serif;'>";
 				html+= document.getElementById(id).innerHTML;
 				html+="</body></html>";
 				
@@ -717,6 +727,7 @@ it'll then set app.rq.push to mirror this function.
 //this should only be used for app errors (errors thrown from within the MVC, not as a result of an API call, in which case throwMessage should be used (handles request errors nicely)
 		throwGMessage : function(err,parentID){
 			var msg = this.errMsgObject("Well this is embarrassing. Something bad happened. Please try that again. If this error persists, please contact the site administrator.<br \/>Err: "+err+"<br \/>Dev: console may contain additional details.","#");
+			app.u.dump("FROM throwGMessage: "+err);
 			if(parentID)	{msg.parentID = parentID}
 			this.throwMessage(msg);
 //			app.u.dump(err);
@@ -800,17 +811,7 @@ and model that needed to be permanently displayed had to be converted into an ob
 			return {'errid':'#','errmsg':msg,'errtype':'success','uiIcon':'check','uiClass':'success'}
 			},
 
-		uiMsgObject : function(msg)	{
-			var obj; //what is returned.
-			if(msg.indexOf('|') == -1)	{
-				obj = {'errid':'#','errmsg':msg,'errtype':'unknown','uiIcon':'ui-icon-z-ise','uiClass':'z-hint'} //some legacy messaging is pipeless (edit order, tracking, for instance).
-				}
-			else	{
-				var eType = msg.split('|')[0].toLowerCase();
-				obj = {'errid':'#','errmsg':msg.split('|')[1],'errtype':msg.split('|')[0],'uiIcon':'z-'+eType,'uiClass':'z-'+eType}
-				}
-			return obj;
-			},
+
 
 		errMsgObject : function(msg,errid)	{
 			return {'errid':errid,'errmsg':msg,'errtype':'apperr','uiIcon':'alert','uiClass':'error'}
@@ -1399,7 +1400,7 @@ a word */
 				}
 			return r;
 			}, //makeSafeHTMLId
-//if bool === false, then no # in response. allows for this code to be used for more than just ID's (like data attributes)
+
 		jqSelector : function(selector,str){
 			if (undefined == str) { str = new String(""); }	// fix undefined issue
 			return ((selector) ? selector : '')+str.replace(/([;&,\.\+\*\~':"\!\^#$%@\[\]\(\)=>\|])/g, '\\$1');
@@ -1617,6 +1618,68 @@ later, it will handle other third party plugins as well.
 
 				return obj;
 				},
+
+
+//Removing all ID's. Using this in UI. will update checkout to use this too.
+			getSupplementalPaymentInputs2 : function(paymentID,data)	{
+//				app.u.dump("BEGIN control.u.getSupplementalPaymentInputs ["+paymentID+"]");
+//				app.u.dump(" -> data:"); app.u.dump(data);
+				var $o = $(); //what is returned. a jquery object (ul) w/ list item for each input of any supplemental data.
+				$o = $("<div />").addClass("paybySupplemental").attr('data-ui-supplemental',paymentID);
+				var safeid = ''; //used in echeck loop. recycled in loop.
+				var tmp = ''; //tmp var used to put together string of html to append to $o
+				switch(paymentID)	{
+	//for credit cards, we can't store the # or cid in local storage. Save it in memory so it is discarded on close, reload, etc
+	//expiration is less of a concern
+					case 'PAYPALEC' :
+					//paypal supplemental is used for some messaging (select another method or change due to error). leave this here.
+						break;
+					case 'CREDIT':
+						tmp += "<label>Credit Card # <input type='text' size='20' name='payment/CC' value='";
+						if(data['payment/CC']){tmp += data['payment/CC']}
+						tmp += "' onKeyPress='return app.u.numbersOnly(event);' /><\/label>";
+//two selects inside a label behaved badly, so  div is used for the container on this row.
+						tmp += "<div>Expiration <select name='payment/MM' required='required'><option><\/option>";
+						tmp += app.u.getCCExpMonths(data['payment/MM']);
+						tmp += "<\/select>";
+						tmp += "<select name='payment/YY' required='required'><option value=''><\/option>"+app.u.getCCExpYears(data['payment/YY'])+"<\/select><\/div>";
+						
+						tmp += "<label>CVV/CID <input type='text' size='8' name='payment/CV' onKeyPress='return app.u.numbersOnly(event);' value='";
+						if(data['payment/CV']){tmp += data['payment/CV']}
+						tmp += "'  required='required' /> <span class='ui-icon ui-icon-help pointer' onClick=\"$('#cvvcidHelp').dialog({'modal':true,height:400,width:550});\"></span><\/label>";
+						break;
+	
+					case 'PO':
+						tmp += "<label>PO #<input type='text' size='15' name='payment/PO' id='payment-po' class=' purchaseOrder' onChange='app.calls.cartSet.init({\"payment/PO\":this.value});' value='";
+						if(data['payment/PO'])
+								tmp += data['payment/PO'];
+						tmp += "' /><\/label>";
+						break;
+	
+					case 'ECHECK':
+						var echeckFields = {"payment/EA" : "Account #","payment/ER" : "Routing #","payment/EN" : "Account Name","payment/EB" : "Bank Name","payment/ES" : "Bank State","payment/EI" : "Check #"}
+						for(var key in echeckFields) {
+							safeid = app.u.makeSafeHTMLId(key);
+//the info below is added to the pdq but not immediately dispatched because it is low priority. this could be changed if needed.
+//The field is required in checkout. if it needs to be optional elsewhere, remove the required attribute in that code base after this has rendered.
+							tmp += "<label>"+echeckFields[key]+"<input type='text' size='15' name='"+key+"' value='";
+//if the value for this field is set in the data object (cart or invoice), set it here.
+							if(data[key])
+								tmp += data[key];
+							tmp += "' /><\/label>";
+							}
+						break;
+					default:
+//if no supplemental material is present, return false. That'll make it easy for any code executing this to know if there is additional inputs or not.
+						$o = false; //return false if there is no supplemental fields
+					}
+				if($o != false)	{$o.append(tmp)} //put the li contents into the ul for return.
+				return $o;
+//				app.u.dump(" -> $o:");
+//				app.u.dump($o);
+			},
+
+
 // This function is in the controller so that it can be kept fairly global. It's used in checkout, store_crm (buyer admin) and will likely be used in admin (orders) at some point.
 // ### NOTE! SANITY ! WHATEVER - app.ext.convertSessionToOrder.vars is referenced below. When this is removed, make sure to update checkouts to add an onChange event to update the app.ext.convertSessionToOrder.vars object because otherwise the CC number won't be in memory and possibly won't get sent as part of calls.cartOrderCreate.
 
@@ -1634,29 +1697,29 @@ later, it will handle other third party plugins as well.
 					//paypal supplemental is used for some messaging (select another method or change due to error). leave this here.
 						break;
 					case 'CREDIT':
-						tmp += "<li><label for='payment-cc'>Credit Card #<\/label><input type='text' size='20' name='payment/cc' id='payment-cc' class=' creditCard' value='";
-						if(data['payment/cc']){tmp += data['payment/cc']}
+						tmp += "<li><label for='payment-cc'>Credit Card #<\/label><input type='text' size='20' name='payment/CC' id='payment-cc' class=' creditCard' value='";
+						if(data['payment/CC']){tmp += data['payment/CC']}
 						tmp += "' onKeyPress='return app.u.numbersOnly(event);' /><\/li>";
 						
-						tmp += "<li><label>Expiration<\/label><select name='payment/mm' id='payment-mm' class='creditCardMonthExp' required='required'><option><\/option>";
-						tmp += app.u.getCCExpMonths(data['payment/mm']);
+						tmp += "<li><label>Expiration<\/label><select name='payment/MM' id='payment-mm' class='creditCardMonthExp' required='required'><option><\/option>";
+						tmp += app.u.getCCExpMonths(data['payment/MM']);
 						tmp += "<\/select>";
-						tmp += "<select name='payment/yy' id='payment-yy' class='creditCardYearExp'  required='required'><option value=''><\/option>"+app.u.getCCExpYears(data['payment/yy'])+"<\/select><\/li>";
+						tmp += "<select name='payment/YY' id='payment-yy' class='creditCardYearExp'  required='required'><option value=''><\/option>"+app.u.getCCExpYears(data['payment/YY'])+"<\/select><\/li>";
 						
-						tmp += "<li><label for='payment/cv'>CVV/CID<\/label><input type='text' size='8' name='payment/cv' id='payment-cv' class=' creditCardCVV' onKeyPress='return app.u.numbersOnly(event);' value='";
-						if(data['payment/cv']){tmp += data['payment/cv']}
+						tmp += "<li><label for='payment/CV'>CVV/CID<\/label><input type='text' size='8' name='payment/CV' id='payment-cv' class=' creditCardCVV' onKeyPress='return app.u.numbersOnly(event);' value='";
+						if(data['payment/CV']){tmp += data['payment/CV']}
 						tmp += "'  required='required' /> <span class='ui-icon ui-icon-help' onClick=\"$('#cvvcidHelp').dialog({'modal':true,height:400,width:550});\"></span><\/li>";
 						break;
 	
 					case 'PO':
-						tmp += "<li><label for='payment-po'>PO #<\/label><input type='text' size='2' name='payment/po' id='payment-po' class=' purchaseOrder' onChange='app.calls.cartSet.init({\"payment/po\":this.value});' value='";
-						if(data['payment/po'])
-								tmp += data['payment/po'];
+						tmp += "<li><label for='payment-po'>PO #<\/label><input type='text' size='2' name='payment/PO' id='payment-po' class=' purchaseOrder' onChange='app.calls.cartSet.init({\"payment/PO\":this.value});' value='";
+						if(data['payment/PO'])
+								tmp += data['payment/PO'];
 						tmp += "' /><\/li>";
 						break;
 	
 					case 'ECHECK':
-						var echeckFields = {"payment/ea" : "Account #","payment/er" : "Routing #","payment/en" : "Account Name","payment/eb" : "Bank Name","payment/es" : "Bank State","payment/ei" : "Check #"}
+						var echeckFields = {"payment/EA" : "Account #","payment/ER" : "Routing #","payment/EN" : "Account Name","payment/EB" : "Bank Name","payment/ES" : "Bank State","payment/EI" : "Check #"}
 						for(var key in echeckFields) {
 							safeid = app.u.makeSafeHTMLId(key);
 //the info below is added to the pdq but not immediately dispatched because it is low priority. this could be changed if needed.
@@ -1745,8 +1808,9 @@ Then we'll be in a better place to use data() instead of attr().
 				if(tmp.length > 0)	{
 					app.model.makeTemplate(tmp,templateID);
 					}
+				else{} //do nothing. Error will get thrown later.
 				}
-
+//			app.u.dump(" -> got past templateID");
 			if(!templateID || typeof data != 'object' || !app.templates[templateID])	{
 //product lists get rendered twice, the first time empty and always throw this error, which clutters up the console, so they're suppressed.
 				app.u.dump(" -> templateID ["+templateID+"] is not set or not an object ["+typeof app.templates[templateID]+"] or typeof data ("+typeof data+") not object.");
@@ -1766,11 +1830,16 @@ if(app.u.isSet(eleAttr) && typeof eleAttr == 'string')	{
 else if(typeof eleAttr == 'object')	{
 //	app.u.dump(' -> eleAttr is an object.');
 	for(var index in eleAttr)	{
-		$r.attr('data-'+index,eleAttr[index]) //for now, this is being added via attr data-. later, it may use data( but I want it in the DOM for now.
+		if(typeof eleAttr[index] == 'object')	{
+			//can't output an object as a string. later, if/when data() is used, this may be supported.
+			}
+		else	{
+			$r.attr('data-'+index,eleAttr[index]) //for now, this is being added via attr data-. later, it may use data( but I want it in the DOM for now.
+			} 
 		}
 	if(eleAttr.id)	{$r.attr('id',app.u.makeSafeHTMLId(eleAttr.id))} //override the id with a safe id, if set.
 	}
-
+//app.u.dump("GOT HERE");
 return this.handleTranslation($r,data);
 
 
@@ -1830,7 +1899,7 @@ most likely, this will be expanded to support setting other data- attributes. ##
 //			app.u.dump(data);
 			if(!$.isEmptyObject(data) && selector)	{
 //				app.u.dump(" -> executing handleTranslation. $(selector).length: "+$(selector).length);
-				this.handleTranslation($(selector),data)
+				this.handleTranslation(typeof selector == 'object' ? selector : $(selector),data); //selector can be a string or a jquery object.
 				}
 			else	{
 				app.u.dump("WARNING! - either selector ["+selector+"] or data [typeof: "+typeof data+"] was not set in translateSelector");
@@ -1848,37 +1917,55 @@ $r.find('[data-bind]').each(function()	{
 	var $focusTag = $(this);
 	var value;
 
-//		app.u.dump(' -> data-bind match found: '+$focusTag.data('bind'));
+//	app.u.dump(' -> data-bind match found: '+$focusTag.data('bind'));
 //proceed if data-bind has a value (not empty).
 	if(app.u.isSet($focusTag.attr('data-bind'))){
 		var bindData = app.renderFunctions.parseDataBind($focusTag.attr('data-bind'))  
 //		app.u.dump(" -> bindData.var: "+bindData['var']);
-		if(bindData['var'])	{
-			value = app.renderFunctions.getAttributeValue(bindData['var'],data);  //set value to the actual value
+
+//in some cases, it's necessary to pass the entire data object into the renderFormat. admin_orders paymentActions renderFormat is a good example. Most likely this will be used frequently in admin, in conjunction with processList renderFormat.
+		if(bindData.useParentData)	{
+			value = data; 
 			}
-		if(!app.u.isSet(value) && bindData.defaultVar)	{
-			value = app.renderFunctions.getAttributeValue(bindData['defaultVar'],data);
-//					app.u.dump(' -> used defaultVar because var had no value. new value = '+value);
+		else	{
+			if(bindData['var'])	{
+				value = app.renderFunctions.getAttributeValue(bindData['var'],data);  //set value to the actual value
+				}
+			if(!app.u.isSet(value) && bindData.defaultVar)	{
+				value = app.renderFunctions.getAttributeValue(bindData['defaultVar'],data);
+	//					app.u.dump(' -> used defaultVar because var had no value. new value = '+value);
+				}
+			if(!app.u.isSet(value) && bindData.defaultValue)	{
+				value = bindData['defaultValue']
+				app.u.dump(' -> used defaultValue ("'+bindData.defaultValue+'") because var had no value.');
+				}
 			}
-		if(!app.u.isSet(value) && bindData.defaultValue)	{
-			value = bindData['defaultValue']
-			app.u.dump(' -> used defaultValue ("'+bindData.defaultValue+'") because var had no value.');
-			}
+		
+		
 		}
 	if(bindData.hideZero == 'false') {bindData.hideZero = false} //passed as string. treat as boolean.
 // SANITY - value should be set by here. If not, likely this is a null value or isn't properly formatted.
 //	app.u.dump(" -> value: "+value);
 
 	if(Number(value) == 0 && bindData.hideZero)	{
-//		app.u.dump(" -> got to zero section");
-		app.u.dump(" -> $focusTag.data('bind'): "+$focusTag.data('bind'));
-		app.u.dump(' -> no pretext/posttext or anything else done because value = 0 and hideZero = '+bindData.hideZero);			
+//do nothing. value is zero and zero should be skipped.
 		}
-//in some cases, in the UI, we load another template that's shared, such as fileImport in admin_medialib extension
-//in this case, the original data is passed through and no format translation is done on the element itself.
+// ### NOTE - at some point, see if this code can be moved inot the render format itself so that no special handler needs to exist.
+//did a quick try on this that failed. Need to revisit this when time permits.
 	else if(bindData.loadsTemplate && bindData.format == 'loadsTemplate')	{
-//		app.u.dump("NOTICE! - doing a loads template with no translation on the element itself (no var/val set)");
-		$focusTag.append(app.renderFunctions.transmogrify({},bindData.loadsTemplate,data));
+//in some cases, especially in the UI, we load another template that's shared, such as fileImport in admin_medialib extension
+//in this case, the original data is passed through and no format translation is done on the element itself.
+// OR, if a var is specified, then only that object within the parent data is passed.
+//Examples:
+// -> admin_tasks uses loadsTemplate with NO var to recycle 'create' template for editing.
+// -> admin_orders uses a var to take advantage of 1 address template for billing and shipping. 
+		if(bindData['var'])	{
+			$focusTag.append(app.renderFunctions.transmogrify({},bindData.loadsTemplate,data[app.renderFunctions.parseDataVar(bindData['var'])]));
+			}
+		else{
+			$focusTag.append(app.renderFunctions.transmogrify({},bindData.loadsTemplate,data));
+			}
+		
 		}
 	else if(value)	{
 		if(app.u.isSet(bindData.className)){$focusTag.addClass(bindData.className)} //css class added if the field is populated. If the class should always be there, add it to the template.
@@ -1985,7 +2072,9 @@ return $r;
 					value = app.u.getObjValFromString(attributeID,data,'.') || data[attributeID]; //attempt to set value based on most common paths
 					}
 				else if(namespace == 'cart' || namespace == 'order')	{
+//					app.u.dump(v);
 					value = app.u.getObjValFromString(attributeID,data,'/') || data[attributeID]; //attempt to set value based on most common paths
+//					if(v == 'order(ship)')	{app.u.dump(" !!!!!!!!!! v = "); app.u.dump(value);}
 					}
 				else	{
 					value = app.u.getObjValFromString(attributeID,data,'.') || data[attributeID]; //attempt to set value based on most common paths
@@ -2215,7 +2304,7 @@ $tmp.empty().remove();
 			var o = '';
 			for(var key in data.value) {
 //				app.u.dump("in for loop. key = "+key);
-				o += "<div><span class='prompt'>"+data.value[key]['prompt']+"<\/span> <span class='value'>"+data.value[key]['value']+"<\/span><\/div>";
+				o += "<div><span class='prompt'>"+data.value[key]['prompt']+"<\/span>: <span class='value'>"+data.value[key].data+"<\/span><\/div>";
 				}
 			$tag.html(o);
 			},
@@ -2283,10 +2372,20 @@ $tmp.empty().remove();
 //This should be used for all lists going forward. stuffList and object2Template should be upgraded to use this.
 //everthing that's in the data lineitem gets passed as first param in transmogrify, which will add each key/value as data-key="value"
 //at this time, prodlist WON'T use this because each pid in the list needs/makes an API call.
+//data-obj_index is set so that a quick lookup is available. ex: in tasks list, there's no detail call, so need to be able to find data quickly in orig object.
+// _index is used instead of -index because of how data works (removes dashes and goes to camel case, which is nice but not consistent and potentially confusing)
+
 		processList : function($tag,data){
+//			app.u.dump("BEGIN renderFormats.processList");
 			var L = data.value.length;
+			var $o; //recycled. what gets added to $tag for each iteration.
 			for(var i = 0; i < L; i += 1)	{
-				$tag.append(app.renderFunctions.transmogrify(data.value[i],data.bindData.loadsTemplate,data.value[i]));
+//				app.u.dump(i+") reached.");
+				$o = app.renderFunctions.transmogrify(data.value[i],data.bindData.loadsTemplate,data.value[i]);
+//				app.u.dump(" ---> appended");
+				if(data.value[i].id){} //if an id was set, do nothing.
+				else	{$o.removeAttr('id').attr('data-obj_index',i)} //nuke the id. it's the template id and will be duplicated several times. set index for easy lookup later.
+				$tag.append($o);
 				}
 			$tag.removeClass('loadingBG');
 			},
