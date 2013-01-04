@@ -2304,7 +2304,13 @@ $tmp.empty().remove();
 			var o = '';
 			for(var key in data.value) {
 //				app.u.dump("in for loop. key = "+key);
-				o += "<div><span class='prompt'>"+data.value[key]['prompt']+"<\/span>: <span class='value'>"+data.value[key].data+"<\/span><\/div>";
+
+//			Replace value of "null" with something more user-friendly
+				var optionData = data.value[key].data;
+				if(optionData === null){
+					optionData = "N\/A";
+				}
+				o += "<div><span class='prompt'>"+data.value[key]['prompt']+"<\/span>: <span class='value'>"+optionData+"<\/span><\/div>";
 				}
 			$tag.html(o);
 			},

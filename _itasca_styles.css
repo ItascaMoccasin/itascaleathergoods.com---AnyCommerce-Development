@@ -1,6 +1,6 @@
 /* Itasca CSS styles */
 /* reset */
-	ul   {margin: 0; padding: 0; list-style-type: none;}
+	ul   {margin: 0; padding: 0; /*list-style-type: none;*/}
 /* wrapper styling */
 	body, html {	
 		background-image:url(./img/top-nav-back.png); background-repeat:repeat-x;
@@ -16,10 +16,10 @@
 		
 		}
 	a {
-	text-decoration: none;
+	text-decoration: underline;
 	color: #000;
 	}
-	a:hover {text-decoration: underline;}
+/*	a:hover {text-decoration: underline;} */
 
 	p {}
 	
@@ -57,11 +57,11 @@ header {position: relative;}
 	#topNav  {/*float: right; margin:8px 0;*/padding:10px 0; margin-bottom:8px;}
 	#topNav ul {float:right;}
 	#topNav li  {float: left; display: inline; color: #fff; }
-	#topNav li a {color: #fff; padding: 5px 15px; font-size: 15px; text-transform: uppercase;}
+	#topNav li a {color: #fff; padding: 5px 15px; font-size: 15px; text-transform: uppercase; text-decoration:none;}
 	
 	#midNavLinks {float: right; margin:8px 15px; clear: right; }
 	#midNavLinks li  {float: left; display: inline; padding: 0 4px;}
-	#midNavLinks li a  {}
+	#midNavLinks li a  {text-decoration:none;}
 	
 	.helpCare  {float: right; margin-top: 17px; text-transform: uppercase;font-size: 13px;}
 	
@@ -73,7 +73,7 @@ header {position: relative;}
 	
 	#mainNav    {float: right; margin:8px 0; }
 	#mainNav  li  {float: left; display: inline; font-size: 12px; text-transform: uppercase; border-right:1px solid #000}
-	#mainNav li a {display:block; padding: 0 8px;}
+	#mainNav li a {display:block; padding: 0 8px;text-decoration:none;}
 	#mainNav li.last {border-right:0;}
 	/*#mainNav  li a {font-size: 13px; text-transform: uppercase;}*/
 	
@@ -82,6 +82,7 @@ header {position: relative;}
 		width:1000px;
 		height:376px;
 	}
+	ul#wideSlideshow {list-style-type: none;}
 	.homeBanners {margin:10px 0;height:244px;}
 	.homeBanners img {float:left;margin-right:9px;}
 	.homeBanners .lastBann {margin:0;}
@@ -100,6 +101,7 @@ header {position: relative;}
 
 /* h2 { background: url("./img/header-back.jpg") no-repeat; color: #fff; padding: 10px; font-size: 16px;} */
 
+#cartStuffList {width:95%;}
 
 .checkoutButtonsContainer .checkoutButton, #addToCartBtn {border:1px solid #9c947c;background:#04b5cb url(img/ui-bg_gloss-wave_30_04b5cb_500x100.png) 50% 50% repeat-x;font-weight:bold;color:#4d3420;}
 
@@ -142,20 +144,9 @@ padding: 15px 30px 25px;
 
 .footerLinks {overflow: hidden;list-style-type: none; /*margin:20px 0 45px 22px;*/ font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;}
 .footerLinks h4 {font-size: 24px;margin-bottom:15px;}
-.footerLinks  a {color: #fff;}
+.footerLinks  a {color: #fff; text-decoration:none;}
 /*.footerLinks li {float: left;  width: 243px;}*/
 .footerLinks li li {float: none; display: block; padding-top:10px;  }
 .footerLinks li li a {font-size: 18px;}
 .footerCopy {padding-left:25px;font-size:12px;}
 .footerCopy a {color:#FFF;}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
