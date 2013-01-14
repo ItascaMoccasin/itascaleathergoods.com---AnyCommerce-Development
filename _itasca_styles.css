@@ -76,6 +76,8 @@ header {position: relative;}
 	#mainNav li a {display:block; padding: 0 8px;text-decoration:none;}
 	#mainNav li.last {border-right:0;}
 	/*#mainNav  li a {font-size: 13px; text-transform: uppercase;}*/
+	#mainNav ul.child_menu {padding-top:4px;background-color:#FFF; display:none;}
+	#mainNav .child_menu li {float:none; display:block;border-right:none;padding-left:5px;}
 	
 	#mainContentArea  {/*padding: 20px;*/} 
 	#slideshowContainer {

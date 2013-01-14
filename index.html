@@ -131,17 +131,33 @@ app.u.loadScript(app.vars.baseURL+"_itasca_init.js");
 			<!-- <div class="helpCare">need help  <img src="img/help-icon.png" alt="Help"/>  customer care: 1(855) 827-6878</div> -->
 			
 			<nav id="mainNav">
-			
 				<ul>
 					<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.new-arrivals'});">new arrivals</a></li>
 								
-					<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.moccasins'});">moccasins</a></li>
+					<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.moccasins'});">moccasins</a>
+						<ul class="child_menu">
+							<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.moccasins.women'});">Women</a></li>
+							<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.moccasins.men'});">Men</a></li>
+							<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.moccasins.children'});">Children</a></li>
+							<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.moccasins.infants'});">Infants</a></li>
+							<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.custom_moccasins'});">Custom Orders</a></li>
+						</ul>
+					</li>
 
 							
-					<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.home_goods'});">home goods</a></li>
+					<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.home_goods'});">home goods</a>
+						<ul class="child_menu">
+							<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.home_goods.placemats'});">Placemats</a></li>
+							<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.home_goods.coasters'});">Coasters</a></li>
+						</ul>
+					</li>
 
 								
-					<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.electronics-cases'});">electronic cases</a></li>
+					<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.electronics-cases'});">electronic cases</a>
+						<ul class="child_menu">
+							<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.electronics-cases.ipad'});">iPad</a></li>
+						</ul>
+					</li>
 								
 					<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.totes-bags'});">totes/bags</a></li>
 								
@@ -151,6 +167,7 @@ app.u.loadScript(app.vars.baseURL+"_itasca_init.js");
 							
 					<li class="last"><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.custom_moccasins'});">custom orders</a></li>
 				</ul>
+				
 				<span class="clearBoth">&nbsp;</span>
 			
 			</nav>
