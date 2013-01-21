@@ -76,8 +76,16 @@ header {position: relative;}
 	#mainNav li a {display:block; padding: 0 8px;text-decoration:none;}
 	#mainNav li.last {border-right:0;}
 	/*#mainNav  li a {font-size: 13px; text-transform: uppercase;}*/
-	#mainNav ul.child_menu {padding-top:4px;background-color:#FFF; display:none;}
-	#mainNav .child_menu li {float:none; display:block;border-right:none;padding-left:5px;}
+	#mainNav ul.child_menu {padding-top:4px;background-color:#FFF; display:none;z-index:10001;float:left;position:absolute;    box-shadow:0 4px 3px 0 #999999;
+    -moz-box-shadow:0 4px 3px 0 #999999;
+    -ms-box-shadow:0 4px 3px 0 #999999;
+    -o-box-shadow:0 4px 3px 0 #999999;
+    -webkit-box-shadow:0 4px 3px 0 #999999;
+    -khtml-box-shadow:0 4px 3px 0 #999999;
+	min-width:120px;}
+	#mainNav .child_menu li {float:none; display:block;border-right:none;padding:3px 3px 3px 5px;}
+	#mainNav .child_menu a:hover {background-color:#04B5CB; color:#FFFFFF;}
+	#mainNav ul li:hover ul.child_menu {display:block !important;}
 	
 	#mainContentArea  {/*padding: 20px;*/} 
 	#slideshowContainer {
