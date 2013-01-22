@@ -124,6 +124,12 @@ hr.hr {
 }
 
 #content {clear:both;}
+#mainContentArea ul {
+	padding: 0 0 0 30px;
+}
+#mainContentArea ul li {
+	padding: 3px 0;
+}
 footer  { margin: 10px 0 20px;background: url("./img/footer-back-2.jpg") no-repeat; color: #fff; width: 1000px; height: 326px;clear:both;}
 .signUp {
 width:272px;
