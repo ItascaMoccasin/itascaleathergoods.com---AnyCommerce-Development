@@ -61,6 +61,13 @@ app.rq.push(['templateFunction','homepageTemplate','onDeparts',function(P) {app.
 app.rq.push(['script',0,(document.location.protocol == 'https:' ? 'https:' : 'http:')+'//ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/jquery-ui.js']);
 app.rq.push(['script',0,(document.location.protocol == 'https:' ? 'https:' : 'http:')+'//cloud.github.com/downloads/malsup/cycle/jquery.cycle.all.latest.js']);
 
+
+
+app.vars.catTemplates = {
+	"*.new-arrivals" : "newArrvTemplate"
+};
+
+
 /*
 This function is overwritten once the controller is instantiated. 
 Having a placeholder allows us to always reference the same messaging function, but not impede load time with a bulky error function.

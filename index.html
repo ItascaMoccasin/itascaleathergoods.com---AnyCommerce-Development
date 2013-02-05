@@ -132,7 +132,7 @@ app.u.loadScript(app.vars.baseURL+"_itasca_init.js");
 			
 			<nav id="mainNav">
 				<ul>
-					<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.new-arrivals'});">new arrivals</a></li>
+					<li><a href='#top' onClick="return showContent('category',{'navcat':'.new-arrivals'});">new arrivals</a></li>
 								
 					<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.moccasins'});">moccasins</a>
 						<ul class="child_menu">
@@ -273,6 +273,25 @@ app.u.loadScript(app.vars.baseURL+"_itasca_init.js");
 
 <div id='appTemplates' class='displayNone'>
 
+<!--
+#################
+CUSTOM TEMPLATES
+#################
+-->
+
+<!--
+Custom New Arrivals page to load specific data-bind.
+Based off categoryTemplate code.
+-->
+<div id='newArrvTemplate' class='loadingBG categoryTemplate'>
+
+	<ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(id); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
+
+	
+	<ul id='newArrvList' data-bind='var: elastic-native({"size":"8","mode":"elastic-native","filter":{"term":{"tags":"IS_NEWARRIVAL"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults; before:<h2>New Arrivals</h2>;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+
+		
+</div>
 
 <!--
 
