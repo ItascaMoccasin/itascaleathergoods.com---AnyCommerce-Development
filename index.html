@@ -288,7 +288,7 @@ Based off categoryTemplate code.
 	<ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(id); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
 
 	
-	<ul id='newArrvList' data-bind='var: elastic-native({"size":"8","mode":"elastic-native","filter":{"term":{"tags":"IS_NEWARRIVAL"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults; before:<h2>New Arrivals</h2>;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+	<ul id='newArrvList' data-bind='var: elastic-native({"size":"10","mode":"elastic-native","filter":{"term":{"tags":"IS_NEWARRIVAL"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults; before:<h2>New Arrivals</h2>;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
 
 		
 </div>
