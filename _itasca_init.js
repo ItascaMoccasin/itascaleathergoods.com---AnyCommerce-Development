@@ -59,7 +59,7 @@ app.rq.push(['templateFunction','homepageTemplate','onDeparts',function(P) {app.
 
 //group any third party files together (regardless of pass) to make troubleshooting easier.
 app.rq.push(['script',0,(document.location.protocol == 'https:' ? 'https:' : 'http:')+'//ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/jquery-ui.js']);
-app.rq.push(['script',0,(document.location.protocol == 'https:' ? 'https:' : 'http:')+'//cloud.github.com/downloads/malsup/cycle/jquery.cycle.all.latest.js']);
+app.rq.push(['script',1,app.vars.baseURL+'cycle-2.9999.81.js']);
 
 
 
