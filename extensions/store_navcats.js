@@ -351,8 +351,9 @@ templateID - the template id used (from app.templates)
 							}
 						for(var i = 0; i < L; i += 1)	{
 							if(data.value[i].pretty[0] != '!')	{
-								$tag.append(app.renderFunctions.createTemplateInstance(data.bindData.loadsTemplate,{'id':data.value[i].id,'catsafeid':data.value[i].id}));
-								numRequests += app.ext.store_navcats.calls[call].init(data.value[i].id,{'parentID':data.value[i].id,'callback':'translateTemplate'});
+								var parentID = data.value[i].id+"_catgid+"+(app.u.guidGenerator().substring(10));
+								$tag.append(app.renderFunctions.createTemplateInstance(data.bindData.loadsTemplate,{'id':parentID,'catsafeid':data.value[i].id}));
+								numRequests += app.ext.store_navcats.calls[call].init(data.value[i].id,{'parentID':parentID,'callback':'translateTemplate'});
 								}
 							}
 						if(numRequests)	{app.model.dispatchThis()}
@@ -360,8 +361,9 @@ templateID - the template id used (from app.templates)
 //if no detail level is specified, only what is in the actual value (typically, id, pretty and @products) will be available. Considerably less data, but no request per category.
 					else	{
 						for(var i = 0; i < L; i += 1)	{
+							var parentID = data.value[i].id+"_catgid+"+(app.u.guidGenerator().substring(10));
 							if(data.value[i].pretty[0] != '!')	{
-								$tag.append(app.renderFunctions.transmogrify({'id':data.value[i].id,'catsafeid':data.value[i].id},data.bindData.loadsTemplate,data.value[i]));
+								$tag.append(app.renderFunctions.transmogrify({'id':parentID,'catsafeid':data.value[i].id},data.bindData.loadsTemplate,data.value[i]));
 								}
 							}
 						}
@@ -411,18 +413,27 @@ if(app.u.isSet(data.value))	{
 //	if(!app.data['appCategoryDetail|.'] || !app.data['appCategoryDetail|.'].pretty)	{
 //		app.data['appCategoryDetail|.'].pretty = 'Home';
 //		}
-	
-	$tag.append(app.renderFunctions.transmogrify({'id':'.','catsafeid':'.'},data.bindData.loadsTemplate,app.data['appCategoryDetail|.']));
+
+//Creates var for tracking whether root has been met.
+	var reachedRoot = false;
 // homepage has already been rendered. if path == ., likely we r on a product page, arriving from homepage. don't show bc.
 	if(data.value == '.'){}
 	else	{
-		for(var i = 1; i < L; i += 1)	{
+		for(var i = 0; i < L; i += 1)	{
 			s += pathArray[i];
-		//	app.u.dump(" -> "+i+" s(path): "+s);
-			$tag.append(app.renderFunctions.transmogrify({'id':'.','catsafeid':s},data.bindData.loadsTemplate,app.data['appCategoryDetail|'+s]));
-			s += '.';
+			
+//Checks the rootcat to ensure we don't add extra categories above our root to the breadcrumb.  Once reachedRoot is triggered, add all categories below the root.
+			if(!reachedRoot) {
+				reachedRoot = (zGlobals.appSettings.rootcat === s);
 			}
+			if(reachedRoot) {
+			//	app.u.dump(" -> "+i+" s(path): "+s);
+				$tag.append(app.renderFunctions.transmogrify({'id':'.','catsafeid':s},data.bindData.loadsTemplate,app.data['appCategoryDetail|'+s]));
+			}
+			if(i!=0)
+			s += '.';
 		}
+	}
 	
 
 	
