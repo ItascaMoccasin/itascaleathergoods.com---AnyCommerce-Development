@@ -21,7 +21,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"201302201812",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"201302211234",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"",
 	"httpsURL":"https://ssl.zoovy.com/s=www.4c07ac9.crackle.zoovy.net/",
@@ -436,9 +436,9 @@ container ul should have lineItemProdlist class on it instead of productList
 		<h5 data-bind='var: product(zoovy:prod_name); format:text;'></h5>
 	
 		<h6 data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; className:price; pretext: Our Price: ;'></h6>
-		
+		<!-- CLIENT DOES NOT HAVE REVIEW FUNCTIONALITY
 		<span data-bind='var: reviews(reviews.average); format:addClass; className:review_;' class='reviewSprite'></span>
-
+		-->
 		<form data-bind='var: product(pid); format:atcForm; extension:store_product;' class='prodListAddToCartForm marginBottom clearfix' id='accessoriesAddToCartFrm' action='#' onSubmit="app.ext.myRIA.u.handleAddToCart(this.id,{'action':'modal'}); return false;">
 		
 			<fieldset data-bind='var: product(pid); format:atcVariations; extension:store_product;' class='borderNone'></fieldset>
@@ -482,8 +482,9 @@ container ul should have lineItemProdlist class on it instead of productList
 				</div>
 			</div>
 		</div>
+		<!-- HIDING FOR CRM ERROR
 		<span data-bind='var: reviews(reviews.average); format:addClass; className:review_;' class='reviewSprite floatRight' ></span>
-
+		-->
 		<h5 data-bind='var: product(zoovy:prod_name); format:text;'></h5>
 	
 		<h6 data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; className:price; pretext: Our Price: ;'></h6>
@@ -637,9 +638,9 @@ the tabs are built in an onComplete.  ID's are added based on sku AND index, so 
 or the tab clicked won't open the right content.
 It's done this way because ID's hard coded into template are bad mojo (templates are recycled) and because using data-binds to add id's caused some serious issues
 -->
-<div class='prodTabs tabbedProductContent'>
+<div class='prodTabs tabbedProductContent ui-widget-content'>
 
-	<ul class='tabs'>
+	<ul class='tabs ui-widget-header'>
 		<li class='prodDescTab'><a href="#prodDesc" data-bind="var:product(pid);format:assignAttribute; attribute:href; valuePretext:#prodDesc_;">Description</a></li>
 		<li class='prodDetailTab displayNone' data-bind='var: product(zoovy:prod_detail); format:showIfSet;'><a href="#prodDetail" data-bind="var:product(pid);format:assignAttribute; attribute:href; valuePretext:#prodDetail_;">Specs</a></li>
 		<li class='prodFeaturesTab displayNone' data-bind='var: product(zoovy:prod_features); format:showIfSet;'><a href="#prodFeatures" data-bind="var:product(pid);format:assignAttribute; attribute:href; valuePretext:#prodFeatures_;">Features</a></li>
@@ -648,26 +649,26 @@ It's done this way because ID's hard coded into template are bad mojo (templates
 		<li class='prodAccessoriesTab displayNone' data-bind='var: product(zoovy:accessory_products); format:showIfSet;'><a href="#prodlistAccessoriesContainer" data-bind="var:product(pid);format:assignAttribute; attribute:href; valuePretext:#prodAccessories_;">Accessories</a></li>
 	</ul>
 
-	<div data-bind="var:product(pid);format:assignAttribute; attribute:id; valuePretext:prodDesc_;">
+	<div data-bind="var:product(pid);format:assignAttribute; attribute:id; valuePretext:prodDesc_;" class="tabContent">
 		<div data-bind='var: product(zoovy:prod_desc); format:wiki; wikiFormats:myRIA;'></div>
 	</div>
 
-	<div data-bind="var:product(pid);format:assignAttribute; attribute:id; valuePretext:prodDetail_;">
+	<div data-bind="var:product(pid);format:assignAttribute; attribute:id; valuePretext:prodDetail_;" class="tabContent">
 		<div data-bind='var: product(zoovy:prod_detail); format:wiki; wikiFormats:myRIA;'></div>
 	</div>
 
-	<div data-bind="var:product(pid);format:assignAttribute; attribute:id; valuePretext:prodFeatures_;">
+	<div data-bind="var:product(pid);format:assignAttribute; attribute:id; valuePretext:prodFeatures_;" class="tabContent">
 		<div data-bind='var: product(zoovy:prod_features); format:wiki; wikiFormats:myRIA;'></div>
 	</div>
 
 
-	<div data-bind="var:product(pid);format:assignAttribute; attribute:id; valuePretext:prodVideo_;">
+	<div data-bind="var:product(pid);format:assignAttribute; attribute:id; valuePretext:prodVideo_;" class="tabContent">
 		<div id="prodVideo" data-bind='var: product(youtube:videoid); format:youtubeVideo;'></div>
 	</div>
 
 	
 <!-- REMOVED BECAUSE ABSENT REVIEW FUNCTIONALITY IN ACCOUNT TRIGGERS ERRORS 	
-	<div data-bind="var:product(pid);format:assignAttribute; attribute:id; valuePretext:prodReviews_;">
+	<div data-bind="var:product(pid);format:assignAttribute; attribute:id; valuePretext:prodReviews_;" class="tabContent">
 		
 		<div class='clearfix alignRight'>
 			<button class='ui-button-text ui-button ui-state-default ui-corner-all' onClick='app.ext.store_crm.u.showReviewFrmInModal({"pid":$(this).attr("data-pid"),"templateID":"reviewFrmTemplate"});' data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>Write Review</button>
@@ -677,7 +678,7 @@ It's done this way because ID's hard coded into template are bad mojo (templates
 	</div>
 -->	
 	
-	<div  data-bind="var:product(pid);format:assignAttribute; attribute:id; valuePretext:prodAccessories_;">
+	<div  data-bind="var:product(pid);format:assignAttribute; attribute:id; valuePretext:prodAccessories_;" class="tabContent">
 	<!--
 		<ul class='listStyleNone fluidList clearfix noPadOrMargin lineItemProdlist' data-bind="var: product(zoovy:accessory_products); format:productList; extension:store_prodlist;loadsTemplate:productListTemplateATC;hide_pagination:true;hide_summary:true; withReviews:1; withInventory:1; withVariations:1;"></ul>
 	-->
