@@ -1,0 +1,3 @@
+02/21/2013
+
+- Commented out line 1990 in quickstart.js to address error being thrown by absence of CRM module in client account.
