@@ -1,3 +1,7 @@
 02/21/2013
 
 - Commented out line 1990 in quickstart.js to address error being thrown by absence of CRM module in client account.
+
+02/15/2013
+
+- added lines 30-31, 2363-2365, modified line 2697 in quickstart.js to support custom category template for new arrivals
