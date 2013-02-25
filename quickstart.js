@@ -2222,7 +2222,7 @@ effects the display of the nav buttons only. should be run just after the handle
 					}
 				else	{
 					}
-//					app.u.dump(P);
+					app.u.dump(P);
 				return P;
 			}, //parseAnchor
 			
@@ -2233,7 +2233,7 @@ effects the display of the nav buttons only. should be run just after the handle
 //				app.u.dump("BEGIN bindNav ("+selector+")");
 				$(selector).each(function(){
 					var $this = $(this);
-//					app.u.dump($this.attr('href'));
+					app.u.dump($this.attr('href'));
 					var P = app.ext.myRIA.u.parseAnchor($this.attr('href'));
 					if(P.pageType == 'category' && P.navcat && P.navcat != '.'){
 //for bindnavs, get info to have handy. add to passive Q and It'll get dispatched by a setInterval.
