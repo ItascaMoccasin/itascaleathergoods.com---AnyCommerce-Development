@@ -1,3 +1,7 @@
+03/11/2013
+- Added lines 68-71 to _itasca_init.js for custom new arrivals page
+- Added lines 156-159 to _itasca_init.js for homepage slideshow
+
 02/21/2013
 
 - Commented out line 1990 in quickstart.js to address error being thrown by absence of CRM module in client account.
