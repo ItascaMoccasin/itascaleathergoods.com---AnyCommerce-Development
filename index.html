@@ -26,7 +26,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130311154200",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130311154600",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"",
 	"httpsURL":"https://www-4c07ac9-crackle-zoovy-net.app-hosted.com/",
@@ -325,13 +325,13 @@ COMMONLY EDITED TEMPLATES
 the homepageTemplate template is loaded into mainContentArea by default when the application loads
 -->
 <div id='homepageTemplate' class='homeTemplate'>
-	
+
 	<div id="slideshowContainer" class='clearfix'>
 		<div id="slideshowNav"></div>
 		<ul id="wideSlideshow" class="pics slideshow">
-			<li><a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'term':{'keywords':'holiday'}}}});"><img src='img/Womens_Bronze_Holiday_Cota_Moss.jpg' width='1000' height='376' /></a></li>
+			<li><a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'holiday'}}}});"><img src='img/Womens_Bronze_Holiday_Cota_Moss.jpg' width='1000' height='376' /></a></li>
 			<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.moccasins.women'});"><img src='img/Moc_Row.jpg' width='1000' height='376' /></a></li>
-			<li><a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'term':{'keywords':'slippers'}}}});"><img src='img/Womens_Lined_Cota_Moss.jpg' width='1000' height='376' /></a></li>
+			<li><a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'slippers'}}}});"><img src='img/Womens_Lined_Cota_Moss.jpg' width='1000' height='376' /></a></li>
 		</ul>
 	</div>
 
