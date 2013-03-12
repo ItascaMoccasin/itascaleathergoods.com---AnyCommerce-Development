@@ -26,7 +26,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130312143700",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130312145100",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"",
 	"httpsURL":"https://www-4c07ac9-crackle-zoovy-net.app-hosted.com/",
@@ -288,28 +288,6 @@ app.u.loadScript(app.vars.baseURL+"_itasca_init.js");
 
 <div id='appTemplates' class='displayNone'>
 
-<!--
-#################
-CUSTOM TEMPLATES
-#################
--->
-
-<!--
-Custom New Arrivals page to load specific data-bind.
-Based off categoryTemplate code.
--->
-<div id='newArrvTemplate' class='loadingBG categoryTemplate'>
-
-	<ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(id); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
-<!-- WE KNOW THIS WORKS; STASHING IT WHILE TESTING VERS W/O SIZE
-	
-	<ul id='newArrvList' data-bind='var: elastic-native({"size":"10","mode":"elastic-native","filter":{"term":{"tags":"IS_NEWARRIVAL"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults; items_per_page: 25; before:<h2>New Arrivals</h2>;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
--->
-	<ul id='newArrvList' data-bind='var: elastic-native({"mode":"elastic-native","filter":{"term":{"tags":"IS_NEWARRIVAL"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults; items_per_page: 25; before:<h2>New Arrivals</h2>;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
-	
-	<a href="#" onClick="return showContent('search',{'elasticsearch':{'query':{'term':{'tags':'IS_NEWARRIVAL'}}}});">See all New Arrivals</a>
-		
-</div>
 
 <!--
 

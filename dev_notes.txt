@@ -1,3 +1,8 @@
+3/12
+- Removed code for custom new arrivals page from index.html, _itasca_init.js, _itasca_quickstart.js.
+- Removed _itasca_quickstart.js
+- Made search preview product name onClick a link instead of a span, removed no_underline class from table cell so name is underlined.
+
 03/11/2013
 - Added lines 68-71 to _itasca_init.js for custom new arrivals page
 - Added lines 156-159 to _itasca_init.js for homepage slideshow

@@ -19,7 +19,7 @@ app.rq.push(['extension',0,'store_search','extensions/store_search.js']);
 app.rq.push(['extension',0,'store_product','extensions/store_product.js']);
 app.rq.push(['extension',0,'store_cart','extensions/store_cart.js']);
 app.rq.push(['extension',0,'store_crm','extensions/store_crm.js']);
-app.rq.push(['extension',0,'myRIA','_itasca_quickstart.js','startMyProgram']);
+app.rq.push(['extension',0,'myRIA','quickstart.js','startMyProgram']);
 
 //app.rq.push(['extension',1,'google_analytics','extensions/partner_google_analytics.js','startExtension']);
 //app.rq.push(['extension',0,'partner_addthis','extensions/partner_addthis.js','startExtension']);
@@ -65,10 +65,6 @@ app.rq.push(['templateFunction','homepageTemplate','onDeparts',function(P) {app.
 app.rq.push(['script',0,(document.location.protocol == 'https:' ? 'https:' : 'http:')+'//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js']);
 app.rq.push(['script',0,app.vars.baseURL+'jquery.cycle.all.js']);
 
-//mapping "new arrivals" category to custom template
-app.vars.catTemplates = {
-	"*.new-arrivals" : "newArrvTemplate"
-};
 
 /*
 This function is overwritten once the controller is instantiated. 
