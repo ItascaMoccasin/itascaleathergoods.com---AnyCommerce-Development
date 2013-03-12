@@ -26,7 +26,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130311154600",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130311181900",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"",
 	"httpsURL":"https://www-4c07ac9-crackle-zoovy-net.app-hosted.com/",
@@ -140,7 +140,7 @@ app.u.loadScript(app.vars.baseURL+"_itasca_init.js");
 			
 			<nav id="mainNav">
 				<ul>
-					<li><a href='#top' onClick="return showContent('category',{'navcat':'.new-arrivals'});">new arrivals</a></li>
+					<li><a href='#top' onClick="return showContent('search',{'elasticsearch':{'query':{'term':{'tags':'IS_NEWARRIVAL'}}}});">new arrivals</a></li>
 								
 					<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.moccasins'});">moccasins</a>
 						<ul class="child_menu">
@@ -306,6 +306,8 @@ Based off categoryTemplate code.
 	<ul id='newArrvList' data-bind='var: elastic-native({"size":"10","mode":"elastic-native","filter":{"term":{"tags":"IS_NEWARRIVAL"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults; items_per_page: 25; before:<h2>New Arrivals</h2>;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
 -->
 	<ul id='newArrvList' data-bind='var: elastic-native({"mode":"elastic-native","filter":{"term":{"tags":"IS_NEWARRIVAL"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults; items_per_page: 25; before:<h2>New Arrivals</h2>;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+	
+	<a href="#" onClick="return showContent('search',{'elasticsearch':{'query':{'term':{'tags':'IS_NEWARRIVAL'}}}});">See all New Arrivals</a>
 		
 </div>
 
@@ -742,7 +744,7 @@ It's done this way because ID's hard coded into template are bad mojo (templates
 	</td>
 
 	<td class='prodSummaryContainer marginBottom no_underline'>
-	<h1 data-bind='var: product(zoovy:prod_name); format:text;'></h1>
+	<span data-bind="var:product(pid);format:assignAttribute; attribute:data-pid;" onclick="showContent('product',{'pid':$(this).attr('data-pid')})"><h1 data-bind='var: product(zoovy:prod_name); format:text;'></h1></span>
 	<h6 class='ztable_row_small stid' data-bind='var: product(pid); format:text; className: stid; pretext: Sku#: ;'></h6>
 
 
@@ -763,6 +765,7 @@ It's done this way because ID's hard coded into template are bad mojo (templates
 	</section>
 
 	<div id="prodDesc" data-bind='var: product(zoovy:prod_desc); format:wiki; wikiFormats:myRIA;'></div>
+	<a href="#" data-bind="var:product(pid);format:assignAttribute; attribute:data-pid;" onclick="showContent('product',{'pid':$(this).attr('data-pid')})">More Details</a>
 
 	</td>
 </tr>

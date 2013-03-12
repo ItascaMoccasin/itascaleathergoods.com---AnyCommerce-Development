@@ -2,6 +2,7 @@
 - Added lines 68-71 to _itasca_init.js for custom new arrivals page
 - Added lines 156-159 to _itasca_init.js for homepage slideshow
 - Commented out line 472 from extensions/checkout_active/templates.html to hide review button in order history, since account doesn't have review functionality
+- Added onClicks to lines 747 and 768 of index.html (productTemplateQuickView) so users can get to product page from search result preview
 
 02/21/2013
 
