@@ -1169,7 +1169,7 @@ else	{
 
 					
 //button for turning off preview mode. returns li's to normal state and animates the two 'panes'.
-					$("<button \/>").button().text('close preview').on('click',function(event){
+					$("<button \/>").button().text('Close Preview').on('click',function(event){
 						app.ext.myRIA.u.revertPageFromPreviewMode($parent);
 						}).prependTo($buttonBar);
 
@@ -2146,7 +2146,7 @@ effects the display of the nav buttons only. should be run just after the handle
 							app.ext.store_navcats.u.addQueries4BreadcrumbToQ(app.ext.myRIA.vars.session.recentCategories[0])
 							}
 
-						app.ext.store_product.calls.appReviewsList.init(pid);  //store_product... appProductGet DOES get reviews. store_navcats...getProd does not.
+//						app.ext.store_product.calls.appReviewsList.init(pid);  //store_product... appProductGet DOES get reviews. store_navcats...getProd does not.
 						app.ext.store_product.calls.appProductGet.init(pid,{'callback':'showProd','extension':'myRIA','parentID':parentID,'templateID':'productTemplate'});
 						app.model.dispatchThis();
 						}
