@@ -26,7 +26,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130314150600",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130314134000",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
 	"testURL":"http://www.4c07ac9.crackle.zoovy.net/" //used ONLY if protocol is file: (for testing)
@@ -66,10 +66,17 @@ app.u.loadScript(app.vars.baseURL+"_itasca_app-quickstart-init.js");
 </head>
 
 <body>
+<!-- DELETE THIS WHEN YOU GET STARTED -->
+<h1>WELCOME TO QUICKSTART</h1>
+This file is intended to go along with the 10-step tutorial at:
+<a href="https://github.com/zoovy/AnyCommerce-Development/wiki/quickstart">https://github.com/zoovy/AnyCommerce-Development/wiki/quickstart</a>
+<!-- /DELETE THIS WHEN YOU GET STARTED -->
+
+
+
 
 <!-- what is displayed onLoad until the view is loaded -->
 <div id='appPreView'>
-<div id='previewWrap'>
 <table>
 <tr>
 	<td><img src="img/Itasca_logo.png" width="183" height="126" alt="Itasca Leathergoods" /></td>
@@ -91,13 +98,11 @@ app.u.loadScript(app.vars.baseURL+"_itasca_app-quickstart-init.js");
 </tr>
 </table>
 </div>
-</div>
 
 
 
 <div id='appView' class='displayNone'>
 
-<!-- VIEW CONTENT -->
 <div id="wrapper">
 	<header>	
 		<div id="topNav">
@@ -306,22 +311,25 @@ the homepageTemplate template is loaded into mainContentArea by default when the
 -->
 <div id='homepageTemplate' class='homeTemplate'>
 	
-	<div id="slideshowContainer" class='clearfix'>
-		<div id="slideshowNav"></div>
 
-		<ul id="wideSlideshow" class="pics slideshow">
-			<li><a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'holiday'}}}});"><img src='img/Womens_Bronze_Holiday_Cota_Moss.jpg' width='1000' height='376' /></a></li>
-			<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.moccasins.women'});"><img src='img/Moc_Row.jpg' width='1000' height='376' /></a></li>
-			<li><a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'slippers'}}}});"><img src='img/Womens_Lined_Cota_Moss.jpg' width='1000' height='376' /></a></li>
+<ul id="wideSlideshow" class="pics slideshow">
+		<img src='images/blank.gif' width='712' height='400' data-bind="var: category(%page.banner_slideshow1); format: banner; extension:myRIA; editor:banner; wrap:<li>;" />
+	</ul>
+	
+	<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul>
 
-		</ul>
-	</div>
+	<ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; hide_summary:1; before:<h2>Featured Items</h2>; withReviews:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+	<p data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
 
-	<div class="homeBanners">
-		<img src="img/homeBann1.jpg" width="327" height="244" alt="Moccasins" />
-		<img src="img/homeBann2.jpg" width="327" height="244" alt="Moccasins" />
-		<img src="img/homeBann3.jpg" width="327" height="244" alt="Moccasins" class="lastBann"/>
-	</div>
+<!-- a sample of how to format an elastic native search in a data-bind -->
+	<ul id='homeProdSearchBestSellers' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_BESTSELLER"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResultsNoPreview; before:<h2>Best Sellers</h2>;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+
+	<a href="#" onClick="return showContent('search',{'TAG':'IS_BESTSELLER'});">See all Best Sellers</a>
+
+<!-- a sample of how to get a 'list' src onto the page. -->
+	<ul data-bind="var: list($models.@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 25;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+
+
 </div>
 
 
@@ -346,16 +354,13 @@ don't modify the 'data-templateid' unless you are changing template names and up
 
 	<h2 data-bind="var: category(%page.header); format: text; editor: text;"></h2>
 
-	<p data-bind="var: category(%page.description); format:text; editor: text;"></p>
+	<p data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
 
 	<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul><!-- outputs a list of subcategories -->
 
 	<ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 25;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul><!-- outputs the product list -->
-	<!-- Original productList call w/reviews
-	<ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; items_per_page: 25;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
-	-->
 
-	<p data-bind="var: category(%page.description2); format:text; editor: text;"></p>
+	<p data-bind="var: category(%page.description2); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
 
 
 </div>
@@ -620,17 +625,14 @@ this will likely become more flexible in the future. ###
 
 	<div data-bind='var:product(zoovy:qty_price);format:quantityDiscounts; extension:store_product; pretext:Quantity Discounts:; className:marginBottom;'></div>
 
-<!-- HIDING FOR CRM ERROR
 	<section class='marginBottom'>
 		<span data-bind='var: reviews(reviews.average); format:addClass; className:review_;' class='reviewSprite'></span>
 		<span data-bind='var: reviews(reviews.total); format:text;posttext: from ;posttext: reviews; className:numReviews;'></span>
 	</section>
--->
 
 	<menu data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='CRMButtonMenu'>
-<!-- REVIEWS NOT AVAILABLE
+
 	<a href='#' onClick='app.ext.store_crm.u.showReviewFrmInModal({"pid":$(this).parent().attr("data-pid"),"templateID":"reviewFrmTemplate"}); return false;'>Write Review</a>	|
--->
 
 	<a href='#' onClick="app.ext.myRIA.a.add2BuyerList({sku:$(this).parent().attr('data-pid'),'listid':'wishlist'}); return false;">Add to Wishlist</a>
 
@@ -652,7 +654,7 @@ It's done this way because ID's hard coded into template are bad mojo (templates
 		<li class='prodDescTab'><a href='#prodDesc'>Description</a></li>
 		<li class='prodDetailTab displayNone' data-bind='var: product(zoovy:prod_detail); format:showIfSet;'><a href='#prodSpecs'>Specs</a></li>
 		<li class='prodFeaturesTab displayNone' data-bind='var: product(zoovy:prod_features); format:showIfSet;'><a href='#prodFeatures'>Features</a></li>
-	<!--	<li class='prodReviewsTab'><a href='#prodReviews'>Reviews</a></li> -->
+		<li class='prodReviewsTab'><a href='#prodReviews'>Reviews</a></li>
 		<li class='prodVideoTab displayNone' data-bind='var: product(youtube:videoid); format:showIfSet;'><a href='#prodVideo'>Video</a></li>
 		<li class='prodAccessoriesTab displayNone' data-bind='var: product(zoovy:accessory_products); format:showIfSet;'><a href='#prodAccessories'>Accessories</a></li>
 	</ul>
@@ -669,7 +671,7 @@ It's done this way because ID's hard coded into template are bad mojo (templates
 		<div data-bind='var: product(zoovy:prod_features); format:wiki; wikiFormats:myRIA;'></div>
 	</div>
 
-	<!-- HIDING FOR CRM ERRORS
+
 	<div  class='tabContent' data-anytab-content='prodReviews'>
 
 		<div class='clearfix alignRight'>
@@ -679,7 +681,6 @@ It's done this way because ID's hard coded into template are bad mojo (templates
 		<ul class='listStyleNone clearfix productReviewsList' id='prodViewerReviews' data-bind="var: reviews(reviews.@reviews); format:processList; loadsTemplate:productReviewsTemplateDetail;"></ul>
 
 	</div>
-	-->
 
 	<div class='tabContent' data-anytab-content='prodVideo'>
 		<div id="prodVideo" data-bind='var: product(youtube:videoid); format:youtubeVideo;'></div>
@@ -723,9 +724,7 @@ It's done this way because ID's hard coded into template are bad mojo (templates
 	</td>
 
 	<td class='prodSummaryContainer marginBottom no_underline'>
-	<span data-bind="var:product(pid);format:assignAttribute; attribute:data-pid;" onclick="showContent('product',{'pid':$(this).attr('data-pid')})">
-	<h1 data-bind='var: product(zoovy:prod_name); format:text;' style="text-decoration:underline;" class="pointer"></h1>
-	</span>
+	<h1 data-bind='var: product(zoovy:prod_name); format:text;'></h1>
 	<h6 class='ztable_row_small stid' data-bind='var: product(pid); format:text; className: stid; pretext: Sku#: ;'></h6>
 
 
@@ -739,14 +738,13 @@ It's done this way because ID's hard coded into template are bad mojo (templates
 	</div>
 
 	<div data-bind='var: product(zoovy:ship_latency); format:text;pretext:Normally ships in ;posttext: day(s);' class='latency'></div>
-<!--
+
 	<section id='prodViewerReviewSummary' class='marginBottom'>
 		<span data-bind='var: reviews(reviews.average); format:addClass; className:review_;' class='reviewSprite'></span>
 		<span data-bind='var: reviews(reviews.total); format:text;posttext: from ;posttext: reviews; className:numReviews;'></span>
 	</section>
--->
+
 	<div id="prodDesc" data-bind='var: product(zoovy:prod_desc); format:wiki; wikiFormats:myRIA;'></div>
-	<span data-bind="var:product(pid);format:assignAttribute; attribute:data-pid;" onclick="showContent('product',{'pid':$(this).attr('data-pid')})" style="text-decoration:underline;" class="pointer">More Details</span>
 
 	</td>
 </tr>
