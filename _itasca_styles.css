@@ -113,6 +113,15 @@ header {position: relative;}
 	}
 	.slideMe li {border:none; box-shadow:none;padding:0; -moz-box-shadow:none;-webkit-box-shadow:none;}
 	.sideline a {padding:5px 10px;}
+	.resultsMenuContainer li {
+		height:auto;
+		border:none;
+		box-shadow:none;
+		float:none;
+	}
+	.resultsMenuContainer ul li ul {
+		width:4em;
+	}
 
 /* h2 { background: url("./img/header-back.jpg") no-repeat; color: #fff; padding: 10px; font-size: 16px;} */
 
