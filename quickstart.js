@@ -2336,7 +2336,7 @@ elasticsearch.size = 50;
 							var $invoice = $("<article />").attr('id','orderInvoiceSoloPage');
 							$invoice.append(app.renderFunctions.createTemplateInstance('invoiceTemplate',parentSafeID));
 							$invoice.appendTo($('#mainContentArea_customer .mainColumn'));
-							app.ext.store_crm.calls.buyerOrderGet.init({'orderid':orderID,'cartid':cartID},{'callback':'translateTemplate','templateID':'invoiceTemplate','parentID':parentSafeID},'mutable');
+							app.ext.store_crm.calls.buyerOrderGet.init({'orderid':orderID,'cartid':cartID},{'callback':'translateTemplate','templateID':'invoicePostCheckoutTemplate','parentID':parentSafeID},'mutable');
 							app.model.dispatchThis('mutable');
 						
 						
