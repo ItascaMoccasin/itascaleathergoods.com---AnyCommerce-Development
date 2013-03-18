@@ -27,6 +27,8 @@ var myRIA = function() {
 //a list of the templates used by this extension.
 //if this is a custom extension and you are loading system extensions (prodlist, etc), then load ALL templates you'll need here.
 		"templates" : [
+//custom template
+			'invoicePostCheckoutTemplate',
 //the list of templates that are commonly edited (same order as they appear in appTemplates
 			'homepageTemplate',	'categoryTemplate',
 			'categoryListTemplate',
