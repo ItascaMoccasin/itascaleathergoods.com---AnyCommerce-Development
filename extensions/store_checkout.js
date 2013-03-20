@@ -904,7 +904,10 @@ note - dispatch isn't IN the function to give more control to developer. (you ma
 //				app.u.dump('BEGIN app.ext.convertSessionToOrder.renderFormats.orderStatusLink');
 				var orderCartID = app.data['order|'+data.value].cart.cartid;
 //				https://ssl.zoovy.com/s=sporks.zoovy.com/customer/order/status?cartid=SESSION&orderid=data.value
-				$tag.click(function(){window.location = zGlobals.appSettings.https_app_url+"customer/order/status?cartid="+orderCartID+"&orderid="+data.value,'orderStatus'});
+				$tag.click(function(){
+					showContent('customer',{uriParams: {'cartid':orderCartID,'orderid':data.value}});
+//					window.location = zGlobals.appSettings.https_app_url+"customer/order/status?cartid="+orderCartID+"&orderid="+data.value,'orderStatus'}
+					});
 				
 				},
 

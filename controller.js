@@ -105,7 +105,7 @@ copying the template into memory was done for two reasons:
 			numRequestsPerPipe : 50,
 			requests : {"mutable":{},"immutable":{},"passive":{}} //'holds' each ajax request. completed requests are removed.
 			}; //holds ajax related vars.
-		app.sessionId = null;
+
 		app.vars.extensions = app.vars.extensions || [];
 		
 		if(app.vars.thisSessionIsAdmin)	{
@@ -157,7 +157,7 @@ Exception - the controller is used for admin sessions too. if an admin session i
 
 A session ID could be passed in through vars, but app.sessionId isn't set until the session id has been verified OR the app is explicitly told to not validate the session.
 */
-		if(app.vars.thisSessionIsAdmin && app.vars.sessionId)	{
+		if(app.vars.thisSessionIsAdmin && app.u.isSet(app.vars.sessionId))	{
 			app.u.dump(" -> admin session and session id set.");
 //you'd get here in the UI.
 			app.sessionId = app.vars.sessionId
@@ -168,7 +168,7 @@ A session ID could be passed in through vars, but app.sessionId isn't set until 
 			//for now, do nothing.  this may change later.
 			app.model.addExtensions(app.vars.extensions);
 			}
-		else if(app.vars.sessionId)	{
+		else if(app.u.isSet(app.vars.sessionId))	{
 			app.u.dump(" -> session id set.");
 			app.calls.appCartExists.init(app.vars.sessionId,{'callback':'handleTrySession','datapointer':'appCartExists'});
 			app.calls.whoAmI.init({'callback':'suppressErrors'},'immutable'); //get this info when convenient.
@@ -182,7 +182,7 @@ A session ID could be passed in through vars, but app.sessionId isn't set until 
 			app.model.dispatchThis('immutable');
 			}
 //check localStorage
-		else if(app.model.fetchSessionId())	{
+		else if(app.u.isSet(app.model.fetchSessionId()))	{
 			app.u.dump(" -> session retrieved from localstorage..");
 			app.calls.appCartExists.init(app.model.fetchSessionId(),{'callback':'handleTrySession','datapointer':'appCartExists'});
 			app.calls.whoAmI.init({'callback':'suppressErrors'},'immutable'); //get this info when convenient.

@@ -640,8 +640,11 @@ this is what would traditionally be called an 'invoice' page, but certainly not 
 /*
 note - the click prevent default is because the renderFormat adds an onclick that passes both order and cart id.
 */
-				$('.paymentRequired').append(app.data[tagObj.datapointer].payment_status_detail).find('a').click(function(event){event.preventDefault();});
-
+$(".paymentRequired a").on('click',function(event){
+		event.preventDefault();
+		//cart and order id are in uriParams to keep data locations in sync in showCustomer. uriParams is where they are when landing on this page directly.
+		showContent('customer',{'show':'invoice','uriParams':{'cartid':orderCartID,'orderid':orderID}});
+		});
 //				$('.paymentRequired').append(app.ext.store_checkout.u.checkoutSuccessPaymentFailure(app.data[tagObj.datapointer].payment_success,app.data['order|'+orderID].cart['want/payby']));
 				
 				
