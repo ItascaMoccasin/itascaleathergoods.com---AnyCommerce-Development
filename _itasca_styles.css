@@ -30,30 +30,6 @@
 .clearBoth {clear:both;font-size:2px;}
 	
 header {position: relative;}	
-/*	
-    header  h1  span {
-    background: url("./img/Itasca_logo.png") no-repeat;
-    height: 126px;
-    left: 0;
-    position: absolute;
-    top: 4px;
-    width: 183px;
-    z-index: 300;
-		}
-		
-	header h1, header h1 a {
-    color: #fff;
-    display: block;
-    font-size: 0;
-    height: 126px;
-    margin: 0;
-    padding: 0;
-    position: relative;
-    text-decoration: none;
-    width: 183px;
-    z-index: 400;
-}
-*/	
 	#topNav  {/*float: right; margin:8px 0;*/padding:10px 0; margin-bottom:8px;}
 	#topNav ul {float:right;}
 	#topNav li  {float: left; display: inline; color: #fff; }
@@ -123,7 +99,7 @@ header {position: relative;}
 		width:4em;
 	}
 
-/* h2 { background: url("./img/header-back.jpg") no-repeat; color: #fff; padding: 10px; font-size: 16px;} */
+.prodViewerContainer h1 {font-size:1.750em;}
 
 #cartStuffList {width:95%;}
 #modalCart {z-index:2000;}
