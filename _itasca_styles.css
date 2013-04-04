@@ -112,6 +112,14 @@ header {position: relative;}
 	min-width:200px;
 } /* overriding the app-quickstart.css declarations for aesthetics; otherwise input fields push past borders */
 
+#customerNav .listStyleNone li {
+	box-shadow: none;
+	border-width: 0 1px 1px 1px;
+}
+#customerNav .listStyleNone li:first-child {
+	box-shadow:none;
+	border-width:1px 1px 0 1px;
+}
 hr.hr {
     background-color: #808080;
     height: 1px;
