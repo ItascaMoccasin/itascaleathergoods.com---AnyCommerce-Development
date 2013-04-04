@@ -118,7 +118,7 @@ header {position: relative;}
 }
 #customerNav .listStyleNone li:first-child {
 	box-shadow:none;
-	border-width:1px 1px 0 1px;
+	border-width:1px;
 }
 hr.hr {
     background-color: #808080;
