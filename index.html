@@ -26,7 +26,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130408113100",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130408140900",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
 	"testURL":"http://www.4c07ac9.crackle.zoovy.net/" //used ONLY if protocol is file: (for testing)
@@ -211,7 +211,6 @@ app.u.loadScript(app.vars.baseURL+"_itasca_app-init.js");
 				<input type='text'  maxlength='50' size='30' name='fullname' id='subscribeFullname' value='Full Name' />
 				</div>
 				</fieldset>
-
 				<fieldset data-bind="var:newsletters(@lists); format:subscribeCheckboxes; extension:store_crm;" class='borderNone subscriberLists'></fieldset>
 
 				<input type='submit' class='ui-button-text ui-button ui-state-default ui-corner-all' value='Subscribe'>
@@ -1036,6 +1035,7 @@ adding classes is not likely to have any bad effects.
 		<div id='newsletterArticle' class='displayNone textContentArea'>
 			<h1>Subscribe to our Newsletter and Save!</h1>
 			<div id='newsletterFormContainer'></div>
+			<p style="margin:10px 0 12px 5px;">Already subscribed? <a href="#" onClick="return showContent('customer',{'show':'myaccount'});">Recover your password.</a></p>
 		</div>
 
 		<div id='myaccountArticle' class='displayNone textContentArea'>
