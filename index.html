@@ -26,7 +26,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130408153400",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130408160100",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
 	"testURL":"http://www.4c07ac9.crackle.zoovy.net/" //used ONLY if protocol is file: (for testing)
@@ -204,11 +204,11 @@ app.u.loadScript(app.vars.baseURL+"_itasca_app-init.js");
 				<p><strong>Sign up</strong> to receive future newsletters and promotions.</p>
 				<fieldset class='userInfo borderNone'>
 				<div>
-				<input type='email' onblur="app.ext.myRIA.u.handleFormField(this);" onfocus="app.ext.myRIA.u.handleFormField(this);" maxlength='50' size='30' name='login' id='subscribeLogin' value='E-mail Address' />
+				<input type='email' class="handleDefault" maxlength='50' size='30' name='login' id='subscribeLogin' value='E-mail Address' />
 				</div>
 
 				<div>
-				<input type='text' onblur="app.ext.myRIA.u.handleFormField(this);" onfocus="app.ext.myRIA.u.handleFormField(this);" maxlength='50' size='30' name='fullname' id='subscribeFullname' value='Full Name' />
+				<input type='text' class="handleDefault" maxlength='50' size='30' name='fullname' id='subscribeFullname' value='Full Name' />
 				</div>
 				</fieldset>
 				<fieldset data-bind="var:newsletters(@lists); format:subscribeCheckboxes; extension:store_crm;" class='borderNone subscriberLists'></fieldset>
