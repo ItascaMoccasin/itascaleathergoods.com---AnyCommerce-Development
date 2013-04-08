@@ -1271,17 +1271,20 @@ AUTHENTICATION/USER
 */
 
 //## allow for targetID to be passed in.
+// RAS: Pasted in from 201314.04081129
 		logBuyerOut : function()	{
-//kill all the memory and localStorage vars used in determineAuthentication
-			app.model.destroy('appBuyerLogin'); //nuke this so app doesn't fetch it to re-authenticate session.
-			app.model.destroy('cartDetail'); //need the cart object to update again w/out customer details.
-			app.model.destroy('whoAmI'); //need this nuked too.
-			app.vars.cid = null; //used in soft-auth.
-			
-			app.calls.buyerLogout.init({'callback':'showMessaging','message':'Thank you, you are now logged out'});
-			app.calls.refreshCart.init({},'immutable');
-			app.model.dispatchThis('immutable');
-			},
+		//kill all the memory and localStorage vars used in determineAuthentication
+		app.model.destroy('appBuyerLogin'); //nuke this so app doesn't fetch it to re-authenticate session.
+		app.model.destroy('cartDetail'); //need the cart object to update again w/out customer details.
+		app.model.destroy('whoAmI'); //need this nuked too.
+		app.vars.cid = null; //used in soft-auth.
+		localStorage.clear(); //clear everything from localStorage.
+
+		app.calls.buyerLogout.init({'callback':'showMessaging','message':'Thank you, you are now logged out'});
+		app.calls.refreshCart.init({},'immutable');
+		app.model.dispatchThis('immutable');
+		}, //logBuyerOut
+
 		
 		thisIsAnAdminSession : function()	{
 			//while technically this could be spoofed, the API wouldn't accept invalid values
