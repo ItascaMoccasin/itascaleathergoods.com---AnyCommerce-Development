@@ -22,14 +22,17 @@
 
 
 <script type="text/javascript">
-var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPLOYMENT!
+var _gaq = _gaq || []; 
+  _gaq.push(['_setAccount', 'UA-31068790-1']);
+  _gaq.push(['_trackPageview']);
+
 var myCreole;
 
 var app = {vars:{
-	"release":"20130408160100",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130408164400",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
-	"testURL":"http://www.4c07ac9.crackle.zoovy.net/" //used ONLY if protocol is file: (for testing)
+	"testURL":"http://www.itascamoccasin.com/" //used ONLY if protocol is file: (for testing)
 	},u:{},rq:[]};
 
 //set base url so images, css, js, etc all load from appropriate location once deployed.
