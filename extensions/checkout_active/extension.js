@@ -1126,7 +1126,8 @@ payment options, pricing, etc
 							o += "<div class='floatRight'><a href='#' onClick='$(\"#preflightAccountInputs\").toggle(true); return false;' class='login'>Click here to log in<\/a><\/div>";
 //NOTE - IE prefers onClick not onChange on checkboxes.
 //RS 031113 - Commenting out until account creation from checkout fully functional
-//							o += "<div id='chkout-create_customerContainer'><input  type='checkbox' checked='checked' value='1' onClick=\"app.ext.convertSessionToOrder.u.handleCreateAccountCheckbox(this.checked?1:0);\" name='want/create_customer_cb' id='want-create_customer_cb' \/> <label for='want-create_customer_cb'>Create Customer Account<\/label><\/div>"
+//RS 040813 - Reactivating to test
+							o += "<div id='chkout-create_customerContainer'><input  type='checkbox' checked='checked' value='1' onClick=\"app.ext.convertSessionToOrder.u.handleCreateAccountCheckbox(this.checked?1:0);\" name='want/create_customer_cb' id='want-create_customer_cb' \/> <label for='want-create_customer_cb'>Create Customer Account<\/label><\/div>"
 						
 						
 							}
