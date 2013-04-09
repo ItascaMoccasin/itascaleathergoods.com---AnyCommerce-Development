@@ -29,7 +29,7 @@ var _gaq = _gaq || [];
 var myCreole;
 
 var app = {vars:{
-	"release":"20130408164400",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130408170200",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
 	"testURL":"http://www.itascamoccasin.com/" //used ONLY if protocol is file: (for testing)
@@ -105,7 +105,7 @@ app.u.loadScript(app.vars.baseURL+"_itasca_app-init.js");
 	<header>	
 		<div id="topNav">
 			<ul>
-			<li><a href='#top' onClick="return showContent('category',{'navcat':'.'});">home</a></li>
+			<li><a href='#top' onClick="return showContent('homepage',{});">home</a></li>
 			<li><a href='#top' onClick="return showContent('company',{'show':'about'});">about us</a></li>
 
 
@@ -116,7 +116,7 @@ app.u.loadScript(app.vars.baseURL+"_itasca_app-init.js");
 			</ul>
 			<span class="clearBoth">&nbsp;</span>
 		</div>		
-				<a id="logo" href='#top' onClick="return showContent('category',{'navcat':'.'});"  title="Itasca Leathergoods">
+				<a id="logo" href='#top' onClick="return showContent('homepage',{});"  title="Itasca Leathergoods">
 				<img src="img/Itasca_logo.png" width="183" height="126" alt="Itasca Leathergoods" />
 				</a>
 
