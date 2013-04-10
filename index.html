@@ -29,7 +29,7 @@ var _gaq = _gaq || [];
 var myCreole;
 
 var app = {vars:{
-	"release":"20130409172500",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130409173400",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
 	"testURL":"http://www.itascamoccasin.com/" //used ONLY if protocol is file: (for testing)
@@ -761,7 +761,10 @@ It's done this way because ID's hard coded into template are bad mojo (templates
 	</div>
 
 	<div class='tabContent' data-anytab-content='prodAccessories'>
+<!-- EDITED FOR CRM ERRORS
 <ul class='listStyleNone fluidList clearfix noPadOrMargin lineItemProdlist' data-bind="var: product(zoovy:accessory_products); format:productList; extension:store_prodlist;loadsTemplate:productListTemplateATC;hide_pagination:true;hide_summary:true; withReviews:1; withInventory:1; withVariations:1;"></ul>
+-->
+<ul class='listStyleNone fluidList clearfix noPadOrMargin lineItemProdlist' data-bind="var: product(zoovy:accessory_products); format:productList; extension:store_prodlist;loadsTemplate:productListTemplateATC;hide_pagination:true;hide_summary:true; withInventory:1; withVariations:1;"></ul>
 	</div>
 
 
@@ -773,7 +776,8 @@ It's done this way because ID's hard coded into template are bad mojo (templates
 </tr>
 </table>
 <div class='prodlistRelatedContainer'>
-	<ul class='listStyleNone fluidList clearfix noPadOrMargin productList' data-bind="var: product(zoovy:related_products); format:productList; extension:store_prodlist;loadsTemplate:productListTemplate;hide_pagination:true;hide_summary:true; before:<h2>Similar Items</h2>; withReviews:1;"></ul>
+<!-- withReviews removed to block CRM errors -->
+	<ul class='listStyleNone fluidList clearfix noPadOrMargin productList' data-bind="var: product(zoovy:related_products); format:productList; extension:store_prodlist;loadsTemplate:productListTemplate;hide_pagination:true;hide_summary:true; before:<h2>Similar Items</h2>;"></ul>
 </div>
 
 
