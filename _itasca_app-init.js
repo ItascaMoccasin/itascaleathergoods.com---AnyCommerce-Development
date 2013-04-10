@@ -172,6 +172,11 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {
 	$target.cycle({fx:'fade',speed:'slow',timeout:5000,pager:'#slideshowNav',pagerAnchorBuilder:function(index,el){return'<a href="#"> </a>';},slideExpr:'li'});	
 	}]);
 
+//applying accordion widget to hardcoded FAQ (hardcoded because client doesn't have CRM)
+app.rq.push(['templateFunction','companyTemplate','onCompletes',function(P) {
+	$("#faqContent").accordion({ heightStyle: "content" });
+}]);
+
 
 //don't execute script till both jquery AND the dom are ready.
 $(document).ready(function(){

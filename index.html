@@ -29,7 +29,7 @@ var _gaq = _gaq || [];
 var myCreole;
 
 var app = {vars:{
-	"release":"20130408170200",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130409170200",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
 	"testURL":"http://www.itascamoccasin.com/" //used ONLY if protocol is file: (for testing)
@@ -384,7 +384,7 @@ the homepageTemplate template is loaded into mainContentArea by default when the
 		<div id="slideshowNav"></div>
 
 		<ul id="wideSlideshow" class="pics slideshow">
-			<li><a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'spring pastel'}}}});"><img src='img/B_BabysTearsTangletown.JPG' width='1000' height='376' /></a></li>
+			<li><a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'SpringPastel'}}}});"><img src='img/B_BabysTearsTangletown.JPG' width='1000' height='376' /></a></li>
 			<li><a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'eggbasket'}}}});"><img src='img/B_LeitnerTangletown1.JPG' width='1000' height='376' /></a></li>
 			<li><a href='#top' onClick="return showContent('product',{'pid':'COTAWCFGNNNN00214'});"><img src='img/B_MetallicLimeTangletown.JPG' width='1000' height='376' /></a></li>
 			
@@ -394,7 +394,7 @@ the homepageTemplate template is loaded into mainContentArea by default when the
 
 	<div class="homeBanners">
 		<a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'Leitner slipper'}}}});"><img src="img/F_MensEggsTangletown.JPG" width="327" height="244" alt="Moccasins" /></a>
-		<a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'summer fun'}}}});"><img src="img/F_NavahoTangletown.JPG" width="327" height="244" alt="Moccasins" /></a>
+		<a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'SummerFun'}}}});"><img src="img/F_NavahoTangletown.JPG" width="327" height="244" alt="Moccasins" /></a>
 		<a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'powder puff'}}}});"><img src="img/F_PowderPuffKitty.JPG" width="327" height="244" alt="Moccasins" class="lastBann"/></a>
 	</div>
 </div>
@@ -942,8 +942,95 @@ adding classes is not likely to have any bad effects.
 
 
 		<div id='faqArticle' class='displayNone textContentArea'>
-			<h1>Frequently Asked Questions</h1>
-			<div id='faqContent' class='loadingBG ui-accordion ui-widget ui-helper-reset ui-accordion-icons appAccordianesque'></div>
+			<h1 name='faqtop'>Frequently Asked Questions</h1>
+			<div id='faqContent' class='loadingBG ui-accordion ui-widget ui-helper-reset ui-accordion-icons appAccordianesque'>
+				<h3>Do you make moccasins with a rubber sole?</h3>
+				<div>All of our footwear is made with a traditional soft leather sole. With the exception of the Yazoo slipper, they&rsquo;re all intended for outdoor use. They&rsquo;re much more rugged than people give them credit for and they have a terrific barefoot feel. Remember, for centuries the footwear used by Native Americans was the moccasin!</div>
+				<h3>Can I have my moccasins made or retrofitted with a rubber/hard sole?</h3>
+				<div>We do not offer this type of service.</div>
+				<h3>Are Itasca Moccasins intended for outdoor use?</h3>
+				<div>Yes, all of our moccasins are intended for outdoor use with the exception of the Yazoo slipper. Some people choose to use them as indoor house shoes but there&rsquo;s no need to limit their use.</div>
+				<h3>Will the soft sole wear through?</h3>
+				<div>All footwear eventually wears out. We tell our customers that if you&rsquo;re hard on traditional footwear, you&rsquo;ll be hard on our moccasins. If you get good wear out of your normal footwear, you&rsquo;ll also get good wear out of our soft-soled moccasins. In terms of manufacture, we typically reserve the thickest parts of the hide for use on our soles. That, in and of itself, provides longer wear. Furthermore, if you trade up to a premium leather such as buffalo you&rsquo;ll extend the wearing life because those hides are thicker and, in our opinion, more rugged than cowhide. If you drag or scuff your feet when you walk, you&rsquo;ll get shorter life out of moccasins. If you wear a pair of moccasins as your only shoe day in and day out, you&rsquo;ll get shorter wear than you would if you rotate them with the rest of your footwear.</div>
+				<h3>How long should a pair of moccasins last?</h3>
+				<div>It&rsquo;s impossible to give a one-size-fits-all type of answer because there are too many variables. We&rsquo;ve had customers come back to our retail stores indicating they&rsquo;ve had moccasins that have been in service for longer than a decade ... and we&rsquo;ve had others who indicate significantly shorter wear. Unless you&rsquo;re hard on shoes, you could expect to see a few to several years of wear. Lifespan is increased by using thicker hides (which we always strive to do), by using buffalo for the sole (which is an option you can make), by not scuffing or dragging your feet when you walk, and by not having them be your only pair of footwear. Wearing life is shortened by constant use, overuse when wet, and by scuffing or dragging feet. In the event you place a custom order and we contact you and try to move you away from a certain leather on the sole, it&rsquo;s for a reason. Listen to our recommendations.</div>
+				<h3>Can moccasins be repaired?</h3>
+				<div>Some repairs are easy to make &ndash; particularly the toe area or the collar around the top of the ankle. Repairs to the sole are harder &ndash; because we need to deconstruct the entire shoe to get to the sole. Thus, to us, it&rsquo;s harder than making a shoe from scratch.</div>
+				<h3>Do you offer a warranty?</h3>
+				<div>Because of the multitude of variables in leather and wearing patterns of the customer, we don&rsquo;t offer a specific guarantee. However, we will always repair or replace defective moccasins. Plus, we strive to work with the customer if there&rsquo;s premature wear on the moccasins. In our opinion, it&rsquo;s good customer service to make our customers happy &ndash; and we run our business with that mantra at the forefront of all we do.</div>
+				<h3>Are Itasca Moccasins waterproof?</h3>
+				<div>Our moccasins are not specifically waterproof &ndash; however, we do sell two colors of buffalo nubuck which are waterproof &ndash; a dark brown and a light brown. Remember, though, that stitching will put holes in the leather and therefore we don&rsquo;t officially call them waterproof.</div>
+				<h3>What happens if my moccasins get wet?</h3>
+				<div>If they get wet, simply let them air dry naturally and you&rsquo;ll see no adverse effect. Do not force them dry in the dryer, a heat register, a heating vent or the microwave. You&rsquo;ll potentially shrink the leathers as well as make them stiffer.</div>
+				<h3>Are soft-soled moccasins slippery?</h3>
+				<div>Our moccasins should not be more slippery than any other leather-soled shoe. We use numerous types of leather; some have a smoother finish while other leathers have heavy graining. If the leather you order is smooth, you might want to gently scuff up the sole on cement or blacktop &ndash; it&rsquo;s just like a regular pair of leather-soled shoes in that regard. If you wear your moccasins only indoors on carpet, over time they will develop a shiny finish on the sole. If that happens, simply scuff them up outside to rough them up a bit. Finally, we have noticed that painted lines in cement (i.e. in the crosswalk) get slick when wet.</div>
+				<h3>Should I treat my moccasins?</h3>
+				<div>We recommend no specific treatment. If you use mink oils or other leather conditioners, you&rsquo;ll likely darken the leathers &ndash; and you may get no significant benefit out of that treatment. If you&rsquo;d like to treat your leathers with silicone sprays, you may do so, but again you may change the appearance or color of the leathers.</div>
+				<h3>Are Itasca Moccasin boots good for winter wear?</h3>
+				<div>The answer to this question is typically climate-based. Without a rubber sole, our boots don&rsquo;t make great snow boots &ndash; leather, without a rubber sole, conducts cold quickly. Additionally, snow can easily tip over the side of shorter canoe-style moccasins if you&rsquo;re on a sidewalk that&rsquo;s not shoveled. In more moderate climates, moccasins make great winter footwear, especially when worn with a sock.</div>
+				<h3>Do you sell mukluks?</h3>
+				<div>No, we do not. There is a well-known Minnesota maker of mukluks, though, and they&rsquo;ve got a great reputation. Use Google to find their contact information. They&rsquo;re located in Ely MN.</div>
+				<h3>Do you make a high heeled moccasin?</h3>
+				<div>No. Are you kidding???</div>
+				<h3>Do you offer sandals or flip-flops?</h3>
+				<div>No. From a manufacturing standpoint, those are made with a hard sole or synthetic/rubber sole and we only work with soft sole construction.</div>
+				<h3>Do you sell a lined moccasin?</h3>
+				<div>In autumn 2012, we introduced our first lined Cota for women. The sole is full grain (in Peacock), the body of the shoe is genuine shearling, and the toe is cowhide suede (in Kiwi). They&rsquo;re super cozy and perfect for fall and winter. If you like the style but would prefer other colors, you may order a custom pair by clicking on the &ldquo;custom&rdquo; tab. Additionally, we offer a premium slipper called the Yazoo. They&rsquo;re also made of sheepskin and are the most comfortable slipper you&rsquo;ve ever owned. The latter are made for indoor use only.</div>
+				<h3>Do you wear moccasins barefoot or with a sock?</h3>
+				<div>The answer is entirely up to you. Some people will start off barefoot, and then when the moccasin stretches a bit they&rsquo;ll wear it with a sock. We often see moccasins worn barefoot in the summer when worn with shorts and then we&rsquo;ll see them with socks in the fall and winter when worn with jeans or leggings. Because they lack a rubber sole, the moccasins breathe and are comfortable, even in summer. You might never wear flip-flops again!</div>
+				<h3>How comfortable are Itasca Moccasins?</h3>
+				<div>Oh my gosh &ndash; they&rsquo;re incredibly comfortable. We&rsquo;ve refined our styles for fit for more than 25 years. Most of our customers describe them as &ldquo;a better version of barefoot&rdquo; and it&rsquo;s true. Some of the comfort is attributed to the soft sole, but a good part of the credit goes to the leathers we use. In particular, our premium leathers &ndash; buffalo, elk and moose are incredibly comfortable.</div>
+				<h3>I have bad feet ... can I wear moccasins?</h3>
+				<div>The easy answer is this: If you are comfortable barefoot, you&rsquo;ll love the way our moccasins feel. If you always need arch support, you might have troubles with our moccasins without adding a supplemental arch support. We have had had numerous customers add an insole (such as Dr. Scholl&rsquo;s) to create an arch support.</div>
+				<h3>Can I use my orthotics with moccasins?</h3>
+				<div>The answer isn&rsquo;t easy due to the variability of the orthotic devices. Some thick orthotics make it feel like the moccasin doesn&rsquo;t come up high enough on the foot. If that&rsquo;s the case, we suggest that you order the Loosahatchie model rather than our basic Cota style. The sides of the Loosahatchie come up higher provide a better balance for thick orthotics.</div>
+				<h3>What benefit do I get by trading up to premium leathers?</h3>
+				<div>We consider our premium hides to be buffalo, elk and moose (and sheepskin for slippers or baby booties). Compared to cowhide, they tend to be softer and more supple and feel like they&rsquo;re broken in the first time you put them on. They also tend to be more &ldquo;interesting&rdquo; hides. Buffalo has intense graining patterns and tends to be a bit thicker and is great for the soles of moccasins. Elk is the softest and most stretchy of the leathers and it&rsquo;s more comfortable than anything else you&rsquo;ll ever have on your feet. Moose is interesting and rare &ndash; and it feels silky smooth, and almost spongy. In our opinion, all of these premium hides are more durable than their cowhide counterparts, meaning better wear, longer wear. Yes, it does cost more ... but we feel it&rsquo;s worth it.</div>
+				<h3>Why don&rsquo;t you use leather laces for all of your moccasin styles?</h3>
+				<div>We typically use leather shoelaces for our boots, such as Obion, Hatchie, Meramec and Nokasippi models. We formerly used leather laces in all of our moccasins but customers frequently complained that they spontaneously came untied so we switched to nylon shoelaces to remedy the situation. If you&rsquo;d prefer leather laces, you may request that your pair be made with them. There&rsquo;s no extra charge for doing this. To request leather laces, simply indicate your request in the &ldquo;comments&rdquo; box on the check-out page.</div>
+				<h3>I&rsquo;d like a knee-high boot but I don&rsquo;t want to lace them up every time I wear them. Do you have a zipper option?</h3>
+				<div>Yes. We can add zippers to the Nokasippi boot; they&rsquo;re placed on the inward side of each boot so that they&rsquo;re optimally hidden. Some customers with a high instep haven&rsquo;t had success putting them on without at least loosening the laces even with a zipper. We cannot guarantee 100% success but we&rsquo;ll give you our best effort. There is a modest price increase with adding zippers.</div>
+				<h3>Why are moccasins good for baby?</h3>
+				<div>The superficial answer is that they&rsquo;re the dang cutest footwear option that you&rsquo;ll ever see. They&rsquo;re crazy cute. But there&rsquo;s a deeper answer. Some pediatricians recommend bare-footing for babies so that they can better develop balance; also the absence of a hard sole allows the musculature of the feet and legs to develop optimally. Our soft-soled moccasins are as close to barefoot as you can get and still offer the foot some protection and warmth.</div>
+				<h3>What is the &ldquo;Earthing&rdquo; or &ldquo;Grounding&rdquo; movement?</h3>
+				<div>There&rsquo;s an emerging line of thought that there&rsquo;s great benefit being physically connected to the earth. Digging deeper, it&rsquo;s suggested that there&rsquo;s physiological and psychological benefit from the transfer of electrons and electrical fields from the earth below directly into people &ndash; best accomplished when barefoot or lying unclothed on the ground. In the real world, barefoot isn&rsquo;t always practical (or permitted) and the next best method of connection is via leather &ndash; without artificial plastics or rubber that act as insulators. Individuals who follow this lifestyle movement feel that there&rsquo;s benefit to the circulatory system, immune system, and synchronization of biorhythms, along with a decrease of inflammation. People who follow Earthing guidelines may order any Itasca Moccasin without the synthetic foam pad so that the leather&rsquo;s conductive properties (aided by natural sweat) can connect you with the earth below. See the <a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.earthing'});">Earthing page</a> for more information.</div>
+				<h3>What happens if my moccasins get dirty?</h3>
+				<div>Realistically, all shoes get dirty &ndash; especially if they&rsquo;re worn on dusty or muddy trails. Some leathers clean easier than others &ndash; such as full grain &ndash; you can easily wipe them down. Other leathers, such as suede, are more susceptible to dust and dirt. You could try a professional leather cleaning service. Some people will lightly sand their suede or even use a pencil eraser to remove dry dirt. For wet stains, some people have had luck using a dab of white vinegar on a dampened cloth and gently working the stain, taking care to feather the edges of the spot so as not to leave a ring. You may want to test your cleaning technique on an inconspicuous area of the moccasin.</div>
+				<h3>Will colors bleed onto the foot or sock?</h3>
+				<div>Any brightly colored shoe has risk of transferring the dye onto the foot or sock, and ours will as well. Of course, this diminishes over time and should ultimately stop transferring. The colors that have the biggest chance of bleeding are our teal suede and fuchsia suede. If dye gets on the foot, it washes off easily with bathing; if it transfers onto light colored socks it may or may not wash out during the laundering process.</div>
+				<h3>How should moccasins fit?</h3>
+				<div>If there&rsquo;s anything at all to pay attention to it&rsquo;s this: Start off with a snug (but not tight) fit. The leathers stretch and conform to the shape of the foot as you break them in. We recommend that the big (or longest) toe come right up to the front of the moccasin, even touching it. You want the sides to feel snug &ndash; like a thick pair of socks. Some leathers will break in as fast as a half hour of use; others will take a longer time to break in &ndash; perhaps several wearings. Of all of our leather options, elk has the most stretch &ndash; to the point we suggest sizing down at least a half size. Buffalo and moose are also supple hides and stretch nicely, followed by cowhides &ndash; some of which have significant stretch and others of which have virtually no stretch.</div>
+				<h3>Why do you recommend that the big (or longest) toe come up to the front of the moccasin?</h3>
+				<div>It&rsquo;s half about the appearance and half about the fit. If your toe does not come all the way forward, the moccasin toe will curl up with use &ndash; giving an elfin appearance. From a fit perspective we recommend the toe go all the way forward; if your big toe is back more than an eighth of an inch or so, the moccasin is simply too big and will stretch out of shape as you break it in.</div>
+				<h3>What happens if I&rsquo;ve got a wide foot?</h3>
+				<div>If your foot is modestly wide, we suggest that you trade up to an elk hide. It is somewhat more expensive but it has the stretch that&rsquo;s needed to make the moccasin comfortable for you. And as an added benefit, the elk wears fantastically. If you&rsquo;ve got a significantly wide foot we offer <a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.custom_moccasins'});">custom order options</a>. You&rsquo;ll be instructed to have a tracing done of your feet and submit it with your order. There&rsquo;s no extra charge for this service and completed footwear is turned around to you in about ten days to two weeks.</div>
+				<h3>How accurate is your sizing scale?</h3>
+				<div>Historically, our moccasins ran quite large and most people sized down as a result. In autumn 2012, we&rsquo;ve worked to adjust our sizing so that sizes fit more like your traditional footwear. The exception to that might be moccasins made from elk. By nature, elk hides are the most stretchy of all of the leathers and many customers will still size down a half size as a result.</div>
+				<h3>Do you offer half sizes or do you do full sizes only?</h3>
+				<div>Historically, we only offered full sizes but could accommodate any foot via our custom fit program. As of autumn 2012, we&rsquo;ve introduced half sizes so that we don&rsquo;t have such a need for custom work. Easier for you ... easier for us!</div>
+				<h3>Do you fit hard to fit feet?</h3>
+				<div>Yes! This is one of our core competencies and we&rsquo;re really good at it! Many people&rsquo;s feet are significantly different sized and we offer a custom fit program to address your needs. Also, if you&rsquo;ve got a high instep, we can take that into account with our pattern-making. Please refer to the <a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.custom_moccasins'});">&ldquo;custom&rdquo; page</a> for instructions. Oh, and best of all: There&rsquo;s no additional charge for custom fit work and we turn around our work in about ten days to two weeks &ndash; not months and months.</div>				
+				<h3>What about bunions?</h3>
+				<div>We know that bunions are an (unfortunate) fact of life for many people. We suggest ordering moccasins made from elk because of the natural stretchy nature of elk hide. They&rsquo;re immediately comfortable and don&rsquo;t cut or bind. If the bunion is severe enough, consider doing a custom order with a custom foot tracing. Please refer to the <a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.custom_moccasins'});">&ldquo; custom&rdquo; page</a>.</div>				
+				<h3>Do you keep my foot tracings on file?</h3>
+				<div>Yes; for a period of at least five years we keep tracings on hand so that future orders can be placed without re-submitting foot tracings.</div>				
+				<h3>What happens if I order a pair of moccasins and they don&rsquo;t fit?</h3>
+				<div>If you order a custom pair with our foot tracing program, we&rsquo;ll make you a pair that fits perfectly and we&rsquo;ll stand by our work &ndash; satisfaction guaranteed or your money back. If you order a stock size of a regularly-stocked moccasin, you may return or exchange UNWORN moccasins for a different size.</div>	
+				<h3>What shipping service do you use?</h3>
+				<div>In the Midwest, we almost always send our shipments via Spee-Dee Delivery. For deliveries outside the Midwest, we typically use US Mail.</div>				
+				<h3>Do you ship internationally?</h3>
+				<div>Yes. International shipping costs will be confirmed at time of order and we&rsquo;ll notify you of the shipping charges prior to sending out your moccasins. We will not indicate on customs paperwork that the moccasins are a &ldquo;gift&rdquo; to avoid tariffs. International shipments will typically go via US Mail.</div>				
+				<h3>What is your return policy?</h3>
+				<div>We will accept <em>unworn</em> moccasins or <em>unused</em> leather goods from our basic stock offerings for return or exchange. If you order through our custom program, we do <em>not</em> accept returns for changing your mind or not liking the color combinations you&rsquo;ve selected. If you order custom sizing via foot tracings, we guarantee fit and at our discretion we will alter or replace items that don&rsquo;t fit right. In the unlikely event we&rsquo;re not able to get it right, we&rsquo;ll gladly refund your money. If you receive a pair of moccasins that&rsquo;s defective or has abnormal wearing patterns beyond normal wear-and-tear, we&rsquo;ll repair them or replace them at our discretion. The customer is responsible for shipping costs back to the factory store. See our full <a href='#company?show=return' class='bindByAnchor'>return and exchange policy</a>.</div>				
+				<h3>Where are Itasca Moccasins made?</h3>
+				<div>We proudly produce our handcrafted moccasins in the tiny town of Lake George MN, just a few miles east of Itasca State Park, the headwaters of the mighty Mississippi River. In fact, all manufacturing employees and owners reside in North Central Minnesota. Purchasing goods made in USA is important for our economy &ndash; we&rsquo;re one of the few footwear companies still producing shoes in the US. We&rsquo;re small, we&rsquo;re independent, we&rsquo;re &ldquo;local&rdquo; and we&rsquo;re grateful for your business.</div>				
+				<h3>Where are your retail stores located so that we can try them on in person?</h3>
+				<div>Our original factory store (open since 1986) is located in the tiny town of Lake George MN, just a few miles east of Itasca State Park. Our flagship store is located in the resort community of Crosslake MN, located in North Central MN. In April 2013 we plan to open our third retail store in Hayward WI.</div>				
+				<h3>Do other stores other than your own stores carry Itasca Moccasins?</h3>
+				<div>Yes, select retailers do carry our moccasins and other leather goods. Information can be found under the &ldquo; retailers&rdquo; link.</div>				
+				<h3>If I&rsquo;d like to sell your moccasins in my boutique, how do I go about it?</h3>
+				<div>Please <a href='#company?show=contact' class='bindByAnchor'>contact us</a> for information</div>				
+			</div>
 		</div>
 
 
