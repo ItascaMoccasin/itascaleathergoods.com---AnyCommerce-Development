@@ -174,7 +174,7 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {
 
 //applying accordion widget to hardcoded FAQ (hardcoded because client doesn't have CRM)
 app.rq.push(['templateFunction','companyTemplate','onCompletes',function(P) {
-	$("#faqContent").accordion({ heightStyle: "content" });
+	$("#faqContentHardcode").accordion({ heightStyle: "content" });
 }]);
 
 
