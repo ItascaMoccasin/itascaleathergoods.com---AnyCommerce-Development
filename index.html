@@ -29,7 +29,7 @@ var _gaq = _gaq || [];
 var myCreole;
 
 var app = {vars:{
-	"release":"20130411123600",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130411145100",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
 	"testURL":"http://www.itascamoccasin.com/" //used ONLY if protocol is file: (for testing)
@@ -105,28 +105,28 @@ app.u.loadScript(app.vars.baseURL+"_itasca_app-init.js");
 	<header>	
 		<div id="topNav">
 			<ul>
-			<li><a href='#top' onClick="return showContent('homepage',{});">home</a></li>
-			<li><a href='#top' onClick="return showContent('company',{'show':'about'});">about us</a></li>
+			<li><a class='bindByAnchor' href='#!homepage'>home</a></li>
+			<li><a class='bindByAnchor' href='#!company?show=about'>about us</a></li>
 
 
-			<li><a href='#' onClick="return showContent('company',{'show':'faq'});">faq</a></li>
-			<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.earthing'});">earthing</a></li>
+			<li><a class='bindByAnchor' href='#!company?show=faq'>faq</a></li>
+			<li><a class='bindByAnchor' href='#!category?navcat=.leathergoods.earthing'>earthing</a></li>
 
-			<li><a href="#" onClick="return showContent('company',{'show':'contact'});">contact</a></li>
+			<li><a class='bindByAnchor' href='#!company?show=contact'>contact</a></li>
 			</ul>
 			<span class="clearBoth">&nbsp;</span>
 		</div>		
-				<a id="logo" href='#top' onClick="return showContent('homepage',{});"  title="Itasca Leathergoods">
+				<a id="logo" class='bindByAnchor' href='#!homepage'  title="Itasca Leathergoods">
 				<img src="img/Itasca_logo.png" width="183" height="126" alt="Itasca Leathergoods" />
 				</a>
 
 		<div id="midNavLinks">
 			<ul>
-			<li><a class='loginLink' href="#" onClick="return showContent('customer',{'show':'myaccount'});">Login</a></li>
+			<li><a class='loginLink bindByAnchor' href="#!customer?show=myaccount">Login</a></li>
 			<li>|</li>
-			<li><a href="#" onClick="return showContent('customer',{'show':'myaccount'});">My Account</a></li>
+			<li><a class='bindByAnchor' href="#!customer?show=myaccount">My Account</a></li>
 			<li>|</li>
-			<li><a href='#' onClick="return showContent('cart',{});">Cart (<span class="cartItemCount">0</span>)</a></li>
+			<li><a class='bindByAnchor' href='#!cart'>Cart (<span class="cartItemCount">0</span>)</a></li>
 			</ul>
 		</div>
 		
@@ -145,40 +145,40 @@ app.u.loadScript(app.vars.baseURL+"_itasca_app-init.js");
 				<ul>
 					<li><a href='#top' onClick="return showContent('search',{'elasticsearch':{'query':{'term':{'tags':'IS_NEWARRIVAL'}}}});">new arrivals</a></li>
 								
-					<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.moccasins'});">moccasins</a>
+					<li><a class='bindByAnchor' href='#!category?navcat=.leathergoods.moccasins'>moccasins</a>
 						<ul class="child_menu">
-							<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.moccasins.women'});">Women</a></li>
-							<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.moccasins.men'});">Men</a></li>
-							<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.moccasins.children'});">Children</a></li>
-							<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.moccasins.infants'});">Infants</a></li>
-							<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.custom_moccasins'});">Custom Orders</a></li>
+							<li><a class='bindByAnchor' href='#!category?navcat=.leathergoods.moccasins.women'>Women</a></li>
+							<li><a class='bindByAnchor' href='#!category?navcat=.leathergoods.moccasins.men'>Men</a></li>
+							<li><a class='bindByAnchor' href='#!category?navcat=.leathergoods.moccasins.children'>Children</a></li>
+							<li><a class='bindByAnchor' href='#!category?navcat=.leathergoods.moccasins.infants'>Infants</a></li>
+							<li><a class='bindByAnchor' href='#!category?navcat=.leathergoods.custom_moccasins'>Custom Orders</a></li>
 						</ul>
 					</li>
 
 							
-					<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.home_goods'});">home goods</a>
+					<li><a class='bindByAnchor' href='#!category?navcat=.leathergoods.home_goods'>home goods</a>
 						<ul class="child_menu">
-							<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.home_goods.placemats'});">Placemats</a></li>
-							<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.home_goods.coasters'});">Coasters</a></li>
+							<li><a class='bindByAnchor' href='#!category?navcat=.leathergoods.home_goods.placemats'>Placemats</a></li>
+							<li><a class='bindByAnchor' href='#!category?navcat=.leathergoods.home_goods.coasters'>Coasters</a></li>
 						</ul>
 					</li>
 
 								
-					<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.electronics-cases'});">electronic cases</a>
+					<li><a class='bindByAnchor' href='#!category?navcat=.leathergoods.electronics-cases'>electronic cases</a>
 						<ul class="child_menu">
-							<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.electronics-cases.ipad'});">iPad</a></li>
+							<li><a class='bindByAnchor' href='#!category?navcat=.leathergoods.electronics-cases.ipad'>iPad</a></li>
 						</ul>
 					</li>
 								
-					<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.totes-bags'});">totes/bags</a></li>
+					<li><a class='bindByAnchor' href='#!category?navcat=.leathergoods.totes-bags'>totes/bags</a></li>
 								
-					<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.accessories'});">accessories</a></li>
+					<li><a class='bindByAnchor' href='#!category?navcat=.leathergoods.accessories'>accessories</a></li>
 								
-					<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.small-leather-goods'});">small leather goods</a></li>
+					<li><a class='bindByAnchor' href='#!category?navcat=.leathergoods.small-leather-goods'>small leather goods</a></li>
 							
-					<li class="last"><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.custom_moccasins'});">custom orders</a>
+					<li class="last"><a class='bindByAnchor' href='#!category?navcat=.leathergoods.custom_moccasins'>custom orders</a>
 						<ul class="child_menu">
-							<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.leather_swatches'});">leather swatches</a></li>
+							<li><a class='bindByAnchor' href='#!category?navcat=.leathergoods.leather_swatches'>leather swatches</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -224,44 +224,44 @@ app.u.loadScript(app.vars.baseURL+"_itasca_app-init.js");
 			<li class="linkGroup">
 			<h4>Company</h4>
 				<ul>
-				<li><a href='#top' onClick="return showContent('company',{'show':'about'});">About</a></li>
-				<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.stores'});">Stores</a></li>
-				<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.retailers'});">Retailers</a></li>
-				<li><a href='#top' onClick="return showContent('company',{'show':'privacy'});">Privacy</a></li>
-				<li><a href='#top'>Terms</a></li>
+				<li><a class='bindByAnchor' href='#!company?show=about'>About</a></li>
+				<li><a class='bindByAnchor' href='#!category?navcat=.leathergoods.stores'>Stores</a></li>
+				<li><a class='bindByAnchor' href='#!category?navcat=.leathergoods.retailers'>Retailers</a></li>
+				<li><a class='bindByAnchor' href='#!company?show=privacy'>Privacy</a></li>
+				<li><a class='bindByAnchor' href='#!category?navcat=.leathergoods.terms'>Terms</a></li>
 				</ul>
 			</li>
 			
 			<li class="linkGroup">
 			<h4>Customer Service</h4>
 				<ul>
-				<li><a href="#top" onClick="return showContent('company',{'show':'contact'});">Contact</a></li>
-				<li><a href='#top' onClick="return showContent('company',{'show':'faq'});">FAQs</a></li>				
-				<li><a href='#top' onClick="return showContent('company',{'show':'shipping'});">Shipping</a></li>
-				<li><a href='#top' onClick="return showContent('company',{'show':'return'});">Returns</a></li>
-				<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.international'});">International</a></li>
+				<li><a class='bindByAnchor' href='#!company?show=contact'>Contact</a></li>
+				<li><a class='bindByAnchor' href='#!company?show=faq'>FAQs</a></li>				
+				<li><a class='bindByAnchor' href='#!company?show=shipping'>Shipping</a></li>
+				<li><a class='bindByAnchor' href='#!company?show=return'>Returns</a></li>
+				<li><a class='bindByAnchor' href='#!category?navcat=.leathergoods.international'>International</a></li>
 				</ul>
 			</li>
 			<li class="linkGroup">
 				<h4>Wholesale</h4>
 				<ul>
-				<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.become-a-retailer'});">Become a Retailer</a></li>
-				<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.wholesale-check-in'});">Wholesale Check-In</a></li>
+				<li><a class='bindByAnchor' href='#!category?navcat=.leathergoods.become-a-retailer'>Become a Retailer</a></li>
+				<li><a class='bindByAnchor' href='#!category?navcat=.leathergoods.wholesale-check-in'>Wholesale Check-In</a></li>
 				</ul>
 			</li>	
 			<li class="lastLinkGroup">
 			<h4>Media</h4>
 				<ul>
 				<li><a href='https://www.facebook.com/ItascaLeathergoods' target="_blank">Facebook</a></li>
-				<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.press'});">Press</a></li>
-				<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.news'});">News</a></li>
-				<li><a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.blog'});">Blog</a></li>
+				<li><a class='bindByAnchor' href='#!category?navcat=.leathergoods.press'>Press</a></li>
+				<li><a class='bindByAnchor' href='#!category?navcat=.leathergoods.news'>News</a></li>
+				<li><a class='bindByAnchor' href='#!category?navcat=.leathergoods.blog'>Blog</a></li>
 				</ul>
 			</li>	
 		</ul>
 		</div>
 	<hr class="hr">
-	<p class="footerCopy">&copy;2012. Please read our <a href='#top' onClick="return showContent('company',{'show':'privacy'});">Privacy Statement</a>.</p>
+	<p class="footerCopy">&copy;2012. Please read our <a class='bindByAnchor' href='#!company?show=privacy'>Privacy Statement</a>.</p>
 	</footer>
 </div> <!-- end wrapper -->
 <!-- /VIEW CONTENT -->
@@ -386,7 +386,7 @@ the homepageTemplate template is loaded into mainContentArea by default when the
 		<ul id="wideSlideshow" class="pics slideshow">
 			<li><a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'SpringPastel'}}}});"><img src='img/B_BabysTearsTangletown.JPG' width='1000' height='376' /></a></li>
 			<li><a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'eggbasket'}}}});"><img src='img/B_LeitnerTangletown1.JPG' width='1000' height='376' /></a></li>
-			<li><a href='#top' onClick="return showContent('product',{'pid':'COTAWCFGNNNN00214'});"><img src='img/B_MetallicLimeTangletown.JPG' width='1000' height='376' /></a></li>
+			<li><a href='#!product?pid=COTAWCFGNNNN00214'><img src='img/B_MetallicLimeTangletown.JPG' width='1000' height='376' /></a></li>
 			
 
 		</ul>
@@ -997,7 +997,7 @@ adding classes is not likely to have any bad effects.
 				<h3>Why are moccasins good for baby?</h3>
 				<div>The superficial answer is that they&rsquo;re the dang cutest footwear option that you&rsquo;ll ever see. They&rsquo;re crazy cute. But there&rsquo;s a deeper answer. Some pediatricians recommend bare-footing for babies so that they can better develop balance; also the absence of a hard sole allows the musculature of the feet and legs to develop optimally. Our soft-soled moccasins are as close to barefoot as you can get and still offer the foot some protection and warmth.</div>
 				<h3>What is the &ldquo;Earthing&rdquo; or &ldquo;Grounding&rdquo; movement?</h3>
-				<div>There&rsquo;s an emerging line of thought that there&rsquo;s great benefit being physically connected to the earth. Digging deeper, it&rsquo;s suggested that there&rsquo;s physiological and psychological benefit from the transfer of electrons and electrical fields from the earth below directly into people &ndash; best accomplished when barefoot or lying unclothed on the ground. In the real world, barefoot isn&rsquo;t always practical (or permitted) and the next best method of connection is via leather &ndash; without artificial plastics or rubber that act as insulators. Individuals who follow this lifestyle movement feel that there&rsquo;s benefit to the circulatory system, immune system, and synchronization of biorhythms, along with a decrease of inflammation. People who follow Earthing guidelines may order any Itasca Moccasin without the synthetic foam pad so that the leather&rsquo;s conductive properties (aided by natural sweat) can connect you with the earth below. See the <a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.earthing'});">Earthing page</a> for more information.</div>
+				<div>There&rsquo;s an emerging line of thought that there&rsquo;s great benefit being physically connected to the earth. Digging deeper, it&rsquo;s suggested that there&rsquo;s physiological and psychological benefit from the transfer of electrons and electrical fields from the earth below directly into people &ndash; best accomplished when barefoot or lying unclothed on the ground. In the real world, barefoot isn&rsquo;t always practical (or permitted) and the next best method of connection is via leather &ndash; without artificial plastics or rubber that act as insulators. Individuals who follow this lifestyle movement feel that there&rsquo;s benefit to the circulatory system, immune system, and synchronization of biorhythms, along with a decrease of inflammation. People who follow Earthing guidelines may order any Itasca Moccasin without the synthetic foam pad so that the leather&rsquo;s conductive properties (aided by natural sweat) can connect you with the earth below. See the <a class='bindByAnchor' href='#!category?navcat=.leathergoods.earthing'>Earthing page</a> for more information.</div>
 				<h3>What happens if my moccasins get dirty?</h3>
 				<div>Realistically, all shoes get dirty &ndash; especially if they&rsquo;re worn on dusty or muddy trails. Some leathers clean easier than others &ndash; such as full grain &ndash; you can easily wipe them down. Other leathers, such as suede, are more susceptible to dust and dirt. You could try a professional leather cleaning service. Some people will lightly sand their suede or even use a pencil eraser to remove dry dirt. For wet stains, some people have had luck using a dab of white vinegar on a dampened cloth and gently working the stain, taking care to feather the edges of the spot so as not to leave a ring. You may want to test your cleaning technique on an inconspicuous area of the moccasin.</div>
 				<h3>Will colors bleed onto the foot or sock?</h3>
@@ -1007,15 +1007,15 @@ adding classes is not likely to have any bad effects.
 				<h3>Why do you recommend that the big (or longest) toe come up to the front of the moccasin?</h3>
 				<div>It&rsquo;s half about the appearance and half about the fit. If your toe does not come all the way forward, the moccasin toe will curl up with use &ndash; giving an elfin appearance. From a fit perspective we recommend the toe go all the way forward; if your big toe is back more than an eighth of an inch or so, the moccasin is simply too big and will stretch out of shape as you break it in.</div>
 				<h3>What happens if I&rsquo;ve got a wide foot?</h3>
-				<div>If your foot is modestly wide, we suggest that you trade up to an elk hide. It is somewhat more expensive but it has the stretch that&rsquo;s needed to make the moccasin comfortable for you. And as an added benefit, the elk wears fantastically. If you&rsquo;ve got a significantly wide foot we offer <a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.custom_moccasins'});">custom order options</a>. You&rsquo;ll be instructed to have a tracing done of your feet and submit it with your order. There&rsquo;s no extra charge for this service and completed footwear is turned around to you in about ten days to two weeks.</div>
+				<div>If your foot is modestly wide, we suggest that you trade up to an elk hide. It is somewhat more expensive but it has the stretch that&rsquo;s needed to make the moccasin comfortable for you. And as an added benefit, the elk wears fantastically. If you&rsquo;ve got a significantly wide foot we offer <a class='bindByAnchor' href='#!category?navcat=.leathergoods.custom_moccasins'>custom order options</a>. You&rsquo;ll be instructed to have a tracing done of your feet and submit it with your order. There&rsquo;s no extra charge for this service and completed footwear is turned around to you in about ten days to two weeks.</div>
 				<h3>How accurate is your sizing scale?</h3>
 				<div>Historically, our moccasins ran quite large and most people sized down as a result. In autumn 2012, we&rsquo;ve worked to adjust our sizing so that sizes fit more like your traditional footwear. The exception to that might be moccasins made from elk. By nature, elk hides are the most stretchy of all of the leathers and many customers will still size down a half size as a result.</div>
 				<h3>Do you offer half sizes or do you do full sizes only?</h3>
 				<div>Historically, we only offered full sizes but could accommodate any foot via our custom fit program. As of autumn 2012, we&rsquo;ve introduced half sizes so that we don&rsquo;t have such a need for custom work. Easier for you ... easier for us!</div>
 				<h3>Do you fit hard to fit feet?</h3>
-				<div>Yes! This is one of our core competencies and we&rsquo;re really good at it! Many people&rsquo;s feet are significantly different sized and we offer a custom fit program to address your needs. Also, if you&rsquo;ve got a high instep, we can take that into account with our pattern-making. Please refer to the <a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.custom_moccasins'});">&ldquo;custom&rdquo; page</a> for instructions. Oh, and best of all: There&rsquo;s no additional charge for custom fit work and we turn around our work in about ten days to two weeks &ndash; not months and months.</div>				
+				<div>Yes! This is one of our core competencies and we&rsquo;re really good at it! Many people&rsquo;s feet are significantly different sized and we offer a custom fit program to address your needs. Also, if you&rsquo;ve got a high instep, we can take that into account with our pattern-making. Please refer to the <a class='bindByAnchor' href='#!category?navcat=.leathergoods.custom_moccasins'>&ldquo;custom&rdquo; page</a> for instructions. Oh, and best of all: There&rsquo;s no additional charge for custom fit work and we turn around our work in about ten days to two weeks &ndash; not months and months.</div>				
 				<h3>What about bunions?</h3>
-				<div>We know that bunions are an (unfortunate) fact of life for many people. We suggest ordering moccasins made from elk because of the natural stretchy nature of elk hide. They&rsquo;re immediately comfortable and don&rsquo;t cut or bind. If the bunion is severe enough, consider doing a custom order with a custom foot tracing. Please refer to the <a href='#top' onClick="return showContent('category',{'navcat':'.leathergoods.custom_moccasins'});">&ldquo; custom&rdquo; page</a>.</div>				
+				<div>We know that bunions are an (unfortunate) fact of life for many people. We suggest ordering moccasins made from elk because of the natural stretchy nature of elk hide. They&rsquo;re immediately comfortable and don&rsquo;t cut or bind. If the bunion is severe enough, consider doing a custom order with a custom foot tracing. Please refer to the <a class='bindByAnchor' href='#!category?navcat=.leathergoods.custom_moccasins'>&ldquo; custom&rdquo; page</a>.</div>				
 				<h3>Do you keep my foot tracings on file?</h3>
 				<div>Yes; for a period of at least five years we keep tracings on hand so that future orders can be placed without re-submitting foot tracings.</div>				
 				<h3>What happens if I order a pair of moccasins and they don&rsquo;t fit?</h3>
