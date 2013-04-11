@@ -165,9 +165,11 @@ app.u.loadApp = function() {
 //will pass in the page info object. (pageType, templateID, pid/navcat/show and more)
 app.u.appInitComplete = function(P)	{
 	app.u.dump("Executing myAppIsLoaded code...");
+
 	}
 
 app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {
+	document.title='Handmade Moccasins | Itasca Leathergoods';
 	var $target=$('#wideSlideshow');
 	$target.cycle({fx:'fade',speed:'slow',timeout:5000,pager:'#slideshowNav',pagerAnchorBuilder:function(index,el){return'<a href="#"> </a>';},slideExpr:'li'});	
 	}]);
