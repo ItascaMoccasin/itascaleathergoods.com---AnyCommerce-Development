@@ -1,4 +1,7 @@
-3/12
+04/22/2013
+- Added orderListForSort var and sort function (lines 485 and 488) to showOrderHistory in store_crm.js to force sorting of orders by displayed order date (MODIFIED_GMT). Default is by order ID, which doesn't always synch with displayed date (especially with a bunch of test orders that are later canceled or otherwise modified).
+
+03/12/2013
 - Removed code for custom new arrivals page from index.html, _itasca_init.js, _itasca_quickstart.js.
 - Removed _itasca_quickstart.js
 - Made search preview product name onClick a link instead of a span, removed no_underline class from table cell so name is underlined.

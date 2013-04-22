@@ -482,8 +482,10 @@ see jquery/api webdoc for required/optional param
 				var $parent = $('#'+tagObj.parentID);
 				var orderid;
 				var L = app.data[tagObj.datapointer]['@orders'].length;
+				var orderListForSort = app.data[tagObj.datapointer]['@orders'];
 				if(L > 0)	{
 					$parent.empty();
+					orderListForSort.sort(function(a, b) {return b.MODIFIED_GMT-a.MODIFIED_GMT});
 					for(var i = 0; i < L; i += 1)	{
 						orderid = app.data[tagObj.datapointer]['@orders'][i].ORDERID;
 						$parent.append(app.renderFunctions.createTemplateInstance(tagObj.templateID,"order_"+orderid));
@@ -495,6 +497,7 @@ see jquery/api webdoc for required/optional param
 					}
 				}
 			}, //showOrderHistory
+			// RS 042213 Added orderListForSort var and sort function per client request
 
 
 		showSubscribeForm : {
