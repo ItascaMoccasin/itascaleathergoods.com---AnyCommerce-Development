@@ -63,7 +63,7 @@ chkoutCartContents - will get loaded with the productListTemplateContentsSummary
 	<div data-bind='var: cart(want/shipping_id); format:shipInfoById; className:orderShipping; hideZero:false; extension:store_checkout;'></div>
 	<div data-bind='var: cart(sum/hnd_total); format:money; className:hndTotal; currencySign: $; pretext:Handling: ; '></div>
 
-	<div data-bind='var: cart(sum/order_total); format:money; className:orderTotal; hideZero:false; currencySign: $; pretext:Order Total: ; '></div>
+	<div data-bind='var: cart(sum/order_total); format:orderBalance; className:orderTotal; hideZero:false; currencySign: $; pretext:Order Total: ; '></div>
 
 	<div data-bind='var: cart(sum/gfc_total); format:money; className:orderGiftcardTotal; currencySign: $; pretext:Giftcard(s): ; '></div>
 	<div data-bind='var: cart(sum/pnt_total); format:money; className:rewardPointsTotal; currencySign: $; pretext:Reward Points: ; '></div>
