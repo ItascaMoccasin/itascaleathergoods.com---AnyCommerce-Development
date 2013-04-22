@@ -32,7 +32,7 @@ var app = {vars:{
 	"release":"20130411145100",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
-	"testURL":"http://www.itascamoccasin.com/" //used ONLY if protocol is file: (for testing)
+	"testURL":"http://www.itascaleathergoods.com/" //used ONLY if protocol is file: (for testing)
 	},u:{},rq:[]};
 
 //set base url so images, css, js, etc all load from appropriate location once deployed.
@@ -143,7 +143,8 @@ app.u.loadScript(app.vars.baseURL+"_itasca_app-init.js");
 			
 			<nav id="mainNav">
 				<ul>
-					<li><a href='#top' onClick="return showContent('search',{'elasticsearch':{'query':{'term':{'tags':'IS_NEWARRIVAL'}}}});">new arrivals</a></li>
+					<li><a href='#top' onClick="return showContent('search',{'elasticsearch':{'query':{'term':{'tags':'IS_NEWARRIVAL'}}}});">new arrivals</a></li>					
+<!--	COMMENTED FOR SORT	<li><a href='#top' onClick="return showContent('search',{'elasticsearch':{'query':{'term':{'tags':'IS_NEWARRIVAL'}},'sort':[{'prod_name':'desc'}]}});">new arrivals</a></li> -->
 								
 					<li><a class='bindByAnchor' href='#!category?navcat=.leathergoods.moccasins'>moccasins</a>
 						<ul class="child_menu">
@@ -1319,7 +1320,7 @@ So the cart template should contain these two elements and the extension should 
 
 	<div data-bind='var: cart(want/shipping_id); format:shipInfoById; className:orderShipping; hideZero:false; extension:store_cart;'></div>
 
-	<div data-bind='var: cart(sum/order_total); format:money; className:orderTotal; hideZero:false; currencySign: $; pretext:Order Total: ; '></div>
+	<div data-bind='var: cart(sum/order_total); format:orderBalanceDue; className:orderTotal; hideZero:false; currencySign: $; pretext:Order Total: ; '></div>
 
 	<div data-bind='var: cart(sum/gfc_total); format:money; className:orderGiftcardTotal; hideZero:false; currencySign: $; pretext:Giftcard(s): ; '></div>
 	<div data-bind='var: cart(sum/pnt_total); format:money; className:rewardPointsTotal; hideZero:false; currencySign: $; pretext:Reward Points: ; '></div>
