@@ -845,7 +845,7 @@ if no handler is in place, then the app would use legacy compatibility mode.
 					this.dispatch(obj,_tag,Q);
 					}
 				else	{
-					app.u.throwGMessage("In admin.calls.adminUIProductPanelExecute, required param (panel, pid or sub) left blank. see console."); app.u.dump(obj);
+					app.u.throwGMessage("In admin.calls.adminUIProductPanelExecute, required param (panel, pid or sub) left blank. see console"); app.u.dump(obj);
 					}
 				},
 			dispatch : function(obj,_tag,Q)	{
@@ -1326,10 +1326,8 @@ if(app.u.getBrowserInfo().substr(0,4) == 'msie' && parseFloat(navigator.appVersi
 
 
 document.write = function(v){
-	if(console && console.warn){
-		console.warn("document.write was executed. That's bad mojo. Rewritten to $('body').append();");
-		console.log("document.write contents: "+v);
-		}
+	app.u.dump("document.write was executed. That's bad mojo. Rewritten to $('body').append();",'warn');
+	app.u.dump("document.write contents: "+v);
 	$("body").append(v);
 	}
 
@@ -2684,7 +2682,7 @@ var chart = new Highcharts.Chart({
 //it may be empty, and that's fine.
 // message splitting on | will result in spot 0 = message type (success, error, etc) and spot[last] == message. 
 // there 'may' be things between like 'batch:' or 'ticket:'. These are the 'type' and each are treated individually.
-// if an unrecognized 'type' is encountered, do NOT display an error message, but DO throw smething to the console.
+// if an unrecognized 'type' is encountered, do NOT display an error message, but DO throw smething to the console
 // also, if message starts with a +, strip that character.
 			uiHandleMessages : function(path,msg,viewObj)	{
 //				app.u.dump("BEGIN admin.u.uiHandleMessages ["+path+"]");

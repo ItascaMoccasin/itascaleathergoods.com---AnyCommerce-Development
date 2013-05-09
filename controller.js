@@ -1505,7 +1505,7 @@ VALIDATION
     		return re.test(str);				
 			}, //isValidEmail
 
-//used frequently to throw errors or debugging info at the console.
+//used frequently to throw errors or debugging info at the console
 //called within the throwError function too
 		dump : function(msg,type)	{
 			type = type || 'log'; //supported types are 'warn' and 'error'

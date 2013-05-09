@@ -983,7 +983,6 @@ this was necessary because otherwise the converted html was output as <a href...
 					fixed = lstr + "\n" + fixed;
          			}
 
-				// console.log(fixed);
 				myOutput.push(fixed);
             	}
          	else 
@@ -1079,9 +1078,6 @@ this was necessary because otherwise the converted html was output as <a href...
 					}
 
 
-				// console.log("phrase["+phrase+"] operation["+operation+"] suffix["+suffix+"]");
-
-
 				myOutput.push(output);
          		}
          	else {
@@ -1092,8 +1088,6 @@ this was necessary because otherwise the converted html was output as <a href...
 			}
 
 
-
-		// console.log("FINAL OUTPUT: "+myOutput.join(""));
 		wiki = myOutput.join("");
 		}
 

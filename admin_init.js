@@ -108,7 +108,7 @@ app.u.initMVC = function(attempts){
 	else if(attempts > 100)	{
 		app.u.dump("WARNING! something went wrong in init.js");
 		//this is 10 seconds of trying. something isn't going well.
-		$('.appMessaging').empty().append("<h2>Not all resources were able to be loaded.</h2><p>Several attempts were made to load the store but some necessary files were not found or could not load. We apologize for the inconvenience. This is <b>most likely due to a slow computer and/or slow internet connection<\/b>. Please try 'refresh' and see if that helps.<br><b>If the error persists, please contact the site administrator</b><br> - dev: see console.</p>");
+		$('.appMessaging').empty().append("<h2>Not all resources were able to be loaded.</h2><p>Several attempts were made to load the store but some necessary files were not found or could not load. We apologize for the inconvenience. This is <b>most likely due to a slow computer and/or slow internet connection<\/b>. Please try 'refresh' and see if that helps.<br><b>If the error persists, please contact the site administrator</b><br> - dev: see console</p>");
 		app.u.howManyPassZeroResourcesAreLoaded(true);
 		}
 	else	{
