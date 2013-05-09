@@ -1610,7 +1610,7 @@ jQuery.extend(imgSlider.prototype, {
 		return r;
 		},
 	handleAnime : function(){
-//		console.log("slide: "+this.focusSlide+"/"+this.numSlides);
+
 		var tmp = this;  // 'this' loses it's meaning inside the anonymous function below, so a new var is created to reference
 		if(this.focusSlide >= (this.numSlides - 1))	{
 			this.direction = 'right'
