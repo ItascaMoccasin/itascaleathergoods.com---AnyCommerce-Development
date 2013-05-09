@@ -139,7 +139,7 @@ else	{
 
 
 document.write = function(v){
-	if(console && console.warn){console.warn("document.write was executed. That's bad mojo. Rewritten to $('body').append();")}
+	app.u.dump("document.write was executed. That's bad mojo. Rewritten to $('body').append();",'warn')
 	$("body").append(v);
 	}
 
