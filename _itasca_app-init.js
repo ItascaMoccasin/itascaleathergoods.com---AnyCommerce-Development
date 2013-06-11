@@ -17,6 +17,8 @@ app.rq.push(['extension',0,'convertSessionToOrder','extensions/checkout_active/e
 // ### NOTE - mobile does NOT work. it's in development.
 //app.rq.push(['extension',0,'convertSessionToOrder','extensions/checkout_mobile/extension.js']);
 //app.rq.push(['extension',0,'cco','extensions/cart_checkout_order.js']);
+app.rq.push(['extension',0,'store_itasca','extensions/store_itasca.js'])
+
 
 
 app.rq.push(['extension',0,'store_prodlist','extensions/store_prodlist.js']);
@@ -27,11 +29,13 @@ app.rq.push(['extension',0,'store_cart','extensions/store_cart.js']);
 app.rq.push(['extension',0,'store_crm','extensions/store_crm.js']);
 app.rq.push(['extension',0,'myRIA','app-quickstart.js','startMyProgram']);
 
+app.rq.push(['extension',0,'magicToolBox_mzp','extensions/partner_magictoolbox_mzp.js','startExtension']);
+app.rq.push(['extension',0,'partner_addthis','extensions/partner_addthis.js','startExtension']);
 app.rq.push(['extension',1,'google_analytics','extensions/partner_google_analytics.js','startExtension']);
 //app.rq.push(['extension',0,'partner_addthis','extensions/partner_addthis.js','startExtension']);
 //app.rq.push(['extension',1,'resellerratings_survey','extensions/partner_buysafe_guarantee.js','startExtension']); /// !!! needs testing.
 //app.rq.push(['extension',1,'buysafe_guarantee','extensions/partner_buysafe_guarantee.js','startExtension']);
-//app.rq.push(['extension',1,'powerReviews_reviews','extensions/partner_powerreviews_reviews.js','startExtension']);
+app.rq.push(['extension',1,'powerReviews_reviews','extensions/partner_powerreviews_reviews.js','startExtension']);
 //app.rq.push(['extension',0,'magicToolBox_mzp','extensions/partner_magictoolbox_mzp.js','startExtension']); // (not working yet - ticket in to MTB)
 
 app.rq.push(['script',0,(document.location.protocol == 'file:') ? app.vars.testURL+'jquery/config.js' : app.vars.baseURL+'jquery/config.js']); //The config.js is dynamically generated.
