@@ -35,20 +35,19 @@ app.rq.push(['extension',1,'google_analytics','extensions/partner_google_analyti
 //app.rq.push(['extension',0,'partner_addthis','extensions/partner_addthis.js','startExtension']);
 //app.rq.push(['extension',1,'resellerratings_survey','extensions/partner_buysafe_guarantee.js','startExtension']); /// !!! needs testing.
 //app.rq.push(['extension',1,'buysafe_guarantee','extensions/partner_buysafe_guarantee.js','startExtension']);
-app.rq.push(['extension',1,'powerReviews_reviews','extensions/partner_powerreviews_reviews.js','startExtension']);
+//app.rq.push(['extension',1,'powerReviews_reviews','extensions/partner_powerreviews_reviews.js','startExtension']);
 //app.rq.push(['extension',0,'magicToolBox_mzp','extensions/partner_magictoolbox_mzp.js','startExtension']); // (not working yet - ticket in to MTB)
 
 app.rq.push(['script',0,(document.location.protocol == 'file:') ? app.vars.testURL+'jquery/config.js' : app.vars.baseURL+'jquery/config.js']); //The config.js is dynamically generated.
 app.rq.push(['script',0,app.vars.baseURL+'model.js']); //'validator':function(){return (typeof zoovyModel == 'function') ? true : false;}}
 app.rq.push(['script',0,app.vars.baseURL+'includes.js']); //','validator':function(){return (typeof handlePogs == 'function') ? true : false;}})
-
-
 app.rq.push(['script',0,app.vars.baseURL+'controller.js']);
 
 app.rq.push(['script',1,app.vars.baseURL+'resources/jquery.ui.jeditable.js']); //used for making text editable (customer address). non-essential. loaded late.
 app.rq.push(['script',1,app.vars.baseURL+'resources/jquery.showloading-v1.0.jt.js']); //used for making text editable (customer address). non-essential. loaded late.
 app.rq.push(['script',0,app.vars.baseURL+'resources/jquery.ui.anyplugins.js']); //in zero pass in case product page is first page.
-
+app.rq.push(['script',0,app.vars.baseURL+'carouFredSel-6.2.1/jquery.carouFredSel-6.2.1-packed.js']);
+app.rq.push(['script',0,app.vars.baseURL+'anyplugins.js']);
 
 
 
@@ -64,6 +63,20 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 				}
 			}
 		else	{} //couldn't find the tab to tabificate.
+		
+	//Image selector carousel
+	var carousel1;
+	function foo1(){ $(".prodThumbs").carouFredSel({
+		width   : 50,
+		height	: 300,
+    	items   : 3,
+		scroll: 1,
+		auto : false,
+    prev : "#caroPrev1",
+    next : "#caroNext1"
+	});}
+	carousel1 = foo1;
+	setTimeout(carousel1, 2000);
 	}]);
 
 
