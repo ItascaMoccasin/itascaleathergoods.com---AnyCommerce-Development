@@ -20,7 +20,7 @@ app.rq.push(['extension',0,'convertSessionToOrder','extensions/checkout_active/e
 app.rq.push(['extension',0,'store_itasca','extensions/store_itasca.js'])
 
 
-
+//app.rq.push(['extension',0,'partner_convertSelectToButton','extensions/select2Buttons.js']);
 app.rq.push(['extension',0,'store_prodlist','extensions/store_prodlist.js']);
 app.rq.push(['extension',0,'store_navcats','extensions/store_navcats.js']);
 app.rq.push(['extension',0,'store_search','extensions/store_search.js']);
@@ -47,6 +47,7 @@ app.rq.push(['script',1,app.vars.baseURL+'resources/jquery.ui.jeditable.js']); /
 app.rq.push(['script',1,app.vars.baseURL+'resources/jquery.showloading-v1.0.jt.js']); //used for making text editable (customer address). non-essential. loaded late.
 app.rq.push(['script',0,app.vars.baseURL+'resources/jquery.ui.anyplugins.js']); //in zero pass in case product page is first page.
 app.rq.push(['script',0,app.vars.baseURL+'carouFredSel-6.2.1/jquery.carouFredSel-6.2.1-packed.js']);
+app.rq.push(['script',0,app.vars.baseURL+'jquery.select2Buttons/jQuery.select2Buttons.js']);
 app.rq.push(['script',0,app.vars.baseURL+'anyplugins.js']);
 
 
@@ -64,19 +65,26 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 			}
 		else	{} //couldn't find the tab to tabificate.
 		
+		//LINE TO CONVERT SELECT SIZE ELEMENT TO BUTTONS INSTEAD OF A DROPDOWN
+		//$('select[name=pog_A0]').app.ext.partner_convertSelectToButton.u.select2Buttons();
+		$('select[name=pog_A0]').select2Buttons();
+		
 	//Image selector carousel
 	var carousel1;
 	function foo1(){ $(".prodThumbs").carouFredSel({
-		width   : 50,
-		height	: 300,
+		width   : 75,
+		height	: 230,
     	items   : 3,
 		scroll: 1,
+		direction : "up",
 		auto : false,
-    prev : "#caroPrev1",
-    next : "#caroNext1"
+		prev : "#caroPrev1",
+		next : "#caroNext1"
 	});}
 	carousel1 = foo1;
 	setTimeout(carousel1, 2000);
+	
+	
 	}]);
 
 

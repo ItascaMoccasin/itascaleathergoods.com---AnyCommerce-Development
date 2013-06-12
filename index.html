@@ -62,6 +62,7 @@ css files should be included before any .js file to ensure they are downloaded i
 <script src="resources/jquery.ui.widget.min.js"></script><!-- here so that plugins that may load before the jqueryui lib load without error -->
 <script type="text/javascript" src="loadscript.js"></script>
 <script type="text/javascript" src="examples/magictoolbox/magiczoomplus.js"></script>
+<!--<script type="text/javascript" src="jquery.select2Buttons/jQuery.select2Buttons.js"></script>-->
 
 
 
@@ -670,16 +671,18 @@ this will likely become more flexible in the future. ###
 	</td>
 
 	<td class='prodSummaryContainer marginBottom no_underline'>
-    <div data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='prodThumbs prodThumbsPP'>
-        <div class='pointer'><img src='blank.gif' data-bind='var: product(zoovy:prod_image2); format:magicZoomPlus; extension:magicToolBox_mzp;' width='50' height='50' /></div>
-        <div class='pointer'><img src='blank.gif' data-bind='var: product(zoovy:prod_image3); format:magicZoomPlus; extension:magicToolBox_mzp;' width='50' height='50' /></div>
-        <div class='pointer'><img src='blank.gif' data-bind='var: product(zoovy:prod_image4); format:magicZoomPlus; extension:magicToolBox_mzp;' width='50' height='50' /></div>
-        <div class='pointer'><img src='blank.gif' data-bind='var: product(zoovy:prod_image5); format:magicZoomPlus; extension:magicToolBox_mzp;' width='50' height='50' /></div>
-        <div class='pointer'><img src='blank.gif' data-bind='var: product(zoovy:prod_image6); format:magicZoomPlus; extension:magicToolBox_mzp;' width='50' height='50' /></div>
-        <div class='pointer'><img src='blank.gif' data-bind='var: product(zoovy:prod_image7); format:magicZoomPlus; extension:magicToolBox_mzp;' width='50' height='50' /></div>
-        <div class='pointer'><img src='blank.gif' data-bind='var: product(zoovy:prod_image8); format:magicZoomPlus; extension:magicToolBox_mzp;' width='50' height='50' /></div>
-		<div class='pointer'><img src='blank.gif' data-bind='var: product(zoovy:prod_image9); format:magicZoomPlus; extension:magicToolBox_mzp;' width='50' height='50' /></div>
-    </div>
+    <ul data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='prodThumbs prodThumbsPP'>
+        <li class="displayNone" data-bind='var: product(zoovy:prod_image2); format:showIfSet;'><img src='blank.gif' data-bind='var: product(zoovy:prod_image2); format:magicZoomPlus; extension:magicToolBox_mzp;' width='75' height='75' /></li>
+        <li class="displayNone" data-bind='var: product(zoovy:prod_image3); format:showIfSet;'><img src='blank.gif' data-bind='var: product(zoovy:prod_image3); format:magicZoomPlus; extension:magicToolBox_mzp;' width='75' height='75' /></li>
+        <li class="displayNone" data-bind='var: product(zoovy:prod_image4); format:showIfSet;'><img src='blank.gif' data-bind='var: product(zoovy:prod_image4); format:magicZoomPlus; extension:magicToolBox_mzp;' width='75' height='75' /></li>
+        <li class="displayNone" data-bind='var: product(zoovy:prod_image5); format:showIfSet;'><img src='blank.gif' data-bind='var: product(zoovy:prod_image5); format:magicZoomPlus; extension:magicToolBox_mzp;' width='75' height='75' /></li>
+        <li class="displayNone" data-bind='var: product(zoovy:prod_image6); format:showIfSet;'><img src='blank.gif' data-bind='var: product(zoovy:prod_image6); format:magicZoomPlus; extension:magicToolBox_mzp;' width='75' height='75' /></li>
+        <li class="displayNone" data-bind='var: product(zoovy:prod_image7); format:showIfSet;'><img src='blank.gif' data-bind='var: product(zoovy:prod_image7); format:magicZoomPlus; extension:magicToolBox_mzp;' width='75' height='75' /></li>
+        <li class="displayNone" data-bind='var: product(zoovy:prod_image8); format:showIfSet;'><img src='blank.gif' data-bind='var: product(zoovy:prod_image8); format:magicZoomPlus; extension:magicToolBox_mzp;' width='75' height='75' /></li>
+		<li class="displayNone" data-bind='var: product(zoovy:prod_image9); format:showIfSet;'><img src='blank.gif' data-bind='var: product(zoovy:prod_image9); format:magicZoomPlus; extension:magicToolBox_mzp;' width='75' height='75' /></li>
+    </ul>
+    <img id="caroPrev1" src="img/1194983921898369977part_of_the_flat_icon_c_01.svg.med.png" />
+    <img id="caroNext1" src="img/1194983921898369977part_of_the_flat_icon_c_01.svg.med-down.png" />
     <div>
         <h1 data-bind='var: product(zoovy:prod_name); format:text;'></h1>
     
@@ -801,7 +804,6 @@ It's done this way because ID's hard coded into template are bad mojo (templates
 <!-- withReviews removed to block CRM errors -->
 	<ul class='listStyleNone fluidList clearfix noPadOrMargin productList' data-bind="var: product(zoovy:related_products); format:productList; extension:store_prodlist;loadsTemplate:productListTemplate;hide_pagination:true;hide_summary:true; before:<h2>Similar Items</h2>;"></ul>
 </div>
-
 
 </div><!-- productTemplate -->
 
