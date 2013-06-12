@@ -273,8 +273,8 @@ padding: 15px 30px 25px;
 
 .select2Buttons a:hover, 
 .select2Buttons .picked {
-  background: #3c89c8;
-  border-color: #3c89c8;
+  background: black;
+  border-color: black;
   color: #FFF;    
   text-decoration: none;
 }
@@ -293,6 +293,18 @@ padding: 15px 30px 25px;
   background: #d1d1d1;
   border-color: #d1d1d1;
   color: #FFF;
+}
+.varItems div{
+	float:left;
+}
+#addToCartBtn{
+	margin-left:75px;
+}
+.CRMButtonMenu{
+	margin-left:75px;
+}
+.shoeSize div.select2Buttons ul.select-buttons li:first-child{
+	display:none;
 }
 
 

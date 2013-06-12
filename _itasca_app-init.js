@@ -66,8 +66,8 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 		else	{} //couldn't find the tab to tabificate.
 		
 		//LINE TO CONVERT SELECT SIZE ELEMENT TO BUTTONS INSTEAD OF A DROPDOWN
-		//$('select[name=pog_A0]').app.ext.partner_convertSelectToButton.u.select2Buttons();
 		$('select[name=pog_A0]').select2Buttons();
+		$('label[title=Size]').next().addClass("shoeSize");
 		
 	//Image selector carousel
 	var carousel1;
