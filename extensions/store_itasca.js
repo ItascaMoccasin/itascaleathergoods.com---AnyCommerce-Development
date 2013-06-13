@@ -66,10 +66,10 @@ var store_itasca = function() {
 			showLargeImage : function($container, index){
 				app.u.dump("$container = " + $container);
 				app.u.dump("index = " + index);
-				app.u.dump($('div.mzpContainer', $container).each());
+				app.u.dump($('div.bigImages', $container).each());
 				app.u.dump($(this).attr('data-index'));
 				app.u.dump("starting main image swapping function");
-			 $('div.mzpContainer', $container).each(function(){
+			 $('div.bigImages', $container).each(function(){
 				 app.u.dump("Hiding " + this );
 				  $(this).hide();
 				  if($(this).attr('data-index') == index){
@@ -77,6 +77,13 @@ var store_itasca = function() {
 				   $(this).show();
 				  }
 			 })
+			},
+			
+			swapLargeImage : function(index){
+				$(".prodBigImage").hide();
+				if($(this).attr('data-index') == index){
+					$(this).show();
+				}
 			}
 
 			
