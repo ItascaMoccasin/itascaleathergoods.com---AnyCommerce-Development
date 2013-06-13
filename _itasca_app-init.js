@@ -70,6 +70,8 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 		$('label[title=Size]').next().addClass("shoeSize");
 		
 	//Image selector carousel
+	
+	
 	var carousel1;
 	function foo1(){ $(".prodThumbs").carouFredSel({
 		width   : 75,
