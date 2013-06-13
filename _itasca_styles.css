@@ -117,7 +117,7 @@ header {position: relative;}
 #cartStuffList {width:95%;}
 #modalCart {z-index:2000;}
 
-.checkoutButtonsContainer .checkoutButton, #addToCartBtn {border:1px solid #9c947c;background:#04b5cb url(img/ui-bg_gloss-wave_30_04b5cb_500x100.png) 50% 50% repeat-x;font-weight:bold;color:#4d3420;}
+.checkoutButtonsContainer .checkoutButton, #addToCartBtn {border:1px solid #9c947c;background:#04b5cb url(img/ui-bg_gloss-wave_30_04b5cb_500x100.png) 50% 50% repeat-x;font-weight:bold;color:#4d3420; padding-top: 6px;}
 
 .editEnabled {
 	width:auto;
@@ -299,12 +299,27 @@ padding: 15px 30px 25px;
 }
 #addToCartBtn{
 	margin-left:75px;
+	float:left;
 }
 .CRMButtonMenu{
 	margin-left:75px;
 }
 .shoeSize div.select2Buttons ul.select-buttons li:first-child{
 	display:none;
+}
+.CRMButtonMenu button{
+	background: url("img/ui-bg_gloss-wave_30_04b5cb_500x100.png") repeat-x scroll 50% 50% #04B5CB;
+    border: 1px solid #9C947C;
+    border-radius: 4px 4px 4px 4px;
+    color: #4D3420;
+    font-weight: bold;
+    height: 31px;
+    line-height: 0;
+    padding-top: 0;
+    width: 130px;
+}
+.skuMfg{
+	margin-left:75px;
 }
 
 

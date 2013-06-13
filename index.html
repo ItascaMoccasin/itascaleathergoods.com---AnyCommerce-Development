@@ -686,9 +686,7 @@ this will likely become more flexible in the future. ###
     <div>
         <h1 data-bind='var: product(zoovy:prod_name); format:text;'></h1>
     	<div class="socialLinks"></div>
-        <h5 class='stid' data-bind='var: product(pid); format:text; pretext: Sku: ;'></h5>
-        <h5 data-bind='var: product(zoovy:prod_mfg); format:searchLink; extension:myRIA; pretext: Mfg: ;'></h5>
-        <h5 data-bind='var: product(zoovy:prod_mfgid); format:text; pretext: Mfg ID: ;'></h5>
+        
     
     
         <div class='priceContainer'>
@@ -713,6 +711,14 @@ this will likely become more flexible in the future. ###
             <fieldset data-bind='var: product(pid); format:atcQuantityInput; extension:store_product; pretext:Quantity: ;' class='borderNone'></fieldset>
     
             <input type='submit' value='Add to Cart' class='ui-button ui-button-text ui-corner-all ui-state-default addToCartButton displayNone' data-bind='var: product(pid); format:addToCartButton; extension:store_product;' id='addToCartBtn' />
+        	<menu data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='CRMButtonMenu'>
+                <!-- REVIEWS NOT AVAILABLE
+                    <a href='#' onClick='app.ext.store_crm.u.showReviewFrmInModal({"pid":$(this).parent().attr("data-pid"),"templateID":"reviewFrmTemplate"}); return false;'>Write Review</a>	|
+                -->
+    
+                <button href='#' onClick="app.ext.myRIA.a.add2BuyerList({sku:$(this).parent().attr('data-pid'),'listid':'wishlist'}); return false;">Add to Wishlist</button>
+        
+            </menu>
         </form>
     
     
@@ -725,14 +731,11 @@ this will likely become more flexible in the future. ###
         </section>
     -->
     
-        <menu data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='CRMButtonMenu'>
-    <!-- REVIEWS NOT AVAILABLE
-        <a href='#' onClick='app.ext.store_crm.u.showReviewFrmInModal({"pid":$(this).parent().attr("data-pid"),"templateID":"reviewFrmTemplate"}); return false;'>Write Review</a>	|
-    -->
-    
-        <a href='#' onClick="app.ext.myRIA.a.add2BuyerList({sku:$(this).parent().attr('data-pid'),'listid':'wishlist'}); return false;">Add to Wishlist</a>
-    
-        </menu>
+        <div class="skuMfg">
+            <h5 class='stid' data-bind='var: product(pid); format:text; pretext: Sku: ;'></h5>
+            <h5 data-bind='var: product(zoovy:prod_mfg); format:searchLink; extension:myRIA; pretext: Mfg: ;'></h5>
+            <h5 data-bind='var: product(zoovy:prod_mfgid); format:text; pretext: Mfg ID: ;'></h5>
+        </div>
     </div>
 
 	<span id="buySAFE_Kicker" name="buySAFE_Kicker" type="Kicker Guaranteed Transparent 33 175x30"></span>
