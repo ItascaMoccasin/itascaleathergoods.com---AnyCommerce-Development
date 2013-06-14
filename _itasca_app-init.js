@@ -65,23 +65,43 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 			}
 		else	{} //couldn't find the tab to tabificate.
 		
-		//LINE TO CONVERT SELECT SIZE ELEMENT TO BUTTONS INSTEAD OF A DROPDOWN
-		$('select[name=pog_A0]').select2Buttons();
+		//PRODUCT PAGE ATC VARIATIONS CUSTOMIZATION
+		
+		//CONVERT DROPDOWN TO BUTTON LIST....LIST + CHECK TO MAKE SURE THIS CONVERSION IS ONLY PERFORMED ONCE WHEN PAGE IS FIRST VISITED.
+		if( $(".varItems").data('selectConvertToButtons') != "true"){
+			$(".varItems").data('selectConvertToButtons', 'true');
+			//app.u.dump( "$('.varItems').data('selectConvertToButtons') = " + $(".varItems").data('selectConvertToButtons'));
+			$('select[name=pog_A0]').select2Buttons();
+			$('select[name=pog_A2]').select2Buttons();
+			
+			//END LIST
 		$('label[title=Size]').next().addClass("shoeSize");
+		$('input[name=pog_A1]').parent().addClass("customInstruct");
+		$('select[name=pog_A2]').parent().addClass("addBeads");
+		
+		
+		$('.customInstruct').before(
+			'<div data-bind="var:product(pid); format:assignAttribute; attribute:data-pid;">'
+			+       '<a class="customInst" onClick="app.ext.store_itasca.a.customInstructionsYes()">Yes</a>'
+			+		'<a class="customInst" onClick="app.ext.store_itasca.a.customInstructionsNo()">No</a>'
+			+		'</div>'
+		);
+		}
+		
 		
 	//Image selector carousel
 	
 	
 	var carousel1;
-	function foo1(){ $(".prodThumbs").carouFredSel({
+	function foo1(){ $(".thumbImages").carouFredSel({
 		width   : 75,
 		height	: 230,
     	items   : 3,
 		scroll: 1,
 		direction : "up",
 		auto : false,
-		prev : "#caroPrev1",
-		next : "#caroNext1"
+		prev : ".caroPrev1",
+		next : ".caroNext1"
 	});}
 	carousel1 = foo1;
 	setTimeout(carousel1, 2000);

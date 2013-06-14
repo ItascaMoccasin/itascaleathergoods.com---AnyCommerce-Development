@@ -188,6 +188,10 @@ padding: 15px 30px 25px;
 .thumbnailsContainer{
 	float:left;
 }
+.prodViewerAddToCartForm fieldset{
+	margin: 0 0 12px 75px;
+    padding: 0;
+}
 .prodViewerAddToCartForm{
 }
 ..prodSummaryContainer{
@@ -203,14 +207,14 @@ padding: 15px 30px 25px;
 .prodThumbsPP li{
 	clear:left;
 }
-#caroPrev1{
+.caroPrev1{
 	cursor: pointer;
     height: 40px;
     margin-left: 18px;
     position: absolute;
     width: 40px;
 }
-#caroNext1{
+.caroNext1{
 	bottom: -5px;
     cursor: pointer;
     height: 40px;
@@ -262,6 +266,7 @@ padding: 15px 30px 25px;
   text-align: center;
   text-decoration: none;
   font-size: 15px;  
+  border-radius: 5px;
 }
 
 .select2Buttons .disabled span {
@@ -324,5 +329,45 @@ padding: 15px 30px 25px;
 .imageContainer{
 	width:30%;
 }
-
+.customInstruct{
+	display:none;
+}
+.customInst{
+	border: thin solid black;
+    cursor: pointer;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-decoration: none;
+	margin-right:10px;
+	border-radius:5px;
+}
+.customInst:hover{
+	background-color:black;
+	color:white;
+}
+.zform_div{
+	clear:both;
+	margin-bottom:10px;
+}
+.zform_div label{
+	float:left;
+}
+.addBeads{
+}
+.addBeads div.select2Buttons ul.select-buttons li:first-child{
+	display:none;
+}
+.pogType_select label{
+	float:left;
+}
+.prodPageQuant{
+	margin-top: -15px !important;
+}
+#appNav .prodDetailPrevItemButton{
+	top: 30px;
+	left: -42px;
+}
+#appNav .prodDetailNextItemButton{
+	top: 30px;
+}
 
