@@ -55,6 +55,9 @@ app.rq.push(['script',0,app.vars.baseURL+'anyplugins.js']);
 //add tabs to product data.
 //tabs are handled this way because jquery UI tabs REALLY wants an id and this ensures unique id's between product
 app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
+		
+		
+	
 	var safePID = app.u.makeSafeHTMLId(P.pid); //can't use jqSelector because productTEmplate_pid still used makesafe. planned Q1-2013 update ###
 	var $tabContainer = $( ".tabbedProductContent",$('#productTemplate_'+safePID));
 		if($tabContainer.length)	{
@@ -65,12 +68,14 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 			}
 		else	{} //couldn't find the tab to tabificate.
 		
-		//PRODUCT PAGE ATC VARIATIONS CUSTOMIZATION
+		var $context = $(app.u.jqSelector('#',P.parentID));
 		
+		//PRODUCT PAGE ATC VARIATIONS CUSTOMIZATION
 		//CONVERT DROPDOWN TO BUTTON LIST....LIST + CHECK TO MAKE SURE THIS CONVERSION IS ONLY PERFORMED ONCE WHEN PAGE IS FIRST VISITED.
-		if( $(".varItems").data('selectConvertToButtons') != "true"){
-			$(".varItems").data('selectConvertToButtons', 'true');
-			//app.u.dump( "$('.varItems').data('selectConvertToButtons') = " + $(".varItems").data('selectConvertToButtons'));
+		if($('.pageBind', $context).data('selectConvertToButtons')){app.u.dump("content exists, do nothing");} //do nothing, content already added.
+		else{
+			$('.pageBind', $context).data('selectConvertToButtons',true).append("contentAdded");
+			//app.u.dump( "content doesn't exist, adding content");
 			$('select[name=pog_A0]').select2Buttons();
 			$('select[name=pog_A2]').select2Buttons();
 			
