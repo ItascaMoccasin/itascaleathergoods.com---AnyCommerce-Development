@@ -68,14 +68,18 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 			}
 		else	{} //couldn't find the tab to tabificate.
 		
-		var $context = $(app.u.jqSelector('#',P.parentID));
 		
+		var $context = $(app.u.jqSelector('#',P.parentID));
+		app.u.dump($context);
+			
 		//PRODUCT PAGE ATC VARIATIONS CUSTOMIZATION
 		//CONVERT DROPDOWN TO BUTTON LIST....LIST + CHECK TO MAKE SURE THIS CONVERSION IS ONLY PERFORMED ONCE WHEN PAGE IS FIRST VISITED.
-		if($('.pageBind', $context).data('selectConvertToButtons')){app.u.dump("content exists, do nothing");} //do nothing, content already added.
+		if($('.pageBind', $context).data('selectConvertToButtons')){
+			app.u.dump("content exists, do nothing");
+			} //do nothing, content already added.
 		else{
-			$('.pageBind', $context).data('selectConvertToButtons',true).append("contentAdded");
-			//app.u.dump( "content doesn't exist, adding content");
+			$('.pageBind', $context).data('selectConvertToButtons',true).append("");
+			app.u.dump( "content doesn't exist, adding content");
 			$('select[name=pog_A0]').select2Buttons();
 			$('select[name=pog_A2]').select2Buttons();
 			
@@ -116,7 +120,11 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 
 
 
-
+app.rq.push(['templateFunction','productTemplate','onDeparts',function(P) {
+	$(".customInst").remove();
+	$(".select2Buttons").remove();
+	$(".customInstruct").hide();
+	}]);
 
 
 
