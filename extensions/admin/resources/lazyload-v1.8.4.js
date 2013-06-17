@@ -21,7 +21,7 @@
     var $window = $(window);
 
     $.fn.lazyload = function(options) {
-
+		console.log('got into lazy load init');
         var elements = this;
         var $container;
         var settings = {

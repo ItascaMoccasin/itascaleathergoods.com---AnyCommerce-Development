@@ -46,7 +46,7 @@ var partner_addthis = function() {
 		callbacks : {
 			init : {
 				onSuccess : function(){
-					var scriptPath = (document.location.protocol == 'https:' ? 'https:' : 'http:')+'//s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4fa4616858ff587b';
+					var scriptPath = (document.location.protocol == 'https:' ? 'https:' : 'http:')+'//s7.addthis.com/js/250/addthis_widget.js';
 					if(typeof addthis_id !== 'undefined'){
 						scriptPath+= '#pubid='+addthis_id;
 					}
@@ -68,11 +68,11 @@ var partner_addthis = function() {
 							//To Customize the look and feel of the share icons, see here: http://support.addthis.com/customer/portal/articles/381238-addthis-toolbox
 							//Note: this also includes using custom share icons.
 							$(app.ext.partner_addthis.vars.selector, $('#productTemplate_'+app.u.makeSafeHTMLId(P.pid))).append(
-									'<div id="socialLinks" class="addthis_toolbox addthis_default_style addthis_32x32_style">'
-								+		'<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>'
-								+		'<a class="addthis_button_tweet"></a>'
-								+		'<a class="addthis_button_pinterest_pinit"></a>'
-								+		'<a class="addthis_counter addthis_pill_style"></a>'
+									'<div id="socialLinks" class="addthis_toolbox addthis_default_style">'
+								+		'<a class="addthis_button_preferred_1"></a>'
+								+		'<a class="addthis_button_preferred_2"></a>'
+								+		'<a class="addthis_button_preferred_3"></a>'
+								+		'<a class="addthis_button_preferred_4"></a>'
 								+		'<a class="addthis_button_compact"></a>'
 								+	'</div>');
 							
