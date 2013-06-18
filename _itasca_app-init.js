@@ -6,7 +6,8 @@ app.rq = app.rq || []; //ensure array is defined. rq = resource queue.
 app.rq.push(['extension',0,'orderCreate','extensions/checkout/extension.js']);
 app.rq.push(['extension',0,'cco','extensions/cart_checkout_order.js']);
 
-//app.rq.push(['extension',0,'partner_convertSelectToButton','extensions/select2Buttons.js']);
+app.rq.push(['extension',0,'store_itasca','extensions/store_itasca.js'])
+
 app.rq.push(['extension',0,'store_prodlist','extensions/store_prodlist.js']);
 app.rq.push(['extension',0,'store_navcats','extensions/store_navcats.js']);
 app.rq.push(['extension',0,'store_search','extensions/store_search.js']);
@@ -58,28 +59,29 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 			
 		//PRODUCT PAGE ATC VARIATIONS CUSTOMIZATION
 		//CONVERT DROPDOWN TO BUTTON LIST....LIST + CHECK TO MAKE SURE THIS CONVERSION IS ONLY PERFORMED ONCE WHEN PAGE IS FIRST VISITED.
-		if($('.pageBind', $context).data('selectConvertToButtons')){
+		//CONTEXT SELECTOR FOR PREVENTING BUTTONS FROM RENDERING MORE THAN  ONCE DISABLED TEMPORARILY WHILE CORRECTING A BUG IN PLUGIN.
+		/*if($('.pageBind', $context).data('selectConvertToButtons')){
 			app.u.dump("content exists, do nothing");
 			} //do nothing, content already added.
 		else{
 			$('.pageBind', $context).data('selectConvertToButtons',true).append("");
-			app.u.dump( "content doesn't exist, adding content");
-			$('select[name=pog_A0]').select2Buttons();
-			$('select[name=pog_A2]').select2Buttons();
+			app.u.dump( "content doesn't exist, adding content");*/
+			$('select[name=A0]').select2Buttons();
+			$('select[name=A2]').select2Buttons();
 			
 			//END LIST
-		$('label[title=Size]').next().addClass("shoeSize");
-		$('input[name=pog_A1]').parent().addClass("customInstruct");
-		$('select[name=pog_A2]').parent().addClass("addBeads");
-		
-		
-		$('.customInstruct').before(
-			'<div data-bind="var:product(pid); format:assignAttribute; attribute:data-pid;">'
-			+       '<a class="customInst" onClick="app.ext.store_itasca.a.customInstructionsYes()">Yes</a>'
-			+		'<a class="customInst" onClick="app.ext.store_itasca.a.customInstructionsNo()">No</a>'
-			+		'</div>'
-		);
-		}
+			$('label[title=Size]').next().addClass("shoeSize");
+			$('input[name=A1]').parent().addClass("customInstruct");
+			$('select[name=A2]').parent().addClass("addBeads");
+			
+			
+			$('.customInstruct').before(
+				'<div data-bind="var:product(pid); format:assignAttribute; attribute:data-pid;">'
+				+       '<a class="customInst" onClick="app.ext.store_itasca.a.customInstructionsYes()">Yes</a>'
+				+		'<a class="customInst" onClick="app.ext.store_itasca.a.customInstructionsNo()">No</a>'
+				+		'</div>'
+			);
+		//}
 		
 		
 	//Image selector carousel
@@ -98,7 +100,7 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 	});}
 	carousel1 = foo1;
 	setTimeout(carousel1, 2000);
-	
+		
 	
 	}]);
 
