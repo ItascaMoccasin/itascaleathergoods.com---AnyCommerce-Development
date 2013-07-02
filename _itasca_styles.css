@@ -189,12 +189,13 @@ padding: 15px 30px 25px;
 	float:left;
 }
 .prodViewerAddToCartForm fieldset{
-	margin: 0 0 12px 75px;
+	margin: 0 0 0 75px;
     padding: 0;
 }
 .prodViewerAddToCartForm{
+	margin-bottom: 10px;
 }
-..prodSummaryContainer{
+.prodSummaryContainer{
 	position:relative;
 }
 .prodThumbsPP{
@@ -207,20 +208,31 @@ padding: 15px 30px 25px;
 .prodThumbsPP li{
 	clear:left;
 }
+.prodImgContainer{
+	height: 195px;
+    margin-top: 0 !important;
+    position: relative;
+    width: 50px;
+}
+.prodImgContainer div.caroufredsel_wrapper{
+	margin-top: 13px !important;
+}
 .caroPrev1{
 	cursor: pointer;
-    height: 40px;
-    margin-left: 18px;
+    height: 20px;
+    left: 5px;
     position: absolute;
+    top: 0;
     width: 40px;
 }
 .caroNext1{
-	bottom: -5px;
+	bottom: 0;
     cursor: pointer;
-    height: 40px;
-    margin-left: 18px;
+    height: 20px;
+    left: 5px;
     position: absolute;
     width: 40px;
+    z-index: 1;
 }
 .select2Buttons{
 }
@@ -327,7 +339,6 @@ padding: 15px 30px 25px;
 	clear: left;
     float: left;
     margin-left: 75px;
-    margin-top: 5px;
 }
 .imageContainer{
 	width:30%;
