@@ -303,7 +303,7 @@ padding: 15px 30px 25px;
 	float:left;
 }
 #addToCartBtn{
-	margin-left:75px;
+	margin-left:0;
 	float:left;
 }
 .CRMButtonMenu{
@@ -324,7 +324,10 @@ padding: 15px 30px 25px;
     width: 130px;
 }
 .skuMfg{
-	margin-left:75px;
+	clear: left;
+    float: left;
+    margin-left: 75px;
+    margin-top: 5px;
 }
 .imageContainer{
 	width:30%;
