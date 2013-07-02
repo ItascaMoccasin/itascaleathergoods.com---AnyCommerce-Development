@@ -224,6 +224,7 @@ padding: 15px 30px 25px;
     position: absolute;
     top: 0;
     width: 40px;
+	z-index:1;
 }
 .caroNext1{
 	bottom: 0;
