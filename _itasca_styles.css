@@ -391,10 +391,15 @@ div.atclear{
 .prodSummaryContainer div div.priceContainer{
     float: left;
 	width: 530px;
-	margin-top: 10px;
+	margin-top: 0;
 }
 #prodlistChildren{
 }
 .latency{
+}
+.socialLinks{
+	height: 30px;
+    width: 500px;
+	float:left;
 }
 
