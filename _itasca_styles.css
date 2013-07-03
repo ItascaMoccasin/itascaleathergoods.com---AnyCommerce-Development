@@ -189,11 +189,13 @@ padding: 15px 30px 25px;
 	float:left;
 }
 .prodViewerAddToCartForm fieldset{
-	margin: 0 0 0 75px;
+	margin: 0;
     padding: 0;
 }
 .prodViewerAddToCartForm{
-	margin-bottom: 10px;
+	float: left;
+    margin-bottom: 10px;
+    width: 620px;
 }
 .prodSummaryContainer{
 	position:relative;
@@ -247,7 +249,6 @@ padding: 15px 30px 25px;
 
 .select2Buttons ul {
   list-style-type: none;
-  clear: left;
   margin: 5px;
   padding: 0;
 }
@@ -361,7 +362,6 @@ padding: 15px 30px 25px;
 	color:white;
 }
 .variation{
-	clear:both;
 	margin-bottom:10px;
 }
 .variation label{
@@ -387,5 +387,12 @@ padding: 15px 30px 25px;
 }
 div.atclear{
 	clear:none;
+}
+.prodSummaryContainer div div.priceContainer{
+    float: left;
+}
+#prodlistChildren{
+}
+.latency{
 }
 
