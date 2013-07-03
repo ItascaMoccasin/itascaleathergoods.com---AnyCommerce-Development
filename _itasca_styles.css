@@ -385,4 +385,7 @@ padding: 15px 30px 25px;
 #appNav .prodDetailNextItemButton{
 	top: 30px;
 }
+div.atclear{
+	clear:none;
+}
 
