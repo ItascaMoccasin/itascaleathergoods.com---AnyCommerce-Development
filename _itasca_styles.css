@@ -396,10 +396,13 @@ div.atclear{
 #prodlistChildren{
 }
 .latency{
+	float:left;
 }
 .socialLinks{
 	height: 30px;
     width: 500px;
 	float:left;
+}
+#socialLinks{
 }
 

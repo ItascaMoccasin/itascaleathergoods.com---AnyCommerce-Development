@@ -1,5 +1,0 @@
-Itasca:
-- Pages:json error on cat page.
-- CRM error on prod page.
-- Image/thumb image swapping feature only working on first page visited. No others and stops working if returning to the first page.
-- Same addThis bug that causes app crash when loading into directly/refreshing on product page.
