@@ -390,6 +390,8 @@ div.atclear{
 }
 .prodSummaryContainer div div.priceContainer{
     float: left;
+	width: 530px;
+	margin-top: 10px;
 }
 #prodlistChildren{
 }
