@@ -93,7 +93,7 @@ var magicToolBox_mzp = function() {
 					//app.u.dump('ID => '); app.u.dump(data.value);
 					$tag.attr('src',imgSrc);
 					/*$tag.wrap("<a href='"+app.u.makeImage({'tag':0,'name':data.value,'b':bgcolor})+"' class='MagicZoomPlus' id='"+$tag.attr('id')+"_href' />")*/
-/*ITASCA*/			$tag.wrap("<a href='"+app.u.makeImage({'tag':0,'name':fileName,'b':bgcolor})+"' class='MagicZoomPlus' id='prodBigImage_href_"+pid+"' rel='selectors-change: mouseover; zoom-width:410; zoom-height:410; hint: false;' />")
+/*ITASCA*/			$tag.wrap("<a href='"+app.u.makeImage({'tag':0,'name':fileName,'b':bgcolor})+"' class='MagicZoomPlus' id='prodBigImage_href_"+pid+"' rel='selectors-change: mouseover; zoom-width:710; zoom-height:410; hint: false;' />")
 					}
 				else	{
 /*ITASCA*/			$tag.style('display','none'); //if there is no image, hide the src.  !!! added 1/26/2012. this a good idea?
