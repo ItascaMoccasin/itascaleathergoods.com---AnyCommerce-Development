@@ -78,12 +78,11 @@ var partner_addthis = function() {
 				var $context = $(app.u.jqSelector('#',infoObj.parentID));
 
 				$(app.ext.partner_addthis.vars.selector, $context).append(
-						'<div id="socialLinks" class="addthis_toolbox addthis_default_style">'
-					+		'<a class="addthis_button_preferred_1"></a>'
-					+		'<a class="addthis_button_preferred_2"></a>'
-					+		'<a class="addthis_button_preferred_3"></a>'
-					+		'<a class="addthis_button_preferred_4"></a>'
-					+		'<a class="addthis_button_compact"></a>'
+						'<div id="socialLinks" class="addthis_toolbox addthis_default_style addthis_32x32_style">'
+					+		'<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>'
+					+		'<a class="addthis_button_tweet"></a>'
+					+		'<a class="addthis_button_pinterest_pinit"></a>'
+					+		'<a class="addthis_counter addthis_pill_style"></a>'
 					+	'</div>');
 
 				//Set URL+title for most sharing code
