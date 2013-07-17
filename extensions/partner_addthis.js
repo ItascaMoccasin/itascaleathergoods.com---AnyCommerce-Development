@@ -46,10 +46,10 @@ var partner_addthis = function() {
 		callbacks : {
 			init : {
 				onSuccess : function(){
-					var scriptPath = (document.location.protocol == 'https:' ? 'https:' : 'http:')+'//s7.addthis.com/js/250/addthis_widget.js';
-					if(typeof addthis_id !== 'undefined'){
+					var scriptPath = (document.location.protocol == 'https:' ? 'https:' : 'http:')+'//s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4fa4616858ff587b';
+					/*if(typeof addthis_id !== 'undefined'){
 						scriptPath+= '#pubid=ra-4fa4616858ff587b';
-					}
+					}*/
 					//setTimeout used to test asynchronous loading and dependency checks
 					//setTimeout(function(){app.u.loadScript(scriptPath);},3000);
 					app.u.loadScript(scriptPath);
