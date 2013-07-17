@@ -315,6 +315,7 @@ padding: 15px 30px 25px;
 }
 .varItems div{
 	float:left;
+	clear:left;
 }
 #addToCartBtn{
 	margin-left:0;
@@ -377,6 +378,7 @@ padding: 15px 30px 25px;
 }
 .prodPageQuant{
 	margin-top: -15px !important;
+	margin-bottom: 0px !important;
 }
 #appNav .prodDetailPrevItemButton{
 	top: 30px;
