@@ -89,8 +89,8 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 	
 	var carousel1;
 	function foo1(){ $(".thumbImages").carouFredSel({
-		width   : 75,
-		height	: 170,
+		width   : 100,
+		height	: 300,
     	items   : 3,
 		scroll: 1,
 		direction : "up",
