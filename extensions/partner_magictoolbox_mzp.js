@@ -127,7 +127,7 @@ var magicToolBox_mzp = function() {
 					imgName = pdata['zoovy:prod_image'+i];
 //					app.u.dump(" -> "+i+": "+imgName);
 					if(app.u.isSet(imgName))	{
-/*ITASCA*/				imgs += "<li><a class='MagicThumb-swap' rel='zoom-id: prodBigImage_href_"+data.value+"; hint: false;' rev='"+app.u.makeImage({'tag':0,'w':340,'h':340,'name':imgName,'b':'ffffff'})+"' href='"+app.u.makeImage({'tag':0,'w':340,'h':340,'name':imgName,'b':'ffffff'})+"'><img src='"+app.u.makeImage({'tag':0,'w':100,'h':100,'name':imgName,'b':'ffffff'})+"' \/><\/a><\/li>";
+/*ITASCA*/				imgs += "<li><a class='MagicThumb-swap' rel='zoom-id: prodBigImage_href_"+data.value+"; hint: false;' rev='"+app.u.makeImage({'tag':0,'w':340,'h':340,'name':imgName,'b':'ffffff'})+"' href='"+app.u.makeImage({'tag':0,'w':600,'h':600,'name':imgName,'b':'ffffff'})+"'><img src='"+app.u.makeImage({'tag':0,'w':100,'h':100,'name':imgName,'b':'ffffff'})+"' \/><\/a><\/li>";
 						}
 					}
 				$tag.append(imgs);
