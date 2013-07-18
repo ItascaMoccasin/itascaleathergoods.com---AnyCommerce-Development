@@ -348,17 +348,18 @@ padding: 15px 30px 25px;
 .imageContainer{
 	width:30%;
 }
-.customInstruct{
+.CustomInstructInput{
 	display:none;
 }
 .customInst{
 	border: thin solid black;
+    border-radius: 5px 5px 5px 5px;
     cursor: pointer;
-    padding-left: 10px;
-    padding-right: 10px;
+    float: left;
+    margin-left: 5px;
+    margin-top: 5px;
+    padding: 3px 10px;
     text-decoration: none;
-	margin-right:10px;
-	border-radius:5px;
 }
 .customInst:hover{
 	background-color:black;

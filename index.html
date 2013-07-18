@@ -789,9 +789,7 @@ It's done this way because ID's hard coded into template are bad mojo (templates
 		<li class='prodFeaturesTab displayNone' data-bind='var: product(zoovy:prod_features); format:showIfSet;'><a href='#prodFeatures'>Features</a></li>
 	<!--	<li class='prodReviewsTab'><a href='#prodReviews'>Reviews</a></li> -->
 		<li class='prodVideoTab displayNone' data-bind='var: product(youtube:videoid); format:showIfSet;'><a href='#prodVideo'>Video</a></li>
-		<!--
         <li class='prodAccessoriesTab displayNone' data-bind='var: product(zoovy:accessory_products); format:showIfSet;'><a href='#prodAccessories'>Accessories</a></li>
-		-->
     </ul>
 
 	<div class='tabContent' data-anytab-content='prodDesc'>
@@ -822,14 +820,9 @@ It's done this way because ID's hard coded into template are bad mojo (templates
 		<div data-bind='var: product(youtube:videoid); format:youtubeVideo;'></div>
 	</div>
 
-	<!--<div class='tabContent' data-anytab-content='prodAccessories'>
-<!-- EDITED FOR CRM ERRORS
-<ul class='listStyleNone fluidList clearfix noPadOrMargin lineItemProdlist' data-bind="var: product(zoovy:accessory_products); format:productList; extension:store_prodlist;loadsTemplate:productListTemplateATC;hide_pagination:true;hide_summary:true; withReviews:1; withInventory:1; withVariations:1;"></ul>
--->
-<!--
-<ul class='listStyleNone fluidList clearfix noPadOrMargin lineItemProdlist' data-bind="var: product(zoovy:accessory_products); format:productList; extension:store_prodlist;loadsTemplate:productListTemplateATC;hide_pagination:true;hide_summary:true; withInventory:1; withVariations:1;"></ul>
--->
-	<!--</div>-->
+	<div class='tabContent' data-anytab-content='prodAccessories'>
+		<ul class='listStyleNone fluidList clearfix noPadOrMargin lineItemProdlist' data-bind="var: product(zoovy:accessory_products); format:productList; extension:store_prodlist;loadsTemplate:productListTemplateATC;hide_pagination:true;hide_summary:true; withInventory:1; withVariations:1;"></ul>
+	</div>
 
 
 
@@ -840,10 +833,7 @@ It's done this way because ID's hard coded into template are bad mojo (templates
 </tr>
 </table>
 <div class='prodlistRelatedContainer'>
-<!-- withReviews removed to block CRM errors -->
-	<!--
     <ul class='listStyleNone fluidList clearfix noPadOrMargin productList' data-bind="var: product(zoovy:related_products); format:productList; extension:store_prodlist;loadsTemplate:productListTemplate;hide_pagination:true;hide_summary:true; before:<h2>Similar Items</h2>;"></ul>
-	-->
 </div>
 
 </div><!-- productTemplate -->

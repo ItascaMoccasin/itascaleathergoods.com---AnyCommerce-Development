@@ -74,11 +74,13 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 			$('input[name=A1]').parent().addClass("customInstruct");
 			$('select[name=A2]').parent().addClass("addBeads");
 			
+			$("input[name=A1]").addClass("CustomInstructInput");
+			
 			
 			$('.customInstruct').before(
 				'<div data-bind="var:product(pid); format:assignAttribute; attribute:data-pid;">'
-				+       '<a class="customInst" onClick="app.ext.store_itasca.a.customInstructionsYes()">Yes</a>'
-				+		'<a class="customInst" onClick="app.ext.store_itasca.a.customInstructionsNo()">No</a>'
+				+       '<a class="customInst customInstYes" onClick="app.ext.store_itasca.a.customInstructionsYes()">Yes</a>'
+				+		'<a class="customInst customInstNo" onClick="app.ext.store_itasca.a.customInstructionsNo()">No</a>'
 				+		'</div>'
 			);
 		//}

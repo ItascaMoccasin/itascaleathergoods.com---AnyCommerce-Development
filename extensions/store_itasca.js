@@ -63,11 +63,19 @@ var store_itasca = function() {
 
 		a : {
 			customInstructionsYes : function(){
-				$(".customInstruct").show();
+				$(".CustomInstructInput").show();
+				$(".customInstYes").css("background-color", "black");
+				$(".customInstYes").css("color", "white");
+				$(".customInstNo").css("background-color", "white");
+				$(".customInstNo").css("color", "black");
 			},
 			customInstructionsNo : function(){
-				$(".customInstruct").val("");
-				$(".customInstruct").hide();
+				$(".CustomInstructInput").val("");
+				$(".CustomInstructInput").hide();
+				$(".customInstYes").css("background-color", "white");
+				$(".customInstYes").css("color", "black");
+				$(".customInstNo").css("background-color", "black");
+				$(".customInstNo").css("color", "white");
 			},
 			
 			
