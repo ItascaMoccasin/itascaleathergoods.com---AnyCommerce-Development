@@ -78,14 +78,12 @@ var partner_addthis = function() {
 				var $context = $(app.u.jqSelector('#',infoObj.parentID));
 
 				$(app.ext.partner_addthis.vars.selector, $context).append(
-						'<!-- AddThis Button BEGIN -->'
-					+	'<div class="addthis_toolbox addthis_default_style ">'
+						'<div class="addthis_toolbox addthis_default_style ">'
 					+		'<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>'
 					+		'<a class="addthis_button_tweet"></a>'
 					+		'<a class="addthis_button_pinterest_pinit"></a>'
 					+		'<a class="addthis_counter addthis_pill_style"></a>'
-					+	'</div>'
-					+	'<!-- AddThis Button END -->');
+					+	'</div>');
 
 				//Set URL+title for most sharing code
 				var url = zGlobals.appSettings.http_app_url+"product/"+infoObj.pid+"/";
