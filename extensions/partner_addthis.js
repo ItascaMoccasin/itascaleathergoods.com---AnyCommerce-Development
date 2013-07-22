@@ -46,7 +46,7 @@ var partner_addthis = function() {
 		callbacks : {
 			init : {
 				onSuccess : function(){
-					var scriptPath = (document.location.protocol == 'https:' ? 'https:' : 'http:')+'//s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4fa4616858ff587b';
+					var scriptPath = (document.location.protocol == 'https:' ? 'https:' : 'http:')+'//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4fa4616858ff587b';
 					/*if(typeof addthis_id !== 'undefined'){
 						scriptPath+= '#pubid=ra-4fa4616858ff587b';
 					}*/
@@ -78,12 +78,14 @@ var partner_addthis = function() {
 				var $context = $(app.u.jqSelector('#',infoObj.parentID));
 
 				$(app.ext.partner_addthis.vars.selector, $context).append(
-						'<div id="socialLinks" class="addthis_toolbox addthis_default_style addthis_32x32_style">'
+						'<!-- AddThis Button BEGIN -->'
+					+	'<div class="addthis_toolbox addthis_default_style ">'
 					+		'<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>'
 					+		'<a class="addthis_button_tweet"></a>'
 					+		'<a class="addthis_button_pinterest_pinit"></a>'
 					+		'<a class="addthis_counter addthis_pill_style"></a>'
-					+	'</div>');
+					+	'</div>'
+					+	'<!-- AddThis Button END -->');
 
 				//Set URL+title for most sharing code
 				var url = zGlobals.appSettings.http_app_url+"product/"+infoObj.pid+"/";
