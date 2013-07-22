@@ -55,7 +55,7 @@ var partner_addthis = function() {
 					app.u.loadScript(scriptPath);
 					app.rq.push(['templateFunction','productTemplate','onCompletes',function(infoObj){
 						var buildSocialLinksPP = app.ext.partner_addthis.u.buildSocialLinksProductPage(infoObj);
-						setTimeout("buildSocialLinksPP", 2100);
+						setTimeout(buildSocialLinksPP, 2100);
 						}]);
 					app.rq.push(['templateFunction','productTemplate','onDeparts',function(infoObj){
 						app.ext.partner_addthis.u.destroySocialLinks(infoObj);
