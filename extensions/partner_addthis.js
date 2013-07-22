@@ -54,8 +54,7 @@ var partner_addthis = function() {
 					//setTimeout(function(){app.u.loadScript(scriptPath);},3000);
 					app.u.loadScript(scriptPath);
 					app.rq.push(['templateFunction','productTemplate','onCompletes',function(infoObj){
-						var buildSocialLinksPP = app.ext.partner_addthis.u.buildSocialLinksProductPage(infoObj);
-						setTimeout(buildSocialLinksPP, 2100);
+						app.ext.partner_addthis.u.buildSocialLinksProductPage(infoObj);
 						}]);
 					app.rq.push(['templateFunction','productTemplate','onDeparts',function(infoObj){
 						app.ext.partner_addthis.u.destroySocialLinks(infoObj);
@@ -102,7 +101,7 @@ var partner_addthis = function() {
 				addthis.toolbox('#socialLinks');
 				}
 			else {
-				app.u.dump("-> Addthis is not defined...");
+				//app.u.dump("-> Addthis is not defined...");
 				var n = 40;
 				if(attempts > n){
 					app.u.dump("Failed to build social links after "+(n/4)+" seconds.  infoObj follows: "); app.u.dump(infoObj);
