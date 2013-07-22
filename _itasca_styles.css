@@ -229,7 +229,6 @@ padding: 15px 30px 25px;
     position: absolute;
    	top:0;
     width: 100px;
-    z-index: 1;
 }
 .caroNext1{
 	bottom: 0;
@@ -238,7 +237,6 @@ padding: 15px 30px 25px;
     left: 0;
     position: absolute;
     width: 100px;
-    z-index: 1;
 }
 .select2Buttons{
 }
