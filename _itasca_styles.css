@@ -195,7 +195,7 @@ padding: 15px 30px 25px;
 .prodViewerAddToCartForm{
 	float: left;
     margin-bottom: 10px;
-    width: 620px;
+    width: 480px;
 }
 .prodSummaryContainer{
 	position:relative;
@@ -411,6 +411,6 @@ div.atclear{
 .prodContent{
 	float: left;
     margin-left: 15px;
-    width: 555px;
+    width: 470px;
 }
 
