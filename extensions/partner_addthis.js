@@ -102,7 +102,7 @@ var partner_addthis = function() {
 				}
 			else {
 				//app.u.dump("-> Addthis is not defined...");
-				var n = 40;
+				var n = 60;
 				if(attempts > n){
 					app.u.dump("Failed to build social links after "+(n/4)+" seconds.  infoObj follows: "); app.u.dump(infoObj);
 					}
