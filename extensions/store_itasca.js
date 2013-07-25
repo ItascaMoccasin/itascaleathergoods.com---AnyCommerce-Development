@@ -134,7 +134,19 @@ var store_itasca = function() {
 		u : {
 				getProdContext : function(pid){
 					return $(app.u.jqSelector('#productTemplate_'+pid));
-				}
+				},
+				
+				setTitle : function(title){
+					if(title && typeof title ==="string"){
+						//This is what we expect
+						}
+					else{
+						//Go home title.  You are drunk.
+						title = "Handmade Moccasins | Itasca Leathergoods"; 
+						}
+
+					document.title = title+" | Itasca Leathergoods";
+				},
 			}, //u
 
 

@@ -145,10 +145,18 @@ app.u.loadScript(app.vars.baseURL+"_itasca_app-init.js");
 			
 			<nav id="mainNav">
 				<ul>
-					<li><a href='#top' onClick="return showContent('search',{'elasticsearch':{'query':{'term':{'tags':'IS_NEWARRIVAL'}}}});">new arrivals</a></li>					
+					<li><a href='#top' onClick="return showContent('search',{'elasticsearch':{'query':{'term':{'tags':'IS_NEWARRIVAL'}}}});">new arrivals</a>
+						<ul class="child_menu">
+							<li><a class='bindByAnchor' onClick="return showContent('search',{'elasticsearch':{'query':{'term':{'tags':'IS_NEWARRIVAL'}}}});">Moccassins</a>
+								<ul class="child_menu subcatNAMenu">
+									<li><a class='bindByAnchor' onClick="return showContent('search',{'elasticsearch':{'query':{'term':{'tags':'IS_NEWARRIVAL'}}}});">Moccassins</a>
+								</ul>
+							</li>
+						</ul>
+					</li>
 <!--	COMMENTED FOR SORT	<li><a href='#top' onClick="return showContent('search',{'elasticsearch':{'query':{'term':{'tags':'IS_NEWARRIVAL'}},'sort':[{'prod_name':'desc'}]}});">new arrivals</a></li> -->
 								
-					<li><a class='bindByAnchor' href='#!category?navcat=.leathergoods.moccasins'>moccasins</a>
+					<li><a class='bindByAnchor' href='#!category?navcat=.leathergoods.moccasins'>Moccasins</a>
 						<ul class="child_menu">
 							<li><a class='bindByAnchor' href='#!category?navcat=.leathergoods.moccasins.women'>Women</a></li>
 							<li><a class='bindByAnchor' href='#!category?navcat=.leathergoods.moccasins.men'>Men</a></li>
@@ -417,6 +425,7 @@ each of the 'sections' are used to load another template. don't change the id.
 don't modify the 'data-templateid' unless you are changing template names and updating everywhere appropriate.
 -->
 <div id='categoryTemplate' class='loadingBG categoryTemplate'>
+	<span class="displayNone" data-bind="var: category(%page.page_title); format: text;"></span>
 
 	<ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(id); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
 

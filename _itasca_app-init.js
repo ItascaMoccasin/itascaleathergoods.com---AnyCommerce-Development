@@ -113,6 +113,39 @@ app.rq.push(['templateFunction','productTemplate','onDeparts',function(P) {
 	$(".select2Buttons").remove();
 	$(".customInstruct").hide();
 	}]);
+	
+
+//**BEGIN TITLE APPENDING FUNCTIONALITY**//
+app.rq.push(['templateFunction', 'categoryTemplate','onCompletes',function(P){
+						var title = app.data["appPageGet|"+P.navcat]['%page'].page_title;
+						app.ext.store_itasca.u.setTitle(title);
+						}]);
+					}
+				app.rq.push(['templateFunction', 'productTemplate','onCompletes',function(P){
+					var title = app.data["appProductGet|"+P.pid]['%attribs']['zoovy:prod_name'];
+					app.ext.store_itasca.u.setTitle(title);
+					}]);
+				app.rq.push(['templateFunction', 'companyTemplate','onCompletes',function(P){
+					var title = "Itasca Moccasins Company Information";
+					app.ext.store_itasca.u.setTitle(title);
+					}]);
+				app.rq.push(['templateFunction', 'customerTemplate','onCompletes',function(P){
+					var title = "Itasca Moccasins Customer Information";
+					app.ext.store_itasca.u.setTitle(title);
+					}]);
+				app.rq.push(['templateFunction', 'homepageTemplate','onCompletes',function(P){
+					app.ext.store_itasca.u.setTitle();
+					}]);
+				app.rq.push(['templateFunction', 'pageNotFoundTemplate','onCompletes',function(P){
+					app.ext.store_itasca.u.setTitle();
+					}]);
+				app.rq.push(['templateFunction', 'checkoutTemplate','onCompletes',function(P){
+					app.ext.store_itasca.u.setTitle();
+					}]);
+				app.rq.push(['templateFunction', 'searchTemplate','onCompletes',function(P){
+					app.ext.store_itasca.u.setTitle();
+					}]);
+//**END TITLE APPENDING FUNCTIONALITY**//
 
 
 
@@ -209,10 +242,8 @@ app.u.loadApp = function() {
 
 //Any code that needs to be executed after the app init has occured can go here.
 //will pass in the page info object. (pageType, templateID, pid/navcat/show and more)
-app.u.appInitComplete = function(P)	{
-	app.u.dump("Executing myAppIsLoaded code...");
-	document.title='Handmade Moccasins | Itasca Leathergoods';
-	}
+
+
 
 app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {
 	var $target=$('#wideSlideshow');
