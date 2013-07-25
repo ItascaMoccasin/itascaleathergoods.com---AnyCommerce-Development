@@ -145,15 +145,56 @@ app.u.loadScript(app.vars.baseURL+"_itasca_app-init.js");
 			
 			<nav id="mainNav">
 				<ul>
-					<li><a href='#top' onClick="return showContent('search',{'elasticsearch':{'query':{'term':{'tags':'IS_NEWARRIVAL'}}}});">new arrivals</a>
-						<ul class="child_menu">
+					<li class="catNAMenu" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
+						<div href='#top' onClick="return showContent('search',{'elasticsearch':{'query':{'term':{'tags':'IS_NEWARRIVAL'}}}});"><a>NEW ARRIVALS</a></div>
+						<div class="dropdown alignLeft">
+							  <ul class="floatLeft dropdownList">
+								  <li class="headerDropdownLink alignLeft dropdownLinkSizing" onMouseOver="showDropdownSubcat($(this))" onMouseOut="hideDropdownSubcat($(this))">
+									  <div class="linkboxNA" href='#top' onClick="return showContent('search',{'elasticsearch':{'filter':{'and':[{'term':{'tags':'IS_NEWARRIVAL'}}, { 'term' : {'na_category':''}}]}}});"><a class="pointer headerDropdownLink">Moccasins</a></div>
+									  <div class="subcatDropdown alignLeft">
+											<ul class="floatLeft dropdownSubcatList">
+												<li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('search',{'elasticsearch':{'filter':{'and':[{'term':{'tags':'IS_NEWARRIVAL'}}, { 'term' : {'na_category':''}}, { 'term' : {'na_sub_category':''}}]}}});" class="pointer headerDropdownLink">Women</a></li>
+												<li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('search',{'elasticsearch':{'filter':{'and':[{'term':{'tags':'IS_NEWARRIVAL'}}, { 'term' : {'na_category':''}}, { 'term' : {'na_sub_category':''}}]}}});" class="pointer headerDropdownLink">Men</a></li>
+												<li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('search',{'elasticsearch':{'filter':{'and':[{'term':{'tags':'IS_NEWARRIVAL'}}, { 'term' : {'na_category':''}}, { 'term' : {'na_sub_category':''}}]}}});" class="pointer headerDropdownLink">Children</a></li>
+												<li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('search',{'elasticsearch':{'filter':{'and':[{'term':{'tags':'IS_NEWARRIVAL'}}, { 'term' : {'na_category':''}}, { 'term' : {'na_sub_category':''}}]}}});" class="pointer headerDropdownLink">Infants</a></li>
+												<!--EXAMPLE: onClick="return showContent('search',{'elasticsearch':{'query':{'term':{'tags':'IS_NEWARRIVAL'}}}});"-->
+											</ul>
+									  </div>
+								  </li>
+								  <li class="headerDropdownLink alignLeft dropdownLinkSizing" onMouseOver="showDropdownSubcat($(this))" onMouseOut="hideDropdownSubcat($(this))">
+									  <div class="linkboxNA" href='#top' onClick="return showContent('search',{'elasticsearch':{'filter':{'and':[{'term':{'tags':'IS_NEWARRIVAL'}}, { 'term' : {'na_category':''}}]}}});"><a class="pointer headerDropdownLink">Home Goods</a></div>
+									  <div class="subcatDropdown alignLeft">
+											<ul class="floatLeft dropdownSubcatList">
+												<li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('search',{'elasticsearch':{'filter':{'and':[{'term':{'tags':'IS_NEWARRIVAL'}}, { 'term' : {'na_category':''}}, { 'term' : {'na_sub_category':''}}]}}});" class="pointer headerDropdownLink">Placemats</a></li>
+												<li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('search',{'elasticsearch':{'filter':{'and':[{'term':{'tags':'IS_NEWARRIVAL'}}, { 'term' : {'na_category':''}}, { 'term' : {'na_sub_category':''}}]}}});" class="pointer headerDropdownLink">Coasters</a></li>
+											</ul>
+									  </div>
+								  </li>
+								  <li class="headerDropdownLink alignLeft dropdownLinkSizing" onMouseOver="showDropdownSubcat($(this))" onMouseOut="hideDropdownSubcat($(this))">
+									  <div class="linkboxNA" href='#top' onClick="return showContent('search',{'elasticsearch':{'filter':{'and':[{'term':{'tags':'IS_NEWARRIVAL'}}, { 'term' : {'na_category':''}}]}}});"><a class="pointer headerDropdownLink">Electronic Cases</a></div>
+									  <div class="subcatDropdown alignLeft">
+											<ul class="floatLeft dropdownSubcatList">
+												<li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('search',{'elasticsearch':{'filter':{'and':[{'term':{'tags':'IS_NEWARRIVAL'}}, { 'term' : {'na_category':''}}, { 'term' : {'na_sub_category':''}}]}}});" class="pointer headerDropdownLink">IPad</a></li>
+											</ul>
+									  </div>
+								  </li>
+								  <li class="headerDropdownLink alignLeft dropdownLinkSizing" ><a href="#" onClick="return showContent('search',{'elasticsearch':{'filter':{'and':[{'term':{'tags':'IS_NEWARRIVAL'}}, { 'term' : {'na_category':''}}]}}});" class="pointer headerDropdownLink">Totes/Bags</a></li>
+								  <li class="headerDropdownLink alignLeft dropdownLinkSizing" ><a href="#" onClick="return showContent('search',{'elasticsearch':{'filter':{'and':[{'term':{'tags':'IS_NEWARRIVAL'}}, { 'term' : {'na_category':''}}]}}});" class="pointer headerDropdownLink">Accessories</a></li>
+								  <li class="headerDropdownLink alignLeft dropdownLinkSizing" ><a href="#" onClick="return showContent('search',{'elasticsearch':{'filter':{'and':[{'term':{'tags':'IS_NEWARRIVAL'}}, { 'term' : {'na_category':''}}]}}});" class="pointer headerDropdownLink">Small Leather Goods</a></li>
+								  
+							  </ul>
+						</div>
+					</li>
+							  
+					<!--<li><a href='#top' onClick="return showContent('search',{'elasticsearch':{'query':{'term':{'tags':'IS_NEWARRIVAL'}}}});">new arrivals</a>
+						<ul class="catNAMenu dropdown" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
 							<li><a class='bindByAnchor' onClick="return showContent('search',{'elasticsearch':{'query':{'term':{'tags':'IS_NEWARRIVAL'}}}});">Moccassins</a>
-								<ul class="child_menu subcatNAMenu">
+								<ul class="subcatNAMenu dropdown" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
 									<li><a class='bindByAnchor' onClick="return showContent('search',{'elasticsearch':{'query':{'term':{'tags':'IS_NEWARRIVAL'}}}});">Moccassins</a>
 								</ul>
 							</li>
 						</ul>
-					</li>
+					</li>-->
 <!--	COMMENTED FOR SORT	<li><a href='#top' onClick="return showContent('search',{'elasticsearch':{'query':{'term':{'tags':'IS_NEWARRIVAL'}},'sort':[{'prod_name':'desc'}]}});">new arrivals</a></li> -->
 								
 					<li><a class='bindByAnchor' href='#!category?navcat=.leathergoods.moccasins'>Moccasins</a>

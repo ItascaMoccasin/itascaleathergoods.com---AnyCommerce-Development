@@ -116,11 +116,10 @@ app.rq.push(['templateFunction','productTemplate','onDeparts',function(P) {
 	
 
 //**BEGIN TITLE APPENDING FUNCTIONALITY**//
-app.rq.push(['templateFunction', 'categoryTemplate','onCompletes',function(P){
+				app.rq.push(['templateFunction', 'categoryTemplate','onCompletes',function(P){
 						var title = app.data["appPageGet|"+P.navcat]['%page'].page_title;
 						app.ext.store_itasca.u.setTitle(title);
 						}]);
-					}
 				app.rq.push(['templateFunction', 'productTemplate','onCompletes',function(P){
 					var title = app.data["appProductGet|"+P.pid]['%attribs']['zoovy:prod_name'];
 					app.ext.store_itasca.u.setTitle(title);
@@ -146,6 +145,29 @@ app.rq.push(['templateFunction', 'categoryTemplate','onCompletes',function(P){
 					app.ext.store_itasca.u.setTitle();
 					}]);
 //**END TITLE APPENDING FUNCTIONALITY**//
+
+var showDropdown = function ($tag) {
+	var $dropdown = $(".dropdown", $tag);
+	var height = 200;
+	/*$dropdown.children().each(function(){
+		height += $(this).outerHeight(true);
+	});*/
+	$dropdown.stop().animate({"height":height+"px"}, 0);
+}
+var hideDropdown = function ($tag) {
+	$(".dropdown", $tag).stop().animate({"height":"0px"}, 100);
+}
+var showDropdownSubcat = function ($tag) {
+	var $dropdown = $(".subcatDropdown", $tag);
+	var height = 190;
+	/*$dropdown.children().each(function(){
+		height += $(this).outerHeight(true);
+	});*/
+	$dropdown.stop().animate({"height":height+"px"}, 0);
+}
+var hideDropdownSubcat = function ($tag) {
+	$(".subcatDropdown", $tag).stop().animate({"height":"0px"}, 100);
+}
 
 
 
