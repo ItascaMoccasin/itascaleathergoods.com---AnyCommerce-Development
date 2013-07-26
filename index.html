@@ -150,18 +150,19 @@ app.u.loadScript(app.vars.baseURL+"_itasca_app-init.js");
 						<div class="dropdown alignLeft">
 							  <ul class="floatLeft dropdownList">
 								  <li class="headerDropdownLink alignLeft dropdownLinkSizing" onMouseOver="showDropdownSubcat($(this))" onMouseOut="hideDropdownSubcat($(this))">
-									  <div class="linkboxNA" href='#top' onClick="return showContent('search',{'elasticsearch':{'filter':{'and':[{'term':{'tags':'IS_NEWARRIVAL'}}, { 'term' : {'na_category':''}}]}}});"><a class="pointer headerDropdownLink">Moccasins</a></div>
+									  <div class="linkboxNA" href='#top' onClick="return showContent('search',{'elasticsearch':{'filter':{'and':[{'term':{'tags':'IS_NEWARRIVAL'}}, { 'term' : {'na_category':'moccasins'}}]}}});"><a class="pointer headerDropdownLink">Moccasins</a></div>
 									  <div class="subcatDropdown alignLeft">
 											<ul class="floatLeft dropdownSubcatList">
-												<li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('search',{'elasticsearch':{'filter':{'and':[{'term':{'tags':'IS_NEWARRIVAL'}}, { 'term' : {'na_category':''}}, { 'term' : {'na_sub_category':''}}]}}});" class="pointer headerDropdownLink">Women</a></li>
-												<li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('search',{'elasticsearch':{'filter':{'and':[{'term':{'tags':'IS_NEWARRIVAL'}}, { 'term' : {'na_category':''}}, { 'term' : {'na_sub_category':''}}]}}});" class="pointer headerDropdownLink">Men</a></li>
-												<li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('search',{'elasticsearch':{'filter':{'and':[{'term':{'tags':'IS_NEWARRIVAL'}}, { 'term' : {'na_category':''}}, { 'term' : {'na_sub_category':''}}]}}});" class="pointer headerDropdownLink">Children</a></li>
-												<li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('search',{'elasticsearch':{'filter':{'and':[{'term':{'tags':'IS_NEWARRIVAL'}}, { 'term' : {'na_category':''}}, { 'term' : {'na_sub_category':''}}]}}});" class="pointer headerDropdownLink">Infants</a></li>
+												<li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('search',{'elasticsearch':{'filter':{'and':[{'term':{'tags':'IS_NEWARRIVAL'}}, { 'term' : {'na_category':'moccasins'}}, { 'term' : {'na_sub_category':'women'}}]}}});" class="pointer headerDropdownLink">Women</a></li>
+												<li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('search',{'elasticsearch':{'filter':{'and':[{'term':{'tags':'IS_NEWARRIVAL'}}, { 'term' : {'na_category':'moccasins'}}, { 'term' : {'na_sub_category':'men'}}]}}});" class="pointer headerDropdownLink">Men</a></li>
+												<li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('search',{'elasticsearch':{'filter':{'and':[{'term':{'tags':'IS_NEWARRIVAL'}}, { 'term' : {'na_category':'moccasins'}}, { 'term' : {'na_sub_category':'children'}}]}}});" class="pointer headerDropdownLink">Children</a></li>
+												<li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('search',{'elasticsearch':{'filter':{'and':[{'term':{'tags':'IS_NEWARRIVAL'}}, { 'term' : {'na_category':'moccasins'}}, { 'term' : {'na_sub_category':'infants'}}]}}});" class="pointer headerDropdownLink">Infants</a></li>
 												<!--EXAMPLE: onClick="return showContent('search',{'elasticsearch':{'query':{'term':{'tags':'IS_NEWARRIVAL'}}}});"-->
 											</ul>
 									  </div>
 								  </li>
-								  <li class="headerDropdownLink alignLeft dropdownLinkSizing" onMouseOver="showDropdownSubcat($(this))" onMouseOut="hideDropdownSubcat($(this))">
+								  <!--**DISABLED FOR NOW AND REPLACED WITH NO SUB CAT DROP DOWN LINK**
+                                  <li class="headerDropdownLink alignLeft dropdownLinkSizing" onMouseOver="showDropdownSubcat($(this))" onMouseOut="hideDropdownSubcat($(this))">
 									  <div class="linkboxNA" href='#top' onClick="return showContent('search',{'elasticsearch':{'filter':{'and':[{'term':{'tags':'IS_NEWARRIVAL'}}, { 'term' : {'na_category':''}}]}}});"><a class="pointer headerDropdownLink">Home Goods</a></div>
 									  <div class="subcatDropdown alignLeft">
 											<ul class="floatLeft dropdownSubcatList">
@@ -170,7 +171,10 @@ app.u.loadScript(app.vars.baseURL+"_itasca_app-init.js");
 											</ul>
 									  </div>
 								  </li>
-								  <li class="headerDropdownLink alignLeft dropdownLinkSizing" onMouseOver="showDropdownSubcat($(this))" onMouseOut="hideDropdownSubcat($(this))">
+                                  -->
+                                  <li class="headerDropdownLink alignLeft dropdownLinkSizing" ><a href="#" onClick="return showContent('search',{'elasticsearch':{'filter':{'and':[{'term':{'tags':'IS_NEWARRIVAL'}}, { 'term' : {'na_category':'homegoods'}}]}}});" class="pointer headerDropdownLink">Home Goods</a></li>
+								   <!--**DISABLED FOR NOW AND REPLACED WITH NO SUB CAT DROP DOWN LINK**
+                                  <li class="headerDropdownLink alignLeft dropdownLinkSizing" onMouseOver="showDropdownSubcat($(this))" onMouseOut="hideDropdownSubcat($(this))">
 									  <div class="linkboxNA" href='#top' onClick="return showContent('search',{'elasticsearch':{'filter':{'and':[{'term':{'tags':'IS_NEWARRIVAL'}}, { 'term' : {'na_category':''}}]}}});"><a class="pointer headerDropdownLink">Electronic Cases</a></div>
 									  <div class="subcatDropdown alignLeft">
 											<ul class="floatLeft dropdownSubcatList">
@@ -178,6 +182,8 @@ app.u.loadScript(app.vars.baseURL+"_itasca_app-init.js");
 											</ul>
 									  </div>
 								  </li>
+                                  -->
+                                  <li class="headerDropdownLink alignLeft dropdownLinkSizing" ><a href="#" onClick="return showContent('search',{'elasticsearch':{'filter':{'and':[{'term':{'tags':'IS_NEWARRIVAL'}}, { 'term' : {'na_category':''}}]}}});" class="pointer headerDropdownLink">Electronic Cases</a></li>
 								  <li class="headerDropdownLink alignLeft dropdownLinkSizing" ><a href="#" onClick="return showContent('search',{'elasticsearch':{'filter':{'and':[{'term':{'tags':'IS_NEWARRIVAL'}}, { 'term' : {'na_category':''}}]}}});" class="pointer headerDropdownLink">Totes/Bags</a></li>
 								  <li class="headerDropdownLink alignLeft dropdownLinkSizing" ><a href="#" onClick="return showContent('search',{'elasticsearch':{'filter':{'and':[{'term':{'tags':'IS_NEWARRIVAL'}}, { 'term' : {'na_category':''}}]}}});" class="pointer headerDropdownLink">Accessories</a></li>
 								  <li class="headerDropdownLink alignLeft dropdownLinkSizing" ><a href="#" onClick="return showContent('search',{'elasticsearch':{'filter':{'and':[{'term':{'tags':'IS_NEWARRIVAL'}}, { 'term' : {'na_category':''}}]}}});" class="pointer headerDropdownLink">Small Leather Goods</a></li>
