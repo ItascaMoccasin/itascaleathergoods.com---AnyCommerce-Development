@@ -426,7 +426,7 @@ div.atclear{
 	z-index: 10001;
 	height:0;
 	overflow:hidden;
-	width:220px;
+	width:115px;
 }
 .subcatDropdown{
 	position:absolute;
@@ -442,8 +442,13 @@ div.atclear{
 .dropdownList{
 	width:120px;
 }
+.dropdownSubcatList{
+	width:100%;
+}
 .dropdownSubcatList li{
 	list-style:disc;
+	width:100%;
+	margin-bottom:10px;
 }
 .headerDropdownLink {
 	border-right:none !important;

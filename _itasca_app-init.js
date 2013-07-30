@@ -148,7 +148,7 @@ app.rq.push(['templateFunction','productTemplate','onDeparts',function(P) {
 
 var showDropdown = function ($tag) {
 	var $dropdown = $(".dropdown", $tag);
-	var height = 200;
+	var height = 175;
 	/*$dropdown.children().each(function(){
 		height += $(this).outerHeight(true);
 	});*/
@@ -159,13 +159,15 @@ var hideDropdown = function ($tag) {
 }
 var showDropdownSubcat = function ($tag) {
 	var $dropdown = $(".subcatDropdown", $tag);
-	var height = 190;
+	var height = 175;
+	$(".dropdown").css("width","210px");
 	/*$dropdown.children().each(function(){
 		height += $(this).outerHeight(true);
 	});*/
 	$dropdown.stop().animate({"height":height+"px"}, 0);
 }
 var hideDropdownSubcat = function ($tag) {
+	$(".dropdown").css("width","115px");
 	$(".subcatDropdown", $tag).stop().animate({"height":"0px"}, 100);
 }
 
