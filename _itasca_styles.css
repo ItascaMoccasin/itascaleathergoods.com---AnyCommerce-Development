@@ -68,7 +68,7 @@ header {position: relative;}
 		width:1000px;
 		height:376px;
 	}
-	ul#wideSlideshow {list-style-type: none;}
+	ul#wideSlideshow {list-style-type: none; z-index:0;}
 	.homeBanners {margin:10px 0;height:244px;}
 	.homeBanners img {float:left;margin-right:9px;}
 	.homeBanners .lastBann {margin:0;}
