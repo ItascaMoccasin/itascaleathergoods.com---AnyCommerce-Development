@@ -157,7 +157,7 @@ For the list of available params, see the 'options' object below.
 //the validate order request returns a list of issues.
 				else if(msg['@issues'])	{
 					var L = msg['@issues'].length;
-
+					console.dir("Got to @issues, length: "+L);
 					$r = $("<div \/>").css({'margin-left':'20px'}); //adds a left margin to make multiple messages all align.
 					for(var i = 0; i < L; i += 1)	{
 						$r.append("<p>"+msg['@issues'][i][3]+"<\/p>");
@@ -247,7 +247,7 @@ or this: $('#bob').find('.ui-tabs-nav li:nth-child(2)').trigger('click');
 			
 			if($t.attr('widget') == 'anytabs')	{} //id has already been set as tabs.
 			else	{
-
+				console.log('got into init else');
 				$t.attr('widget','anytabs')
 				$t.addClass('ui-tabs ui-widget ui-widget-anytabs')
 				self.tabs = $("ul",$t).first();
@@ -610,6 +610,7 @@ th.click(function(){
 			var numA = Number($.text([a]).replace(/[^\w\s]/gi, ''));
 			var numB = Number($.text([b]).replace(/[^\w\s]/gi, ''));
 			if(numA && numB)	{
+//				console.log('is a number');
 				r = numA > numB ? inverse ? -1 : 1 : inverse ? 1 : -1; //toLowerCase make the sort case-insensitive.
 				}
 			else	{
@@ -639,8 +640,8 @@ th.click(function(){
 					break;
 				
 				default:
-					app.u.dump("Unrecognized option passed into anytable via setOption");
-					app.u.dump(" -> option: "+option);
+					console.log("Unrecognized option passed into anytable via setOption");
+					console.log(" -> option: "+option);
 					break;
 				}
 			}, //_setOption
@@ -715,12 +716,12 @@ and it'll turn the cb into an ios-esque on/off switch.
 
 			}, //_init
 		_turnOn : function()	{
-			this.span.text('on');
+			this.span.text('yes');
 			this.span.addClass('ui-state-highlight ui-corner-left').removeClass('ui-state-default ui-corner-right');
 			this.span.animate({'left':-1},'fast');
 			},
 		_turnOff : function()	{
-			this.span.text('off');
+			this.span.text('no');
 			this.span.addClass('ui-state-default ui-corner-right').removeClass('ui-state-highlight ui-corner-left');
 			this.span.animate({'left': 24},'fast');
 			},
@@ -853,8 +854,8 @@ Additional a settings button can be added which will contain a dropdown of selec
 					break;
 				
 				default:
-					app.u.dump("Unrecognized option passed into anypanel via setOption");
-					app.u.dump(" -> option: "+option);
+					console.log("Unrecognized option passed into anypanel via setOption");
+					console.log(" -> option: "+option);
 					break;
 				}
 			},
@@ -932,7 +933,7 @@ Additional a settings button can be added which will contain a dropdown of selec
 			if(this.options.state == 'collapse')	{ this.collapse();}
 			else if (this.options.state == 'expand')	{this.expand();}
 			else	{
-				app.u.dump("unknown state passed into anypanel",'warn');
+				console.warn("unknown state passed into anypanel");
 				}
 			},
 

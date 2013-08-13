@@ -66,8 +66,8 @@ a callback was also added which just executes this call, so that checkout COULD 
 				app.model.addDispatchToQ({
 					"_cmd":"cartGoogleCheckoutURL",
 					"analyticsdata":"", //must be set, even if blank.
-					"edit_cart_url" : (app.vars._clientid == '1pc') ? zGlobals.appSettings.https_app_url+"c="+app.sessionId+"/cart.cgis" : zGlobals.appSettings.https_app_url+"?sessionId="+app.sessionId+"#cart?show=cart",
-					"continue_shopping_url" : (app.vars._clientid == '1pc') ? zGlobals.appSettings.https_app_url+"c="+app.sessionId+"/" : zGlobals.appSettings.https_app_url+"?sessionId="+app.sessionId,
+					"edit_cart_url" : (app.vars._clientid == '1pc') ? zGlobals.appSettings.https_app_url+"c="+app.vars.cartID+"/cart.cgis" : zGlobals.appSettings.https_app_url+"?cartID="+app.vars.cartID+"#cart?show=cart",
+					"continue_shopping_url" : (app.vars._clientid == '1pc') ? zGlobals.appSettings.https_app_url+"c="+app.vars.cartID+"/" : zGlobals.appSettings.https_app_url+"?cartID="+app.vars.cartID,
 					'_tag':{'callback':'proceedToGoogleCheckout','extension':'store_checkout','datapointer':'cartGoogleCheckoutURL'}
 					},'immutable');
 				}
@@ -101,8 +101,8 @@ a callback was also added which just executes this call, so that checkout COULD 
 				var tagObj = {'callback':'handleCartPaypalSetECResponse',"datapointer":"cartPaypalSetExpressCheckout","extension":"convertSessionToOrder"}
 				app.model.addDispatchToQ({
 					"_cmd":"cartPaypalSetExpressCheckout",
-					"cancelURL":(app.vars._clientid == '1pc') ? zGlobals.appSettings.https_app_url+"c="+app.sessionId+"/cart.cgis" : zGlobals.appSettings.https_app_url+"?sessionId="+app.sessionId+"#cart?show=cart",
-					"returnURL": (app.vars._clientid == '1pc') ? zGlobals.appSettings.https_app_url+"c="+app.sessionId+"/checkout.cgis" : zGlobals.appSettings.https_app_url+"?sessionId="+app.sessionId+"#checkout?show=checkout",
+					"cancelURL":(app.vars._clientid == '1pc') ? zGlobals.appSettings.https_app_url+"c="+app.vars.cartID+"/cart.cgis" : zGlobals.appSettings.https_app_url+"?cartID="+app.vars.cartID+"#cart?show=cart",
+					"returnURL": (app.vars._clientid == '1pc') ? zGlobals.appSettings.https_app_url+"c="+app.vars.cartID+"/checkout.cgis" : zGlobals.appSettings.https_app_url+"?cartID="+app.vars.cartID+"#checkout?show=checkout",
 					"getBuyerAddress":getBuyerAddress,'_tag':tagObj
 					},'immutable');
 				}
@@ -299,7 +299,7 @@ _gaq.push(['_trackEvent','Checkout','App Event','Attempting to create order']);
 /*
 Parameters included are as follows:
 P.orderID
-P.sessionID (this would be the sessionID associated w/ the order, not the newly generated session/cart id - reset immediately after checkout )
+P.cartID (this would be the cartID associated w/ the order, not the newly generated cart id - reset immediately after checkout )
 P.datapointer - pointer to cartOrderCreate
 
 note - the order object is available at app.data['order|'+P.orderID]
@@ -341,7 +341,8 @@ note - the order object is available at app.data['order|'+P.orderID]
 			
 			PO : function(vars)	{
 				var errors = new Array(); // what is returned. an array of the payment fields that are not correct. 
-				if(vars.PO){} else	{errors.push("PO")}
+				if(vars['payment/PO']){}
+				else	{errors.push("payment/PO")}
 				return (errors.length) ? errors : false;
 				}
 			
@@ -552,7 +553,7 @@ _gaq.push(['_trackEvent','Checkout','App Event','Payment failure']);
 						o += "<li>"+responseData['@issues'][i][3]+"<\/li>";
 						}
 					o += "<\/ul>";
-					$errorDiv.append(app.u.formatMessage({"message":o,"uiClass":"error","uiIcon":"alert"})).toggle(true);
+					$errorDiv.anymessage({"message":o,"uiClass":"error","uiIcon":"alert"}).toggle(true);
 					}
 				else	{
 					app.u.throwMessage(responseData);
@@ -904,10 +905,7 @@ note - dispatch isn't IN the function to give more control to developer. (you ma
 //				app.u.dump('BEGIN app.ext.convertSessionToOrder.renderFormats.orderStatusLink');
 				var orderCartID = app.data['order|'+data.value].cart.cartid;
 //				https://ssl.zoovy.com/s=sporks.zoovy.com/customer/order/status?cartid=SESSION&orderid=data.value
-				$tag.click(function(){
-					showContent('customer',{uriParams: {'cartid':orderCartID,'orderid':data.value}});
-//					window.location = zGlobals.appSettings.https_app_url+"customer/order/status?cartid="+orderCartID+"&orderid="+data.value,'orderStatus'}
-					});
+				$tag.click(function(){window.location = zGlobals.appSettings.https_app_url+"customer/order/status?cartid="+orderCartID+"&orderid="+data.value,'orderStatus'});
 				
 				},
 

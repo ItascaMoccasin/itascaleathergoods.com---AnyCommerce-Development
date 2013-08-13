@@ -3,21 +3,10 @@ app.rq = app.rq || []; //ensure array is defined. rq = resource queue.
 
 
 
+app.rq.push(['extension',0,'orderCreate','extensions/checkout/extension.js']);
+app.rq.push(['extension',0,'cco','extensions/cart_checkout_order.js']);
 
-
-
-
-
-
-app.rq.push(['extension',0,'store_checkout','extensions/store_checkout.js']);
-app.rq.push(['extension',0,'convertSessionToOrder','extensions/checkout_active/extension.js']);
-//app.rq.push(['extension',0,'convertSessionToOrder','extensions/checkout_passive/extension.js']);
-//app.rq.push(['extension',0,'convertSessionToOrder','extensions/checkout_required/extension.js']);
-
-// ### NOTE - mobile does NOT work. it's in development.
-//app.rq.push(['extension',0,'convertSessionToOrder','extensions/checkout_mobile/extension.js']);
-//app.rq.push(['extension',0,'cco','extensions/cart_checkout_order.js']);
-
+app.rq.push(['extension',0,'store_itasca','extensions/store_itasca.js'])
 
 app.rq.push(['extension',0,'store_prodlist','extensions/store_prodlist.js']);
 app.rq.push(['extension',0,'store_navcats','extensions/store_navcats.js']);
@@ -27,7 +16,10 @@ app.rq.push(['extension',0,'store_cart','extensions/store_cart.js']);
 app.rq.push(['extension',0,'store_crm','extensions/store_crm.js']);
 app.rq.push(['extension',0,'myRIA','app-quickstart.js','startMyProgram']);
 
+app.rq.push(['extension',0,'magicToolBox_mzp','extensions/partner_magictoolbox_mzp.js','startExtension']);
+app.rq.push(['extension',0,'partner_addthis','extensions/partner_addthis.js']);
 app.rq.push(['extension',1,'google_analytics','extensions/partner_google_analytics.js','startExtension']);
+app.rq.push(['extension',1,'tools_ABtesting','extensions/tools_ABtesting.js']);
 //app.rq.push(['extension',0,'partner_addthis','extensions/partner_addthis.js','startExtension']);
 //app.rq.push(['extension',1,'resellerratings_survey','extensions/partner_buysafe_guarantee.js','startExtension']); /// !!! needs testing.
 //app.rq.push(['extension',1,'buysafe_guarantee','extensions/partner_buysafe_guarantee.js','startExtension']);
@@ -38,21 +30,21 @@ app.rq.push(['script',0,(document.location.protocol == 'file:') ? app.vars.testU
 app.rq.push(['script',0,app.vars.baseURL+'model.js']); //'validator':function(){return (typeof zoovyModel == 'function') ? true : false;}}
 app.rq.push(['script',0,app.vars.baseURL+'includes.js']); //','validator':function(){return (typeof handlePogs == 'function') ? true : false;}})
 
-
 app.rq.push(['script',0,app.vars.baseURL+'controller.js']);
-
 app.rq.push(['script',1,app.vars.baseURL+'resources/jquery.ui.jeditable.js']); //used for making text editable (customer address). non-essential. loaded late.
-app.rq.push(['script',1,app.vars.baseURL+'resources/jquery.showloading-v1.0.jt.js']); //used for making text editable (customer address). non-essential. loaded late.
+app.rq.push(['script',0,app.vars.baseURL+'resources/jquery.showloading-v1.0.jt.js']); //used pretty early in process..
 app.rq.push(['script',0,app.vars.baseURL+'resources/jquery.ui.anyplugins.js']); //in zero pass in case product page is first page.
-
+app.rq.push(['script',0,app.vars.baseURL+'carouFredSel-6.2.1/jquery.carouFredSel-6.2.1-packed.js']);
+app.rq.push(['script',0,app.vars.baseURL+'jquery.select2Buttons/jQuery.select2Buttons.js']);
+app.rq.push(['script',0,app.vars.baseURL+'anyplugins.js']);
 
 
 
 //add tabs to product data.
 //tabs are handled this way because jquery UI tabs REALLY wants an id and this ensures unique id's between product
 app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
-	var safePID = app.u.makeSafeHTMLId(P.pid); //can't use jqSelector because productTEmplate_pid still used makesafe. planned Q1-2013 update ###
-	var $tabContainer = $( ".tabbedProductContent",$('#productTemplate_'+safePID));
+	var $context = $(app.u.jqSelector('#',P.parentID));
+	var $tabContainer = $( ".tabbedProductContent",$context);
 		if($tabContainer.length)	{
 			if($tabContainer.data("widget") == 'anytabs'){} //tabs have already been instantiated. no need to be redundant.
 			else	{
@@ -60,11 +52,124 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 				}
 			}
 		else	{} //couldn't find the tab to tabificate.
+		
+		
+		var $context = $(app.u.jqSelector('#',P.parentID));
+		app.u.dump($context);
+			
+		//PRODUCT PAGE ATC VARIATIONS CUSTOMIZATION
+		//CONVERT DROPDOWN TO BUTTON LIST....LIST + CHECK TO MAKE SURE THIS CONVERSION IS ONLY PERFORMED ONCE WHEN PAGE IS FIRST VISITED.
+		//CONTEXT SELECTOR FOR PREVENTING BUTTONS FROM RENDERING MORE THAN  ONCE DISABLED TEMPORARILY WHILE CORRECTING A BUG IN PLUGIN.
+		/*if($('.pageBind', $context).data('selectConvertToButtons')){
+			app.u.dump("content exists, do nothing");
+			} //do nothing, content already added.
+		else{
+			$('.pageBind', $context).data('selectConvertToButtons',true).append("");
+			app.u.dump( "content doesn't exist, adding content");*/
+			$('select[name=A0]').select2Buttons();
+			$('select[name=A2]').select2Buttons();
+			
+			//END LIST
+			$('label[title=Size]').next().addClass("shoeSize");
+			$('input[name=A1]').parent().addClass("customInstruct");
+			$('select[name=A2]').parent().addClass("addBeads");
+			
+			$("input[name=A1]").addClass("CustomInstructInput");
+			
+			
+			$('.customInstruct').before(
+				'<div data-bind="var:product(pid); format:assignAttribute; attribute:data-pid;">'
+				+       '<a class="customInst customInstYes" onClick="app.ext.store_itasca.a.customInstructionsYes()">Yes</a>'
+				+		'<a class="customInst customInstNo" onClick="app.ext.store_itasca.a.customInstructionsNo()">No</a>'
+				+		'</div>'
+			);
+		//}
+		
+		
+	//Image selector carousel
+	
+	
+	var carousel1;
+	function foo1(){ $(".thumbImages").carouFredSel({
+		width   : 100,
+		height	: 300,
+    	items   : 3,
+		scroll: 1,
+		direction : "up",
+		auto : false,
+		prev : ".caroPrev1",
+		next : ".caroNext1"
+	});}
+	carousel1 = foo1;
+	setTimeout(carousel1, 2000);
+		
+	
 	}]);
 
 
 
+app.rq.push(['templateFunction','productTemplate','onDeparts',function(P) {
+	$(".customInst").remove();
+	$(".select2Buttons").remove();
+	$(".customInstruct").hide();
+	}]);
+	
 
+//**BEGIN TITLE APPENDING FUNCTIONALITY**//
+				app.rq.push(['templateFunction', 'categoryTemplate','onCompletes',function(P){
+						var title = app.data["appPageGet|"+P.navcat]['%page'].page_title;
+						app.ext.store_itasca.u.setTitle(title);
+						}]);
+				app.rq.push(['templateFunction', 'productTemplate','onCompletes',function(P){
+					var title = app.data["appProductGet|"+P.pid]['%attribs']['zoovy:prod_name'];
+					app.ext.store_itasca.u.setTitle(title);
+					}]);
+				app.rq.push(['templateFunction', 'companyTemplate','onCompletes',function(P){
+					var title = "Itasca Moccasins Company Information";
+					app.ext.store_itasca.u.setTitle(title);
+					}]);
+				app.rq.push(['templateFunction', 'customerTemplate','onCompletes',function(P){
+					var title = "Itasca Moccasins Customer Information";
+					app.ext.store_itasca.u.setTitle(title);
+					}]);
+				app.rq.push(['templateFunction', 'homepageTemplate','onCompletes',function(P){
+					app.ext.store_itasca.u.setTitle();
+					}]);
+				app.rq.push(['templateFunction', 'pageNotFoundTemplate','onCompletes',function(P){
+					app.ext.store_itasca.u.setTitle();
+					}]);
+				app.rq.push(['templateFunction', 'checkoutTemplate','onCompletes',function(P){
+					app.ext.store_itasca.u.setTitle();
+					}]);
+				app.rq.push(['templateFunction', 'searchTemplate','onCompletes',function(P){
+					app.ext.store_itasca.u.setTitle();
+					}]);
+//**END TITLE APPENDING FUNCTIONALITY**//
+
+var showDropdown = function ($tag) {
+	var $dropdown = $(".dropdown", $tag);
+	var height = 175;
+	/*$dropdown.children().each(function(){
+		height += $(this).outerHeight(true);
+	});*/
+	$dropdown.stop().animate({"height":height+"px"}, 0);
+}
+var hideDropdown = function ($tag) {
+	$(".dropdown", $tag).stop().animate({"height":"0px"}, 100);
+}
+var showDropdownSubcat = function ($tag) {
+	var $dropdown = $(".subcatDropdown", $tag);
+	var height = 175;
+	$(".dropdown").css("width","210px");
+	/*$dropdown.children().each(function(){
+		height += $(this).outerHeight(true);
+	});*/
+	$dropdown.stop().animate({"height":height+"px"}, 0);
+}
+var hideDropdownSubcat = function ($tag) {
+	$(".dropdown").css("width","115px");
+	$(".subcatDropdown", $tag).stop().animate({"height":"0px"}, 100);
+}
 
 
 
@@ -112,22 +217,20 @@ app.u.howManyPassZeroResourcesAreLoaded = function(debug)	{
 
 app.u.initMVC = function(attempts){
 //	app.u.dump("app.u.initMVC activated ["+attempts+"]");
-	var includesAreDone = true;
+	var includesAreDone = true,
+	percentPerInclude = (100 / app.vars.rq.length),   //what percentage of completion a single include represents (if 10 includes, each is 10%).
+	resourcesLoaded = app.u.howManyPassZeroResourcesAreLoaded(),
+	percentComplete = Math.round(resourcesLoaded * percentPerInclude); //used to sum how many includes have successfully loaded.
 
-//what percentage of completion a single include represents (if 10 includes, each is 10%).
-	var percentPerInclude = (100 / app.vars.rq.length);  
-	var resourcesLoaded = app.u.howManyPassZeroResourcesAreLoaded();
-	var percentComplete = Math.round(resourcesLoaded * percentPerInclude); //used to sum how many includes have successfully loaded.
-	//make sure precentage is never over 100
+//make sure precentage is never over 100
 	if(percentComplete > 100 )	{
 		percentComplete = 100;
 		}
-	
-	$('#appPreViewProgressBar').val(percentComplete);
-	$('#appPreViewProgressText').empty().append(percentComplete+"% Complete");
+
+	$('#appPreViewProgressBar','#appPreView').val(percentComplete);
+	$('#appPreViewProgressText','#appPreView').empty().append(percentComplete+"% Complete");
 
 	if(resourcesLoaded == app.vars.rq.length)	{
-
 		var clickToLoad = false;
 		if(clickToLoad){
 			$('#loader').fadeOut(1000);
@@ -141,7 +244,7 @@ app.u.initMVC = function(attempts){
 	else if(attempts > 100)	{
 		app.u.dump("WARNING! something went wrong in init.js");
 		//this is 10 seconds of trying. something isn't going well.
-		$('#appPreView').empty().append("<h2>Uh Oh. Something seems to have gone wrong. </h2><p>Several attempts were made to load the store but some necessary files were not found or could not load. We apologize for the inconvenience. Please try 'refresh' and see if that helps.<br><b>If the error persists, please contact the site administrator</b><br> - dev: see console</p>");
+		$('#appPreView').empty().append("<h2>Uh Oh. Something seems to have gone wrong. </h2><p>Several attempts were made to load the store but some necessary files were not found or could not load. We apologize for the inconvenience. Please try 'refresh' and see if that helps.<br><b>If the error persists, please contact the site administrator</b><br> - dev: see console.</p>");
 		app.u.howManyPassZeroResourcesAreLoaded(true);
 		}
 	else	{
@@ -154,19 +257,17 @@ app.u.loadApp = function() {
 //instantiate controller. handles all logic and communication between model and view.
 //passing in app will extend app so all previously declared functions will exist in addition to all the built in functions.
 //tmp is a throw away variable. app is what should be used as is referenced within the mvc.
-		app.vars.rq = null; //to get here, all these resources have been loaded. nuke record to keep DOM clean and avoid any duplication.
-		var tmp = new zController(app);
+	app.vars.rq = null; //to get here, all these resources have been loaded. nuke record to keep DOM clean and avoid any duplication.
+	var tmp = new zController(app);
 //instantiate wiki parser.
-		myCreole = new Parse.Simple.Creole();
-}
+	myCreole = new Parse.Simple.Creole();
+	}
 
 
 //Any code that needs to be executed after the app init has occured can go here.
 //will pass in the page info object. (pageType, templateID, pid/navcat/show and more)
-app.u.appInitComplete = function(P)	{
-	app.u.dump("Executing myAppIsLoaded code...");
-	document.title='Handmade Moccasins | Itasca Leathergoods';
-	}
+
+
 
 app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {
 	var $target=$('#wideSlideshow');
