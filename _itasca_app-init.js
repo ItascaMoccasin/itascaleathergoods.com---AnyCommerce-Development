@@ -116,7 +116,6 @@ app.rq.push(['templateFunction','productTemplate','onDeparts',function(P) {
 	
 
 //**BEGIN TITLE APPENDING FUNCTIONALITY**//
-				/*
 				app.rq.push(['templateFunction', 'categoryTemplate','onCompletes',function(P){
 						var title = app.data["appPageGet|"+P.navcat]['%page'].page_title;
 						app.ext.store_itasca.u.setTitle(title);
@@ -145,7 +144,6 @@ app.rq.push(['templateFunction','productTemplate','onDeparts',function(P) {
 				app.rq.push(['templateFunction', 'searchTemplate','onCompletes',function(P){
 					app.ext.store_itasca.u.setTitle();
 					}]);
-					*/
 //**END TITLE APPENDING FUNCTIONALITY**//
 
 var showDropdown = function ($tag) {
