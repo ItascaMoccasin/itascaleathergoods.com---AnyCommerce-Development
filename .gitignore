@@ -7,6 +7,7 @@
 .metadata
 bin/
 /utilities/proxy/node_modules/
+utilities/nodeproxy
 tmp/
 proxy/
 *extensions/_notes/
