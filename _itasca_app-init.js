@@ -19,7 +19,7 @@ app.rq.push(['extension',0,'myRIA','app-quickstart.js','startMyProgram']);
 app.rq.push(['extension',0,'magicToolBox_mzp','extensions/partner_magictoolbox_mzp.js','startExtension']);
 app.rq.push(['extension',0,'partner_addthis','extensions/partner_addthis.js']);
 app.rq.push(['extension',1,'google_analytics','extensions/partner_google_analytics.js','startExtension']);
-app.rq.push(['extension',1,'tools_ABtesting','extensions/tools_ABtesting.js']);
+//app.rq.push(['extension',1,'tools_ABtesting','extensions/tools_ABtesting.js']);
 //app.rq.push(['extension',0,'partner_addthis','extensions/partner_addthis.js','startExtension']);
 //app.rq.push(['extension',1,'resellerratings_survey','extensions/partner_buysafe_guarantee.js','startExtension']); /// !!! needs testing.
 //app.rq.push(['extension',1,'buysafe_guarantee','extensions/partner_buysafe_guarantee.js','startExtension']);
@@ -117,9 +117,10 @@ app.rq.push(['templateFunction','productTemplate','onDeparts',function(P) {
 
 //**BEGIN TITLE APPENDING FUNCTIONALITY**//
 				app.rq.push(['templateFunction', 'categoryTemplate','onCompletes',function(P){
-						var title = app.data["appPageGet|"+P.navcat]['%page'].page_title;
-						app.ext.store_itasca.u.setTitle(title);
-						}]);
+					//var title = app.data["appPageGet|"+P.navcat]['%page'].page_title;
+					var title = "Itasca Mocassins Category Page";
+					app.ext.store_itasca.u.setTitle(title);
+					}]);
 				app.rq.push(['templateFunction', 'productTemplate','onCompletes',function(P){
 					var title = app.data["appProductGet|"+P.pid]['%attribs']['zoovy:prod_name'];
 					app.ext.store_itasca.u.setTitle(title);
