@@ -118,7 +118,7 @@ app.rq.push(['templateFunction','productTemplate','onDeparts',function(P) {
 //**BEGIN TITLE APPENDING FUNCTIONALITY**//
 				app.rq.push(['templateFunction', 'categoryTemplate','onCompletes',function(P){
 					var title = app.data["appPageGet|"+P.navcat]['%page'].page_title;
-					//var title = "Itasca Mocassins Category Page";
+					//var title = "Itasca Moccasins Category Page";
 					app.ext.store_itasca.u.setTitle(title);
 					}]);
 				app.rq.push(['templateFunction', 'productTemplate','onCompletes',function(P){
