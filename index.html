@@ -494,6 +494,1776 @@ don't modify the 'data-templateid' unless you are changing template names and up
 
 </div>
 
+<div id='leatherSwatchTemplate' class='loadingBG categoryTemplate'>
+	<style type="text/css">
+		/*a.p1 {display:block; width:30px; height:30px; text-decoration:none; background:#fff; border:0; margin:20px 0 0 100px; float:left; position:relative; z-index:50;}*/
+		a.p1 {display:block; width:30px; height:30px; text-decoration:none; background:#fff; border:0; margin:20px 0 0 10px; float:left; position:relative; z-index:5;}
+		a.p1 img {display:block; border:0;}
+		a.p1:hover {text-decoration:none; background-color:#8c97a3; color:#000; position:relative; z-index:500;}
+		a.p1 b {display:block; position:absolute; left:-9999px; padding:10px; opacity:0;
+		 border-radius:5px; 
+		 box-shadow:15px 15px 10px -5px rgba(0,0,0,0.4);
+		-webkit-transition: opacity 0.6s ease-in-out;
+		-moz-transition: opacity 0.6s ease-in-out;
+		-o-transition: opacity 0.6s ease-in-out;
+		-ms-transition: opacity 0.6s ease-in-out;
+		transition: opacity 0.6s ease-in-out;
+		}
+		img.iPad {position:fixed; left:0; top:0; width:100%; height:100%; display:none; z-index:10;}
+		a.p1:hover b {top:-120px; left:110px; padding:10px; border:1px solid #ddd; background:#fff; opacity:1.0;}
+		a.p1:hover ~ img.iPad {display:block;}
+		/* ================================================================ 
+		This copyright notice must be untouched at all times.
+		
+		The original version of this stylesheet and the associated (x)html
+		is available at http://www.cssplay.co.uk/menu/cssplay-popBox.html
+		Copyright (c) 2005-2011 Stu Nicholls. All rights reserved.
+		This stylesheet and the associated (x)html may be modified in any 
+		way to fit your requirements.
+		=================================================================== */
+		/* this is a CSS answer to fix the hover/focus '~' and hover/focus '+' problem in safari and chrome */
+		/* tabindex="1" in the link code to fix the 'focus persist' problem in safari and chrome */
+		html {-webkit-animation: safariSelectorFix infinite 0s;}
+		@-webkit-keyframes safariSelectorFix {
+		0% {zoom:1;} 
+		100% {zoom:1;}
+		}
+		.enlarge {display:inline-block; position:relative; margin:0 auto;}
+		.frame {position:absolute; height:0; overflow:hidden; background:transparent; z-index:100; float:left;
+		-moz-transition:  0.0s linear 0.0s;
+		-ms-transition: 0.0s linear 0.0s;
+		-o-transition: 0.0s linear 0.0s;
+		-webkit-transition: 0.0s linear 0.0s;
+		transition: 0.0s linear 0.0s;
+		}
+		.pic1 .frame {left:55px; top:-10px;}  /* if changing size of small image, change left position here.  If 5px between images, add 5 to the width of the image */
+		.caption {margin-top:-200px; position:relative; opacity:0; background:#543019; padding:10px; z-index:5;   /* The background color here is the background behind the caption */
+		border-radius:0 0 10px 10px;
+		-moz-transition:  0.0s linear 0.0s;
+		-ms-transition: 0.0s linear 0.0s;
+		-o-transition: 0.0s linear 0.0s;
+		-webkit-transition: 0.0s linear 0.0s;
+		transition: 0.0s linear 0.0s;
+		}
+		.caption h1 {font:bold 24px/30px Verdana, Geneva, sans-serif; color:#00B5CB; padding:0; margin:0;}
+		.caption p {font:normal 14px/20px Verdana, Geneva, sans-serif; color:#ccc; padding:0; margin:0;}
+		.caption a {color:#6cf;}
+		.frame img {display:block; opacity:0; border:0px solid #fff;
+		-moz-transition: opacity 0.0s linear 0.0s;
+		-ms-transition: opacity 0.0s linear 0.0s;
+		-o-transition: opacity 0.0s linear 0.0s;
+		-webkit-transition: opacity 0.0s linear 0.0s;
+		transition: opacity 0.0s linear 0.0s;
+		}
+		.thumb {outline:0;display:block; float:left;}
+		.thumb img {display:block; border:1px solid #000;}
+		.thumb:hover ~ div.frame {height:450px;   /* This height is the height of the container in which the popup will open.  If too small you wont see the bottom of the caption */
+		-moz-transition:  0s linear 0s;
+		-ms-transition: 0s linear 0s;
+		-o-transition: 0s linear 0s;
+		-webkit-transition: 0s linear 0s;
+		transition: 0s linear 0s;
+		}
+		div.framey {position:relative; z-index:10;
+		-moz-transform: scaleY(0.01);
+		-ms-transform: scaleY(0.01);
+		-o-transform: scaleY(0.01);
+		-webkit-transform: scaleY(0.01);
+		transform: scaleY(0.01);
+		-moz-transition: -moz-transform 0.0s linear 0.0s;
+		-ms-transition: -ms-transform 0.0s linear 0.0s;
+		-o-transition: -o-transform 0.0s linear 0.0s;
+		-webkit-transition: -webkit-transform 0.0s linear 0.0s;
+		transition: transform 0.0s linear 0.0s;
+		}
+		div.framex {background:#00B5CB; padding:10px 10px 10px 10px;   /* The background color here is the background behind the popup image */
+		border-radius:10px 10px 0 0;
+		-moz-transform: scaleX(0.01);
+		-ms-transform: scaleX(0.01);
+		-o-transform: scaleX(0.01);
+		-webkit-transform: scaleX(0.01);
+		transform: scaleX(0.01);
+		-moz-transition: -moz-transform 0.0s linear 0s;
+		-ms-transition: -ms-transform 0.0s linear 0s;
+		-o-transition: -o-transform 0.0s linear 0s;
+		-webkit-transition: -webkit-transform 0.0s linear 0s;
+		transition: transform 0.0s linear 0s;
+		}
+		.thumb:hover ~ div.frame div.framey {
+		-moz-transform: scale(1, 1);
+		-ms-transform: scale(1, 1);
+		-o-transform: scale(1, 1);
+		-webkit-transform: scale(1, 1);
+		transform: scale(1, 1);
+		-moz-transition: -moz-transform 0.0s linear 0s;
+		-ms-transition: -ms-transform 0.0s linear 0s;
+		-o-transition: -o-transform 0.0s linear 0s;
+		-webkit-transition: -webkit-transform 0.0s linear 0s;
+		transition: transform 0.0s linear 0s;
+		}
+		.thumb:hover ~ div.frame div.framey div.framex {
+		-moz-transform: scale(1, 1);
+		-ms-transform: scale(1, 1);
+		-o-transform: scale(1, 1);
+		-webkit-transform: scale(1, 1);
+		transform: scale(1, 1);
+		-moz-transition: -moz-transform 0.0s linear 0.0s;
+		-ms-transition: -ms-transform 0.0s linear 0.0s;
+		-o-transition: -o-transform 0.0s linear 0.0s;
+		-webkit-transition: -webkit-transform 0.0s linear 0.0s;
+		transition: transform 0.0s linear 0.0s;
+		}
+		.thumb:hover ~ div.frame img {opacity:1;
+		-moz-transition: opacity 0.0s linear 0.0s;
+		-ms-transition: opacity 0.0s linear 0.0s;
+		-o-transition: opacity 0.0s linear 0.0s;
+		-webkit-transition: opacity 0.0s linear 0.0s;
+		transition: opacity 0.0s linear 0.0s;
+		}
+		.thumb:hover ~ div.frame .caption {opacity:1; margin-top:-10px;
+		-moz-transition:  0.0s linear 0.0s;
+		-ms-transition: 0.0s linear 0.0s;
+		-o-transition: 0.0s linear 0.0s;
+		-webkit-transition: 0.0s linear 0.0s;
+		transition: 0.0s linear 0.0s;
+		}
+		.thumb:hover + .close {opacity:1; margin-bottom:0;
+		-moz-transition:  0.0s linear 0.0s;
+		-ms-transition: 0.0s linear 0.0s;
+		-o-transition: 0.0s linear 0.0s;
+		-webkit-transition: 0.0s linear 0.0s;
+		transition: 0.0s linear 0.0s;
+		}
+		.pic1 .thumb:active + .close {left:210px; top:0;}
+		.pic1 .thumb:focus + .close {left:210px; top:0;}
+		</style>
+		</head>
+		<body id="test" >
+		<p>Via our custom order program, we offer the opportunity for you to create your own custom moccasins using any of our leather types and colors. Depending on the style ordered, you may select up to four or five different hide types or colors. </p>
+		<p>Our basic hide is cowhide, available in full grain (finished) leather or suede. Our premium leathers include buffalo, elk and moose hides, as well as sheepskin. For good measure we throw in a pig hide option  durable, if not attractive. All in all, we offer more than 110 different leathers.  Hover your cursor over any swatch below for a close-up view of the leather.</p>
+		<p>When choosing your leathers, be aware of the variances that are inherent in any natural hide:</p>
+		<ul>
+		  <li>We have done our best at accurately reflecting leather color on our website. Please be aware that every computer monitor registers color differently and we cannot guarantee that the color you receive will exactly match the color that you are seeing on your monitor.</li>
+		  <li>Every natural hide is variable and the degree of texture or grain pattern shown on the swatches may not be consistent from hide to hide  or even consistent within one hide. However, you can be assured that we will match each shoe within the pair that you order.</li>
+		  <li>Every natural hide has the potential for markings or scars consistent with the life that the animal experienced. While some markings are natural, we will not use damaged parts of the hide that will affect wear. Unless specifically requested, we will not use branding iron scars that are present on a small percentage of the hides we have. </li>
+		</ul>
+		<p>Click <a href="http://www.itascamoccasin.com/category/leathergoods.custom_moccasins/" title="Custom Moccasins">here</a> to link to our Custom Order page for specific instructions on ordering your custom pair of moccasins. Remember, all of our moccasins are handmade in the USA.<a name="_GoBack" id="_GoBack"></a></p>
+		<h2>Cowhide Full-Grain</h2>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.AntiqueCream.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.AntiqueCream.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Antique Cream</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Aqua.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Aqua.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Aqua</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Beige.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Beige.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Beige</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Black2.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Black2.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Black (2)</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Bone.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Bone.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Bone</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.BrownNubuck.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.BrownNubuck.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Brown Nubuck</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Burgundy.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Burgundy.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Burgundy</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Canyon.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Canyon.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Canyon</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Chili.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Chili.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Chili</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Coffee.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Coffee.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Coffee</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Chocolate2.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Chocolate2.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Chocolate (2)</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<br />
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Cordovan.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Cordovan.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Cordovan</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.DarkBrown2.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.DarkBrown2.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Dark Brown (2)</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.DarkTeal.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.DarkTeal.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Dark Teal</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.DistressedSquash.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.DistressedSquash.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Distressed Squash</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.DistressedToast.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.DistressedToast.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Distressed Toast</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Elephant.Stock.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Elephant.Stock.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Elephant</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Fuchsia.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Fuchsia.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Fuchsia</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Gold.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Gold.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Gold</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Grape.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Grape.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Grape</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Grey.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Grey.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Grey</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Grizzly.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Grizzly.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Grizzly</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<br />
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Honey.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Honey.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Honey</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.HotPink.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.HotPink.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Hot Pink</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.HotPinkNubuck.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.HotPinkNubuck.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Hot Pink Nubuck</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Jade.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Jade.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Jade</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Kiwi.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Kiwi.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Kiwi</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Lilac2.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Lilac2.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Lilac (2)</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.ManlyBrown.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.ManlyBrown.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Manly Brown</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.MediumBrown.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.MediumBrown.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Medium Brown</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Mocha.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Mocha.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Mocha</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Moss.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Moss.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Moss</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Natural.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Natural.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Natural</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<br />
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Navy.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Navy.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Navy</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.OilCoffee.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.OilCoffee.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Oil Coffee</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.OiledOliveNubuck.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.OiledOliveNubuck.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Oiled Olive Nubuck</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.OliveBrown.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.OliveBrown.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Olive Brown</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Orange.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Orange.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Orange</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Peacock.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Peacock.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Peacock</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Pink.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Pink.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Pink</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Red.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Red.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Red</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.RedOak.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.RedOak.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Red Oak</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Saddle.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Saddle.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Saddle</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.SaddleRough.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.SaddleRough.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Saddle Rough</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<br />
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Salmon.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Salmon.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Salmon</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Squash.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Squash.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Squash</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Tan.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Tan.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Tan</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Taupe.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Taupe.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Taupe</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Toast.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Toast.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Toast</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Turquoise2.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Turquoise2.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Turquoise (2)</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.VioletNubuck.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.VioletNubuck.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Violet Nubuck</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Walnut.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Walnut.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Walnut</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.White.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.White.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>White</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<br />
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Bronze.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Bronze.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Bronze Metallic</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.GunmetalMetallic.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.GunmetalMetallic.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Gunmetal Metallic</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Pewter.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.Pewter.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Pewter Metallic</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.OliveEmbossed.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.OliveEmbossed.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Olive Embossed</h1><p>Cowhide full-grain leather used in home decor products</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.RedEmbossed.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.RedEmbossed.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Red Embossed</h1><p>Cowhide full-grain leather used in home decor products</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.TanEmbossed.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.FG.TanEmbossed.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Tan Embossed</h1><p>Cowhide full-grain leather used in home decor products.</p>
+				</div>
+			</div>
+		</div>
+		<h2>Cowhide Suede</h2>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.S.Aqua.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.S.Aqua.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Aqua</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.S.Black.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.S.Black.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Black</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.S.BlueGrey.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.S.BlueGrey.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Blue Grey</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.S.Burgundy.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.S.Burgundy.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Burgundy</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.S.Chocolate.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.S.Chocolate.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Chocolate</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.S.DarkGrey.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.S.DarkGrey.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Dark Grey</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.S.ForestGreen.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.S.ForestGreen.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Forest Green</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.S.Fuchsia.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.S.Fuchsia.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Fuchsia</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.S.Gold.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.S.Gold.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Gold</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.S.HotPink.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.S.HotPink.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Hot Pink</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.S.Kiwi.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.S.Kiwi.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Kiwi</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<br />
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.S.LightGrey.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.S.LightGrey.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Light Grey</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.S.Loden.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.S.Loden.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Loden</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.S.Navy.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.S.Navy.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Navy</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.S.Pink.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.S.Pink.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Pink</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.S.Purple.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.S.Purple.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Purple</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.S.Red.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.S.Red.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Red</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.S.RoyalBlue.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.S.RoyalBlue.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>RoyalBlue</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.S.Rust.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.S.Rust.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Rust</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.S.Sand.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.S.Sand.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Sand</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.S.Toast.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.S.Toast.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Toast</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.S.TurquoiseTeal.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/C.S.TurquoiseTeal.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Turquoise Teal</h1><p>Cowhide full-grain leather</p>
+				</div>
+			</div>
+		</div>
+		<h2>Buffalo</h2>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/B.Agean.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/B.Agean.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Agean</h1><p>Buffalo leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/B.Black.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/B.Black.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Black</h1><p>Buffalo leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/B.Brown.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/B.Brown.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Brown</h1><p>Buffalo leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/B.Buckskin.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/B.Buckskin.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Buckskin</h1><p>Buffalo leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/B.Cayenne.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/B.Cayenne.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Cayenne</h1><p>Buffalo leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/B.Chestnut.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/B.Chestnut.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Chestnut</h1><p>Buffalo leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/B.Cream.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/B.Cream.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Cream</h1><p>Buffalo leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/B.DoveGrey.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/B.DoveGrey.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>DoveGrey</h1><p>Buffalo leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/B.Khaki.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/B.Khaki.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Khaki</h1><p>Buffalo leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/B.Mahogany.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/B.Mahogany.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Mahogany</h1><p>Buffalo leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/B.Nub.WaterproofChocolateNubuck.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/B.Nub.WaterproofChocolateNubuck.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Chocolate Nubuck</h1><p>Buffalo leather, waterproof</p>
+				</div>
+			</div>
+		</div>
+		<br />
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/B.Nub.WaterproofTanNubuck.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/B.Nub.WaterproofTanNubuck.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Tan Nubuck</h1><p>Buffalo leather, waterproof</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/B.OiledBrown.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/B.OiledBrown.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Oiled Brown</h1><p>Buffalo leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/B.Peanut.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/B.Peanut.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Peanut</h1><p>Buffalo leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/B.PowderPink.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/B.PowderPink.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Powder Pink</h1><p>Buffalo leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/B.Toast.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/B.Toast.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Toast</h1><p>Buffalo leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/B.Tobacco.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/B.Tobacco.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Tobacco</h1><p>Buffalo leather</p>
+				</div>
+			</div>
+		</div>
+		<h2>Sheepskin</h2>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Sheep.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Sheep.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Toast</h1><p>Plush Sheepskin</p>
+				</div>
+			</div>
+		</div>
+		<h2>Elk</h2>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/E.Black.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/E.Black.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Black</h1><p>Elk leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/E.Brown.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/E.Brown.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Brown</h1><p>Elk leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/E.Buckskin.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/E.Buckskin.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Buckskin</h1><p>Elk leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/E.Cream.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/E.Cream.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Cream</h1><p>Elk leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/E.Dusk.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/E.Dusk.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Dusk</h1><p>Elk leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/E.LightGrey.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/E.LightGrey.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Light Grey</h1><p>Elk leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/E.Mahogany.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/E.Mahogany.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Mahogany</h1><p>Elk leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/E.Rust.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/E.Rust.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Rust</h1><p>Elk leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/E.Toast.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/E.Toast.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Toast</h1><p>Elk leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/E.Tobacco.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/E.Tobacco.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Tobacco</h1><p>Elk leather</p>
+				</div>
+			</div>
+		</div>
+		<h2>Moose</h2>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/M.Brown.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/M.Brown.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Brown</h1><p>Moose leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/M.ForestGreen.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/M.ForestGreen.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Forest Green</h1><p>Moose leather</p>
+				</div>
+			</div>
+		</div>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/M.Red.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/M.Red.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Red</h1><p>Moose leather</p>
+				</div>
+			</div>
+		</div>
+		<h2>Pigskin</h2>
+		<div class="enlarge pic1">
+			<a class="thumb" href="#x" tabindex="1"><img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Pig.jpg" height="50" width="50"  alt="" /></a>
+			<div class="frame">
+				<div class="framey">
+					<div class="framex">
+						<img src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Pig.jpg" alt="" />
+					</div>
+				</div>
+				<div class="caption">
+					<div style="float:right;"><br><img height="50" width="50" src="http://static.zoovy.com/img/itascamoccasin/W300-H300-Bffffff/leather_swatches/Feather_4smallApplications_darker_brown.jpg" alt="" /></div>
+					<p>Color</p><h1>Natural</h1><p>Pigskin leather</p>
+				</div>
+			</div>
+		</div>
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+</div>
+
 
 
 

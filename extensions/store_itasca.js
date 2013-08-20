@@ -26,7 +26,10 @@ var store_itasca = function() {
 	var r = {
 
 	vars : {
-		},
+		catTemplates : {
+			".leathergoods.leather_swatches" : "leatherSwatchTemplate"
+		}
+	},
 
 					////////////////////////////////////   CALLS    \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\		
 
