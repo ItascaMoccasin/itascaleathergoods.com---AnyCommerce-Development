@@ -31,6 +31,7 @@ var myRIA = function() {
 			'invoicePostCheckoutTemplate',
 //the list of templates that are commonly edited (same order as they appear in appTemplates
 			'homepageTemplate',	'categoryTemplate',
+			'leatherSwatchTemplate',
 			'categoryListTemplate',
 			'categoryListTemplateRootCats',
 			'productListTemplate',
@@ -756,9 +757,10 @@ fallback is to just output the value.
 //				if(app.model.fetchData('appProductGet|'+pid))	{}
 				if(data.bindData.isElastic)	{
 					price = data.value.base_price;
-					if(data.value.tags.indexOf('IS_PREORDER') > -1)	{buttonText = 'Preorder'; className = 'preorder';}
-					else if(data.value.tags.indexOf('IS_COLORFUL') > -1)	{buttonText = 'Choose Color'; className = 'variational colorful';}
-					else if(data.value.tags.indexOf('IS_SIZEABLE') > -1)	{buttonText = 'Choose Size'; className = 'variational sizeable;'}
+					// ** 201332 indexOf changed to $.inArray for IE8 compatibility, since IE8 only supports the indexOf method on Strings
+				    if($.inArray('IS_PREORDER', data.value.tags) > -1)  {buttonText = 'Preorder'; className = 'preorder';}
+				    else if($.inArray('IS_COLORFUL', data.value.tags) > -1)  {buttonText = 'Choose Color'; className = 'variational colorful';}
+				    else if($.inArray('IS_SIZEABLE', data.value.tags) > -1)  {buttonText = 'Choose Size'; className = 'variational sizeable';}
 					else if(data.value.pogs.length > 0)	{buttonText = 'Choose Options'; className = 'variational';}
 					else	{}
 					//look in tags for tags. indexOf
@@ -911,7 +913,7 @@ for legacy browsers. That means old browsers will use the anchor to retain 'back
 							}
 						else	{
 							//the item is already in the list. move it to the front.
-							app.ext.myRIA.vars.session.recentlyViewedItems.splice(0, 0, app.ext.myRIA.vars.session.recentlyViewedItems.splice(app.ext.myRIA.vars.session.recentlyViewedItems.indexOf(infoObj.pid), 1)[0]);
+							app.ext.myRIA.vars.session.recentlyViewedItems.splice(0, 0, app.ext.myRIA.vars.session.recentlyViewedItems.splice($.inArray(infoObj.pid, app.ext.myRIA.vars.session.recentlyViewedItems), 1)[0]);
 							}
 						infoObj.parentID = app.ext.myRIA.u.showProd(infoObj);
 						break;
@@ -2173,8 +2175,8 @@ effects the display of the nav buttons only. should be run just after the handle
 				function step($btn,increment)	{
 					if($btn.data('datapointer').indexOf('appCategoryDetail') >= 0)	{
 						var csv = app.data[$btn.data('datapointer')]['@products'],
-						index = csv.indexOf(app.ext.myRIA.vars.hotw[0].pid) + increment;
-						
+						// ** 201332 indexOf changed to $.inArray for IE8 compatibility, since IE8 only supports the indexOf method on Strings
+						index = $.inArray(app.ext.myRIA.vars.hotw[0].pid, csv) + increment;					
 						if(index < 0)	{index = csv.length - 1} //after first product, jump to last
 						else if(index >= csv.length)	{index = 0} //afer last item, jump to first.
 						else	{} //leave index alone.
@@ -2713,9 +2715,15 @@ buyer to 'take with them' as they move between  pages.
 					else if(catSafeID == zGlobals.appSettings.rootcat || infoObj.pageType == 'homepage')	{
 						infoObj.templateID = 'homepageTemplate'
 						}
-					else	{
-						infoObj.templateID = 'categoryTemplate'
-						}
+					
+            		else if(app.ext.store_itasca.vars.catTemplates[catSafeID]){
+             			app.u.dump("leather swatch template option selected");
+              			infoObj.templateID = app.ext.store_itasca.vars.catTemplates[catSafeID]
+            		}
+          			else{
+              			app.u.dump("category default template option selected");
+              			infoObj.templateID = 'categoryTemplate'
+					}
 					infoObj.state = 'onInits';
 					var parentID = infoObj.parentID || infoObj.templateID+'_'+app.u.makeSafeHTMLId(catSafeID);
 					infoObj.parentID = parentID;
@@ -2845,7 +2853,7 @@ app.templates[P.templateID].find('[data-bind]').each(function()	{
 				
 //if some attributes for this page have already been fetched, check to see if the attribute in focus in here or not set.
 // ** 201318 -> the changes below are to make the appGet more efficient (eliminates duplicate %page attribute requests)
-				if($.inArray(tmpAttr,myAttributes))	{} //attribute is already in the list of attributes to be fetched.
+				if($.inArray(tmpAttr,myAttributes)!= -1 )	{} //attribute is already in the list of attributes to be fetched.
 				else if(app.data['appPageGet|'+catSafeID] && app.data['appPageGet|'+catSafeID]['%page'])	{
 					if(app.data['appPageGet|'+catSafeID]['%page'][tmpAttr])	{} //already have value
 					else if(app.data['appPageGet|'+catSafeID]['%page'][tmpAttr] === null){} //value has been requested but is not set.
@@ -3060,7 +3068,7 @@ else	{
 			createTemplateFunctions : function()	{
 
 				app.ext.myRIA.template = {};
-				var pageTemplates = new Array('categoryTemplate','productTemplate','companyTemplate','customerTemplate','homepageTemplate','searchTemplate','cartTemplate','checkoutTemplate','pageNotFoundTemplate');
+				var pageTemplates = new Array('categoryTemplate','leatherSwatchTemplate','productTemplate','companyTemplate','customerTemplate','homepageTemplate','searchTemplate','cartTemplate','checkoutTemplate','pageNotFoundTemplate');
 				var L = pageTemplates.length;
 				for(var i = 0; i < L; i += 1)	{
 					app.ext.myRIA.template[pageTemplates[i]] = {"onCompletes":[],"onInits":[],"onDeparts":[]};
