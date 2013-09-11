@@ -496,3 +496,24 @@ div.atclear{
 	border: 1px solid #4D3420;
 }
 
+#contactForm{
+	float:left;
+}
+.contactUsBottomCustomNote{
+	float: left;
+    margin-left: 10px;
+    width: 440px;
+}
+.contactUsBottomCustomNote p{
+	color:#ff0000;
+}
+.contactUsBottomCustomNote p span{
+	font-weight:bold;
+}
+.contactUsBottomCustomNote h4{
+	font-weight:500;
+}
+.contactUsBottomCustomNote h4 span{
+	font-weight:bold;
+}
+

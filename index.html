@@ -2810,7 +2810,8 @@ if you change these, you should move them above this comment so that when you (o
 
 		<div id='contactArticle' class='displayNone textContentArea'>
 			<h1>Contact Information</h1>
-			<form action='#' onSubmit="app.calls.appSendMessage.init($(this).serializeJSON(),{'callback':'showMessaging','parentID':'contactFormMessaging','message':'Thank you, your message has been sent'},'immutable'); app.model.dispatchThis('immutable');  return false;" id='contactForm' name='contactForm'>
+			<p>Using the form below you can send a message regarding this site or a particular order. Below the contact information are links to some commonly requested pages and additional contact information. The contact form is the best way to reach us electronically.</p>
+            <form action='#' onSubmit="app.calls.appSendMessage.init($(this).serializeJSON(),{'callback':'showMessaging','parentID':'contactFormMessaging','message':'Thank you, your message has been sent'},'immutable'); app.model.dispatchThis('immutable');  return false;" id='contactForm' name='contactForm'>
 			<fieldset>
 				<legend>Contact Us</legend>
 				<div id='contactFormMessaging'></div>
@@ -2822,7 +2823,22 @@ if you change these, you should move them above this comment so that when you (o
 				</div>
 			</fieldset>
 			</form>
-			<div data-bind='var: profile(zoovy:contact); format:wiki; wikiFormats:myRIA;' id='contactContent'></div>
+            <div class="contactUsBottomCustomNote">
+            	<p><span>PLEASE NOTE: </span>If you sent us a note using his contact page between Aug. 22, 2013 and Sept. 6, 2013, we did not receive your email address due to a technical glitch, and  therefore we have been unable to respond to you. We are extremely sorry and hope you have returned to see this message. To be safe, please also put your email address in the message as well. Or send an email directly to info@itascaleathergoods.com .</p>
+            	<br />
+                <h4><span>Lake George Factory Store</span></h4>
+                <h4>37144 US 71 N.</h4>
+                <h4>P.O. Box 228</h4>
+                <h4>Lake George, MN 56458</h4>
+                <br />
+                <h4>Shop Manager: Sam</h4>
+                <h4>Phone: 218-699-3978</h4>
+                <h4>Fax: 218-699-3154</h4>
+                <br />
+                <h4>Hours: Monday - Friday 9:00-6:00 Central</h4>
+            </div>
+			<!--<div data-bind='var: profile(zoovy:contact); format:wiki; wikiFormats:myRIA;' id='contactContent'></div>-->
+            
 		</div>
 
 
