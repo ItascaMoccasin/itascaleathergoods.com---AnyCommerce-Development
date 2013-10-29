@@ -390,8 +390,7 @@
       "fl" : "c-20080609"
    },
    ".leathergoods.small-leather-goods" : {
-      "fl" : "c-20080609",
-      "description" : "<br /><br /><b>Coming soon as we expand our product line beyond moccasins.  Please check back.</b><br /><br /><br />"
+      "fl" : "c-20080609"
    },
    ".leathergoods.moccasins.women.nokasippi" : {
       "fl" : "c-20090617"
