@@ -119,83 +119,36 @@ app.rq.push(['templateFunction','productTemplate','onDeparts',function(P) {
 				app.rq.push(['templateFunction', 'categoryTemplate','onCompletes',function(P){
 					//var title = app.data["appPageGet|"+P.navcat]['%page'].page_title;
 					var title = "Category Selection Page";
-					if(title){
-						app.ext.store_itasca.u.setTitle(title);
-					}
-					else {
-						title = "";
-						app.ext.store_itasca.u.setTitle(title);
-					}
+					app.ext.store_itasca.u.setTitle(title);
 					}]);
 				app.rq.push(['templateFunction', 'productTemplate','onCompletes',function(P){
 					//var title = app.data["appProductGet|"+infoObj.pid]['%attribs']['zoovy:prod_name'];
 					var title = "Product Details Page";
-					if(title){
-						app.ext.store_itasca.u.setTitle(title);
-					}
-					else {
-						title = "";
-						app.ext.store_itasca.u.setTitle(title);
-					}
+					app.ext.store_itasca.u.setTitle(title);
 					}]);
 				app.rq.push(['templateFunction', 'companyTemplate','onCompletes',function(P){
 					var title = "Itasca Moccasins Company Information";
-					if(title){
-						app.ext.store_itasca.u.setTitle(title);
-					}
-					else {
-						title = "";
-						app.ext.store_itasca.u.setTitle(title);
-					}
+					app.ext.store_itasca.u.setTitle(title);
 					}]);
 				app.rq.push(['templateFunction', 'customerTemplate','onCompletes',function(P){
 					var title = "Itasca Moccasins Customer Information";
-					if(title){
-						app.ext.store_itasca.u.setTitle(title);
-					}
-					else {
-						title = "";
-						app.ext.store_itasca.u.setTitle(title);
-					}
+					app.ext.store_itasca.u.setTitle(title);
 					}]);
 				app.rq.push(['templateFunction', 'homepageTemplate','onCompletes',function(P){
 					var title = "Home";
-					if(title){
-						app.ext.store_itasca.u.setTitle(title);
-					}
-					else {
-						title = "";
-						app.ext.store_itasca.u.setTitle(title);
-					}
+					app.ext.store_itasca.u.setTitle(title);
 					}]);
 				app.rq.push(['templateFunction', 'pageNotFoundTemplate','onCompletes',function(P){
-					if(title){
-						app.ext.store_itasca.u.setTitle(title);
-					}
-					else {
-						title = "";
-						app.ext.store_itasca.u.setTitle(title);
-					}
+					var title = "";
+					app.ext.store_itasca.u.setTitle(title);
 					}]);
 				app.rq.push(['templateFunction', 'checkoutTemplate','onCompletes',function(P){
-					title = "Checkout";
-					if(title){
-						app.ext.store_itasca.u.setTitle(title);
-					}
-					else {
-						title = "";
-						app.ext.store_itasca.u.setTitle(title);
-					}
+					var title = "Checkout";
+					app.ext.store_itasca.u.setTitle(title);
 					}]);
 				app.rq.push(['templateFunction', 'searchTemplate','onCompletes',function(P){
-					title = "Search Results Page";
-					if(title){
-						app.ext.store_itasca.u.setTitle(title);
-					}
-					else {
-						title = "";
-						app.ext.store_itasca.u.setTitle(title);
-					}
+					var title = "Search Results Page";
+					app.ext.store_itasca.u.setTitle(title);
 					}]);
 //**END TITLE APPENDING FUNCTIONALITY**//
 
