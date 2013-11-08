@@ -24,7 +24,7 @@ var _gaq = _gaq || [];
 var myCreole;
 
 var app = {vars:{
-	"release":"201320.dc",  //increment this with each change. should solve caching issues. format: frameworkID,letterVersion i.e. 201320aa   increment one letter every version update. Update framework ID on new framework updates.
+	"release":"20131107193500",  //increment this with each change. should solve caching issues. format: frameworkID,letterVersion i.e. 201320aa   increment one letter every version update. Update framework ID on new framework updates.
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
         "checkoutAuthMode" : "active",//can be passive, active or required
@@ -442,10 +442,10 @@ the homepageTemplate template is loaded into mainContentArea by default when the
 		<div id="slideshowNav"></div>
 
 		<ul id="wideSlideshow" class="pics slideshow">
-			<li><a href='#' onClick="return showContent('category',{'navcat':'.leathergoods.totes-bags/'});"><img src="img/B_Beaucoup_2013Q3.JPG" width="1000" height="376" alt="Beaucoup Handbags" /></a></li>
-			<li><a href='#' onClick="return showContent('category',{'navcat':'.leathergoods.accessories.belts_-_men_s'});"><img src="img/B_Belts_2013Q3.JPG" width="1000" height="376" alt="Buck Belts" /></a></li>
+			<li><a href='#' onClick="return showContent('category',{'navcat':'.leathergoods.totes-bags/'});"><img src="img/B_Beaucoup_2013Q3.jpg" width="1000" height="376" alt="Beaucoup Handbags" /></a></li>
+			<li><a href='#' onClick="return showContent('category',{'navcat':'.leathergoods.accessories.belts_-_men_s'});"><img src="img/B_Belts_2013Q3.jpg" width="1000" height="376" alt="Buck Belts" /></a></li>
 			<li><a href='#' onClick="return showContent('category',{'navcat':'.leathergoods.small-leather-goods/'});"><img src="img/B_Wallets_2013Q3.JPG" width="1000" height="376" alt="Wallets" /></a></li>
-			<li><a href="#" onClick="return showContent('search',{'elasticsearch':{'filter':{'and':[{'term':{'tags':'IS_NEWARRIVAL'}}, { 'term' : {'na_category':'moccasins'}}, { 'term' : {'na_sub_category':'women'}}]}}});" class="pointer headerDropdownLink"><img src="img/B_Cota_2013Q3.JPG" width="1000" height="376" alt="New Arrival Women's Moccasins" /></a></li>
+			<li><a href="#" onClick="return showContent('search',{'elasticsearch':{'filter':{'and':[{'term':{'tags':'IS_NEWARRIVAL'}}, { 'term' : {'na_category':'moccasins'}}, { 'term' : {'na_sub_category':'women'}}]}}});" class="pointer headerDropdownLink"><img src="img/B_Cota_2013Q3.jpg" width="1000" height="376" alt="New Arrival Women's Moccasins" /></a></li>
 			<li><a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'nokasippi'}}}});"><img src="img/B_NokasippiOilBronze_2013Q3.JPG" width="1000" height="376" alt="Nokasippi Knee-high Boots" /></a></li>
 			
 
@@ -454,7 +454,7 @@ the homepageTemplate template is loaded into mainContentArea by default when the
 
 	<div class="homeBanners">
 		<a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'Leitner slipper'}}}});"><img src="img/F_MensEggsTangletown.JPG" width="327" height="244" alt="Moccasins and Slippers" /></a>
-		<li><a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'obion'}}}});"><img src="img/F_Obion.JPG" width="327" height="244" alt="Moccasins" /></a>
+		<a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'obion'}}}});"><img src="img/F_Obion.JPG" width="327" height="244" alt="Moccasins" /></a>
 		<a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'slipper'}}}});"><img src="img/F_LinedCota.JPG" width="327" height="244" alt="Slippers" class="lastBann"/></a>
 	</div>
 </div>
