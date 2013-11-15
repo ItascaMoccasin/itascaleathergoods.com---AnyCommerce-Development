@@ -145,11 +145,11 @@ var store_itasca = function() {
 						}
 					else{
 						//Go home title.  You are drunk.
-						title = "Handmade Moccasins | Itasca Leathergoods"; 
+						title = "Handmade Moccasins"; 
 						}
 
 					document.title = title+" | Itasca Leathergoods";
-				},
+				}
 			}, //u
 
 
