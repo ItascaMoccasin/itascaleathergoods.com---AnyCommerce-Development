@@ -24,7 +24,7 @@ var _gaq = _gaq || [];
 var myCreole;
 
 var app = {vars:{
-	"release":"20131220102500",  //increment this with each change. should solve caching issues. format: frameworkID,letterVersion i.e. 201320aa   increment one letter every version update. Update framework ID on new framework updates.
+	"release":"20140122024600",  //increment this with each change. should solve caching issues. format: frameworkID,letterVersion i.e. 201320aa   increment one letter every version update. Update framework ID on new framework updates.
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
         "checkoutAuthMode" : "active",//can be passive, active or required
@@ -121,8 +121,8 @@ app.u.loadScript(app.vars.baseURL+"_itasca_app-init.js");
 				<a id="logo" class='bindByAnchor' href='#!homepage'  title="Itasca Leathergoods">
 				<img src="img/Itasca_logo.png" width="183" height="126" alt="Itasca Leathergoods" />
 				</a>
-				<!-- PAV 29 Nov 2013, comment out next line on Jan 1  -->
-				<img src="img/FreeHolidayShipping.gif" height="90" alt="Free Shipping" style="float:left; margin:0; padding:0;"  />
+				<!-- PAV 29 Nov 2013, comment out next line on Jan 1, uncomment the next Thanksgiving.  -->
+				<!-- <img src="img/FreeHolidayShipping.gif" height="90" alt="Free Shipping" style="float:left; margin:0; padding:0;"  /> -->
 
 		<div id="midNavLinks">
 			<ul>
@@ -444,7 +444,7 @@ the homepageTemplate template is loaded into mainContentArea by default when the
 		<div id="slideshowNav"></div>
 
 		<ul id="wideSlideshow" class="pics slideshow">
-			<li><a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'Holiday2013'}}}});"><img src="img/B_Holiday2013.jpg" width="1000" height="376" alt="Holiday Collection 2013" /></a></li>
+			<li><a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'Holiday2013'}}}});"><img src="img/B_Holiday2013noText.JPG" width="1000" height="376" alt="Holiday Collection 2013" /></a></li>
 			<li><a href='#' onClick="return showContent('category',{'navcat':'.leathergoods.totes-bags/'});"><img src="img/B_Beaucoup_2013Q3.jpg" width="1000" height="376" alt="Beaucoup Handbags" /></a></li>
 			<li><a href='#' onClick="return showContent('category',{'navcat':'.leathergoods.accessories.belts_-_men_s'});"><img src="img/B_Belts_2013Q3.jpg" width="1000" height="376" alt="Buck Belts" /></a></li>
 			<li><a href='#' onClick="return showContent('category',{'navcat':'.leathergoods.small-leather-goods/'});"><img src="img/B_Wallets_2013Q3.JPG" width="1000" height="376" alt="Wallets" /></a></li>
