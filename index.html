@@ -24,7 +24,7 @@ var _gaq = _gaq || [];
 var myCreole;
 
 var app = {vars:{
-	"release":"20140318100000",  //increment this with each change. should solve caching issues. format: frameworkID,letterVersion i.e. 201320aa   increment one letter every version update. Update framework ID on new framework updates.
+	"release":"20140328111000",  //increment this with each change. should solve caching issues. format: frameworkID,letterVersion i.e. 201320aa   increment one letter every version update. Update framework ID on new framework updates.
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
         "checkoutAuthMode" : "active",//can be passive, active or required
@@ -133,6 +133,10 @@ app.u.loadScript(app.vars.baseURL+"_itasca_app-init.js");
 			<li><a class='bindByAnchor' href='#!cart'>Cart (<span class="cartItemCount">0</span>)</a></li>
 			</ul>
 		</div>
+        <!--[if IE]>
+            <div class="headerIE8WarningCont">
+            </div>
+        <![endif]-->
 		
 
 		

@@ -40,14 +40,26 @@ app.rq.push(['script',0,app.vars.baseURL+'resources/jquery.ui.anyplugins.js']); 
 app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 	var $context = $(app.u.jqSelector('#',P.parentID));
 	var $tabContainer = $( ".tabbedProductContent",$context);
-		if($tabContainer.length)	{
-			if($tabContainer.data("widget") == 'anytabs'){} //tabs have already been instantiated. no need to be redundant.
-			else	{
-				$tabContainer.anytabs();
-				}
-			}
-		else	{} //couldn't find the tab to tabificate.
-	}]);
+	if($tabContainer.length)	{
+		if($tabContainer.data("widget") == 'anytabs'){} //tabs have already been instantiated. no need to be redundant.
+		else	{
+			$tabContainer.anytabs();
+		}
+	}
+	else	{} //couldn't find the tab to tabificate.
+	
+	//INTERNET EXPLORER WARNING MESSAGE
+	if($('.headerIE8WarningCont').data('messageShown')){
+	}
+	else{
+		$('.headerIE8WarningCont').data('messageShown',false);
+	}
+	if($('.headerIE8WarningCont').data('messageShown') === false)
+	{
+		$('.headerIE8WarningCont').anymessage({'message':'Due to Microsoft\'s decision to discontinue support of Windows XP, any users viewing this site in Internet Explorer on Windows XP will recieve a certificate warning at checkout. If you are viewing this site on Windows XP, please use a more modern browser like firefox, Chrome, Safari or Opera in order to complete your purchase and prevent any unintended issues.'});	
+		$('.headerIE8WarningCont').data('messageShown',true).append();
+	}
+}]);
 
 //sample of an onDeparts. executed any time a user leaves this page/template type.
 //app.rq.push(['templateFunction','homepageTemplate','onDeparts',function(P) {app.u.dump("just left the homepage")}]);
