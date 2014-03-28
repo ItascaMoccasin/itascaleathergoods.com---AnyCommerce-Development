@@ -69,7 +69,7 @@ For the list of available params, see the 'options' object below.
 			$t.prepend(self.outputArr[i]); //
 
 			if(o.persistant)	{} //message is persistant. do nothing.
-			else	{this.ts = setTimeout(function(){$t.anymessage('close');},10000);} //auto close message after a short duration.
+			else	{this.ts = setTimeout(function(){$t.anymessage('close');},30000);} //auto close message after a short duration.
 			
 			}, //_init
 
