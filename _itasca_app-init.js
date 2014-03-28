@@ -130,7 +130,7 @@ app.rq.push(['templateFunction','productTemplate','onDeparts',function(P) {
 					}
 					if($('.headerIE8WarningCont').data('messageShown') === false)
 					{
-						$('.headerIE8WarningCont').anymessage({'message':'Due to Microsoft\'s decision to discontinue support of Windows XP, any users viewing this site in Internet Explorer on Windows XP will recieve a certificate warning at checkout. If you are viewing this site on Windows XP, please use a more modern browser like firefox, Chrome, Safari or Opera in order to complete your purchase and prevent any unintended issues.'});	
+						$('.headerIE8WarningCont').anymessage({'message':'Due to Microsoft\'s decision to discontinue support of Windows XP, any users viewing this site in Internet Explorer on Windows XP will recieve a certificate warning at checkout. If you are viewing this site on Windows XP, please use a more modern browser like firefox, Chrome, Safari or Opera in order to complete your purchase and prevent any unintended issues.','persistent':true});	
 						$('.headerIE8WarningCont').data('messageShown',true).append();
 					}
 					}]);
@@ -147,7 +147,7 @@ app.rq.push(['templateFunction','productTemplate','onDeparts',function(P) {
 					}
 					if($('.headerIE8WarningCont').data('messageShown') === false)
 					{
-						$('.headerIE8WarningCont').anymessage({'message':'Due to Microsoft\'s decision to discontinue support of Windows XP, any users viewing this site in Internet Explorer on Windows XP will recieve a certificate warning at checkout. If you are viewing this site on Windows XP, please use a more modern browser like firefox, Chrome, Safari or Opera in order to complete your purchase and prevent any unintended issues.'});	
+						$('.headerIE8WarningCont').anymessage({'message':'Due to Microsoft\'s decision to discontinue support of Windows XP, any users viewing this site in Internet Explorer on Windows XP will recieve a certificate warning at checkout. If you are viewing this site on Windows XP, please use a more modern browser like firefox, Chrome, Safari or Opera in order to complete your purchase and prevent any unintended issues.','persistent':true});	
 						$('.headerIE8WarningCont').data('messageShown',true).append();
 					}
 					}]);
@@ -163,7 +163,7 @@ app.rq.push(['templateFunction','productTemplate','onDeparts',function(P) {
 					}
 					if($('.headerIE8WarningCont').data('messageShown') === false)
 					{
-						$('.headerIE8WarningCont').anymessage({'message':'Due to Microsoft\'s decision to discontinue support of Windows XP, any users viewing this site in Internet Explorer on Windows XP will recieve a certificate warning at checkout. If you are viewing this site on Windows XP, please use a more modern browser like firefox, Chrome, Safari or Opera in order to complete your purchase and prevent any unintended issues.'});	
+						$('.headerIE8WarningCont').anymessage({'message':'Due to Microsoft\'s decision to discontinue support of Windows XP, any users viewing this site in Internet Explorer on Windows XP will recieve a certificate warning at checkout. If you are viewing this site on Windows XP, please use a more modern browser like firefox, Chrome, Safari or Opera in order to complete your purchase and prevent any unintended issues.','persistent':true});	
 						$('.headerIE8WarningCont').data('messageShown',true).append();
 					}
 					}]);
@@ -179,7 +179,7 @@ app.rq.push(['templateFunction','productTemplate','onDeparts',function(P) {
 					}
 					if($('.headerIE8WarningCont').data('messageShown') === false)
 					{
-						$('.headerIE8WarningCont').anymessage({'message':'Due to Microsoft\'s decision to discontinue support of Windows XP, any users viewing this site in Internet Explorer on Windows XP will recieve a certificate warning at checkout. If you are viewing this site on Windows XP, please use a more modern browser like firefox, Chrome, Safari or Opera in order to complete your purchase and prevent any unintended issues.'});	
+						$('.headerIE8WarningCont').anymessage({'message':'Due to Microsoft\'s decision to discontinue support of Windows XP, any users viewing this site in Internet Explorer on Windows XP will recieve a certificate warning at checkout. If you are viewing this site on Windows XP, please use a more modern browser like firefox, Chrome, Safari or Opera in order to complete your purchase and prevent any unintended issues.','persistent':true});	
 						$('.headerIE8WarningCont').data('messageShown',true).append();
 					}
 					}]);
@@ -195,7 +195,7 @@ app.rq.push(['templateFunction','productTemplate','onDeparts',function(P) {
 					}
 					if($('.headerIE8WarningCont').data('messageShown') === false)
 					{
-						$('.headerIE8WarningCont').anymessage({'message':'Due to Microsoft\'s decision to discontinue support of Windows XP, any users viewing this site in Internet Explorer on Windows XP will recieve a certificate warning at checkout. If you are viewing this site on Windows XP, please use a more modern browser like firefox, Chrome, Safari or Opera in order to complete your purchase and prevent any unintended issues.'});	
+						$('.headerIE8WarningCont').anymessage({'message':'Due to Microsoft\'s decision to discontinue support of Windows XP, any users viewing this site in Internet Explorer on Windows XP will recieve a certificate warning at checkout. If you are viewing this site on Windows XP, please use a more modern browser like firefox, Chrome, Safari or Opera in order to complete your purchase and prevent any unintended issues.','persistent':true});	
 						$('.headerIE8WarningCont').data('messageShown',true).append();
 					}
 					}]);
@@ -211,7 +211,7 @@ app.rq.push(['templateFunction','productTemplate','onDeparts',function(P) {
 					}
 					if($('.headerIE8WarningCont').data('messageShown') === false)
 					{
-						$('.headerIE8WarningCont').anymessage({'message':'Due to Microsoft\'s decision to discontinue support of Windows XP, any users viewing this site in Internet Explorer on Windows XP will recieve a certificate warning at checkout. If you are viewing this site on Windows XP, please use a more modern browser like firefox, Chrome, Safari or Opera in order to complete your purchase and prevent any unintended issues.'});	
+						$('.headerIE8WarningCont').anymessage({'message':'Due to Microsoft\'s decision to discontinue support of Windows XP, any users viewing this site in Internet Explorer on Windows XP will recieve a certificate warning at checkout. If you are viewing this site on Windows XP, please use a more modern browser like firefox, Chrome, Safari or Opera in order to complete your purchase and prevent any unintended issues.','persistent':true});	
 						$('.headerIE8WarningCont').data('messageShown',true).append();
 					}
 					}]);
@@ -227,7 +227,7 @@ app.rq.push(['templateFunction','productTemplate','onDeparts',function(P) {
 					}
 					if($('.headerIE8WarningCont').data('messageShown') === false)
 					{
-						$('.headerIE8WarningCont').anymessage({'message':'Due to Microsoft\'s decision to discontinue support of Windows XP, any users viewing this site in Internet Explorer on Windows XP will recieve a certificate warning at checkout. If you are viewing this site on Windows XP, please use a more modern browser like firefox, Chrome, Safari or Opera in order to complete your purchase and prevent any unintended issues.'});	
+						$('.headerIE8WarningCont').anymessage({'message':'Due to Microsoft\'s decision to discontinue support of Windows XP, any users viewing this site in Internet Explorer on Windows XP will recieve a certificate warning at checkout. If you are viewing this site on Windows XP, please use a more modern browser like firefox, Chrome, Safari or Opera in order to complete your purchase and prevent any unintended issues.','persistent':true});	
 						$('.headerIE8WarningCont').data('messageShown',true).append();
 					}
 					}]);
@@ -243,7 +243,7 @@ app.rq.push(['templateFunction','productTemplate','onDeparts',function(P) {
 					}
 					if($('.headerIE8WarningCont').data('messageShown') === false)
 					{
-						$('.headerIE8WarningCont').anymessage({'message':'Due to Microsoft\'s decision to discontinue support of Windows XP, any users viewing this site in Internet Explorer on Windows XP will recieve a certificate warning at checkout. If you are viewing this site on Windows XP, please use a more modern browser like firefox, Chrome, Safari or Opera in order to complete your purchase and prevent any unintended issues.'});	
+						$('.headerIE8WarningCont').anymessage({'message':'Due to Microsoft\'s decision to discontinue support of Windows XP, any users viewing this site in Internet Explorer on Windows XP will recieve a certificate warning at checkout. If you are viewing this site on Windows XP, please use a more modern browser like firefox, Chrome, Safari or Opera in order to complete your purchase and prevent any unintended issues.','persistent':true});	
 						$('.headerIE8WarningCont').data('messageShown',true).append();
 					}
 					}]);
