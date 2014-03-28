@@ -54,6 +54,7 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 		else	{} //couldn't find the tab to tabificate.
 		
 		
+		
 		var $context = $(app.u.jqSelector('#',P.parentID));
 		app.u.dump($context);
 			
@@ -120,36 +121,133 @@ app.rq.push(['templateFunction','productTemplate','onDeparts',function(P) {
 					//var title = app.data["appPageGet|"+P.navcat]['%page'].page_title;
 					var title = "Category Selection Page";
 					app.ext.store_itasca.u.setTitle(title);
+					
+					//INTERNET EXPLORER WARNING MESSAGE
+					if($('.headerIE8WarningCont').data('messageShown')){
+					}
+					else{
+						$('.headerIE8WarningCont').data('messageShown',false);
+					}
+					if($('.headerIE8WarningCont').data('messageShown') === false)
+					{
+						$('.headerIE8WarningCont').anymessage({'message':'Due to Microsoft\'s decision to discontinue support of Windows XP, any users viewing this site in Internet Explorer on Windows XP will recieve a certificate warning at checkout. If you are viewing this site on Windows XP, please use a more modern browser like firefox, Chrome, Safari or Opera in order to complete your purchase and prevent any unintended issues.'});	
+						$('.headerIE8WarningCont').data('messageShown',true).append();
+					}
 					}]);
+					
 				app.rq.push(['templateFunction', 'productTemplate','onCompletes',function(P){
 					//var title = app.data["appProductGet|"+infoObj.pid]['%attribs']['zoovy:prod_name'];
 					var title = "Product Details Page";
 					app.ext.store_itasca.u.setTitle(title);
+					//INTERNET EXPLORER WARNING MESSAGE
+					if($('.headerIE8WarningCont').data('messageShown')){
+					}
+					else{
+						$('.headerIE8WarningCont').data('messageShown',false);
+					}
+					if($('.headerIE8WarningCont').data('messageShown') === false)
+					{
+						$('.headerIE8WarningCont').anymessage({'message':'Due to Microsoft\'s decision to discontinue support of Windows XP, any users viewing this site in Internet Explorer on Windows XP will recieve a certificate warning at checkout. If you are viewing this site on Windows XP, please use a more modern browser like firefox, Chrome, Safari or Opera in order to complete your purchase and prevent any unintended issues.'});	
+						$('.headerIE8WarningCont').data('messageShown',true).append();
+					}
 					}]);
+					
 				app.rq.push(['templateFunction', 'companyTemplate','onCompletes',function(P){
 					var title = "Itasca Moccasins Company Information";
 					app.ext.store_itasca.u.setTitle(title);
+					//INTERNET EXPLORER WARNING MESSAGE
+					if($('.headerIE8WarningCont').data('messageShown')){
+					}
+					else{
+						$('.headerIE8WarningCont').data('messageShown',false);
+					}
+					if($('.headerIE8WarningCont').data('messageShown') === false)
+					{
+						$('.headerIE8WarningCont').anymessage({'message':'Due to Microsoft\'s decision to discontinue support of Windows XP, any users viewing this site in Internet Explorer on Windows XP will recieve a certificate warning at checkout. If you are viewing this site on Windows XP, please use a more modern browser like firefox, Chrome, Safari or Opera in order to complete your purchase and prevent any unintended issues.'});	
+						$('.headerIE8WarningCont').data('messageShown',true).append();
+					}
 					}]);
+					
 				app.rq.push(['templateFunction', 'customerTemplate','onCompletes',function(P){
 					var title = "Itasca Moccasins Customer Information";
 					app.ext.store_itasca.u.setTitle(title);
+					//INTERNET EXPLORER WARNING MESSAGE
+					if($('.headerIE8WarningCont').data('messageShown')){
+					}
+					else{
+						$('.headerIE8WarningCont').data('messageShown',false);
+					}
+					if($('.headerIE8WarningCont').data('messageShown') === false)
+					{
+						$('.headerIE8WarningCont').anymessage({'message':'Due to Microsoft\'s decision to discontinue support of Windows XP, any users viewing this site in Internet Explorer on Windows XP will recieve a certificate warning at checkout. If you are viewing this site on Windows XP, please use a more modern browser like firefox, Chrome, Safari or Opera in order to complete your purchase and prevent any unintended issues.'});	
+						$('.headerIE8WarningCont').data('messageShown',true).append();
+					}
 					}]);
+					
 				app.rq.push(['templateFunction', 'homepageTemplate','onCompletes',function(P){
 					var title = "Home";
 					app.ext.store_itasca.u.setTitle(title);
+					//INTERNET EXPLORER WARNING MESSAGE
+					if($('.headerIE8WarningCont').data('messageShown')){
+					}
+					else{
+						$('.headerIE8WarningCont').data('messageShown',false);
+					}
+					if($('.headerIE8WarningCont').data('messageShown') === false)
+					{
+						$('.headerIE8WarningCont').anymessage({'message':'Due to Microsoft\'s decision to discontinue support of Windows XP, any users viewing this site in Internet Explorer on Windows XP will recieve a certificate warning at checkout. If you are viewing this site on Windows XP, please use a more modern browser like firefox, Chrome, Safari or Opera in order to complete your purchase and prevent any unintended issues.'});	
+						$('.headerIE8WarningCont').data('messageShown',true).append();
+					}
 					}]);
+					
 				app.rq.push(['templateFunction', 'pageNotFoundTemplate','onCompletes',function(P){
 					var title = "";
 					app.ext.store_itasca.u.setTitle(title);
+					//INTERNET EXPLORER WARNING MESSAGE
+					if($('.headerIE8WarningCont').data('messageShown')){
+					}
+					else{
+						$('.headerIE8WarningCont').data('messageShown',false);
+					}
+					if($('.headerIE8WarningCont').data('messageShown') === false)
+					{
+						$('.headerIE8WarningCont').anymessage({'message':'Due to Microsoft\'s decision to discontinue support of Windows XP, any users viewing this site in Internet Explorer on Windows XP will recieve a certificate warning at checkout. If you are viewing this site on Windows XP, please use a more modern browser like firefox, Chrome, Safari or Opera in order to complete your purchase and prevent any unintended issues.'});	
+						$('.headerIE8WarningCont').data('messageShown',true).append();
+					}
 					}]);
+					
 				app.rq.push(['templateFunction', 'checkoutTemplate','onCompletes',function(P){
 					var title = "Checkout";
 					app.ext.store_itasca.u.setTitle(title);
+					//INTERNET EXPLORER WARNING MESSAGE
+					if($('.headerIE8WarningCont').data('messageShown')){
+					}
+					else{
+						$('.headerIE8WarningCont').data('messageShown',false);
+					}
+					if($('.headerIE8WarningCont').data('messageShown') === false)
+					{
+						$('.headerIE8WarningCont').anymessage({'message':'Due to Microsoft\'s decision to discontinue support of Windows XP, any users viewing this site in Internet Explorer on Windows XP will recieve a certificate warning at checkout. If you are viewing this site on Windows XP, please use a more modern browser like firefox, Chrome, Safari or Opera in order to complete your purchase and prevent any unintended issues.'});	
+						$('.headerIE8WarningCont').data('messageShown',true).append();
+					}
 					}]);
+					
 				app.rq.push(['templateFunction', 'searchTemplate','onCompletes',function(P){
 					var title = "Search Results Page";
 					app.ext.store_itasca.u.setTitle(title);
+					//INTERNET EXPLORER WARNING MESSAGE
+					if($('.headerIE8WarningCont').data('messageShown')){
+					}
+					else{
+						$('.headerIE8WarningCont').data('messageShown',false);
+					}
+					if($('.headerIE8WarningCont').data('messageShown') === false)
+					{
+						$('.headerIE8WarningCont').anymessage({'message':'Due to Microsoft\'s decision to discontinue support of Windows XP, any users viewing this site in Internet Explorer on Windows XP will recieve a certificate warning at checkout. If you are viewing this site on Windows XP, please use a more modern browser like firefox, Chrome, Safari or Opera in order to complete your purchase and prevent any unintended issues.'});	
+						$('.headerIE8WarningCont').data('messageShown',true).append();
+					}
 					}]);
+					
 //**END TITLE APPENDING FUNCTIONALITY**//
 
 var showDropdown = function ($tag) {
