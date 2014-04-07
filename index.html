@@ -24,7 +24,7 @@ var _gaq = _gaq || [];
 var myCreole;
 
 var app = {vars:{
-	"release":"20140328120500",  //increment this with each change. should solve caching issues. format: frameworkID,letterVersion i.e. 201320aa   increment one letter every version update. Update framework ID on new framework updates.
+	"release":"20140406195200",  //increment this with each change. should solve caching issues. format: frameworkID,letterVersion i.e. 201320aa   increment one letter every version update. Update framework ID on new framework updates.
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
         "checkoutAuthMode" : "active",//can be passive, active or required
@@ -448,21 +448,28 @@ the homepageTemplate template is loaded into mainContentArea by default when the
 		<div id="slideshowNav"></div>
 
 		<ul id="wideSlideshow" class="pics slideshow">
-			<li><a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'Holiday2013'}}}});"><img src="img/B_Holiday2013noText.JPG" width="1000" height="376" alt="Holiday Collection 2013" /></a></li>
-			<li><a href='#' onClick="return showContent('category',{'navcat':'.leathergoods.totes-bags/'});"><img src="img/B_Beaucoup_2013Q3.jpg" width="1000" height="376" alt="Beaucoup Handbags" /></a></li>
-			<li><a href='#' onClick="return showContent('category',{'navcat':'.leathergoods.accessories.belts_-_men_s'});"><img src="img/B_Belts_2013Q3.jpg" width="1000" height="376" alt="Buck Belts" /></a></li>
-			<li><a href='#' onClick="return showContent('category',{'navcat':'.leathergoods.small-leather-goods/'});"><img src="img/B_Wallets_2013Q3.JPG" width="1000" height="376" alt="Wallets" /></a></li>
-			<li><a href="#" onClick="return showContent('search',{'elasticsearch':{'filter':{'and':[{'term':{'tags':'IS_NEWARRIVAL'}}, { 'term' : {'na_category':'moccasins'}}, { 'term' : {'na_sub_category':'women'}}]}}});" class="pointer headerDropdownLink"><img src="img/B_Cota_2013Q3.jpg" width="1000" height="376" alt="New Arrival Women's Moccasins" /></a></li>
-			<li><a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'nokasippi'}}}});"><img src="img/B_NokasippiOilBronze_2013Q3.JPG" width="1000" height="376" alt="Nokasippi Knee-high Boots" /></a></li>
-			
+
+			<li><a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'B_OrangeBeaucoup2014Q2 Beaucoup'}}}});"><img src="img/B_OrangeBeaucoup2014Q2.jpg" width="1000" height="376" alt="Women's Nokasippi, Fuchsia 2 Cota, Beaucoup Handbag, Trimbelle in Gauntlet by Itasca Leathergoods" title="Women's Nokasippi, Fuchsia 2 Cota, Beaucoup Handbag, Trimbelle in Gauntlet by Itasca Leathergoods" /></a></li>
+
+			<li><a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'SpringSummer2014'}}}});"><img src="img/B_Cota2014Q2.jpg" width="1000" height="376" alt="Women's Spring/Summer 2014 Cota moccasins by Itasca Leathergoods" title="Women's Spring/Summer 2014 Cota moccasins by Itasca Leathergoods" /></a></li>
+
+			<li><a href='#' onClick="return showContent('category',{'navcat':'.leathergoods.accessories'});"><img src="img/B_Belts2014Q2.jpg" width="1000" height="376" alt="Men's and Women's Belts by Itasca Leathergoods" title="Men's and Women's Belts by Itasca Leathergoods" /></a></li>
+
+			<li><a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'MensBoots2014'}}}});"><img src="img/B_Mens2014Q2.jpg" width="1000" height="376" alt="Men's Boots by Itasca Leathergoods" title="Men's Boots by Itasca Leathergoods" /></a></li>
+
+			<li><a href="#" onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'Galena'}}}});"><img src="img/B_Galena2014Q2.jpg" width="1000" height="376" alt="Women's Galena Handbags by Itasca Leathergoods" title="Women's Galena Handbags by Itasca Leathergoods" /></a></li>
+
+			<li><a href='#' onClick="return showContent('category',{'navcat':'.leathergoods.small-leather-goods'});"><img src="img/B_Wallets2014Q2.jpg" width="1000" height="376" alt="Men's and Women's Wallets by Itasca Leathergoods" title="Men's and Women's Wallets by Itasca Leathergoods" /></a></li>
 
 		</ul>
 	</div>
 
 	<div class="homeBanners">
-		<a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'slipper'}}}});"><img src="img/F_SlipperPaisley.jpg" width="327" height="244" alt="Women's Cota Paisley Slipper by Itasca Leathergoods" /></a>
-		<a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'slipper'}}}});"><img src="img/F_WapsiBears2.jpg" width="327" height="244" alt="Booties for Babies by Itasca Leathergoods" /></a>
-		<a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'slipper'}}}});"><img src="img/F_SlipperStony.jpg" width="327" height="244" alt="Men's and Women's Yazoo slipper by Itasca Leathergoods" class="lastBann"/></a>
+		<a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'Schoolcraft'}}}});"><img src="img/F_Schoolcraft2014Q2.jpg" width="327" height="244" alt="Men's and Women's Schoolcraft pull-on boot by Itasca Leathergoods" title="Men's and Women's Schoolcraft pull-on boot by Itasca Leathergoods" /></a>
+
+		<a href='#' i.	onClick="return showContent('company',{'show':'about'});"><img src="img/F_Video.jpg" width="327" height="244" alt="Click here to watch a video about Itasca Leathergoods." title="Click here to watch a video about Itasca Leathergoods." /></a>
+
+		<a href='#' onClick="return showContent('category',{'navcat':'.leathergoods.moccasins.women.hatchie'});"><img src="img/F_Hatchie2014Q2.jpg" width="327" height="244" alt="Men's and Women's Yazoo slipper by Itasca Leathergoods" class="lastBann"/></a>
 	</div>
 </div>
 
@@ -3588,20 +3595,31 @@ if you change these, you should move them above this comment so that when you (o
 	<div class='mainColumn'>
 <!-- .textContentArea is used as a selector in quickstart.js because article tag type isn't ie8 friendly -->
 		<div id='aboutArticle' class='textContentArea article'>
-			<h1>About Us</h1>
+			<h1>About Us</h1><br />
 			<!--
             <div data-bind='var: profile(zoovy:about); format:wiki; wikiFormats:myRIA;' id='aboutUsContent'></div>
             -->
+            <h3>See What We're All About</h3>
+            <p>Almost ready! Please check back after Tuesday, April 8 to see our video!</p>
+            <p><iframe width="560" height="315" src="//www.youtube.com/embed/Le-j7p_TatQ?rel=0" frameborder="0" allowfullscreen></iframe></p>
             <h3>History</h3>
-            <p>Itasca Moccasin was founded in 1986 by Mardel Bents who learned the moccasin-making business after being sold leather working equipment by a salesman from St. Paul, MN.  Bents opened the original factory store in Lake George, MN, located in the northwestern quadrant of the state between the towns of Park Rapids, Bemidji and Walker.  The location was ideal -- just outside of world-reknown Itasca State Park, the headwaters of the Mississippi River.  Since its opening, the store has attracted visitors traveling to the park from throughout the country.  Also among its early customer base were Native Americans living in the nearby reservations of Leech Lake, White Earth and Red Lake; the native Ojibwe wear moccasins as a part of their regalia for Powwow dances and for other cultural events.</p>
-            <p>Over the years, Bents and her crew honed their manufacturing techniques and offered the option of custom fit moccasins via a foot tracing program as well as the ability to fulfil custom orders in a variety of colors of leather.  Not only did she use basic cowhide, but she had the foresight to introduce the use of premium leathers including buffalo, elk and moose as well as the most incredibly plush sheepskin for slippers.  As the company's reputation for quality moccasins and custom work grew, so did its customer base -- gaining retail and wholesale customers from around the globe, including the United Kingdom and Asia.</p>
-            <h3>Present</h3>
-            <p>In early April 2012, Bents retired and sold the business to Paul Kirkman who changed the name to Itasca Leathergoods to extend the brand identity beyond its moccasin-making roots.  Kirkman maintained the company's staff and over the next two months completed a brand makeover, launching the company into a fashion-forward business closely aligned with its premium quality heritage.  The original factory store was renovated inside and out.  The logo was modernized while clearly acknowleding the company's heritage adjacent to Itasca State Park.  Moccasin styles and colors were updated.  Advertising and social media campaigns were designed and executed.  And most important, a second store deemed to be the company's flagship store was built in the prestigious resort community of Crosslake, MN.  Both the original factory store and the new flagship store earned rave reviews from customers and received favorable press reports throughout the state.  Our third store is now open in Hayward, WI and other sites in resort towns are under consideration for future expansion.  Additionally, the company continues to seek wholesale customers -- typically independent fashion-forward boutiques in urban settings.</p>
-            <p>Throughout 2012 and 2013, new product lines were rolled out, inlcuding basic rugged leather placemats and coasters, intricate hand-laced placemats and coasters, and envelopes for Apple's iPad.  Currently in development are lines of totes and handbags, belts, and decorative throw pillows, all constructed of quality leathers employing intricate hand work.</p>
+            <p>Itasca Moccasin was started in 1986 by Mardel Bents, who learned the moccasin-making business after being sold a set of leather-working equipment by a salesman from St. Paul, MN.  The company was located in the tiny Minnesota community of Lake George, MN, just a few miles to the east of Itasca State Park in North Central Minnesota where the headwaters of the Mississippi River is located.  For about 25 years, the company store was a rustic, shopworn souvenir stand that attracted tourists driving to and from the park.  Bents (and subsequently one employee), handcrafted moccasins all winter in preparation for the following year's summer tourist season.  As each summer season dragged on, supplies were depleted until they were replenished during the next winter's moccasin-making season.</p>
+            <p>Due to its central location between the Leech Lake, White Earth and Red Lake reservations, the company attracted a significant following of Native American customers, who used the moccasins as a part of their regalia for Powwow dances and for other cultural events.</p>
+            <p>Over the years, Bents perfected her moccasin-making techniques and turned out beautifully made premium-quality moccasins, including custom pattern-making for customers with hard-to-fit feet.  Not only did she use basic cowhide, but she had the forethought to introduce the use of premium leathers such as buffalo, elk and moose; she also utilized the most incredibly plush sheepskin for slippers.</p>
+            <h3>Recent Past</h3>
+            <p>In early April 2012, Bents retired and sold the business to Paul Kirkman who changed the name to Itasca Leathergoods to extend the brand identity beyond its moccasin-making roots.  Kirkman maintained the company's sole employee and over the next two months completely rebranded the company into a fashion-forward business that was more closely aligned with its premium-quality craftsmanship.  The original factory store was gutted and renovated inside and out.  The logo was modernized while still clearly acknowledging the company's heritage.  Moccasin styles and colors were updated.  Advertising campaigns were designed and executed.  And most importantly of all, a second store, deemed to be the company's flagship store, was built out and opened in the prestigious resort community of Crosslake MN.  Both the original factory store and the new flagship store (re)opened by Memorial Day 2012 and immediately garnered rave reviews from its new and former customers and received generous favorable press.  A third store, in Hayward WI, followed in spring 2013, located in a historic turn-of-the-century brick building on Main Street in the heart of downtown.</p>
+            <p>In 2012, in an effort to diversify product lines, Itasca Leathergoods introduced its first non-moccasin offerings:  simple placemats and coasters constructed of durable rugged cowhide, as well as intricately hand-laced placemats and coasters made from dramatic embossed leather.  These were followed shortly thereafter by a leather sleeve for Apple's iPad.  Of course, all are made of leather, utilizing many of the leather working and hand lacing skills learned over the years.  In 2013, the company procured a strap-cutting machine and began to make sturdy belts with honest construction for men and women that are expected to last for decades.  Two styles of handbags were introduced in late 2013, along with exquisite men's and ladies' wallets; the wallets are made by a leather craftsman with an incredible pedigree - he apprenticed with two major Italian design houses in his youth.</p>
+            <p>With all of this growth came the need for additional employees.  With the country having just come off a significant years-long recession, we're proud to say that we've increased from our original sole employee and now employ more than ten people - stable manufacturing jobs, the backbone of rural communities. </p>
+            <h3>Future</h3>
+            <p>In planning future growth, we've identified three main areas of focus:</p>
+            <p>
+                        <ol>
+                                    <li>1.	Our push for 2014 and 2015 is for rapid expansion of wholesale accounts in high-end independent boutiques in urban areas throughout the country; in an effort to spur this growth, we're exhibiting at both national and regional wholesale markets across the country, focusing on product lines such as gifts, accessories and footwear.</li>
+                                    <li>2.	To further diversify our in-store offerings, we will continue to introduce new products and product lines.  The near future will bring more styles of handbags and goods for the home, including leather knickknacks, decorative pillows, and (perhaps surprisingly) even leather Christmas decor.</li>
+                                    <li>3.	Over the coming years, we hope to open additional stores in the Mountain states, the South and the Southwestern United States.  It is our goal to make Itasca Leathergoods a nationally-known and highly sought-after brand.</li>
+                        </ol>
+            </p>
             <p>We sincerely thank you for your interest in Itasca Leathergoods.</p>
-            <br />
-            <h3>Acknowledgments</h3>
-            <p>We wish to thank <a href="http://www.tangletowngardens.com/" target="_blank">Tangletown Gardens</a> of Minneapolis, MN for the use of their greenhouses in our Spring 2013 photo shoot.</p>
             
         </div>
 
