@@ -236,7 +236,13 @@ app.u.loadScript(app.vars.baseURL+"_itasca_app-init.js");
 								
 					<li><a class='bindByAnchor' href='#!category?navcat=.leathergoods.totes-bags'>totes/bags</a></li>
 								
-					<li><a class='bindByAnchor' href='#!category?navcat=.leathergoods.accessories'>accessories</a></li>
+					<li><a class='bindByAnchor' href='#!category?navcat=.leathergoods.accessories'>accessories</a>
+						<ul class="child_menu">
+							<li><a class='bindByAnchor' href='#!category?navcat=.leathergoods.accessories.belts_-_men_s'>Belts - Men's</a></li>
+							<li><a class='bindByAnchor' href='#!category?navcat=.leathergoods.accessories.belts_-_women_s'>Belts - Women's</a></li>
+							<li><a class='bindByAnchor' href='#!category?navcat=.leathergoods.accessories.bracelets_-_unisex'>Bracelets</a></li>
+						</ul>
+					</li>
 								
 					<li><a class='bindByAnchor' href='#!category?navcat=.leathergoods.small-leather-goods'>small leather goods</a></li>
 							
@@ -448,6 +454,8 @@ the homepageTemplate template is loaded into mainContentArea by default when the
 		<div id="slideshowNav"></div>
 
 		<ul id="wideSlideshow" class="pics slideshow">
+
+			<li><a href='#' onClick="return showContent('category',{'navcat':'.leathergoods.accessories.bracelets_-_unisex'});"><img src="img/B_Bracelets2014Q4.jpg" width="1000" height="376" alt="Unisex Bracelets by Itasca Leathergoods" title="Men's and Women's Belts by Itasca Leathergoods" /></a></li>
 
 			<li><a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'B_OrangeBeaucoup2014Q2 Beaucoup'}}}});"><img src="img/B_OrangeBeaucoup2014Q2.jpg" width="1000" height="376" alt="Women's Nokasippi, Fuchsia 2 Cota, Beaucoup Handbag, Trimbelle in Gauntlet by Itasca Leathergoods" title="Women's Nokasippi, Fuchsia 2 Cota, Beaucoup Handbag, Trimbelle in Gauntlet by Itasca Leathergoods" /></a></li>
 
