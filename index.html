@@ -24,7 +24,7 @@ var _gaq = _gaq || [];
 var myCreole;
 
 var app = {vars:{
-	"release":"20150113055500",  //increment this with each change. should solve caching issues. format: frameworkID,letterVersion i.e. 201320aa   increment one letter every version update. Update framework ID on new framework updates.
+	"release":"20150113101900",  //increment this with each change. should solve caching issues. format: frameworkID,letterVersion i.e. 201320aa   increment one letter every version update. Update framework ID on new framework updates.
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
         "checkoutAuthMode" : "active",//can be passive, active or required
@@ -455,27 +455,27 @@ the homepageTemplate template is loaded into mainContentArea by default when the
 
 		<ul id="wideSlideshow" class="pics slideshow">
 
-			<li><a href='#' onClick="return showContent('category',{'navcat':'.leathergoods.small-leather-goods'});"><img src="img/B_WalletBalls2014Q4.jpg" width="1000" height="376" alt="Wallets by Itasca Leathergoods" title="Wallets by Itasca Leathergoods" /></a></li>
+			<li><a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'B_OrangeBeaucoup2014Q2 Beaucoup'}}}});"><img src="img/B_OrangeBeaucoup2014Q2.jpg" width="1000" height="376" alt="Women's Nokasippi, Fuchsia 2 Cota, Beaucoup Handbag, Trimbelle in Gauntlet by Itasca Leathergoods" title="Women's Nokasippi, Fuchsia 2 Cota, Beaucoup Handbag, Trimbelle in Gauntlet by Itasca Leathergoods" /></a></li>
 
-			<li><a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'Slipper'}}}});"><img src="img/B_SlipperBalls2014Q4.jpg" width="1000" height="376" alt="Slippers by Itasca Leathergoods" title="Slippers by Itasca Leathergoods" /></a></li>
+			<li><a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'SpringSummer2014'}}}});"><img src="img/B_Cota2014Q2.jpg" width="1000" height="376" alt="Women's Spring/Summer 2014 Cota moccasins by Itasca Leathergoods" title="Women's Spring/Summer 2014 Cota moccasins by Itasca Leathergoods" /></a></li>
 
-			<li><a href='#' onClick="return showContent('category',{'navcat':'.leathergoods.accessories.bracelets_-_unisex'});"><img src="img/B_Bracelets2014Q4.jpg" width="1000" height="376" alt="Unisex Bracelets by Itasca Leathergoods" title="Unisex Bracelets by Itasca Leathergoods" /></a></li>
+			<li><a href='#' onClick="return showContent('category',{'navcat':'.leathergoods.accessories'});"><img src="img/B_Belts2014Q2.jpg" width="1000" height="376" alt="Men's and Women's Belts by Itasca Leathergoods" title="Men's and Women's Belts by Itasca Leathergoods" /></a></li>
 
-			<li><a href='#' onClick="return showContent('category',{'navcat':'.leathergoods.accessories'});"><img src="img/B_BeltBalls2014Q4.jpg" width="1000" height="376" alt="Men's and Women's Belts by Itasca Leathergoods" title="Men's and Women's Belts by Itasca Leathergoods" /></a></li>
+			<li><a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'MensBoots2014'}}}});"><img src="img/B_Mens2014Q2.jpg" width="1000" height="376" alt="Men's Boots by Itasca Leathergoods" title="Men's Boots by Itasca Leathergoods" /></a></li>
 
-			<li><a href="#" onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'Galena'}}}});"><img src="img/B_Galena2014Q4.jpg" width="1000" height="376" alt="Women's Galena Handbags by Itasca Leathergoods" title="Women's Galena Handbags by Itasca Leathergoods" /></a></li>
+			<li><a href="#" onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'Galena'}}}});"><img src="img/B_Galena2014Q2.jpg" width="1000" height="376" alt="Women's Galena Handbags by Itasca Leathergoods" title="Women's Galena Handbags by Itasca Leathergoods" /></a></li>
 
-			<li><a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'MensBoots2014'}}}});"><img src="img/B_Mens2014Q4.jpg" width="1000" height="376" alt="Men's Boots by Itasca Leathergoods" title="Men's Boots by Itasca Leathergoods" /></a></li>
+			<li><a href='#' onClick="return showContent('category',{'navcat':'.leathergoods.small-leather-goods'});"><img src="img/B_Wallets2014Q2.jpg" width="1000" height="376" alt="Men's and Women's Wallets by Itasca Leathergoods" title="Men's and Women's Wallets by Itasca Leathergoods" /></a></li>
 
 		</ul>
 	</div>
 
 	<div class="homeBanners">
-		<a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'Holiday2014'}}}});"><img src="img/F_HolidayBalls2014Q4.jpg" width="327" height="244" alt="Holiday moccasins for women by Itasca Leathergoods" title="Holiday moccasins for women by Itasca Leathergoods" /></a>
+		<a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'Schoolcraft'}}}});"><img src="img/F_Schoolcraft2014Q2.jpg" width="327" height="244" alt="Men's and Women's Schoolcraft pull-on boot by Itasca Leathergoods" title="Men's and Women's Schoolcraft pull-on boot by Itasca Leathergoods" /></a>
 
 		<a href='#' i.	onClick="return showContent('company',{'show':'about'});"><img src="img/F_Video.jpg" width="327" height="244" alt="Click here to watch a video about Itasca Leathergoods." title="Click here to watch a video about Itasca Leathergoods." /></a>
 
-		<a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'Holiday2014'}}}});"><img src="img/F_WapsiBalls2014Q4.jpg" width="327" height="244" alt="Infant slippers by Itasca Leathergoods" class="lastBann"/></a>
+		<a href='#' onClick="return showContent('category',{'navcat':'.leathergoods.moccasins.women.hatchie'});"><img src="img/F_Hatchie2014Q2.jpg" width="327" height="244" alt="Men's and Women's Yazoo slipper by Itasca Leathergoods" class="lastBann"/></a>
 	</div>
 </div>
 
