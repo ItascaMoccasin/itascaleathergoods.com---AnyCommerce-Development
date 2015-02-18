@@ -1,4 +1,3 @@
-
 /*
 
 ########################################################
@@ -10,13 +9,31 @@ ORDER MANAGER
 
 */
 
+
+/*
+
+for new orders/items view feature
+
+*/
+
+
+.orderListMode .hideInOrderListMode	{display:none;}
+.itemListMode .hideInItemListMode	{display:none;}
+
+
+
+
+
+
+
+
 /*
 order list
 */
 
 #orderListMessaging	{max-height:220px; overflow:auto;}
 #orderList	{margin:0 auto;font-size:.8em;} /* the container. the margin will center it on the page */
-.orderManagerTable, #orderListTable	{width:100%;}
+.orderManagerTable, .orderListTable	{width:100%;}
 
 table.orderManagerTable	{
 	border-spacing:0;
@@ -33,7 +50,7 @@ table.orderManagerTable	{
 
 .orderManagerTable .ui-accordion-header	{border-right:0} /* right border not needed. bounding box handles it */
 
-#orderListTableContainer	{min-height:450px;} /* decreases 'jumpiness' between loading and loaded */
+.orderListTableContainer	{min-height:450px;} /* decreases 'jumpiness' between loading and loaded */
 .filterGroup ul	{margin:4px 0 12px 0px; padding:0; list-style:none;}
 .filterGroup li	{padding:3px 24px; margin:0;} /* vertical padding is present for mobile-friendlyness */
 
@@ -83,7 +100,7 @@ order detail
 
 .orderDetails .rightCol	textarea	{width:95%; height:80px;}
 
-.orderDetails .rightCol label span	{width:100px;}
+
 
 
 .orderDetailHeader	{padding-bottom:12px; border-bottom:1px solid #efefef;}
@@ -104,9 +121,9 @@ order detail
 .orderMailMenuList a	{text-decoration:none; padding:3px 6px; font-size:.75em;} /* the list of emails in the dropdown for send mail */
 
 /* compensate for some default styling to make supplemental contain wrap up right against the corresponding payment type */
-#adminOrdersPaymentMethodsContainer .labelsAsBreaks label	{margin-bottom:0;}
-ul.paybySupplemental	{margin-top:0;}
-
+.adminOrdersPaymentMethodsContainer .labelsAsBreaks label	{margin-bottom:0;}
+.paybySupplemental	{margin-top:0; padding:.6em}
+.paybySupplemental div	{margin-bottom:.3em}
 /* payment panel */
 
 .actionInputs label, .actionInputs div, .actionInputs button	{display:inline-block; margin-left:12px;}
@@ -137,6 +154,9 @@ ul.paybySupplemental	{margin-top:0;}
 .orderQuickviewMenu h3	{padding:3px; margin:0;}
 .orderQuickviewMenu li	{border-top:1px solid #E4E4E4; padding: 3px;}
 .orderQuickviewContent .orderContentsTable, .orderQuickviewContent .gridTable	{width:100%;}
+
+.orderQuickviewMenu button	{border:0; background:none; padding:0; margin:0; text-align:right; cursor:pointer;}
+
 
 
 /* custom email tool */
@@ -171,3 +191,18 @@ ul.paybySupplemental	{margin-top:0;}
 	}
 #orderListTab .ordersContainer	{overflow:auto; width:400px; height:300px;}
 #orderListTab table	{font-size:.75em; width:100%;}
+
+
+
+/*
+
+########################################################
+
+
+ORDER CREATE
+
+########################################################
+
+*/
+
+.addressForm div	{margin-bottom:.3em;}

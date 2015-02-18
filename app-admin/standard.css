@@ -19,7 +19,8 @@ a.file	{background:url(/biz/images/trial/file_icon-17x17.png) no-repeat; padding
 div.zbutton_group	{text-align:right;}
 
 
-
+/* used in sitebuilder for category picture placeholder. */
+.navcatThumbnailImagePlaceholder	{background:url(images/camera_icon-26x21.gif) no-repeat; text-decoration:none; line-height:21px;}
 
 
 /* 'link selected' is used where you have a list of links and, once one is clicked, the selected link needs to highlight.
@@ -297,10 +298,11 @@ div.box_body	{padding:12px; background:#ffffff; color:#565656;}
 
 
 
-/* #####  This stuff is either depricated, i don't know what it is, or I haven't gotten to yet. ##### */
+/* #####  This stuff is either depricated, i don't know what it is, or I haven't gotten to yet. #####
 
 .small	{font-size: 8pt;}
-
+ */
+ 
 /* this is used in the setup page */
 .big_link	{font-size: 12pt; font-weight: bold;}
 
