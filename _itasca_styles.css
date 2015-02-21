@@ -11,7 +11,7 @@
 		padding: 0;
 		font-size: 100%;
 		}
-	#wrapper {margin: 0 auto;
+	.wrapper {margin: 0 auto;
 		width: 1000px;
 		
 		}
@@ -30,18 +30,18 @@
 .clearBoth {clear:both;font-size:2px;}
 	
 header {position: relative;}	
-	#topNav  {/*float: right; margin:8px 0;*/padding:10px 0; margin-bottom:8px;}
-	#topNav ul {float:right;}
-	#topNav li  {float: left; display: inline; color: #fff; }
-	#topNav li a {color: #fff; padding: 5px 15px; font-size: 15px; text-transform: uppercase; text-decoration:none;}
+	.topNav  {/*float: right; margin:8px 0;*/padding:10px 0; margin-bottom:8px;}
+	.topNav ul {float:right;}
+	.topNav li  {float: left; display: inline; color: #fff; }
+	.topNav li a {color: #fff; padding: 5px 15px; font-size: 15px; text-transform: uppercase; text-decoration:none;}
 	
-	#midNavLinks {float: right; margin:8px 15px; clear: right; }
-	#midNavLinks li  {float: left; display: inline; padding: 0 4px;}
-	#midNavLinks li a  {text-decoration:none;}
+	.midNavLinks {float: right; margin:8px 15px; clear: right; }
+	.midNavLinks li  {float: left; display: inline; padding: 0 4px;}
+	.midNavLinks li a  {text-decoration:none;}
 	
 	.helpCare  {float: right; margin-top: 17px; text-transform: uppercase;font-size: 13px;}
 	
-	#logo img {float:left;}
+	.logo img {float:left;}
 	
 	#headerSearchFrm  {margin: 15px;}
 	#headerSearchFrm  { float: right; clear: right;}
