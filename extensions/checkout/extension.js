@@ -226,8 +226,24 @@ this is what would traditionally be called an 'invoice' page, but certainly not 
 
 //time for some cleanup. Nuke the old cart from memory and local storage, then obtain a new cart.				
 				app.model.destroy('cartDetail');
-				app.calls.appCartCreate.init(); //!IMPORTANT! after the order is created, a new cart needs to be created and used. the old cart id is no longer valid. 
-				app.calls.cartDetail.init({},'immutable');
+				app.calls.appCartCreate.init({
+					"datapointer" : "appCartCreate",
+					"callback" : function(rd){
+//									dump(" -----------> rd: "); dump(rd);
+						if(app.model.responseHasErrors(rd)){
+							app.u.throwMessage(rd);
+							}
+						else if(app.data[rd.datapointer] && app.data[rd.datapointer]._cartid) {
+							app.vars.cartID = app.data[rd.datapointer]._cartid
+							app.calls.cartDetail.init({},'immutable');
+							app.model.dispatchThis('immutable');
+							}
+						else	{
+							//something went wrong.  no cart id in the appcartcreate.
+							}
+						}
+					}); // !IMPORTANT! after the order is created, a new cart needs to be created and used. the old cart id is no longer valid. 
+				//app.calls.cartDetail.init({},'immutable');
 				app.model.dispatchThis('immutable'); //these are auto-dispatched because they're essential.
 
 _gaq.push(['_trackEvent','Checkout','App Event','Order created']);

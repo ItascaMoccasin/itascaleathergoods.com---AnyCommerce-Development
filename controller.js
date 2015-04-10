@@ -178,7 +178,7 @@ copying the template into memory was done for two reasons:
 		else if(app.vars.cartID)	{
 			app.u.dump(" -> app.vars.cartID set. verify.");
 			app.model.destroy('cartDetail'); //do not use a cart from localstorage
-			app.calls.cartDetail.init({'callback':'handleNewSession'},'immutable');
+			app.calls.appCartCreate.init({'callback':'handleNewSession'},'immutable');
 			app.calls.whoAmI.init({},{'callback':'suppressErrors'},'immutable'); //get this info when convenient.
 			app.model.dispatchThis('immutable');
 			}
@@ -187,7 +187,7 @@ copying the template into memory was done for two reasons:
 			app.u.dump(" -> cartID from URI used.");
 			app.vars.cartID = app.u.getParameterByName('cartID');
 			app.model.destroy('cartDetail'); //do not use a cart from localstorage
-			app.calls.cartDetail.init({'callback':'handleNewSession'},'immutable');
+			app.calls.appCartCreate.init({'callback':'handleNewSession'},'immutable');
 			app.calls.whoAmI.init({},{'callback':'suppressErrors'},'immutable'); //get this info when convenient.
 			app.model.dispatchThis('immutable');
 			}
@@ -196,7 +196,7 @@ copying the template into memory was done for two reasons:
 			app.u.dump(" -> session retrieved from localstorage..");
 			app.vars.cartID = app.model.fetchCartID();
 			app.model.destroy('cartDetail'); //do not use a cart from localstorage
-			app.calls.cartDetail.init({'callback':'handleNewSession'},'immutable');
+			app.calls.appCartCreate.init({'callback':'handleNewSession'},'immutable');
 			app.calls.whoAmI.init({},{'callback':'suppressErrors'},'immutable'); //get this info when convenient.
 			app.model.dispatchThis('immutable');
 			}
