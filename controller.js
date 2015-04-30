@@ -187,7 +187,7 @@ copying the template into memory was done for two reasons:
 			app.u.dump(" -> cartID from URI used.");
 			app.vars.cartID = app.u.getParameterByName('cartID');
 			app.model.destroy('cartDetail'); //do not use a cart from localstorage
-			app.calls.appCartCreate.init({'callback':'handleNewSession'},'immutable');
+			app.calls.cartDetail.init({'callback':'handleNewSession'},'immutable');
 			app.calls.whoAmI.init({},{'callback':'suppressErrors'},'immutable'); //get this info when convenient.
 			app.model.dispatchThis('immutable');
 			}
