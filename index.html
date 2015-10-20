@@ -24,7 +24,7 @@ var _gaq = _gaq || [];
 var myCreole;
 
 var app = {vars:{
-	"release":"20150430155300",  //increment this with each change. should solve caching issues. format: frameworkID,letterVersion i.e. 201320aa   increment one letter every version update. Update framework ID on new framework updates.
+	"release":"20151019203000",  //increment this with each change. should solve caching issues. format: frameworkID,letterVersion i.e. 201320aa   increment one letter every version update. Update framework ID on new framework updates.
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
         "checkoutAuthMode" : "active",//can be passive, active or required
@@ -172,8 +172,9 @@ app.u.loadScript(app.vars.baseURL+"_itasca_app-init.js");
 									  <div class="linkboxNA" href='#top' onClick="return showContent('search',{'elasticsearch':{'filter':{'and':[{'term':{'tags':'IS_NEWARRIVAL'}}, { 'term' : {'na_category':''}}]}}});"><a class="pointer headerDropdownLink">Home Goods</a></div>
 									  <div class="subcatDropdown alignLeft">
 											<ul class="floatLeft dropdownSubcatList">
-												<li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('search',{'elasticsearch':{'filter':{'and':[{'term':{'tags':'IS_NEWARRIVAL'}}, { 'term' : {'na_category':''}}, { 'term' : {'na_sub_category':''}}]}}});" class="pointer headerDropdownLink">Placemats</a></li>
-												<li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('search',{'elasticsearch':{'filter':{'and':[{'term':{'tags':'IS_NEWARRIVAL'}}, { 'term' : {'na_category':''}}, { 'term' : {'na_sub_category':''}}]}}});" class="pointer headerDropdownLink">Coasters</a></li>
+												<li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('search',{'elasticsearch':{'filter':{'and':[{'term':{'tags':'IS_NEWARRIVAL'}}, { 'term' : {'na_category':''}}, { 'term' : {'na_sub_category':'placemats'}}]}}});" class="pointer headerDropdownLink">Placemats</a></li>
+												<li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('search',{'elasticsearch':{'filter':{'and':[{'term':{'tags':'IS_NEWARRIVAL'}}, { 'term' : {'na_category':''}}, { 'term' : {'na_sub_category':'coasters'}}]}}});" class="pointer headerDropdownLink">Coasters</a></li>
+												<li class="headerDropdownLink alignLeft"><a href="#" onClick="return showContent('search',{'elasticsearch':{'filter':{'and':[{'term':{'tags':'IS_NEWARRIVAL'}}, { 'term' : {'na_category':''}}, { 'term' : {'na_sub_category':'firewoodcarriers'}}]}}});" class="pointer headerDropdownLink">Firewood Carriers</a></li>
 											</ul>
 									  </div>
 								  </li>
@@ -224,6 +225,7 @@ app.u.loadScript(app.vars.baseURL+"_itasca_app-init.js");
 						<ul class="child_menu">
 							<li><a class='bindByAnchor' href='#!category?navcat=.leathergoods.home_goods.placemats'>Placemats</a></li>
 							<li><a class='bindByAnchor' href='#!category?navcat=.leathergoods.home_goods.coasters'>Coasters</a></li>
+							<li><a class='bindByAnchor' href='#!category?navcat=.leathergoods.home_goods.firewood_carriers'>Firewood Carriers</a></li>
 						</ul>
 					</li>
 
@@ -455,27 +457,25 @@ the homepageTemplate template is loaded into mainContentArea by default when the
 
 		<ul id="wideSlideshow" class="pics slideshow">
 
-			<li><a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'B_OrangeBeaucoup2014Q2 Beaucoup'}}}});"><img src="img/B_OrangeBeaucoup2014Q2.jpg" width="1000" height="376" alt="Women's Nokasippi, Fuchsia 2 Cota, Beaucoup Handbag, Trimbelle in Gauntlet by Itasca Leathergoods" title="Women's Nokasippi, Fuchsia 2 Cota, Beaucoup Handbag, Trimbelle in Gauntlet by Itasca Leathergoods" /></a></li>
+			<li><a href='#' onClick="return showContent('category',{'navcat':'.leathergoods.home_goods.firewood_carriers'});"><img src="img/B_Leaf_2015Q4.jpg" width="1000" height="376" alt="Leaf Firewood Carrier by Itasca Leathergoods" title="Leaf Firewood Carrier by Itasca Leathergoods" /></a></li>
 
-			<li><a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'SpringSummer2014'}}}});"><img src="img/B_Cota2014Q2.jpg" width="1000" height="376" alt="Women's Spring/Summer 2014 Cota moccasins by Itasca Leathergoods" title="Women's Spring/Summer 2014 Cota moccasins by Itasca Leathergoods" /></a></li>
+			<li><a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'Guise'}}}});"><img src="img/B_Guise_2015Q4_a.jpg" width="1000" height="376" alt="Men's Guise Cota moccasins by Itasca Leathergoods" title="Men's Guise Cota moccasins by Itasca Leathergoods" /></a></li>
 
-			<li><a href='#' onClick="return showContent('category',{'navcat':'.leathergoods.accessories'});"><img src="img/B_Belts2014Q2.jpg" width="1000" height="376" alt="Men's and Women's Belts by Itasca Leathergoods" title="Men's and Women's Belts by Itasca Leathergoods" /></a></li>
-
-			<li><a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'MensBoots2014'}}}});"><img src="img/B_Mens2014Q2.jpg" width="1000" height="376" alt="Men's Boots by Itasca Leathergoods" title="Men's Boots by Itasca Leathergoods" /></a></li>
+<!--			<li><a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'MensBoots2014'}}}});"><img src="img/B_Mens2014Q2.jpg" width="1000" height="376" alt="Men's Boots by Itasca Leathergoods" title="Men's Boots by Itasca Leathergoods" /></a></li>
 
 			<li><a href="#" onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'Galena'}}}});"><img src="img/B_Galena2014Q2.jpg" width="1000" height="376" alt="Women's Galena Handbags by Itasca Leathergoods" title="Women's Galena Handbags by Itasca Leathergoods" /></a></li>
 
 			<li><a href='#' onClick="return showContent('category',{'navcat':'.leathergoods.small-leather-goods'});"><img src="img/B_Wallets2014Q2.jpg" width="1000" height="376" alt="Men's and Women's Wallets by Itasca Leathergoods" title="Men's and Women's Wallets by Itasca Leathergoods" /></a></li>
-
+-->
 		</ul>
 	</div>
 
 	<div class="homeBanners">
-		<a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'Schoolcraft'}}}});"><img src="img/F_Schoolcraft2014Q2.jpg" width="327" height="244" alt="Men's and Women's Schoolcraft pull-on boot by Itasca Leathergoods" title="Men's and Women's Schoolcraft pull-on boot by Itasca Leathergoods" /></a>
+		<a href='#' onClick="return showContent('category',{'navcat':'.leathergoods.moccasins.men.nokasippi'});"><img src="img/F_NokasippiOilBronze_2015Q4.jpg" width="327" height="244" alt="Men's Nokasippi Boot by Itasca Leathergoods" title="Men's Nokasippi Boot  by Itasca Leathergoods" /></a>
 
 		<a href='#' i.	onClick="return showContent('company',{'show':'about'});"><img src="img/F_Video.jpg" width="327" height="244" alt="Click here to watch a video about Itasca Leathergoods." title="Click here to watch a video about Itasca Leathergoods." /></a>
 
-		<a href='#' onClick="return showContent('category',{'navcat':'.leathergoods.moccasins.women.hatchie'});"><img src="img/F_Hatchie2014Q2.jpg" width="327" height="244" alt="Men's and Women's Yazoo slipper by Itasca Leathergoods" class="lastBann"/></a>
+		<a href='#' onClick="return showContent('category',{'navcat':'.leathergoods.accessories'});"><img src="img/F_Belts_2015Q4.jpg" width="327" height="244" alt="Men's and Women's Belts by Itasca Leathergoods" title="Men's and Women's Belts by Itasca Leathergoods" class="lastBann"/></a>
 	</div>
 </div>
 
