@@ -24,7 +24,7 @@ var _gaq = _gaq || [];
 var myCreole;
 
 var app = {vars:{
-	"release":"20151027230000",  //increment this with each change. should solve caching issues. format: frameworkID,letterVersion i.e. 201320aa   increment one letter every version update. Update framework ID on new framework updates.
+	"release":"20151125155700",  //increment this with each change. should solve caching issues. format: frameworkID,letterVersion i.e. 201320aa   increment one letter every version update. Update framework ID on new framework updates.
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
         "checkoutAuthMode" : "active",//can be passive, active or required
@@ -52,6 +52,7 @@ css files should be included before any .js file to ensure they are downloaded i
 <!--<link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/themes/ui-lightness/jquery-ui.css" />-->
 <link rel="stylesheet" type="text/css" href="jquery-ui-1.9.2.custom.min.css" />
 <link rel="stylesheet" type="text/css" href="_itasca_styles.css" />
+<link rel="stylesheet" type="text/css" href="_itasca_styles_addl.css" />
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
@@ -119,10 +120,13 @@ app.u.loadScript(app.vars.baseURL+"_itasca_app-init.js");
 			<span class="clearBoth">&nbsp;</span>
 		</div>		
 				<a id="logo" class='bindByAnchor' href='#!homepage'  title="Itasca Leathergoods">
-				<img src="img/Itasca_logo.png" width="183" height="126" alt="Itasca Leathergoods" />
+				<img src="img/Itasca_logo_authmod.png" width="183" height="168" alt="Itasca Leathergoods" />
 				</a>
+				<!-- <a id="logo" class='bindByAnchor' href='#!homepage'  title="Itasca Leathergoods">
+				<img src="img/Itasca_logo.png" width="183" height="126" alt="Itasca Leathergoods" />
+				</a> -->
 				<!-- PAV 29 Nov 2013, comment out next line on Jan 1, uncomment the next Thanksgiving.  -->
-				<!-- <img src="img/FreeHolidayShippingNoBow.png" height="90" alt="Free Shipping" style="float:left; margin:0; padding:0;"  />  -->
+				<img src="img/FreeHolidayShippingNoBow.png" height="70" alt="Free Shipping" style="float:left; margin: 40px 0px -40px 10px; padding:0;"  />
 
 		<div id="midNavLinks">
 			<ul>
@@ -147,9 +151,14 @@ app.u.loadScript(app.vars.baseURL+"_itasca_app-init.js");
 			<input class="search" id="headerSearchSubmit" value="SEARCH" type="submit">
 
 	</form>
+	<div id="handcrafted">
+		<img src="img/flag.png" height="24" alt="Made in USA" margin:0; padding:0;"  />
+		Always Handcrafted in the USA
+	
+	</div>
 			<!-- <div class="helpCare">need help  <img src="img/help-icon.png" alt="Help"/>  customer care: 1(855) 827-6878</div> -->
 			
-			<nav id="mainNav">
+			<nav id="mainNav"><br><br>
 				<ul>
 					<li class="catNAMenu" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
 						<div href='#top' onClick="return showContent('search',{'elasticsearch':{'query':{'term':{'tags':'IS_NEWARRIVAL'}}}});"><a>NEW ARRIVALS</a></div>
@@ -456,6 +465,8 @@ the homepageTemplate template is loaded into mainContentArea by default when the
 		<div id="slideshowNav"></div>
 
 		<ul id="wideSlideshow" class="pics slideshow">
+
+			<li><a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'Yule15'}}}});"><img src="img/B_Yule15_2015Q4.jpg" width="1000" height="376" alt="Bad Axe Backpack by Itasca Leathergoods" title="Bad Axe Backpack by Itasca Leathergoods" /></a></li>
 
 			<li><a href='#' onClick="return showContent('category',{'navcat':'.leathergoods.home_goods.firewood_carriers'});"><img src="img/B_Leaf_2015Q4.jpg" width="1000" height="376" alt="Leaf Firewood Carrier by Itasca Leathergoods" title="Leaf Firewood Carrier by Itasca Leathergoods" /></a></li>
 

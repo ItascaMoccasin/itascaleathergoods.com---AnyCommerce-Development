@@ -30,6 +30,8 @@
 .clearBoth {clear:both;font-size:2px;}
 	
 header {position: relative;}	
+	#handcrafted {float: right; margin:0px 15px -25px; clear: right; font-size: 18.5pt; color:#543019;}
+
 	#topNav  {/*float: right; margin:8px 0;*/padding:10px 0; margin-bottom:8px;}
 	#topNav ul {float:right;}
 	#topNav li  {float: left; display: inline; color: #fff; }
