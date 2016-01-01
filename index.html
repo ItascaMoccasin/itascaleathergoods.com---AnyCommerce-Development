@@ -24,7 +24,7 @@ var _gaq = _gaq || [];
 var myCreole;
 
 var app = {vars:{
-	"release":"20151220133600",  //increment this with each change. should solve caching issues. format: frameworkID,letterVersion i.e. 201320aa   increment one letter every version update. Update framework ID on new framework updates.
+	"release":"20160101170500",  //increment this with each change. should solve caching issues. format: frameworkID,letterVersion i.e. 201320aa   increment one letter every version update. Update framework ID on new framework updates.
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
         "checkoutAuthMode" : "active",//can be passive, active or required
@@ -126,7 +126,7 @@ app.u.loadScript(app.vars.baseURL+"_itasca_app-init.js");
 				<img src="img/Itasca_logo.png" width="183" height="126" alt="Itasca Leathergoods" />
 				</a> -->
 				<!-- PAV 29 Nov 2013, comment out next line on Jan 1, uncomment the next Thanksgiving.  -->
-				<img src="img/FreeHolidayShippingNoBow.png" height="70" alt="Free Shipping" style="float:left; margin: 40px 0px -40px 10px; padding:0;"  />
+				<!-- <img src="img/FreeHolidayShippingNoBow.png" height="70" alt="Free Shipping" style="float:left; margin: 40px 0px -40px 10px; padding:0;"  />  -->
 
 		<div id="midNavLinks">
 			<ul>
@@ -344,7 +344,7 @@ app.u.loadScript(app.vars.baseURL+"_itasca_app-init.js");
 		</ul>
 		</div>
 	<hr class="hr">
-	<p class="footerCopy">&copy;2012. Please read our <a class='bindByAnchor' href='#!company?show=privacy'>Privacy Statement</a>.</p>
+	<p class="footerCopy">&copy;2016. Please read our <a class='bindByAnchor' href='#!company?show=privacy'>Privacy Statement</a>.</p>
 	</footer>
 </div> <!-- end wrapper -->
 <!-- /VIEW CONTENT -->
@@ -468,15 +468,15 @@ the homepageTemplate template is loaded into mainContentArea by default when the
 
 		<ul id="wideSlideshow" class="pics slideshow">
 
-			<li><a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'Yule15'}}}});"><img src="img/B_Yule15_2015Q4.jpg" width="1000" height="376" alt="Holiday moccasins by Itasca Leathergoods" title="Holiday moccasins by Itasca Leathergoods" /></a></li>
-
-			<li><a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'slipper'}}}});"><img src="img/B_Yazoo_2015Q4.jpg" width="1000" height="376" alt="Men's slippers by Itasca Leathergoods" title="Men's slippers by Itasca Leathergoods" /></a></li>
-
-			<li><a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'slipper'}}}});"><img src="img/B_CotaSlipper_2015Q4.jpg" width="1000" height="376" alt="Women's slippers by Itasca Leathergoods" title="Women's slippers by Itasca Leathergoods" /></a></li>
-
-			<li><a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'slipper'}}}});"><img src="img/B_Wapsi_2015Q4.jpg" width="1000" height="376" alt="Infant and toddler slippers by Itasca Leathergoods" title="Infant and toddler by Itasca Leathergoods" /></a></li>
+			<li><a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'slipper'}}}});"><img src="img/B_CotaSlipper_2016Q1.jpg" width="1000" height="376" alt="Women's slippers by Itasca Leathergoods" title="Women's slippers by Itasca Leathergoods" /></a></li>
 
 			<li><a href='#' onClick="return showContent('category',{'navcat':'.leathergoods.home_goods.firewood_carriers'});"><img src="img/B_Leaf_2015Q4.jpg" width="1000" height="376" alt="Leaf Firewood Carrier by Itasca Leathergoods" title="Leaf Firewood Carrier by Itasca Leathergoods" /></a></li>
+
+			<li><a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'Coleus'}}}});"><img src="img/B_Coleus_2015Q4_a.jpg" width="1000" height="376" alt="Women's Cota Coleus Moccasin by Itasca Leathergoods" title="Women's Cota Coleus Moccasin by Itasca Leathergoods" /></a></li>
+
+			<li><a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'Galena'}}}});"><img src="img/B_Galena_2015Q4b.jpg" width="1000" height="376" alt="Women's Galena Handbag by Itasca Leathergoods" title="Women's Galena Handbag by Itasca Leathergoods" /></a></li>
+
+			<li><a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'Guise'}}}});"><img src="img/B_Guise_2015Q4_a.jpg" width="1000" height="376" alt="Men's Guise Cota Moccasin by Itasca Leathergoods" title="Men's Guise Cota Moccasin by Itasca Leathergoods" /></a></li>
 
 			<li><a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'Watonwan'}}}});"><img src="img/B_Watonwan_2015Q4b.jpg" width="1000" height="376" alt="Watonwan Duffel Bag by Itasca Leathergoods" title="Watonwan Duffel Bag by Itasca Leathergoods" /></a></li>
 
@@ -485,16 +485,6 @@ the homepageTemplate template is loaded into mainContentArea by default when the
 			<li><a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'Nokasippi'}}}});"><img src="img/B_Nokasippi_2015Q4_a.jpg" width="1000" height="376" alt="Men's and Women's Nokasippi Knee-High Boot by Itasca Leathergoods" title="Men's and Women's Nokasippi Knee-High Boot by Itasca Leathergoods" /></a></li>
 
 <!--
-			<li><a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'Coleus'}}}});"><img src="img/B_Coleus_2015Q4_a.jpg" width="1000" height="376" alt="Women's Cota Coleus Moccasin by Itasca Leathergoods" title="Women's Cota Coleus Moccasin by Itasca Leathergoods" /></a></li>
-
-			<li><a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'Galena'}}}});"><img src="img/B_Galena_2015Q4b.jpg" width="1000" height="376" alt="Women's Galena Handbag by Itasca Leathergoods" title="Women's Galena Handbag by Itasca Leathergoods" /></a></li>
-
-			<li><a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'MensBoots2014'}}}});"><img src="img/B_Mens2014Q2.jpg" width="1000" height="376" alt="Men's Boots by Itasca Leathergoods" title="Men's Boots by Itasca Leathergoods" /></a></li>
-
-			<li><a href='#' onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'Guise'}}}});"><img src="img/B_Guise_2015Q4_a.jpg" width="1000" height="376" alt="Men's Guise Cota Moccasin by Itasca Leathergoods" title="Men's Guise Cota Moccasin by Itasca Leathergoods" /></a></li>
-
-			<li><a href="#" onClick="return showContent('search',{'elasticsearch':{'query':{'query_string':{'query':'Galena'}}}});"><img src="img/B_Galena2014Q2.jpg" width="1000" height="376" alt="Women's Galena Handbags by Itasca Leathergoods" title="Women's Galena Handbags by Itasca Leathergoods" /></a></li>
-
 			<li><a href='#' onClick="return showContent('category',{'navcat':'.leathergoods.small-leather-goods'});"><img src="img/B_Wallets2014Q2.jpg" width="1000" height="376" alt="Men's and Women's Wallets by Itasca Leathergoods" title="Men's and Women's Wallets by Itasca Leathergoods" /></a></li>
 -->
 		</ul>
